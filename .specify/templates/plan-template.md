@@ -17,21 +17,24 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
-**Project Type**: [e.g., library/cli/web-service/mobile-app/compiler/desktop-app or NEEDS CLARIFICATION]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Language/Version**: React 19, Tailwind CSS v3.4.17
+**Primary Dependencies**: GSAP 3 (ScrollTrigger), Lucide React
+**Storage**: N/A
+**Testing**: [e.g., vitest, playwright or NEEDS CLARIFICATION]
+**Target Platform**: Mobile-first Web
+**Project Type**: Web Application Landing Page
+**Performance Goals**: 60fps animations, fast LCP for mobile
+**Constraints**: No Tailwind unless explicitly required, single App.jsx unless >600 lines
+**Scale/Scope**: High-fidelity, cinematic 1:1 pixel-perfect implementation
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+[ ] I. Premium Aesthetic Foundation (0.05 opacity noise, Otulenie Calm palette, correct typography)
+[ ] II. The Focus on Conversion (Supports primary booking action on Booksy)
+[ ] III. Micro-Interaction Polish (Magnetic buttons, GSAP animations in useEffect contexts)
+[ ] IV. Mobile-First Experience (Vertical stacking, sticky CTA)
 
 ## Project Structure
 
@@ -56,39 +59,11 @@ specs/[###-feature]/
 -->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+# Default Structure (Otulenie Website)
 src/
-├── models/
-├── services/
-├── cli/
-└── lib/
-
-tests/
-├── contract/
-├── integration/
-└── unit/
-
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
-
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+├── App.jsx              # Main application and component definitions
+├── index.css            # Tailwind directives, noise overlay, custom utilities
+└── components/          # (Optional) Only if App.jsx > 600 lines
 ```
 
 **Structure Decision**: [Document the selected structure and reference the real

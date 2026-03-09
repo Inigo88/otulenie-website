@@ -7,9 +7,9 @@ Added sections:
   - Technical Constraints (expanded based on tech-stack.md)
 Removed sections: None
 Templates requiring updates:
-  - .specify/templates/plan-template.md (⚠ pending)
-  - .specify/templates/spec-template.md (⚠ pending)
-  - .specify/templates/tasks-template.md (⚠ pending)
+  - .specify/templates/plan-template.md (✅ updated)
+  - .specify/templates/spec-template.md (✅ updated)
+  - .specify/templates/tasks-template.md (✅ updated)
 Follow-up TODOs: None
 -->
 

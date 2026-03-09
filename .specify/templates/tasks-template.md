@@ -20,10 +20,8 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **Default Structure**: `src/App.jsx`, `src/index.css`
+- **Component Breakout**: `src/components/[ComponentName].jsx` (only if App.jsx > 600 lines)
 
 <!-- 
   ============================================================================
@@ -31,9 +29,8 @@ description: "Task list template for feature implementation"
   
   The /speckit.tasks command MUST replace these with actual tasks based on:
   - User stories from spec.md (with their priorities P1, P2, P3...)
-  - Feature requirements from plan.md
-  - Entities from data-model.md
-  - Endpoints from contracts/
+  - Feature requirements and design logic from plan.md
+  - GSAP animations and Tailwind styling needs
   
   Tasks MUST be organized by user story so each story can be:
   - Implemented independently
@@ -62,12 +59,11 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T004 Setup global CSS noise filter and core typography in src/index.css
+- [ ] T005 [P] Implement base reusable magnetic button component
+- [ ] T006 [P] Configure GSAP ScrollTrigger global defaults
+- [ ] T007 Create main application layout wrapper in src/App.jsx
+- [ ] T008 Extract common color and font utility classes
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -88,12 +84,10 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T012 [P] [US1] Build static markup for [Section/Component] in src/App.jsx
+- [ ] T013 [US1] Apply Tailwind utility classes for layout and responsiveness
+- [ ] T014 [US1] Implement GSAP context and animations for [interaction]
+- [ ] T015 [US1] Wire up event handlers for Booksy CTA action
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -112,10 +106,10 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Create [Entity] model in src/models/[entity].py
-- [ ] T021 [US2] Implement [Service] in src/services/[service].py
-- [ ] T022 [US2] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T023 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T020 [P] [US2] Build static markup for [Feature Card] in src/App.jsx
+- [ ] T021 [US2] Add tailored data structure or list for [Feature Content]
+- [ ] T022 [US2] Implement GSAP logic for [Feature Card Animation]
+- [ ] T023 [US2] Integrate with User Story 1 (e.g., scroll alignment, spacing)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -134,9 +128,9 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Create [Entity] model in src/models/[entity].py
-- [ ] T027 [US3] Implement [Service] in src/services/[service].py
-- [ ] T028 [US3] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T026 [P] [US3] Scaffold layout for [Footer/Manifesto] section
+- [ ] T027 [US3] Implement dynamic text reveal (GSAP SplitText equivalent)
+- [ ] T028 [US3] Polish responsive spacing and typography rules
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -178,10 +172,9 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Within Each User Story
 
-- Tests (if included) MUST be written and FAIL before implementation
-- Models before services
-- Services before endpoints
-- Core implementation before integration
+- Markup and structure before styling
+- Static layout before GSAP animations
+- Core interaction before scroll-triggered integration
 - Story complete before moving to next priority
 
 ### Parallel Opportunities
@@ -198,13 +191,13 @@ Examples of foundational tasks (adjust based on your project):
 ## Parallel Example: User Story 1
 
 ```bash
-# Launch all tests for User Story 1 together (if tests requested):
-Task: "Contract test for [endpoint] in tests/contract/test_[name].py"
-Task: "Integration test for [user journey] in tests/integration/test_[name].py"
+# Launch layout tasks for User Story 1 together:
+Task: "Build static markup for Hero section"
+Task: "Add standard typography utilities to Hero section"
 
-# Launch all models for User Story 1 together:
-Task: "Create [Entity1] model in src/models/[entity1].py"
-Task: "Create [Entity2] model in src/models/[entity2].py"
+# Launch interaction tasks after static layout is reviewed:
+Task: "Implement staggered GSAP fade-up for Hero text"
+Task: "Add hover micro-interactions to Hero CTA button"
 ```
 
 ---

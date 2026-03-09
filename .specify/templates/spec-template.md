@@ -84,11 +84,11 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-001**: System MUST [specific capability, e.g., "render the Hero section with a staggered GSAP fade-up animation"]
+- **FR-002**: System MUST [specific capability, e.g., "implement the sticky mobile CTA button across all pages"]  
+- **FR-003**: Users MUST be able to [key interaction, e.g., "click 'Zarezerwuj masaż' to open the Booksy booking link"]
+- **FR-004**: System MUST [design requirement, e.g., "apply the 0.05 opacity SVG noise overlay globally"]
+- **FR-005**: System MUST [behavior, e.g., "stack cards vertically on mobile viewports"]
 
 *Example of marking unclear requirements:*
 
@@ -109,7 +109,7 @@
 
 ### Measurable Outcomes
 
-- **SC-001**: [Measurable metric, e.g., "Users can complete account creation in under 2 minutes"]
-- **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
-- **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
-- **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-001**: [Conversion metric, e.g., "Primary Booking CTA is visible at all times on mobile"]
+- **SC-002**: [Performance metric, e.g., "GSAP animations maintain 60fps without layout thrashing"]
+- **SC-003**: [Design metric, e.g., "All components strictly adhere to the 'Otulenie Calm' palette and typography"]
+- **SC-004**: [Business metric, e.g., "User seamlessly reaches the Booksy external link"]
