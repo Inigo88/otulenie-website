@@ -6,6 +6,7 @@
 
 ## Content Quality
 
+- [ ] Feature aligns with the established Product Backlog context and stated business problem
 - [ ] No implementation details (languages, frameworks, APIs)
 - [ ] Focused on user value and business needs
 - [ ] Written for non-technical stakeholders
