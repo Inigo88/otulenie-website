@@ -31,7 +31,7 @@ Given the product description, do this:
    - **Milestones → Epics → Features**: Build a nested backlog:
      - **Milestones**: High-level delivery phases or goals (e.g. MVP, Scale, Optimize). Each has: **Title**, **Description**, **Status**.
      - **Epics** (under each milestone): Larger capability or theme. Each has: **Title**, **Description**, **Status**.
-     - **Features** (under each epic): Concrete, testable items. Each has: **Title**, **Description**, **Branch**, **Status**. Do NOT use the "As a user, I want..." format for the feature descriptions. Output simple, direct descriptions of what the feature does. The **Branch** should be a short, git-friendly name (e.g. `1-user-auth`, `2-payment-gateway`).
+     - **Features** (under each epic): Concrete, testable items. Each has: **Title**, **Description**, **Branch**, **Status**. Do NOT use the "As a user, I want..." format for the feature descriptions. Output simple, direct descriptions of what the feature does. The **Branch** should be a short, git-friendly name (e.g. `001-user-auth`, `002-payment-gateway`).
    - **Status** for every item must be one of: `To do` | `In progress` | `Implemented` | `Blocked` | `Deferred` | `Cancelled`. Newly generated items should use `To do` unless the user input implies otherwise.
    - Use informed guesses and industry norms to fill gaps; keep scope realistic from the product description.
 
