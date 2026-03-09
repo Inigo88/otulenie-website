@@ -29,18 +29,18 @@ You **MUST** consider the user input before proceeding (if not empty).
      - **Nested list** (larger PRs): bold component/theme, then sub-bullets with specific details (e.g. "**App scaffold** — Add Next.js app, add layout and home page" then "**Spec 004** — Add plan and tasks"). Base everything on the actual diff/commits, not generic text.
    - **Testing / checklist** (optional): Short "How to test" or "Checklist" if relevant (e.g. "Run `npm run build`", "Spec passes").
    - Keep it concise; no need for long prose.
-
-4. **Execution**:
-   - Do **not** emit the PR description into the chat or save it to a permanent file.
-   - Check if a PR already exists for the current branch using `gh pr view`.
-   - **Ask the user** for confirmation before proceeding to either `create` or `edit` the PR.
-
-5. **Update README.md (if necessary)**:
+  
+4. **Update README.md (if necessary)**:
    - *After receiving user confirmation but before executing the PR command*:
    - Analyze the purpose of the current branch and the changes that have been made.
    - Check if these changes introduce new functionality, architectural decisions, or configurations that should be documented in the `README.md`.
    - If an update is necessary, carefully modify the `README.md` file.
    - If the `README.md` was modified, immediately commit and push those changes to the current branch (e.g., `git add README.md && git commit -m "docs: update README for current feature additions" && git push`).
+
+5. **Execution**:
+   - Do **not** emit the PR description into the chat or save it to a permanent file.
+   - Check if a PR already exists for the current branch using `gh pr view`.
+   - **Ask the user** for confirmation before proceeding to either `create` or `edit` the PR.
 
 6. **Finalize PR creation**:
    - Once the README step is complete (or skipped), write the drafted body to a temporary file, execute the PR command, and **clean up** the file afterward.
