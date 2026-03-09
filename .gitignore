@@ -33,3 +33,7 @@ out/
 
 # PR Drafts
 PR_DESCRIPTION.md
+
+# AI Workflows & Specs
+.agent/
+.specify/

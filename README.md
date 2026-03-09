@@ -1,6 +1,6 @@
-# Process Project
+# Otulenie Website
 
-This is a clean project repository structure configured with **Speckit**, a suite of AI-assisted, markdown-driven workflows designed to streamline product discovery, specification, and implementation.
+This is the website for **Otulenie**, a massage business. The project is managed using **Speckit**, a suite of AI-assisted, markdown-driven workflows designed to streamline product discovery, specification, and implementation.
 
 ---
 
