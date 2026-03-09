@@ -12,22 +12,16 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Outline
 
-1. **Update README.md (if necessary)**:
-   - Analyze the purpose of the current branch and the changes that have been made.
-   - Check if these changes introduce new functionality, architectural decisions, or configurations that should be documented in the `README.md`.
-   - If an update is necessary, carefully modify the `README.md` file.
-   - If the `README.md` was modified, immediately commit and push those changes to the current branch (e.g., `git add README.md && git commit -m "docs: update README for current feature additions" && git push`) **before proceeding**.
-
-2. **Gather branch and changes**:
+1. **Gather branch and changes**:
    - Current branch name (e.g. `git branch --show-current`)
    - List of changed files (e.g. `git diff --name-status main...HEAD` or `origin/main...HEAD`; if main doesn't exist, use default branch)
    - Short commit summary for this branch (e.g. `git log main..HEAD --oneline` or equivalent)
    - Optionally: patch summary (e.g. `git diff main...HEAD --stat`) to infer scope
 
-3. **Optional context** (if present in repo):
+2. **Optional context** (if present in repo):
    - If `FEATURE_DIR` or a spec exists for this feature (e.g. from `specs/` or `.specify`), briefly note the feature name or spec title for the PR title/description. Do not require it.
 
-4. **Build the PR description**:
+3. **Build the PR description**:
    - **Title**: Follow the **PR Title Convention** below (type + optional scope + imperative description).
    - **What does this PR do?** 1–3 sentences summarizing the overall goal and why. Use this as the description heading so reviewers see it clearly.
    - **Changes**: Group changes logically by theme or component. Use either:
@@ -36,11 +30,20 @@ You **MUST** consider the user input before proceeding (if not empty).
    - **Testing / checklist** (optional): Short "How to test" or "Checklist" if relevant (e.g. "Run `npm run build`", "Spec passes").
    - Keep it concise; no need for long prose.
 
-5. **Execution**:
+4. **Execution**:
    - Do **not** emit the PR description into the chat or save it to a permanent file.
    - Check if a PR already exists for the current branch using `gh pr view`.
    - **Ask the user** for confirmation before proceeding to either `create` or `edit` the PR.
-   - Once confirmed, write the drafted body to a temporary file, execute the command, and **clean up** the file afterward.
+
+5. **Update README.md (if necessary)**:
+   - *After receiving user confirmation but before executing the PR command*:
+   - Analyze the purpose of the current branch and the changes that have been made.
+   - Check if these changes introduce new functionality, architectural decisions, or configurations that should be documented in the `README.md`.
+   - If an update is necessary, carefully modify the `README.md` file.
+   - If the `README.md` was modified, immediately commit and push those changes to the current branch (e.g., `git add README.md && git commit -m "docs: update README for current feature additions" && git push`).
+
+6. **Finalize PR creation**:
+   - Once the README step is complete (or skipped), write the drafted body to a temporary file, execute the PR command, and **clean up** the file afterward.
    - For example:
      ```bash
      cat << 'EOF' > /tmp/PR_DESCRIPTION.md
