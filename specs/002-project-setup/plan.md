@@ -7,7 +7,7 @@
 
 ## Summary
 
-Initialize a standard Vite React 19 Single Page Application, pre-configured with Tailwind v3.4.17 and GSAP (including ScrollTrigger) to meet the premium aesthetic and motion requirements of the Otulenie mobile massage project.
+Initialize a standard Vite 6.x React 19.x Single Page Application, pre-configured with Tailwind v4.x and GSAP (including ScrollTrigger) to meet the premium aesthetic and motion requirements of the Otulenie mobile massage project.
 
 ## Technical Context
 
@@ -17,7 +17,7 @@ Initialize a standard Vite React 19 Single Page Application, pre-configured with
   the iteration process.
 -->
 
-**Language/Version**: React 19, Tailwind CSS v3.4.17
+**Language/Version**: React 19.x, Tailwind CSS v4.x
 **Primary Dependencies**: GSAP 3 (ScrollTrigger), Lucide React
 **Storage**: N/A
 **Testing**: Playwright (E2E recommended), Vitest (Unit - deferred)

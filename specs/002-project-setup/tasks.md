@@ -25,7 +25,7 @@ description: "Task list for feature implementation: Project Structure Setup"
 **Purpose**: Project initialization and basic structure
 
 - [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize Vite React 19 project with Tailwind CSS v3.4.17 dependencies
+- [ ] T002 Initialize Vite 6.x React 19.x project with Tailwind CSS v4.x dependencies
 - [ ] T003 [P] Install GSAP 3 (ScrollTrigger) and Lucide React dependencies
 - [ ] T004 [P] Configure Vite, Tailwind, and postcss config files
 
