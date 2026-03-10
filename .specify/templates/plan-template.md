@@ -17,7 +17,7 @@
   the iteration process.
 -->
 
-**Language/Version**: React 19, Tailwind CSS v3.4.17
+**Language/Version**: React 19.x, Tailwind CSS v4.x
 **Primary Dependencies**: GSAP 3 (ScrollTrigger), Lucide React
 **Storage**: N/A
 **Testing**: [e.g., vitest, playwright or NEEDS CLARIFICATION]

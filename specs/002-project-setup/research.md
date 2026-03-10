@@ -8,8 +8,8 @@ This document captures the specific technical decisions made to align with the p
 - **Alternatives considered**: Next.js (rejected due to App Router overhead and lack of server-side needs for a single landing page). Webpack (rejected due to slow build times).
 
 ## 2. CSS Framework & Styling Approach
-- **Decision**: Tailwind CSS v3.4.17 configured via PostCSS in `src/index.css`.
-- **Rationale**: Specifically requested in `tech-stack.md`. Allows rapid iteration of the "Otulenie Calm" design system via the `tailwind.config.js` theme extension.
+- **Decision**: Tailwind CSS v4.x configured via CSS-first setup in `src/index.css`.
+- **Rationale**: Specifically requested in `tech-stack.md`. v4 provides a zero-runtime, high-performance engine with simpler configuration handled directly in CSS directives.
 - **Alternatives considered**: CSS Modules, Styled Components (rejected due to explicit constitution mandate for Tailwind).
 
 ## 3. Animation Engine

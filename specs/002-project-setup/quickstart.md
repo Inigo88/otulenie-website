@@ -21,5 +21,5 @@ Follow these instructions to run the local development server for the Otulenie m
 
 ## Project Structure
 - `src/App.jsx`: The primary entry point and main component definition.
-- `src/index.css`: Tailwind directives, the global aesthetic noise filter, and custom utilities.
-- `tailwind.config.js`: Contains the "Otulenie Calm" color palette and font definitions.
+- `src/index.css`: Tailwind v4.x directives (using `@theme`), the global aesthetic noise filter, and custom utilities.
+- (Note: `tailwind.config.js` is typically optional or deprecated in v4 in favor of CSS-based configuration).

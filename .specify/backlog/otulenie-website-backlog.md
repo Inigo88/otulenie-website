@@ -43,7 +43,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 **Status**: Backlog
 
 - **Feature 1.1.1**: Setup project structure and core dependencies  
-  **Description**: Initialize the frontend application (e.g., Next.js/Vite or Framer structure) with necessary libraries including GSAP for animations.  
+  **Description**: Initialize the frontend application (Vite 6.x + React 19.x) with necessary libraries including GSAP for animations and Tailwind CSS v4.x.  
   **Branch**: `002-project-setup`  
   **Status**: Tasked
 
