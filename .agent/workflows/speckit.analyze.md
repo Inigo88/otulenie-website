@@ -150,6 +150,8 @@ Output a Markdown report (no file writes) with the following structure:
 
 **Constitution Alignment Issues:** (if any)
 
+**Backlog Cohesion Issues:** (if any)
+
 **Unmapped Tasks:** (if any)
 
 **Metrics:**
