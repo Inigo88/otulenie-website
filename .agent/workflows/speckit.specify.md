@@ -66,7 +66,7 @@ Given that feature description, do this:
     2. Extract key concepts from description
        Identify: actors, actions, data, constraints
     3. **Validate against Backlog Context**:
-       - Retrieve the `.specify/backlog/otulenie-website-backlog.md` (or relevant backlog file).
+       - Retrieve the `.specify/backlog/<product-name>-backlog.md` (or relevant backlog file).
        - Determine if the proposed feature aligns with the overall product description and stated business problem.
        - If it fundamentally contradicts the product direction, or falls far outside the established epic structure, WARN the user and ask for confirmation before proceeding.
     4. For unclear aspects:

@@ -35,7 +35,7 @@ You **MUST** consider the user input before proceeding (if not empty).
    - If a backlog exists and the feature you are creating a PR for is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Done`.
    - Do not edit the backlog if the feature cannot be found.
 
-5. **Update README.md (if necessary)**:
+5. **Update README.md (if Applicable)**:
    - *After receiving user confirmation but before executing the PR command*:
    - Analyze the purpose of the current branch and the changes that have been made.
    - Check if these changes introduce new functionality, architectural decisions, or configurations that should be documented in the `README.md`.
