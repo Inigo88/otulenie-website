@@ -26,120 +26,115 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 ## Backlog (Milestones → Epics → Features)
 
-**Status legend**: `To do` | `In progress` | `Implemented` | `Blocked` | `Deferred` | `Cancelled`
+**Status legend**:
+- **Milestones/Epics**: `Backlog` | `In progress` | `Blocked` | `Cancelled` | `Done`
+- **Features**: `Backlog` | `Specified` | `Clarified` | `Planned` | `Tasked` | `Analysed` | `Implemented` | `Blocked` | `Cancelled` | `Done`
 
 ---
 
 ### Milestone 1: Core Landing Page & Aesthetic Foundation
 
 **Description**: Establishing the base architecture, design system, and the primary high-conversion homepage.  
-**Status**: To do
+**Status**: Backlog
 
 #### Epic 1.1: Design System & Infrastructure Setup
 
 **Description**: Initializing the tech stack, global styles, and animation utilities.  
-**Status**: To do
+**Status**: Backlog
 
 - **Feature 1.1.1**: Setup project structure and core dependencies  
   **Description**: Initialize the frontend application (e.g., Next.js/Vite or Framer structure) with necessary libraries including GSAP for animations.  
   **Branch**: `002-project-setup`  
-  **Status**: To do
+  **Status**: Analysed
 
 - **Feature 1.1.2**: Implement global CSS and typography system  
   **Description**: Apply the "Otulenie Calm" preset colors, typography (Fraunces/Inter/Cormorant), and the 0.05 opacity SVG noise overlay across the application.  
   **Branch**: `003-design-system`  
-  **Status**: To do
+  **Status**: Backlog
 
 - **Feature 1.1.3**: Create base interactive UI components  
   **Description**: Build reusable magnetic buttons and rounded containers to enforce micro-interaction rules across the site.  
   **Branch**: `004-base-components`  
-  **Status**: To do
+  **Status**: Backlog
 
 #### Epic 1.2: Homepage High-Impact Sections
 
 **Description**: Building the critical above-the-fold and core value proposition interactive sections.  
-**Status**: To do
+**Status**: Backlog
 
 - **Feature 1.2.1**: Implement the "Floating Island" Navbar  
   **Description**: Build a fixed, pill-shaped navbar that morphs its background and style based on the page's scroll position.  
   **Branch**: `005-navbar`  
-  **Status**: To do
+  **Status**: Backlog
 
 - **Feature 1.2.2**: Develop the Hero section  
   **Description**: Create a full-height hero section leveraging a dark gradient overlay and staggered GSAP fade-up text animations.  
   **Branch**: `006-hero-section`  
-  **Status**: To do
+  **Status**: Backlog
 
 - **Feature 1.2.3**: Build interactive features cards  
   **Description**: Implement the three required functional micro-UIs: Diagnostic Shuffler, Telemetry Typewriter, and Cursor Protocol Scheduler.  
   **Branch**: `007-features-cards`  
-  **Status**: To do
+  **Status**: Backlog
 
 #### Epic 1.3: Deep Dive & Footer Elements
 
 **Description**: Constructing the philosophy manifesto, service stacking archive, and comprehensive footer.  
-**Status**: To do
+**Status**: Backlog
 
 - **Feature 1.3.1**: Develop the Philosophy Manifesto section  
   **Description**: Build a dark-themed parallax-supported section using GSAP SplitText reveal animations to highlight brand differentiation.  
   **Branch**: `008-philosophy-section`  
-  **Status**: To do
+  **Status**: Backlog
 
 - **Feature 1.3.2**: Implement "Sticky Stacking Archive" for massage protocols  
   **Description**: Create three scroll-linked stacking cards governed by GSAP ScrollTrigger to display massage protocols and values.  
   **Branch**: `009-stacking-services`  
-  **Status**: To do
+  **Status**: Backlog
 
 - **Feature 1.3.3**: Build Footer with operational indicator  
   **Description**: Develop the deep dark rounded-top footer containing navigation links and a pulsing "System Operational" interactive dot.  
   **Branch**: `010-footer`  
-  **Status**: To do
+  **Status**: Backlog
 
 ---
 
 ### Milestone 2: Detailed Informational Pages
 
 **Description**: Creating specific sub-pages for discrete service details, practitioner philosophy, area coverage, and FAQs.  
-**Status**: To do
+**Status**: Backlog
 
 #### Epic 2.1: Service and Area Details
 
 **Description**: Expanding on the 4 distinct massage offerings and defining the travel policy.  
-**Status**: To do
+**Status**: Backlog
 
 - **Feature 2.1.1**: Build the 'Oferta' page  
   **Description**: Create a dedicated page detailing the four massage types (Mocne, Głębokie, Czułe, Ciepłe) with prominent individual CTAs.  
   **Branch**: `011-oferta-page`  
-  **Status**: To do
+  **Status**: Backlog
 
 - **Feature 2.1.2**: Implement the 'Obszar dojazdu' page  
   **Description**: Build an informative page detailing the Wrocław service coverage and specific out-of-city travel policies.  
   **Branch**: `012-obszar-page`  
-  **Status**: To do
+  **Status**: Backlog
 
 #### Epic 2.2: Trust & Booking Support
 
 **Description**: Providing FAQs and practitioner background to eliminate friction directly supporting conversion.  
-**Status**: To do
+**Status**: Backlog
 
 - **Feature 2.2.1**: Create the 'O mnie' page  
   **Description**: Build a highly trust-focused page detailing the practitioner's philosophy, natural approach, and commitment to calm.  
   **Branch**: `013-omnie-page`  
-  **Status**: To do
+  **Status**: Backlog
 
 - **Feature 2.2.2**: Develop the 'FAQ' accordion component  
   **Description**: Implement an interactive, smooth-animating accordion listing common questions about home preparation, pain, and payment options.  
   **Branch**: `014-faq-page`  
-  **Status**: To do
+  **Status**: Backlog
 
 - **Feature 2.2.3**: Build primary booking flow interactions  
   **Description**: Ensure robust integration with Booksy links site-wide and format secondary contact options efficiently.  
   **Branch**: `015-booking-flow`  
-  **Status**: To do
-
----
-
-## Notes
-
-- Update status as work progresses.
-- Prefer **To do** for new items; use **Blocked** when blocked by another item or dependency, **Deferred** when postponed, **Cancelled** when dropped from scope.
+  **Status**: Backlog
