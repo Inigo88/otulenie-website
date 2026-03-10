@@ -28,6 +28,7 @@ description: "Task list for feature implementation: Project Structure Setup"
 - [ ] T002 Initialize Vite 6.x React 19.x project with Tailwind CSS v4.x dependencies
 - [ ] T003 [P] Install GSAP 3 (ScrollTrigger) and Lucide React dependencies
 - [ ] T004 [P] Configure Vite, Tailwind, and postcss config files
+- [ ] T004b Enforce Node.js version (e.g., v20) by creating `.nvmrc` and specifying `engines` in `package.json`
 
 ---
 
@@ -38,7 +39,7 @@ description: "Task list for feature implementation: Project Structure Setup"
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
 - [ ] T005 Setup global CSS noise filter and core typography in src/index.css
-- [ ] T006 [P] Configure GSAP ScrollTrigger global defaults
+- [ ] T006 [P] Configure GSAP ScrollTrigger global defaults (include a registration check/safety wrapper to gracefully handle missing plugins)
 - [ ] T007 Create main application layout wrapper in src/App.jsx
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
@@ -65,7 +66,7 @@ description: "Task list for feature implementation: Project Structure Setup"
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T011 Verify local development server starts successfully and renders without console errors
+- [ ] T011 Verify local dev server starts successfully, renders without console errors, and achieves initial load under 2 seconds (SC-001)
 - [ ] T012 Run quickstart.md validation if applicable
 
 ---
