@@ -160,7 +160,12 @@ Execution steps:
 
 7. Write the updated spec back to `FEATURE_SPEC`.
 
-8. Report completion (after questioning loop ends or early termination):
+8. **Update Backlog (If Applicable)**:
+   - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
+   - If a backlog exists and the feature you are clarifying is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Clarified`.
+   - Do not edit the backlog if the feature cannot be found.
+
+9. Report completion (after questioning loop ends or early termination):
    - Number of questions asked & answered.
    - Path to updated spec.
    - Sections touched (list names).

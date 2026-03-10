@@ -33,7 +33,12 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Phase 1: Update agent context by running the agent script
    - Re-evaluate Constitution Check post-design
 
-4. **Stop and report**: Command ends after Phase 2 planning. Report branch, IMPL_PLAN path, and generated artifacts.
+4. **Update Backlog (If Applicable)**:
+   - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
+   - If a backlog exists and the feature you are planning is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Planned`.
+   - Do not edit the backlog if the feature cannot be found.
+
+5. **Stop and report**: Command ends after Phase 2 planning. Report branch, IMPL_PLAN path, and generated artifacts.
 
 ## Phases
 
