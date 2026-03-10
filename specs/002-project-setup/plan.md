@@ -1,13 +1,13 @@
-# Implementation Plan: [FEATURE]
+# Implementation Plan: Setup project structure and core dependencies
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
+**Branch**: `002-project-setup` | **Date**: 2026-03-10 | **Spec**: [spec.md](./spec.md)
+**Input**: Feature specification from `specs/002-project-setup/spec.md`
 
 **Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/plan-template.md` for the execution workflow.
 
 ## Summary
 
-[Extract from feature spec: primary requirement + technical approach from research]
+Initialize a standard Vite 6.x React 19.x Single Page Application, pre-configured with Tailwind v4.x and GSAP (including ScrollTrigger) to meet the premium aesthetic and motion requirements of the Otulenie mobile massage project.
 
 ## Technical Context
 
@@ -20,7 +20,7 @@
 **Language/Version**: React 19.x, Tailwind CSS v4.x
 **Primary Dependencies**: GSAP 3 (ScrollTrigger), Lucide React
 **Storage**: N/A
-**Testing**: [e.g., vitest, playwright or NEEDS CLARIFICATION]
+**Testing**: Playwright (E2E recommended), Vitest (Unit - deferred)
 **Target Platform**: Mobile-first Web
 **Project Type**: Web Application Landing Page
 **Performance Goals**: 60fps animations, fast LCP for mobile
@@ -31,10 +31,10 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[ ] I. Premium Aesthetic Foundation (0.05 opacity noise, Otulenie Calm palette, correct typography)
-[ ] II. The Focus on Conversion (Supports primary booking action on Booksy)
-[ ] III. Micro-Interaction Polish (Magnetic buttons, GSAP animations in useEffect contexts)
-[ ] IV. Mobile-First Experience (Vertical stacking, sticky CTA)
+[x] I. Premium Aesthetic Foundation (0.05 opacity noise, Otulenie Calm palette, correct typography)
+[x] II. The Focus on Conversion (Supports primary booking action on Booksy)
+[x] III. Micro-Interaction Polish (Magnetic buttons, GSAP animations in useEffect contexts)
+[x] IV. Mobile-First Experience (Vertical stacking, sticky CTA)
 
 ## Project Structure
 
@@ -66,8 +66,7 @@ src/
 └── components/          # (Optional) Only if App.jsx > 600 lines
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+**Structure Decision**: The project uses the single-project, App.js-centric Default Structure designated in the constitution. No models or backend folders are necessary.
 
 ## Complexity Tracking
 

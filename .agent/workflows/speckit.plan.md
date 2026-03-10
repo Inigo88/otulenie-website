@@ -25,6 +25,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 2. **Load context**: Read FEATURE_SPEC and `.specify/memory/constitution.md`. Load IMPL_PLAN template (already copied).
 
 3. **Execute plan workflow**: Follow the structure in IMPL_PLAN template to:
+   - Fill plan header metadata variables (`[FEATURE]`, `[###-feature-name]`, `[DATE]`, `[link]`)
    - Fill Technical Context (mark unknowns as "NEEDS CLARIFICATION")
    - Fill Constitution Check section from constitution
    - Evaluate gates (ERROR if violations unjustified)
@@ -33,7 +34,12 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Phase 1: Update agent context by running the agent script
    - Re-evaluate Constitution Check post-design
 
-4. **Stop and report**: Command ends after Phase 2 planning. Report branch, IMPL_PLAN path, and generated artifacts.
+4. **Update Backlog (If Applicable)**:
+   - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
+   - If a backlog exists and the feature you are planning is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Planned`.
+   - Do not edit the backlog if the feature cannot be found.
+
+5. **Stop and report**: Command ends after Phase 2 planning. Report branch, IMPL_PLAN path, and generated artifacts.
 
 ## Phases
 

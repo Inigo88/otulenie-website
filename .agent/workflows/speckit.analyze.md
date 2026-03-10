@@ -64,6 +64,11 @@ Load only the minimal necessary context from each artifact:
 
 - Load `.specify/memory/constitution.md` for principle validation
 
+**From backlog:**
+
+- Load the current product backlog (e.g., `.specify/backlog/<product-name>-backlog.md` or similar)
+- Focus specifically on the **Product Description** and **Business Problem** contextual headers, as well as the overarching Epic the current feature belongs to.
+
 ### 3. Build Semantic Models
 
 Create internal representations (do not include raw artifacts in output):
@@ -72,6 +77,7 @@ Create internal representations (do not include raw artifacts in output):
 - **User story/action inventory**: Discrete user actions with acceptance criteria
 - **Task coverage mapping**: Map each task to one or more requirements or stories (inference by keyword / explicit reference patterns like IDs or key phrases)
 - **Constitution rule set**: Extract principle names and MUST/SHOULD normative statements
+- **Backlog scope boundaries**: Extract the core business problem and epic constraints to evaluate if the implemented feature or plan fundamentally aligns with the product's ultimate goal.
 
 ### 4. Detection Passes (Token-Efficient Analysis)
 
@@ -111,12 +117,17 @@ Focus on high-signal findings. Limit to 50 findings total; aggregate remainder i
 - Task ordering contradictions (e.g., integration tasks before foundational setup tasks without dependency note)
 - Conflicting requirements (e.g., one requires Next.js while other specifies Vue)
 
+#### G. Backlog Cohesion
+
+- **Product Alignment**: Check if any functional requirement fundamentally contradicts the "Product Description" or "Business Problem" stated in the backlog.
+- **Architectural Cohesion**: Check if the implementation architecture (from plan.md) fundamentally conflicts with the grand scope of the product or its Epics.
+
 ### 5. Severity Assignment
 
 Use this heuristic to prioritize findings:
 
-- **CRITICAL**: Violates constitution MUST, missing core spec artifact, or requirement with zero coverage that blocks baseline functionality
-- **HIGH**: Duplicate or conflicting requirement, ambiguous security/performance attribute, untestable acceptance criterion
+- **CRITICAL**: Violates constitution MUST, missing core spec artifact, fundamental conflict with Backlog's Product Description/Business Problem, or requirement with zero coverage that blocks baseline functionality
+- **HIGH**: Duplicate or conflicting requirement, ambiguous security/performance attribute, untestable acceptance criterion, or features/tasks that appear severely out-of-scope based on the active Epic.
 - **MEDIUM**: Terminology drift, missing non-functional task coverage, underspecified edge case
 - **LOW**: Style/wording improvements, minor redundancy not affecting execution order
 
@@ -139,6 +150,8 @@ Output a Markdown report (no file writes) with the following structure:
 
 **Constitution Alignment Issues:** (if any)
 
+**Backlog Cohesion Issues:** (if any)
+
 **Unmapped Tasks:** (if any)
 
 **Metrics:**
@@ -158,7 +171,13 @@ At end of report, output a concise Next Actions block:
 - If only LOW/MEDIUM: User may proceed, but provide improvement suggestions
 - Provide explicit command suggestions: e.g., "Run /speckit.specify with refinement", "Run /speckit.plan to adjust architecture", "Manually edit tasks.md to add coverage for 'performance-metrics'"
 
-### 8. Offer Remediation
+### 8. Update Backlog (If Applicable)
+
+- Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
+- If a backlog exists and the feature you analyzed is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Analysed`.
+- Do not edit the backlog if the feature cannot be found.
+
+### 9. Offer Remediation
 
 Ask the user: "Would you like me to suggest concrete remediation edits for the top N issues?" (Do NOT apply them automatically.)
 

@@ -66,7 +66,7 @@ Given that feature description, do this:
     2. Extract key concepts from description
        Identify: actors, actions, data, constraints
     3. **Validate against Backlog Context**:
-       - Retrieve the `.specify/backlog/otulenie-website-backlog.md` (or relevant backlog file).
+       - Retrieve the `.specify/backlog/<product-name>-backlog.md` (or relevant backlog file).
        - Determine if the proposed feature aligns with the overall product description and stated business problem.
        - If it fundamentally contradicts the product direction, or falls far outside the established epic structure, WARN the user and ask for confirmation before proceeding.
     4. For unclear aspects:
@@ -151,7 +151,9 @@ Given that feature description, do this:
 
 7. **Update Backlog (If Applicable)**:
    - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
-   - If a backlog exists and the feature you are specifying is listed in it as a Feature, update the `**Branch**:` field for that specific feature with the newly created branch name.
+   - If a backlog exists and the feature you are specifying is listed in it as a Feature, do the following:
+     1. Update the `**Branch**:` field for that specific feature with the newly created branch name.
+     2. Update the `**Status**:` field for that specific feature to `Specified`.
    - Do not edit the backlog if the feature cannot be found.
 
 8. Report completion with branch name, spec file path, checklist results, backlog update status, and readiness for the next phase (`/speckit.clarify` or `/speckit.plan`).

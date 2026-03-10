@@ -132,4 +132,9 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Confirm the implementation follows the technical plan
    - Report final status with summary of completed work
 
+10. **Update Backlog (If Applicable)**:
+    - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
+    - If a backlog exists and the feature you implemented is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Implemented`.
+    - Do not edit the backlog if the feature cannot be found.
+
 Note: This command assumes a complete task breakdown exists in tasks.md. If tasks are incomplete or missing, suggest running `/speckit.tasks` first to regenerate the task list.

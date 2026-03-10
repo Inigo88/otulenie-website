@@ -29,12 +29,26 @@ You **MUST** consider the user input before proceeding (if not empty).
      - **Nested list** (larger PRs): bold component/theme, then sub-bullets with specific details (e.g. "**App scaffold** — Add Next.js app, add layout and home page" then "**Spec 004** — Add plan and tasks"). Base everything on the actual diff/commits, not generic text.
    - **Testing / checklist** (optional): Short "How to test" or "Checklist" if relevant (e.g. "Run `npm run build`", "Spec passes").
    - Keep it concise; no need for long prose.
+  
+4. **Update Backlog (If Applicable)**:
+   - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
+   - If a backlog exists and the feature you are creating a PR for is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Done`.
+   - Do not edit the backlog if the feature cannot be found.
 
-4. **Execution**:
+5. **Update README.md (if Applicable)**:
+   - *After receiving user confirmation but before executing the PR command*:
+   - Analyze the purpose of the current branch and the changes that have been made.
+   - Check if these changes introduce new functionality, architectural decisions, or configurations that should be documented in the `README.md`.
+   - If an update is necessary, carefully modify the `README.md` file.
+   - If the `README.md` was modified, immediately commit and push those changes to the current branch (e.g., `git add README.md && git commit -m "docs: update README for current feature additions" && git push`).
+
+6. **Execution**:
    - Do **not** emit the PR description into the chat or save it to a permanent file.
    - Check if a PR already exists for the current branch using `gh pr view`.
    - **Ask the user** for confirmation before proceeding to either `create` or `edit` the PR.
-   - Once confirmed, write the drafted body to a temporary file, execute the command, and **clean up** the file afterward.
+
+7. **Finalize PR creation**:
+   - Once the README step is complete (or skipped), write the drafted body to a temporary file, execute the PR command, and **clean up** the file afterward.
    - For example:
      ```bash
      cat << 'EOF' > /tmp/PR_DESCRIPTION.md

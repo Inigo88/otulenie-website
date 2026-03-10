@@ -32,10 +32,12 @@ Given the product description, do this:
      - **Milestones**: High-level delivery phases or goals (e.g. MVP, Scale, Optimize). Each has: **Title**, **Description**, **Status**.
      - **Epics** (under each milestone): Larger capability or theme. Each has: **Title**, **Description**, **Status**.
      - **Features** (under each epic): Concrete, testable items. Each has: **Title**, **Description**, **Branch**, **Status**. Do NOT use the "As a user, I want..." format for the feature descriptions. Output simple, direct descriptions of what the feature does. The **Branch** should be a short, git-friendly name (e.g. `001-user-auth`, `002-payment-gateway`).
-   - **Status** for every item must be one of: `To do` | `In progress` | `Implemented` | `Blocked` | `Deferred` | `Cancelled`. Newly generated items should use `To do` unless the user input implies otherwise.
+   - **Status** for Milestones and Epics must be one of: `Backlog` | `In progress` | `Blocked` | `Cancelled` | `Done`.
+   - **Status** for Features must be one of: `Backlog` | `Specified` | `Clarified` | `Planned` | `Tasked` | `Analysed` | `Implemented` | `Blocked` | `Cancelled` | `Done`.
+   - Newly generated items should use `Backlog` unless the user input implies otherwise.
    - Use informed guesses and industry norms to fill gaps; keep scope realistic from the product description.
 
-4. **Write the backlog**: Fill the template structure with the generated content. Preserve section order and headings from the template. Set **Created** to the current date. Write the result to the output path from step 1.
+4. **Write the backlog**: Fill the template structure with the generated content. Preserve section order and headings from the template. Set **Created** to the current date. Write the result to the output path from step 1. Do NOT output a `## Notes` section at the end of the backlog.
 
 5. **Provide Constitution Context**: Extract the entire first section of your generated backlog (Description, Business Problem, and Actors - explicitly EXCLUDING the list of Milestones, Epics, and Features). Present this excerpt to the user and **ask if they would like to initialize or update the project constitution** (`/speckit.constitution`) using this text. *Do not execute the constitution workflow until the user confirms.*
 
@@ -47,12 +49,17 @@ Use exactly one of these for every milestone, epic, and feature:
 
 | Status        | When to use |
 |---------------|-------------|
-| To do         | Not started; default for new items. |
-| In progress   | Currently being worked on. |
-| Implemented   | Done and delivered. |
+| Backlog       | Default for new items. For features: waiting to be specified. |
+| In progress   | (Milestones/Epics only) Currently being worked on. |
+| Specified     | Feature specification created (`/speckit.specify`). |
+| Clarified     | Specification clarified and updated (`/speckit.clarify`). |
+| Planned       | Implementation plan created (`/speckit.plan`). |
+| Tasked        | Actionable tasks generated (`/speckit.tasks`). |
+| Analysed      | Artifacts analyzed for consistency (`/speckit.analyze`). |
+| Implemented   | Tasks executed and code written (`/speckit.implement`). |
 | Blocked       | Blocked by dependency, decision, or another item. |
-| Deferred      | Postponed to a later milestone or backlog. |
 | Cancelled     | Dropped from scope. |
+| Done          | Delivered / Pull request merged. |
 
 ## Template structure (reminder)
 
@@ -61,7 +68,7 @@ Use exactly one of these for every milestone, epic, and feature:
 - Actors (list with brief role per actor)
 - Backlog: nested list of **Milestones** → **Epics** → **Features**
 - Each item: **Title**, **Description**, **Status**
-- Preserve the status legend and Notes section from the template.
+- Preserve the status legend.
 
 ## General guidelines
 
