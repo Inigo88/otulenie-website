@@ -68,7 +68,7 @@ Use exactly one of these for every milestone, epic, and feature:
 - Actors (list with brief role per actor)
 - Backlog: nested list of **Milestones** → **Epics** → **Features**
 - Each item: **Title**, **Description**, **Status**
-- Preserve the status legend and Notes section from the template.
+- Preserve the status legend.
 
 ## General guidelines
 

@@ -45,7 +45,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.1.1**: Setup project structure and core dependencies  
   **Description**: Initialize the frontend application (e.g., Next.js/Vite or Framer structure) with necessary libraries including GSAP for animations.  
   **Branch**: `002-project-setup`  
-  **Status**: Analysed
+  **Status**: Planned
 
 - **Feature 1.1.2**: Implement global CSS and typography system  
   **Description**: Apply the "Otulenie Calm" preset colors, typography (Fraunces/Inter/Cormorant), and the 0.05 opacity SVG noise overlay across the application.  
