@@ -1,7 +1,7 @@
-# Implementation Plan: [FEATURE]
+# Implementation Plan: Setup project structure and core dependencies
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
+**Branch**: `002-project-setup` | **Date**: 2026-03-10 | **Spec**: [spec.md](./spec.md)
+**Input**: Feature specification from `specs/002-project-setup/spec.md`
 
 **Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/plan-template.md` for the execution workflow.
 
