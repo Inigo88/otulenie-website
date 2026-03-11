@@ -1,9 +1,5 @@
 ---
 description: Identify underspecified areas in the current feature spec by asking up to 5 highly targeted clarification questions and encoding answers back into the spec.
-handoffs: 
-  - label: Build Technical Plan
-    agent: speckit.plan
-    prompt: Create a plan for the spec. I am building with...
 ---
 
 ## User Input
@@ -163,7 +159,7 @@ Execution steps:
 8. **Check for Further Clarification**:
    - Before finalizing, present a summary of the current session: "We have addressed [N] clarification points."
    - Ask the user: "Is there any other area of the feature you would like to clarify, or should we finalize the specification?"
-   - **Suggested response**: If the 5-question limit is reached or no critical ambiguities remain, suggest: "I recommend finalizing the specification as we have addressed the key identified risks."
+   - **Suggested response**: Check If any ambiguities remain, if no suggest: "I recommend finalizing the specification as we have addressed the key identified risks."
    - **Wait for user input**.
 
 9. **Finalize Specification & Backlog**:
