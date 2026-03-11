@@ -18,7 +18,7 @@ Initialize a standard Vite 6.x React 19.x Single Page Application, pre-configure
 -->
 
 **Language/Version**: React 19.x, Tailwind CSS v4.x
-**Primary Dependencies**: GSAP 3 (ScrollTrigger), Lucide React
+**Primary Dependencies**: GSAP 3 (ScrollTrigger), Lucide Reactt
 **Storage**: N/A
 **Testing**: Playwright (E2E recommended), Vitest (Unit - deferred)
 **Target Platform**: Mobile-first Web

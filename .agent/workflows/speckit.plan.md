@@ -82,13 +82,16 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Skip if project is purely internal (build scripts, one-off tools, etc.)
 
 3. **Agent context update**:
-   - Run `.specify/scripts/bash/update-agent-context.sh agy`
-   - These scripts detect which AI agent is in use
-   - Update the appropriate agent-specific context file
-   - Add only new technology from current plan
-   - Preserve manual additions between markers
+   - Run `.specify/scripts/bash/update-agent-context.sh agy` to perform the automated update or initial creation.
+   - **Critical Review**: Immediately after the script runs, perform a manual review of the updated rules file (e.g., `.agent/rules/specify-rules.md`).
+   - **Refine & Fix**: Use your intelligence to polish the automated output:
+     - Merge new technical details, dependencies, and project metadata into a clean, professional structure.
+     - Correct any typos, truncation errors, or formatting issues introduced by the automation.
+     - Align architectural constraints with the latest design decisions and project state.
+     - Ensure all `<!-- MANUAL ADDITIONS -->` blocks are intact.
+   - **Goal**: Use the script for syncing and the agent for high-fidelity quality control.
 
-**Output**: data-model.md, /contracts/*, quickstart.md, agent-specific file
+**Output**: data-model.md, /contracts/*, quickstart.md, agent-specific rules file (audited and refined).
 
 ## Key rules
 
