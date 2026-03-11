@@ -1,13 +1,13 @@
 # otulenie-website Development Guidelines
 
-Last updated: 2026-03-10
+Last updated: 2026-03-11
 
 ## Active Technologies
 - **Runtime**: Node.js >= 20.0.0 (Enforced)
 - **Framework**: React 19.x, Vite 6.x
 - **Styling**: Tailwind CSS v4.x (CSS-first configuration via `@theme`)
-- **Animations**: GSAP 3 (with ScrollTrigger plugin)
-- **Icons**: Lucide Reactt
+- **Animations**: GSAP 3 (with ScrollTrigger plugin and `@gsap/react`)
+- **Icons**: Lucide React
 - **Fonts**: Google Fonts (Fraunces, Inter, Cormorant Garamond)
 
 ## Project Structure
@@ -23,8 +23,11 @@ src/
 - **Mobile-First**: All layouts must stack vertically on mobile and prioritize tap targets.
 - **Aesthetic**: Strictly adhere to #374833 (Moss), #fdfaf0 (Linen), and #6E8068 (Olive).
 - **Noise Overlay**: A persistent `0.05` opacity noise pattern must be present globally.
-- **GSAP Context**: Always use `@gsap/react` hooks or `gsap.context()` for clean cleanup in React components.
+- **GSAP Context**: Always use `@gsap/react` hooks (`useGSAP`) for clean cleanup in React components.
 - **Flat Structure**: Keep components in `App.jsx` until it exceeds 600 lines.
+- **Interactive Polish**:
+    - Magnetic buttons MUST use a dampened offset (30-50%) on hover (desktop).
+    - Rounded containers MUST use `backdrop-blur-md` and 60-80% opacity.
 
 ## Commands
 - `npm run dev`: Start development server (Node 20 required)
@@ -33,6 +36,7 @@ src/
 ## Recent Milestones
 - **002-project-setup**: Base infrastructure initialized (React 19 + Vite 6).
 - **003-design-system**: Tailwind v4 tokens and noise overlay specified.
+- **004-base-components**: Interactive components (MagneticButton, RoundedContainer) designed and planned.
 
 <!-- MANUAL ADDITIONS START -->
 <!-- These items are preserved across auto-updates -->

@@ -18,7 +18,7 @@
 -->
 
 **Language/Version**: React 19.x, Tailwind CSS v4.x
-**Primary Dependencies**: GSAP 3 (ScrollTrigger), Lucide Reactt
+**Primary Dependencies**: GSAP 3 (ScrollTrigger), Lucide React
 **Storage**: N/A
 **Testing**: [e.g., vitest, playwright or NEEDS CLARIFICATION]
 **Target Platform**: Mobile-first Web

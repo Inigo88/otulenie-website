@@ -49,8 +49,8 @@ Given that feature description, do this:
       - PowerShell example: `.specify/scripts/bash/create-new-feature.sh --json "$ARGUMENTS" -Json -Number 5 -ShortName "user-auth" "Add user authentication"`
 
    **IMPORTANT**:
-   - Check all three sources (remote branches, local branches, specs directories) to find the highest number
-   - Only match branches/directories with the exact short-name pattern
+   - Check all three sources (remote and local branches, specs directories) to find the highest number
+   - Only match them with the exact short-name pattern
    - If no existing branches/directories found with this short-name, start with number 1
    - You must only ever run this script once per feature
    - The JSON is provided in the terminal as output - always refer to it to get the actual content you're looking for
@@ -154,6 +154,10 @@ Given that feature description, do this:
    - If a backlog exists and the feature you are specifying is listed in it as a Feature, do the following:
      1. Update the `**Branch**:` field for that specific feature with the newly created branch name.
      2. Update the `**Status**:` field for that specific feature to `Specified`.
+   - After updating the feature status, **always** run the automation script to propagate status changes to Epics and Milestones:
+     ```bash
+     chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
+     ```
    - Do not edit the backlog if the feature cannot be found.
 
 8. Report completion with branch name, spec file path, checklist results, backlog update status, and readiness for the next phase (`/speckit.clarify` or `/speckit.plan`).
@@ -214,4 +218,3 @@ Success criteria must be:
 - "Users can complete checkout in under 3 minutes"
 - "System supports 10,000 concurrent users"
 - "95% of searches return results in under 1 second"
-- "Task completion rate improves by 40%"

@@ -1,9 +1,5 @@
 ---
 description: Identify underspecified areas in the current feature spec by asking up to 5 highly targeted clarification questions and encoding answers back into the spec.
-handoffs: 
-  - label: Build Technical Plan
-    agent: speckit.plan
-    prompt: Create a plan for the spec. I am building with...
 ---
 
 ## User Input
@@ -17,8 +13,6 @@ You **MUST** consider the user input before proceeding (if not empty).
 ## Outline
 
 Goal: Detect and reduce ambiguity or missing decision points in the active feature specification and record the clarifications directly in the spec file.
-
-Note: This clarification workflow is expected to run (and be completed) BEFORE invoking `/speckit.plan`. If the user explicitly states they are skipping clarification (e.g., exploratory spike), you may proceed, but must warn that downstream rework risk increases.
 
 Execution steps:
 
@@ -160,18 +154,30 @@ Execution steps:
 
 7. Write the updated spec back to `FEATURE_SPEC`.
 
-8. **Update Backlog (If Applicable)**:
+8. **Check for Further Clarification**:
+   - Before finalizing, present a summary of the current session: "We have addressed [N] clarification points."
+   - Ask the user: "Is there any other area of the feature you would like to clarify, or should we finalize the specification?"
+   - **Suggested response**: Check If any ambiguities remain, if no suggest: "I recommend finalizing the specification as we have addressed the key identified risks."
+   - **Wait for user input**.
+
+9. **Finalize Specification & Backlog**:
+   - Proceed only if the user confirms (e.g., "finalize", "no more", "done", "yes").
+   - Update the `Status:` field in `FEATURE_SPEC` to `Finalized`.
    - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
    - If a backlog exists and the feature you are clarifying is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Clarified`.
+   - After updating the feature status, **always** run the automation script to propagate status changes to Epics and Milestones:
+     ```bash
+     chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
+     ```
    - Do not edit the backlog if the feature cannot be found.
 
-9. Report completion (after questioning loop ends or early termination):
+10. Report completion (after questioning loop ends or early termination):
    - Number of questions asked & answered.
    - Path to updated spec.
    - Sections touched (list names).
    - Coverage summary table listing each taxonomy category with Status: Resolved (was Partial/Missing and addressed), Deferred (exceeds question quota or better suited for planning), Clear (already sufficient), Outstanding (still Partial/Missing but low impact).
-   - If any Outstanding or Deferred remain, recommend whether to proceed to `/speckit.plan` or run `/speckit.clarify` again later post-plan.
-   - Suggested next command.
+   - Final status of Spec and Backlog (Finalized).
+   - Suggested next command (e.g., `/speckit.plan`).
 
 Behavior rules:
 
