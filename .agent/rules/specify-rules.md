@@ -43,3 +43,6 @@ src/
 - Always verify animations on a mobile-sized viewport (width: 390px).
 - Use `lucide-react` for all functional iconography.
 <!-- MANUAL ADDITIONS END -->
+
+## Recent Changes
+- 005-navbar: Implemented Floating Island Navbar with GSAP ScrollTrigger and mobile overlay.

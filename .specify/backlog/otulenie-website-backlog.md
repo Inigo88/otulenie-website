@@ -65,7 +65,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.2.1**: Implement the "Floating Island" Navbar  
   **Description**: Build a fixed, pill-shaped navbar that morphs its background and style based on the page's scroll position.  
   **Branch**: `005-navbar`  
-  **Status**: Clarified
+  **Status**: Implemented
 
 - **Feature 1.2.2**: Develop the Hero section  
   **Description**: Create a full-height hero section leveraging a dark gradient overlay and staggered GSAP fade-up text animations.  

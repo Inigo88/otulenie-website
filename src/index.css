@@ -4,10 +4,13 @@
   --font-sans: "Inter", "system-ui", sans-serif;
   --font-serif: "Fraunces", "Georgia", serif;
   --font-accent: "Cormorant Garamond", "Georgia", serif;
-  
+
   --color-moss: #374833;
   --color-linen: #fdfaf0;
   --color-olive: #6E8068;
+
+  --navbar-height: 80px;
+  --navbar-bg: transparent;
 }
 
 @layer base {
@@ -22,7 +25,12 @@
     min-height: 100vh;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-serif);
     font-weight: 700;
   }

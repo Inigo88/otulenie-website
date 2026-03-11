@@ -11,6 +11,11 @@
 - Q: What should be the exact scroll distance (in pixels) that triggers the transition? → A: 80px
 - Q: How should the navigation links be handled on smaller mobile screens (390px)? → A: Hamburger Menu
 - Q: Should the navigation links be represented by text labels, icons, or a combination? → A: Text Labels Only
+- Q: Which navigation links should appear in the navbar? → A: Oferta, O mnie, FAQ + Rezerwacja CTA button
+- Q: What should the mobile hamburger menu look like when opened? → A: Full-screen linen overlay, links centred vertically
+- Q: Is GSAP (ScrollTrigger) already installed as a project dependency? → A: Yes, already installed
+- Q: Should the Rezerwacja CTA be visually distinct from regular nav links? → A: Pill-shaped button in accent colour (Soft Olive)
+- Q: Should the navbar work with JavaScript disabled (CSS-only fallback)? → A: JS required, no fallback needed
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -54,7 +59,8 @@ As a mobile user, I need a condensed version of the navbar that doesn't consume 
 
 **Acceptance Scenarios**:
 
-1. **Given** a 390px viewport, **When** the page scrolls, **Then** the navbar remains fixed and morphs into a compact "hamburger" trigger that opens a menu overlay.
+1. **Given** a 390px viewport, **When** the page scrolls, **Then** the navbar remains fixed and morphs into a compact "hamburger" trigger.
+2. **Given** the hamburger trigger is tapped, **When** the overlay opens, **Then** a full-screen linen-background overlay (semi-transparent, `backdrop-blur`) appears with navigation links (Oferta, O mnie, FAQ) and Rezerwacja CTA centred vertically, and a visible close (✕) button in the top-right corner.
 
 ---
 
@@ -68,19 +74,24 @@ As a mobile user, I need a condensed version of the navbar that doesn't consume 
 ### Functional Requirements
 
 - **FR-001**: System MUST implement the navbar as a `fixed` position element at the top of the viewport.
-- **FR-002**: System MUST use GSAP `ScrollTrigger` or `scroll` listeners to toggle between "Hero" (transparent) and "Island" (morphed) states at an 80px threshold.
+- **FR-002**: System MUST use GSAP `ScrollTrigger` or `scroll` listeners to toggle between "Hero" (transparent) and "Island" (morphed) states at an 80px threshold. GSAP is a confirmed existing project dependency (`@gsap/` package).
 - **FR-003**: System MUST apply `backdrop-blur-md` and `bg-linen/70` to the navbar in the "Island" state.
 - **FR-004**: Navbar links MUST implement `MagneticButton` micro-interaction logic (scale 1.03, subtle dampening).
 - **FR-005**: The navbar MUST have fully rounded corners (`rounded-full`) in both states, maintaining a "pill" aesthetic.
 - **FR-006**: System MUST use high-quality typography (Inter/Fraunces) for navigation labels, avoiding icons in the "Island" state to maintain a grounded aesthetic.
 - **FR-009**: System MUST ensure text color remains legible during transitions (e.g., transitioning from white text on transparent to moss text on linen).
 - **FR-007**: System MUST be responsive, transitioning to a compact "hamburger" menu trigger on viewports below 768px.
-- **FR-008**: The mobile menu overlay MUST follow the "Otulenie Calm" aesthetic (semi-transparent linen background, large rounded corners/blur).
+- **FR-008**: The mobile menu overlay MUST be a **full-screen overlay** with a semi-transparent linen background and `backdrop-blur`. Navigation links (Oferta, O mnie, FAQ) and the Rezerwacja CTA MUST be centred vertically and horizontally. A clearly visible close (✕) button MUST appear in the top-right corner.
+- **FR-010**: The Rezerwacja CTA MUST be rendered as a pill-shaped (`rounded-full`) button in the accent colour (Soft Olive `#6E8068`), visually distinct from the plain text nav links, and MUST use the existing `MagneticButton` component with the sliding hover layer.
 
 ### Key Entities
 
-- **Navigation Item**: Represents a single destination link (Title, URL).
+- **Navigation Item**: Represents a single destination link (Title, URL). The canonical set is: Oferta (`/oferta`), O mnie (`/o-mnie`), FAQ (`/faq`) — rendered as plain text links — and Rezerwacja — rendered as a pill-shaped accent button linking to the Booksy booking page.
 - **Navbar State**: Represents the visual state (Transparent vs. Island) based on context.
+
+### Constraints & Tradeoffs
+
+- **JavaScript Required**: The navbar's scroll morphing and mobile overlay depend on JavaScript (GSAP, React state). No CSS-only fallback is required; the entire site is a React/Vite SPA where JS is a foundational prerequisite.
 
 ## Success Criteria *(mandatory)*
 
