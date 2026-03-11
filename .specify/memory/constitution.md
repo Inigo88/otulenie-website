@@ -43,7 +43,7 @@ Design deeply respects the mobile reality of the target audience.
 Otulenie addresses neck tension, stress, and lack of time for desk workers and busy mothers. The digital presence must clearly articulate the convenience of a mobile massage service in Wrocław while building immense trust through calming design elements and transparent communication.
 
 ## Technical Constraints
-- **Stack:** React 19.x, Vite 6.x, Tailwind CSS v4.x, GSAP 3 (with ScrollTrigger plugin), Lucide Reactt for icons. *Note: Tailwind CSS v4.x is explicitly required here.*
+- **Stack:** React 19.x, Vite 6.x, Tailwind CSS v4.x, GSAP 3 (with ScrollTrigger plugin), Lucide React for icons. *Note: Tailwind CSS v4.x is explicitly required here.*
 - **Fonts:** Load via Google Fonts `<link>` tags based on the preset (Fraunces, Inter, Cormorant Garamond).
 - **Images:** Use real Unsplash URLs matching `imageMood`. Never use placeholder images or placeholder URLs.
 - **Structure:** Single `App.jsx` with components defined alongside, or split into a `components/` directory only if the file exceeds 600 lines. Single `index.css` for directives and noise.
