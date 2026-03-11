@@ -18,7 +18,7 @@ function App() {
   }, { scope: containerRef })
 
   return (
-    <div ref={containerRef} className="min-h-screen flex flex-col items-center justify-center p-6 relative">
+    <div ref={containerRef} className="min-h-screen flex flex-col items-center justify-center p-6 md:p-12 relative bg-linen text-moss">
       {/* T005: Global Noise Overlay */}
       <div className="noise-overlay"></div>
 

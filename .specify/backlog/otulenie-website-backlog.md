@@ -50,7 +50,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.1.2**: Implement global CSS and typography system  
   **Description**: Apply the "Otulenie Calm" preset colors, typography (Fraunces/Inter/Cormorant), and the 0.05 opacity SVG noise overlay across the application.  
   **Branch**: `003-design-system`  
-  **Status**: Analysed
+  **Status**: Implemented
 
 - **Feature 1.1.3**: Create base interactive UI components  
   **Description**: Build reusable magnetic buttons and rounded containers to enforce micro-interaction rules across the site.  

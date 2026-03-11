@@ -20,7 +20,7 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 [P] Configure Google Fonts `<link>` tags in `index.html` (Fraunces, Inter, Cormorant Garamond)
+- [x] T001 [P] Configure Google Fonts `<link>` tags in `index.html` (Fraunces, Inter, Cormorant Garamond)
 
 ---
 
@@ -30,9 +30,9 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T002 Define core design tokens (Moss, Linen, Olive) in `src/index.css` using Tailwind v4 `@theme` directive
-- [ ] T003 [P] Implement the `.noise-overlay` utility class in `src/index.css` using the Base64 SVG pattern (must include `pointer-events: none`)
-- [ ] T004 Setup global base styles (Body background, text color, and default font) in `src/index.css` `@layer base`
+- [x] T002 Define core design tokens (Moss, Linen, Olive) in `src/index.css` using Tailwind v4 `@theme` directive
+- [x] T003 [P] Implement the `.noise-overlay` utility class in `src/index.css` using the Base64 SVG pattern (must include `pointer-events: none`)
+- [x] T004 Setup global base styles (Body background, text color, and default font) in `src/index.css` `@layer base`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -46,8 +46,8 @@
 
 ### Implementation for User Story 1
 
-- [ ] T005 [P] [US1] Mount the `<div className="noise-overlay" />` as the first child of the main layout in `src/App.jsx`
-- [ ] T006 [US1] Apply `bg-linen` and `text-moss` to the root container in `src/App.jsx`
+- [x] T005 [P] [US1] Mount the `<div className="noise-overlay" />` as the first child of the main layout in `src/App.jsx`
+- [x] T006 [US1] Apply `bg-linen` and `text-moss` to the root container in `src/App.jsx`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently.
 
@@ -61,9 +61,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T007 [P] [US2] Map `font-serif` (Fraunces) to all Heading elements (h1-h6) in `src/index.css` or `src/App.jsx`
-- [ ] T008 [P] [US2] Ensure `font-sans` (Inter) is applied to all paragraph and body text in `src/App.jsx`
-- [ ] T009 [P] [US2] Apply `font-accent` (Cormorant Garamond) to highlighted or italicized spans in `src/App.jsx`
+- [x] T007 [P] [US2] Map `font-serif` (Fraunces) to all Heading elements (h1-h6) in `src/index.css` or `src/App.jsx`
+- [x] T008 [P] [US2] Ensure `font-sans` (Inter) is applied to all paragraph and body text in `src/App.jsx`
+- [x] T009 [P] [US2] Apply `font-accent` (Cormorant Garamond) to highlighted or italicized spans in `src/App.jsx`
 
 **Checkpoint**: User Stories 1 AND 2 should now be integrated and functional.
 
@@ -77,8 +77,8 @@
 
 ### Implementation for User Story 3
 
-- [ ] T010 [US3] Implement fluid typography scaling for headings in `src/index.css` using Tailwind v4 modifiers or `clamp()`
-- [ ] T011 [US3] Verify horizontal spacing and container padding on mobile widths (390px) in `src/App.jsx`
+- [x] T010 [US3] Implement fluid typography scaling for headings in `src/index.css` using Tailwind v4 modifiers or `clamp()`
+- [x] T011 [US3] Verify horizontal spacing and container padding on mobile widths (390px) in `src/App.jsx`
 
 **Checkpoint**: All user stories should now be independently functional.
 
@@ -88,8 +88,8 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T012 [P] Verify performance of noise overlay and visual consistency across Chrome, Safari, and Firefox
-- [ ] T013 Run `quickstart.md` verification steps
+- [x] T012 [P] Verify performance of noise overlay and visual consistency across Chrome, Safari, and Firefox
+- [x] T013 Run `quickstart.md` verification steps
 
 ---
 
