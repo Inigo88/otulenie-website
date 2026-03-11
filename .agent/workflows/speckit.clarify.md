@@ -170,7 +170,7 @@ Execution steps:
    - Proceed only if the user confirms (e.g., "finalize", "no more", "done", "yes").
    - Update the `Status:` field in `FEATURE_SPEC` to `Finalized`.
    - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
-   - If a backlog exists and the feature you are clarifying is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Finalized`. (Note: If `Finalized` is not in the legend, use it anyway as per current project evolution).
+   - If a backlog exists and the feature you are clarifying is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Clarified`.
    - Do not edit the backlog if the feature cannot be found.
 
 10. Report completion (after questioning loop ends or early termination):
