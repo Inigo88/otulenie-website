@@ -1,6 +1,6 @@
 ## Technical Requirements (NEVER CHANGE)
 
-- **Stack:** React 19.x, Vite 6.x, Tailwind CSS v4.x, GSAP 3 (with ScrollTrigger plugin), Lucide Reactt for icons.
+- **Stack:** React 19.x, Vite 6.x, Tailwind CSS v4.x, GSAP 3 (with ScrollTrigger plugin), Lucide React for icons.
 - **Fonts:** Load via Google Fonts `<link>` tags in `index.html` based on the selected preset.
 - **Images:** Use real Unsplash URLs. Select images matching the preset's `imageMood`. Never use placeholder URLs.
 - **File structure:** Single `App.jsx` with components defined in the same file (or split into `components/` if >600 lines). Single `index.css` for Tailwind directives + noise overlay + custom utilities.
