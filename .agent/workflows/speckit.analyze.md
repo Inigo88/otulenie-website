@@ -174,8 +174,12 @@ At end of report, output a concise Next Actions block:
 ### 8. Update Backlog (If Applicable)
 
 - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
-- If a backlog exists and the feature you analyzed is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Analysed`.
-- Do not edit the backlog if the feature cannot be found.
+  - If a backlog exists and the feature you analyzed is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Analysed`.
+  - After updating the feature status, **always** run the automation script to propagate status changes to Epics and Milestones:
+    ```bash
+    chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
+    ```
+  - Do not edit the backlog if the feature cannot be found.
 
 ### 9. Offer Remediation
 
