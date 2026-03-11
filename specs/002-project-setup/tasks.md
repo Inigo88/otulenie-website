@@ -26,7 +26,7 @@ description: "Task list for feature implementation: Project Structure Setup"
 
 - [ ] T001 Create project structure per implementation plan
 - [ ] T002 Initialize Vite 6.x React 19.x project with Tailwind CSS v4.x dependencies
-- [ ] T003 [P] Install GSAP 3 (ScrollTrigger) and Lucide React dependencies
+- [ ] T003 [P] Install GSAP 3 (ScrollTrigger) and Lucide Reactt dependencies
 - [ ] T004 [P] Configure Vite, Tailwind, and postcss config files
 - [ ] T004b Enforce Node.js version (e.g., v20) by creating `.nvmrc` and specifying `engines` in `package.json`
 

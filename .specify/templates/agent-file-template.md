@@ -1,9 +1,8 @@
 # [PROJECT NAME] Development Guidelines
 
-Auto-generated from all feature plans. Last updated: [DATE]
+Last updated: [DATE]
 
 ## Active Technologies
-
 [EXTRACTED FROM ALL PLAN.MD FILES]
 
 ## Project Structure
@@ -12,17 +11,18 @@ Auto-generated from all feature plans. Last updated: [DATE]
 [ACTUAL STRUCTURE FROM PLANS]
 ```
 
-## Commands
+## Architectural Constraints
+- (Add constraints from project memory/constitution here)
 
+## Commands
 [ONLY COMMANDS FOR ACTIVE TECHNOLOGIES]
 
 ## Code Style
-
 [LANGUAGE-SPECIFIC, ONLY FOR LANGUAGES IN USE]
 
-## Recent Changes
-
+## Recent Milestones
 [LAST 3 FEATURES AND WHAT THEY ADDED]
 
 <!-- MANUAL ADDITIONS START -->
+<!-- These items are preserved across auto-updates -->
 <!-- MANUAL ADDITIONS END -->
