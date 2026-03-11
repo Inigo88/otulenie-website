@@ -2,8 +2,14 @@
 
 **Feature Branch**: `004-base-components`  
 **Created**: 2026-03-11  
-**Status**: Draft  
+**Status**: Finalized  
 **Input**: User description: "Create base interactive UI components (Magnetic buttons and rounded containers)"
+
+## Clarifications
+
+### Session 2026-03-11
+- Q: How aggressive should the magnetic pull be relative to the cursor movement? → A: Option A - Dampened: Button moves ~30-50% of the relative cursor offset.
+- Q: What is the intended transparency level for the rounded containers? → A: Option B - Semi-transparent: 60-80% opacity with backdrop-blur.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -17,7 +23,7 @@ As a visitor, I want buttons to react to my cursor with a subtle magnetic pull s
 
 **Acceptance Scenarios**:
 
-1. **Given** a magnetic button, **When** the cursor enters its proximity (20-40px), **Then** the button must subtly shift toward the cursor position.
+1. **Given** a magnetic button, **When** the cursor enters its proximity (20-40px), **Then** the button must subtly shift toward the cursor position (dampened to ~30-50% of cursor offset).
 2. **Given** a clicked button, **When** triggered, **Then** it must execute its primary action (e.g., link navigation) without delay.
 
 ---
@@ -32,7 +38,7 @@ As a visitor, I want content to be housed in soft, rounded containers that match
 
 **Acceptance Scenarios**:
 
-1. **Given** a rounded container, **When** rendered, **Then** it must have a `border-radius` (e.g., `2rem` or `3rem`) that aligns with the premium design language.
+1. **Given** a rounded container, **When** rendered, **Then** it must have a `border-radius` (e.g., `2rem` or `3rem`) and a semi-transparent background (60-80% opacity with `backdrop-blur`) that aligns with the premium design language.
 2. **Given** multiple containers, **When** stacked, **Then** they must maintain consistent spacing and responsive padding.
 
 ---
@@ -65,6 +71,8 @@ As a mobile user, I want the buttons and containers to scale appropriately to my
 - **FR-003**: System MUST provide a `RoundedContainer` component with global consistency for `border-radius` and layout padding.
 - **FR-004**: Components MUST strictly use the "Otulenie Calm" palette (`moss`, `linen`, `olive`).
 - **FR-005**: Magnetic interactions MUST be performant and not cause layout thrashing (GSAP `x/y` transforms).
+- **FR-006**: Magnetic pull strength MUST be dampened to approximately 30-50% of the relative cursor offset.
+- **FR-007**: `RoundedContainer` backgrounds MUST utilize 60-80% opacity with `backdrop-blur:` for cinematic depth.
 
 ## Success Criteria *(mandatory)*
 
