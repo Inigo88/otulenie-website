@@ -2,7 +2,7 @@
 
 **Feature Branch**: `003-design-system`  
 **Created**: 2026-03-10  
-**Status**: Draft  
+**Status**: Finalized  
 **Input**: User description: "Implement global CSS and typography system (Apply the 'Otulenie Calm' preset colors, typography, and the 0.05 opacity SVG noise overlay across the application.)"
 
 ## Clarifications
