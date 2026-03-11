@@ -60,12 +60,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 #### Epic 1.2: Homepage High-Impact Sections
 
 **Description**: Building the critical above-the-fold and core value proposition interactive sections.  
-**Status**: Backlog
+**Status**: In progress
 
 - **Feature 1.2.1**: Implement the "Floating Island" Navbar  
   **Description**: Build a fixed, pill-shaped navbar that morphs its background and style based on the page's scroll position.  
   **Branch**: `005-navbar`  
-  **Status**: Backlog
+  **Status**: Clarified
 
 - **Feature 1.2.2**: Develop the Hero section  
   **Description**: Create a full-height hero section leveraging a dark gradient overlay and staggered GSAP fade-up text animations.  
