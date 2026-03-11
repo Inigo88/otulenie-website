@@ -40,7 +40,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 #### Epic 1.1: Design System & Infrastructure Setup
 
 **Description**: Initializing the tech stack, global styles, and animation utilities.  
-**Status**: In progress
+**Status**: Done
 
 - **Feature 1.1.1**: Setup project structure and core dependencies  
   **Description**: Initialize the frontend application (Vite 6.x + React 19.x) with necessary libraries including GSAP for animations and Tailwind CSS v4.x.  
@@ -55,7 +55,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.1.3**: Create base interactive UI components  
   **Description**: Build reusable magnetic buttons and rounded containers to enforce micro-interaction rules across the site.  
   **Branch**: `004-base-components`  
-  **Status**: Implemented
+  **Status**: Done
 
 #### Epic 1.2: Homepage High-Impact Sections
 
