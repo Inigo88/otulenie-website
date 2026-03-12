@@ -60,21 +60,26 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 #### Epic 1.2: Homepage High-Impact Sections
 
 **Description**: Building the critical above-the-fold and core value proposition interactive sections.  
-**Status**: Backlog
+**Status**: In progress
 
 - **Feature 1.2.1**: Implement the "Floating Island" Navbar  
   **Description**: Build a fixed, pill-shaped navbar that morphs its background and style based on the page's scroll position.  
   **Branch**: `005-navbar`  
+  **Status**: Done
+
+- **Feature 1.2.2**: Full Mobile Navigation Modal  
+  **Description**: Develop the overlay modal for mobile devices, featuring high-fidelity animations, brand presence, and clear navigation links.  
+  **Branch**: `006-navbar-mobile`  
   **Status**: Backlog
 
-- **Feature 1.2.2**: Develop the Hero section  
+- **Feature 1.2.3**: Develop the Hero section  
   **Description**: Create a full-height hero section leveraging a dark gradient overlay and staggered GSAP fade-up text animations.  
-  **Branch**: `006-hero-section`  
+  **Branch**: `007-hero-section`  
   **Status**: Backlog
 
-- **Feature 1.2.3**: Build interactive features cards  
+- **Feature 1.2.4**: Build interactive features cards  
   **Description**: Implement the three required functional micro-UIs: Diagnostic Shuffler, Telemetry Typewriter, and Cursor Protocol Scheduler.  
-  **Branch**: `007-features-cards`  
+  **Branch**: `008-features-cards`  
   **Status**: Backlog
 
 #### Epic 1.3: Deep Dive & Footer Elements
@@ -84,17 +89,17 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 1.3.1**: Develop the Philosophy Manifesto section  
   **Description**: Build a dark-themed parallax-supported section using GSAP SplitText reveal animations to highlight brand differentiation.  
-  **Branch**: `008-philosophy-section`  
+  **Branch**: `009-philosophy-section`  
   **Status**: Backlog
 
 - **Feature 1.3.2**: Implement "Sticky Stacking Archive" for massage protocols  
   **Description**: Create three scroll-linked stacking cards governed by GSAP ScrollTrigger to display massage protocols and values.  
-  **Branch**: `009-stacking-services`  
+  **Branch**: `010-stacking-services`  
   **Status**: Backlog
 
 - **Feature 1.3.3**: Build Footer with operational indicator  
   **Description**: Develop the deep dark rounded-top footer containing navigation links and a pulsing "System Operational" interactive dot.  
-  **Branch**: `010-footer`  
+  **Branch**: `011-footer`  
   **Status**: Backlog
 
 ---
@@ -111,12 +116,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.1.1**: Build the 'Oferta' page  
   **Description**: Create a dedicated page detailing the four massage types (Mocne, Głębokie, Czułe, Ciepłe) with prominent individual CTAs.  
-  **Branch**: `011-oferta-page`  
+  **Branch**: `012-oferta-page`  
   **Status**: Backlog
 
 - **Feature 2.1.2**: Implement the 'Obszar dojazdu' page  
   **Description**: Build an informative page detailing the Wrocław service coverage and specific out-of-city travel policies.  
-  **Branch**: `012-obszar-page`  
+  **Branch**: `013-obszar-page`  
   **Status**: Backlog
 
 #### Epic 2.2: Trust & Booking Support
@@ -126,15 +131,15 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.2.1**: Create the 'O mnie' page  
   **Description**: Build a highly trust-focused page detailing the practitioner's philosophy, natural approach, and commitment to calm.  
-  **Branch**: `013-omnie-page`  
+  **Branch**: `014-omnie-page`  
   **Status**: Backlog
 
 - **Feature 2.2.2**: Develop the 'FAQ' accordion component  
   **Description**: Implement an interactive, smooth-animating accordion listing common questions about home preparation, pain, and payment options.  
-  **Branch**: `014-faq-page`  
+  **Branch**: `015-faq-page`  
   **Status**: Backlog
 
 - **Feature 2.2.3**: Build primary booking flow interactions  
   **Description**: Ensure robust integration with Booksy links site-wide and format secondary contact options efficiently.  
-  **Branch**: `015-booking-flow`  
+  **Branch**: `016-booking-flow`  
   **Status**: Backlog
