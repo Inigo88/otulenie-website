@@ -67,12 +67,17 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Branch**: `005-navbar`  
   **Status**: Implemented
 
-- **Feature 1.2.2**: Develop the Hero section  
+- **Feature 1.2.2**: Full Mobile Navigation Modal  
+  **Description**: Develop the overlay modal for mobile devices, featuring high-fidelity animations, brand presence, and clear navigation links.  
+  **Branch**: `005-navbar-mobile`  
+  **Status**: Backlog
+
+- **Feature 1.2.3**: Develop the Hero section  
   **Description**: Create a full-height hero section leveraging a dark gradient overlay and staggered GSAP fade-up text animations.  
   **Branch**: `006-hero-section`  
   **Status**: Backlog
 
-- **Feature 1.2.3**: Build interactive features cards  
+- **Feature 1.2.4**: Build interactive features cards  
   **Description**: Implement the three required functional micro-UIs: Diagnostic Shuffler, Telemetry Typewriter, and Cursor Protocol Scheduler.  
   **Branch**: `007-features-cards`  
   **Status**: Backlog
