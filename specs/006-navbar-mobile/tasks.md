@@ -94,6 +94,17 @@
 
 ---
 
+## Phase 8: Advanced Bug Fixes & Animation Refinement
+
+**Purpose**: Addressing continuity and consistency bugs B005 & B006.
+
+- [x] T027 Create professional bug reports B005 & B006 in `specs/006-navbar-mobile/bugs/`
+- [x] T028 Refactor `MobileMenu` links to use `MagneticButton` for animation/font consistency (B005)
+- [x] T029 Resolve `z-index` conflict in `Navbar.jsx` to maintain morphing visibility over the modal (B006)
+- [x] T030 Remove the redundant internal close button in `MobileMenu.jsx` (B006)
+
+---
+
 ## Dependencies & Execution Order
 
 1. **Phase 1-2** are blocking.

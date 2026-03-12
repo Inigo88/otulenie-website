@@ -52,7 +52,7 @@ export default function Navbar({ isHero = true, onNavigate }) {
                 ref={navbarRef}
                 aria-label="Nawigacja główna"
                 className={`
-        navbar fixed top-0 left-0 w-full z-50 p-6 flex justify-center transition-all duration-500
+        navbar fixed top-0 left-0 w-full z-[70] p-6 flex justify-center transition-all duration-500
         ${isHero ? 'bg-transparent' : 'py-2'}
       `}
             >
