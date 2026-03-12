@@ -5,8 +5,15 @@ import { useGSAP } from '@gsap/react'
 /**
  * MagneticButton Component
  * Features: GSAP Magnetic pull, scale on hover, responsive disable, prefers-reduced-motion check.
+ *
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - Button content
+ * @param {string} [props.className] - Additional CSS classes
+ * @param {function} [props.onClick] - Click handler
+ * @param {number} [props.strength=0.4] - Magnetic pull strength (0 to 1)
+ * @param {string|React.ElementType} [props.as='button'] - Element type to render (e.g. 'a', 'button')
  */
-export default function MagneticButton({ children, className = "", onClick, strength = 0.4 }) {
+export default function MagneticButton({ children, className = "", onClick, strength = 0.4, as: Component = 'button', ...rest }) {
     const buttonRef = useRef(null)
     const [isHovered, setIsHovered] = useState(false)
     const [reducedMotion, setReducedMotion] = useState(false)
@@ -58,7 +65,7 @@ export default function MagneticButton({ children, className = "", onClick, stre
     })
 
     return (
-        <button
+        <Component
             ref={buttonRef}
             onMouseMove={handleMouseMove}
             onMouseEnter={contextSafe(() => setIsHovered(true))}
@@ -72,10 +79,12 @@ export default function MagneticButton({ children, className = "", onClick, stre
         active:scale-[0.98] cursor-pointer
         ${className || 'bg-moss text-linen'}
       `}
+            {...rest}
         >
             <span className="relative z-10 pointer-events-none">
                 {children}
             </span>
-        </button>
+        </Component>
     )
 }
+
