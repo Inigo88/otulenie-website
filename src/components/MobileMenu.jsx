@@ -122,18 +122,20 @@ export default function MobileMenu({ isOpen, onClose, links }) {
     if (!isVisible && !isOpen) return null
 
     return (
-        <div
+        <div 
             ref={modalRef}
+            className={`
+                fixed inset-0 z-60 flex items-center justify-center p-4 md:p-8
+                ${isOpen ? 'pointer-events-auto' : 'pointer-events-none invisible'}
+                transition-[visibility] duration-500
+            `}
             role="dialog"
             aria-modal="true"
-            aria-label="Menu mobilne"
-            className={`fixed inset-0 z-[60] flex flex-col p-4 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-            onTransitionEnd={() => !isOpen && setIsVisible(false)}
+            aria-label="Menu nawigacyjne"
         >
-            {/* T006, T009, T013: Backdrop with Blur & Brand Tint */}
-            <div
-                ref={overlayRef}
-                className="absolute inset-0 bg-moss/40 backdrop-blur-xl"
+            {/* US1, US2: Backdrop with Blur */}
+            <div 
+                className="absolute inset-0 bg-moss/40 backdrop-blur-xl" 
                 onClick={onClose}
                 aria-hidden="true"
             />
@@ -149,12 +151,12 @@ export default function MobileMenu({ isOpen, onClose, links }) {
                         <MagneticButton
                             as="a"
                             key={index}
-                            ref={el => linkRefs.current[index] = el}
+                            ref={el => { if (el) linkRefs.current[index] = el }}
                             href={link.href}
                             strength={0.2}
                             onClick={onClose}
                             className={`
-                                text-2xl font-sans font-medium text-moss no-underline hover:text-olive transition-colors tracking-tight
+                                text-xl font-sans font-medium text-moss/90 no-underline hover:text-moss transition-colors tracking-tight
                                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-lg px-8 py-3
                                 bg-transparent shadow-none hover:shadow-none
                             `}

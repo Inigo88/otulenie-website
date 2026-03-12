@@ -116,4 +116,14 @@
 
 ---
 
+## Phase 10: Pixel-Perfect Refinements
+
+**Purpose**: Achieving absolute visual and behavioral parity.
+
+- [x] T035 Implement GSAP-driven morph for hamburger lines in `Navbar.jsx`
+- [x] T036 Align `MobileMenu` typography to `text-xl` and stabilize GSAP staggering (B005)
+- [x] T037 Final behavioral verification in browser
+
+---
+
 ## Dependencies & Execution Order

@@ -19,6 +19,8 @@ export default function Navbar({ isHero = true, onNavigate }) {
     const [reducedMotion, setReducedMotion] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isAnimating, setIsAnimating] = useState(false)
+    const lineTopRef = useRef(null)
+    const lineBottomRef = useRef(null)
 
     useEffect(() => {
         const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -38,6 +40,37 @@ export default function Navbar({ isHero = true, onNavigate }) {
             ease: 'power3.inOut',
         })
     }, { dependencies: [isHero, reducedMotion], scope: navbarRef })
+
+    // B006: Precision Hamburger-to-X Morph
+    useGSAP(() => {
+        if (!lineTopRef.current || !lineBottomRef.current) return
+
+        if (isMenuOpen) {
+            // Morph to X
+            gsap.to(lineTopRef.current, {
+                attr: { x1: 8, y1: 8, x2: 24, y2: 24 },
+                duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+            gsap.to(lineBottomRef.current, {
+                attr: { x1: 24, y1: 8, x2: 8, y2: 24 },
+                duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+        } else {
+            // Morph to Hamburger
+            gsap.to(lineTopRef.current, {
+                attr: { x1: 6, y1: 10, x2: 26, y2: 10 },
+                duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+            gsap.to(lineBottomRef.current, {
+                attr: { x1: 6, y1: 22, x2: 26, y2: 22 },
+                duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+        }
+    }, { dependencies: [isMenuOpen, reducedMotion], scope: navbarRef })
 
     const links = [
         { label: 'Oferta', href: '/oferta' },
@@ -125,27 +158,19 @@ export default function Navbar({ isHero = true, onNavigate }) {
                             >
                                 {/* Top Line */}
                                 <line 
-                                    x1="4" y1="8" x2="28" y2="8" 
+                                    ref={el => { if (el) lineTopRef.current = el }}
+                                    x1="6" y1="10" x2="26" y2="10" 
                                     stroke="currentColor" 
                                     strokeWidth="2.5" 
                                     strokeLinecap="round"
-                                    className={`transition-all duration-500 origin-center ${isMenuOpen ? 'rotate-45 translate-y-[8px]' : ''}`}
-                                />
-                                {/* Middle Line */}
-                                <line 
-                                    x1="4" y1="16" x2="28" y2="16" 
-                                    stroke="currentColor" 
-                                    strokeWidth="2.5" 
-                                    strokeLinecap="round"
-                                    className={`transition-all duration-500 ${isMenuOpen ? 'opacity-0 -translate-x-4' : 'opacity-100'}`}
                                 />
                                 {/* Bottom Line */}
                                 <line 
-                                    x1="4" y1="24" x2="28" y2="24" 
+                                    ref={el => { if (el) lineBottomRef.current = el }}
+                                    x1="6" y1="22" x2="26" y2="22" 
                                     stroke="currentColor" 
                                     strokeWidth="2.5" 
                                     strokeLinecap="round"
-                                    className={`transition-all duration-500 origin-center ${isMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}
                                 />
                             </svg>
                         </button>
