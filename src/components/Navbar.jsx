@@ -14,16 +14,10 @@ export default function Navbar({ isHero = true, onNavigate }) {
     const containerRef = useRef(null)
 
     useGSAP(() => {
-        // T010: GSAP Morphing Animation
+        // T010: GSAP Morphing Animation (Aesthetics Only)
         gsap.to(containerRef.current, {
-            width: isHero ? '100%' : 'auto',
-            maxWidth: isHero ? '1280px' : '800px',
-            backgroundColor: isHero ? 'rgba(253, 250, 240, 0)' : 'rgba(253, 250, 240, 0.8)', // Slightly more opaque
-            backdropFilter: isHero ? 'blur(0px)' : 'blur(16px)', // Deeper blur
-            paddingLeft: isHero ? '24px' : '20px',
-            paddingRight: isHero ? '24px' : '10px',
-            paddingTop: isHero ? '8px' : '6px',
-            paddingBottom: isHero ? '8px' : '6px',
+            backgroundColor: isHero ? 'rgba(253, 250, 240, 0)' : 'rgba(253, 250, 240, 0.8)',
+            backdropFilter: isHero ? 'blur(0px)' : 'blur(16px)',
             duration: 0.5,
             ease: 'power3.inOut',
         })
@@ -48,6 +42,7 @@ export default function Navbar({ isHero = true, onNavigate }) {
                     ref={containerRef}
                     className={`
                         flex items-center justify-between rounded-full border border-moss/10 transition-all duration-500
+                        w-full max-w-(--navbar-max-width) px-4 md:px-6 py-2
                         ${isHero ? 'shadow-none' : 'shadow-sm'}
                     `}
                 >
@@ -97,7 +92,7 @@ export default function Navbar({ isHero = true, onNavigate }) {
                             {isMobileMenuOpen ? (
                                 <X className="text-moss w-8 h-8" />
                             ) : (
-                                <Menu className={`w-8 h-8 transition-colors duration-500 ${isHero ? 'text-linen' : 'text-moss'}`} />
+                                <Menu className="text-moss w-8 h-8 transition-colors duration-500" />
                             )}
                         </button>
                     </div>
