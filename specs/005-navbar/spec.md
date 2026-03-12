@@ -86,7 +86,7 @@ As a mobile user, I need a condensed version of the navbar that doesn't consume 
 
 ### Key Entities
 
-- **Navigation Item**: Represents a single destination link (Title, URL). The canonical set is: Oferta (`/oferta`), O mnie (`/o-mnie`), FAQ (`/faq`) — rendered as plain text links — and Rezerwacja — rendered as a pill-shaped accent button linking to the Booksy booking page.
+- **Navigation Item**: Represents a single destination link (Title, URL). The canonical set is: Start (`/`), Oferta (`/oferta`), O mnie (`/o-mnie`), Obszar dojazdu (`/obszar-dojazdu`), FAQ (`/faq`) — rendered as plain text links — and Zarezerwuj masaż — rendered as a pill-shaped accent button linking to the Booksy booking page.
 - **Navbar State**: Represents the visual state (Transparent vs. Island) based on context.
 
 ### Constraints & Tradeoffs

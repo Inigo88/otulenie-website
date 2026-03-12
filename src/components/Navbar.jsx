@@ -38,8 +38,10 @@ export default function Navbar({ isHero = true, onNavigate }) {
     }, { dependencies: [isHero, reducedMotion], scope: navbarRef })
 
     const links = [
+        { label: 'Start', href: '/' },
         { label: 'Oferta', href: '/oferta' },
         { label: 'O mnie', href: '/o-mnie' },
+        { label: 'Obszar dojazdu', href: '/obszar-dojazdu' },
         { label: 'FAQ', href: '/faq' },
     ]
 
@@ -92,7 +94,7 @@ export default function Navbar({ isHero = true, onNavigate }) {
                                 transition-all duration-500
                             `}
                         >
-                            Zarezerwuj
+                            Zarezerwuj masaż
                         </MagneticButton>
                     </div>
 

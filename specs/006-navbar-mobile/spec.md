@@ -73,7 +73,7 @@ As a busy mother or desk worker, I want to quickly book a massage from the mobil
 ### Functional Requirements
 
 - **FR-001**: System MUST implement a full-screen or large center-aligned overlay modal specifically for mobile viewports (breakpoint < 768px).
-- **FR-002**: Modal MUST contain the following navigation links: Home, Oferta, O mnie, Obszar dojazdu, FAQ.
+- **FR-002**: Modal MUST contain the following navigation links: Start, Oferta, O mnie, Obszar dojazdu, FAQ.
 - **FR-003**: System MUST include a prominent "Zarezerwuj masaż" CTA within the modal, styled with the `Soft Olive (#6E8068)` accent color.
 - **FR-004**: Opening and closing transitions MUST be implemented using GSAP with `power3.out` easing and a staggered entrance for nav items (stagger: 0.1).
 - **FR-005**: Modal MUST adhere to the `Otulenie Calm` system: `Warm Linen` background, `Forest Moss` text, and `rounded-[2rem]` corners.
