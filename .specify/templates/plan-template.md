@@ -35,6 +35,8 @@
 [ ] II. The Focus on Conversion (Supports primary booking action on Booksy)
 [ ] III. Micro-Interaction Polish (Magnetic buttons, GSAP animations in useEffect contexts)
 [ ] IV. Mobile-First Experience (Vertical stacking, sticky CTA)
+[ ] V. Reusable Component Architecture (Check existing components before creating new; single responsibility; shared primitives in `components/`)
+[ ] VI. Accessibility Standards (WCAG 2.2 AA: semantic HTML, 4.5:1 contrast, keyboard nav, visible focus, 24×24px targets, ARIA, `prefers-reduced-motion`)
 
 ## Project Structure
 
