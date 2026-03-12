@@ -70,7 +70,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.2.2**: Full Mobile Navigation Modal  
   **Description**: Develop the overlay modal for mobile devices, featuring high-fidelity animations, brand presence, and clear navigation links.  
   **Branch**: `006-navbar-mobile`  
-  **Status**: Planned
+  **Status**: Tasked
 
 - **Feature 1.2.3**: Develop the Hero section  
   **Description**: Create a full-height hero section leveraging a dark gradient overlay and staggered GSAP fade-up text animations.  
