@@ -116,16 +116,18 @@ function MobileOverlay({ isOpen, onClose, links }) {
         if (isOpen) {
             gsap.to(overlayRef.current, {
                 opacity: 1,
+                padding: '24px',
                 visibility: 'visible',
                 duration: 0.4,
                 ease: 'power3.out'
             })
             gsap.from(".mobile-link", {
-                y: 20,
+                y: 40,
                 opacity: 0,
                 stagger: 0.1,
-                duration: 0.6,
-                ease: 'back.out(1.7)'
+                duration: 0.8,
+                ease: 'expo.out',
+                delay: 0.2
             })
         } else {
             gsap.to(overlayRef.current, {
@@ -140,37 +142,49 @@ function MobileOverlay({ isOpen, onClose, links }) {
     return (
         <div
             ref={overlayRef}
-            className="fixed inset-0 z-[60] bg-linen/95 backdrop-blur-xl flex flex-col items-center justify-center invisible opacity-0"
+            className="fixed inset-0 z-[60] bg-moss/98 backdrop-blur-2xl flex flex-col items-center justify-center invisible opacity-0 overflow-hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Nawigacja mobilna"
         >
+            {/* Background Decorative Elements */}
+            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-olive/20 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-olive/10 blur-[100px] rounded-full pointer-events-none" />
+
             <button
                 onClick={onClose}
-                className="absolute top-8 right-8 p-4 text-moss focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full"
+                className="absolute top-8 right-8 p-4 text-linen/60 hover:text-linen focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full transition-colors"
                 aria-label="Zamknij menu"
             >
                 <X className="w-10 h-10" />
             </button>
 
-            <div className="flex flex-col items-center gap-10">
+            <div className="flex flex-col items-center gap-6 md:gap-10 relative z-10">
+                <span className="text-olive text-xs tracking-[0.3em] font-medium uppercase mb-4 opacity-60">Menu</span>
                 {links.map((link) => (
                     <a
                         key={link.label}
                         href={link.href}
                         onClick={onClose}
-                        className="mobile-link text-4xl font-serif text-moss hover:text-olive transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-lg px-4 py-2"
+                        className="mobile-link text-5xl md:text-7xl font-serif text-linen hover:text-olive transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-lg px-6 py-2"
                     >
                         {link.label}
                     </a>
                 ))}
-                <MagneticButton
-                    className="mobile-link bg-olive text-linen !px-10 !py-4 text-xl mt-4 focus-visible:ring-linen"
-                    onClick={onClose}
-                    aria-label="Zarezerwuj teraz"
-                >
-                    Zarezerwuj
-                </MagneticButton>
+                <div className="mobile-link mt-8">
+                    <MagneticButton
+                        className="bg-linen text-moss !px-12 !py-5 text-2xl font-serif tracking-tight shadow-2xl focus-visible:ring-linen active:scale-95"
+                        onClick={onClose}
+                        aria-label="Zarezerwuj teraz"
+                    >
+                        Zarezerwuj
+                    </MagneticButton>
+                </div>
+            </div>
+
+            {/* Bottom Brand Mark */}
+            <div className="absolute bottom-12 font-serif text-linen/20 text-xl tracking-widest italic">
+                Otulenie
             </div>
         </div>
     )
