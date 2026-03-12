@@ -72,8 +72,9 @@ export default function Navbar({ isHero = true, onNavigate }) {
                             onNavigate ? onNavigate('/') : window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}
                         className={`
-                            font-serif text-2xl font-bold tracking-tight transition-colors duration-500 px-4
+                            font-serif text-2xl font-bold tracking-tight transition-all duration-500 px-4
                             text-moss no-underline cursor-pointer
+                            ${isMenuOpen ? 'opacity-0 pointer-events-none translate-x-[-10px]' : 'opacity-100'}
                         `}
                     >
                         Otulenie

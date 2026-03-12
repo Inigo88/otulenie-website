@@ -154,7 +154,7 @@ export default function MobileMenu({ isOpen, onClose, links }) {
                             strength={0.2}
                             onClick={onClose}
                             className={`
-                                text-4xl font-sans font-medium text-moss no-underline hover:text-olive transition-colors tracking-tight
+                                text-2xl font-sans font-medium text-moss no-underline hover:text-olive transition-colors tracking-tight
                                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-lg px-8 py-3
                                 bg-transparent shadow-none hover:shadow-none
                             `}

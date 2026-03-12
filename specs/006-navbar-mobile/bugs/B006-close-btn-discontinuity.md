@@ -1,4 +1,4 @@
-# Bug Report: Close Button Animation Discontinuity
+# Bug Report: Navbar Header Continuity Issues (B006)
 
 ## Status
 Fixed
@@ -7,17 +7,16 @@ Fixed
 High (Visual Polish / Discontinuity)
 
 ## Description
-The hamburger morph animation in the `Navbar` is hidden by the `MobileMenu` (due to z-index). An internal 'X' button then appears in the modal, creating a jarring jump. The user wants the original morphing animation to be visible and serve as the close trigger.
+The hamburger morph animation in the `Navbar` is correctly visible over the modal (due to z-index 70), but the `Navbar` logo also remains visible, creating a "weird" floating header that duplicates branding or creates visual clutter.
 
 ## Root Cause
-- `Navbar` z-index (50) is lower than `MobileMenu` z-index (60).
-- Redundant close button added to `MobileMenu` in previous fix attempt.
+- `Navbar` z-index (70) keeps all its children (Logo + Button) on top of the `MobileMenu` (60).
+- Lack of conditional visibility for the logo when `isMenuOpen` is true.
 
 ## Resolution
-[To be implemented: Increase Navbar z-index to be higher than MobileMenu, and remove the internal close button from the modal.]
+[To be implemented: Add a conditional fade/opacity for the Navbar logo when isMenuOpen is true.]
 
 ## Verification
-- [ ] Morphing 'X' animation is clearly visible over the modal backdrop.
-- [ ] Clicking the morphing 'X' closes the menu.
-- [ ] Redundant close button is removed from the modal.
+- [ ] Navbar logo fades out when menu is open.
+- [ ] Morphing 'X' remains visible and functional.
 - [ ] Build passes / No regressions

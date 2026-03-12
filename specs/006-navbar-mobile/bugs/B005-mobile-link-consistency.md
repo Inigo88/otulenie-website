@@ -1,4 +1,4 @@
-# Bug Report: Mobile Menu Link Inconsistency
+# Bug Report: Mobile Menu Link Inconsistency (B005)
 
 ## Status
 Fixed
@@ -7,16 +7,17 @@ Fixed
 Medium (UI/UX Consistency)
 
 ## Description
-The navigation links in the mobile menu lack the magnetic animation present in the desktop navbar. Additionally, there is a desire for font consistency between the navigation links and the CTA button (both should be sans-serif).
+The navigation links in the mobile menu lack the magnetic animation present in the desktop navbar. Additionally, the font size (`text-4xl`) is significantly larger than the CTA button (`text-xl`), causing visual imbalance.
 
 ## Root Cause
-- `MobileMenu.jsx` uses standard `<a>` tags instead of the `MagneticButton` component.
-- Font styling was previously serif and recently switched to sans, but requires final alignment with the "Magnetic" behavior and CTA styling.
+- `MagneticButton.jsx` does not support `forwardRef`, preventing GSAP in `MobileMenu.jsx` from targeting the DOM elements for stagger animations.
+- Font size mismatch between links and CTA.
 
 ## Resolution
-[To be implemented: Refactor links in MobileMenu.jsx to use MagneticButton components.]
+[To be implemented: Add forwardRef to MagneticButton, update MobileMenu typography to text-2xl, and fix GSAP targets.]
 
 ## Verification
 - [ ] Mobile navigation links have magnetic pull effect.
-- [ ] Font matches the CTA button typography.
+- [ ] Font size matches/complements the CTA button typography.
+- [ ] Stagger entrance animation works.
 - [ ] Build passes / No regressions

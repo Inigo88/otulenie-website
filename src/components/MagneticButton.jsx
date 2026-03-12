@@ -1,10 +1,11 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 /**
  * MagneticButton Component
  * Features: GSAP Magnetic pull, scale on hover, responsive disable, prefers-reduced-motion check.
+ * Ref-forwarding enabled for parent GSAP/DOM access.
  *
  * @param {Object} props
  * @param {React.ReactNode} props.children - Button content
@@ -13,10 +14,13 @@ import { useGSAP } from '@gsap/react'
  * @param {number} [props.strength=0.4] - Magnetic pull strength (0 to 1)
  * @param {string|React.ElementType} [props.as='button'] - Element type to render (e.g. 'a', 'button')
  */
-export default function MagneticButton({ children, className = "", onClick, strength = 0.4, as: Component = 'button', ...rest }) {
+const MagneticButton = forwardRef(({ children, className = "", onClick, strength = 0.4, as: Component = 'button', ...rest }, ref) => {
     const buttonRef = useRef(null)
     const [isHovered, setIsHovered] = useState(false)
     const [reducedMotion, setReducedMotion] = useState(false)
+
+    // Forward the local ref to the parent-provided ref
+    useImperativeHandle(ref, () => buttonRef.current)
 
     // Check for prefers-reduced-motion
     useEffect(() => {
@@ -86,5 +90,9 @@ export default function MagneticButton({ children, className = "", onClick, stre
             </span>
         </Component>
     )
-}
+})
+
+MagneticButton.displayName = 'MagneticButton'
+
+export default MagneticButton
 

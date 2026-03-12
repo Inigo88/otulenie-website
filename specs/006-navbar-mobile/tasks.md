@@ -105,9 +105,15 @@
 
 ---
 
-## Dependencies & Execution Order
+## Phase 9: Final Refinements & continuity Polish 
 
-1. **Phase 1-2** are blocking.
-2. **Phase 3 (US1)** is the functional MVP.
-3. **Phase 4-5** add visual and conversion polish.
-4. **Phase 6** is final stabilization.
+**Purpose**: Addressing final user feedback on animations and visual weirdness.
+
+- [x] T031 [P] Implement `forwardRef` in `MagneticButton.jsx` to enable staggering entrance
+- [x] T032 Hide the "Otulenie" logo in `Navbar.jsx` when `isMenuOpen` is true
+- [x] T033 Normalize mobile menu link typography to `text-2xl font-sans`
+- [x] T034 Verify animations and visual continuity in the browser
+
+---
+
+## Dependencies & Execution Order
