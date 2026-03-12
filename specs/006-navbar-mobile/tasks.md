@@ -11,9 +11,9 @@
 
 **Purpose**: Preparing the project for the new component.
 
-- [ ] T001 [P] Create the component file `src/components/MobileMenu.jsx`
-- [ ] T002 Add `isMenuOpen` and `isAnimating` states to `src/components/Navbar.jsx`
-- [ ] T003 [P] Define local constants for the canonical link set in `src/components/Navbar.jsx` (based on data-model.md)
+- [x] T001 [P] Create the component file `src/components/MobileMenu.jsx`
+- [x] T002 Add `isMenuOpen` and `isAnimating` states to `src/components/Navbar.jsx`
+- [x] T003 [P] Define local constants for the canonical link set in `src/components/Navbar.jsx` (based on data-model.md)
 
 ---
 
@@ -21,9 +21,9 @@
 
 **Purpose**: Core infrastructure for the modal.
 
-- [ ] T004 Implement `useFocusTrap` custom hook logic in `src/components/MobileMenu.jsx`
-- [ ] T005 Implement body scroll locking logic using `useEffect` in `src/components/MobileMenu.jsx`
-- [ ] T006 [P] Add `backdrop-blur-xl` and `bg-moss/40` base styles for the modal overlay in `src/components/MobileMenu.jsx`
+- [x] T004 Implement `useFocusTrap` custom hook logic in `src/components/MobileMenu.jsx`
+- [x] T005 Implement body scroll locking logic using `useEffect` in `src/components/MobileMenu.jsx`
+- [x] T006 [P] Add `backdrop-blur-xl` and `bg-moss/40` base styles for the modal overlay in `src/components/MobileMenu.jsx`
 
 ---
 
@@ -35,10 +35,10 @@
 
 ### Implementation for User Story 1
 
-- [ ] T007 [US1] Build the basic modal container markup with `role="dialog"` and `aria-modal="true"` in `src/components/MobileMenu.jsx`
-- [ ] T008 [US1] Map through the navigation links array and render plain text links in `src/components/MobileMenu.jsx`
-- [ ] T009 [US1] Implement the `onClose` callback trigger when a link or backdrop is clicked in `src/components/MobileMenu.jsx`
-- [ ] T010 [US1] Wire the mobile menu trigger button in `src/components/Navbar.jsx` to toggle `isMenuOpen`
+- [x] T007 [US1] Build the basic modal container markup with `role="dialog"` and `aria-modal="true"` in `src/components/MobileMenu.jsx`
+- [x] T008 [US1] Map through the navigation links array and render plain text links in `src/components/MobileMenu.jsx`
+- [x] T009 [US1] Implement the `onClose` callback trigger when a link or backdrop is clicked in `src/components/MobileMenu.jsx`
+- [x] T010 [US1] Wire the mobile menu trigger button in `src/components/Navbar.jsx` to toggle `isMenuOpen`
 
 ---
 
@@ -50,10 +50,10 @@
 
 ### Implementation for User Story 2
 
-- [ ] T011 [US2] Implement the custom SVG hamburger morph animation in `src/components/Navbar.jsx` (top/middle/bottom line rotations/opacity)
-- [ ] T012 [US2] Create GSAP timeline for the modal entrance (back-drop fade + staggered link reveal) in `src/components/MobileMenu.jsx`
-- [ ] T013 [US2] Apply Brand typography (`Fraunces` for links) and colors (`Warm Linen` background, `Forest Moss` text) in `src/components/MobileMenu.jsx`
-- [ ] T014 [US2] Ensure `RoundedContainer` usage or `rounded-[2rem]` utility for modal elements per `FR-005`
+- [x] T011 [US2] Implement the custom SVG hamburger morph animation in `src/components/Navbar.jsx` (top/middle/bottom line rotations/opacity)
+- [x] T012 [US2] Create GSAP timeline for the modal entrance (back-drop fade + staggered link reveal) in `src/components/MobileMenu.jsx`
+- [x] T013 [US2] Apply Brand typography (`Fraunces` for links) and colors (`Warm Linen` background, `Forest Moss` text) in `src/components/MobileMenu.jsx`
+- [x] T014 [US2] Ensure `RoundedContainer` usage or `rounded-[2rem]` utility for modal elements per `FR-005`
 
 ---
 
@@ -65,9 +65,9 @@
 
 ### Implementation for User Story 3
 
-- [ ] T015 [US3] Implement the "Zarezerwuj masaż" CTA button using `MagneticButton` in `src/components/MobileMenu.jsx`
-- [ ] T016 [US3] Apply `Soft Olive (#6E8068)` background and ensure distinct styling from regular links
-- [ ] T017 [US3] Finalize ARIA labels for the booking CTA per `FR-009`
+- [x] T015 [US3] Implement the "Zarezerwuj masaż" CTA button using `MagneticButton` in `src/components/MobileMenu.jsx`
+- [x] T016 [US3] Apply `Soft Olive (#6E8068)` background and ensure distinct styling from regular links
+- [x] T017 [US3] Finalize ARIA labels for the booking CTA per `FR-009`
 
 ---
 
@@ -75,10 +75,10 @@
 
 **Purpose**: General improvements and final verification.
 
-- [ ] T018 [P] Verify `prefers-reduced-motion` compliance for all modal GSAP animations
-- [ ] T019 Handle viewport orientation changes to re-center or close the modal if needed
-- [ ] T020 Code cleanup and JSDoc documentation for the new `MobileMenu` component
-- [ ] T021 Final verification against `quickstart.md` test scenarios
+- [x] T018 [P] Verify `prefers-reduced-motion` compliance for all modal GSAP animations
+- [x] T019 Handle viewport orientation changes to re-center or close the modal if needed
+- [x] T020 Code cleanup and JSDoc documentation for the new `MobileMenu` component
+- [x] T021 Final verification against `quickstart.md` test scenarios
 
 ---
 

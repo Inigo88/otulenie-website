@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { Menu, X } from 'lucide-react'
 import MagneticButton from './MagneticButton'
+import MobileMenu from './MobileMenu'
 
 /**
  * Navbar Component
@@ -14,9 +15,9 @@ import MagneticButton from './MagneticButton'
  */
 export default function Navbar({ isHero = true, onNavigate }) {
     const navbarRef = useRef(null)
-    const containerRef = useRef(null)
-
     const [reducedMotion, setReducedMotion] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isAnimating, setIsAnimating] = useState(false)
 
     useEffect(() => {
         const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -98,19 +99,57 @@ export default function Navbar({ isHero = true, onNavigate }) {
                         </MagneticButton>
                     </div>
 
-                    {/* Mobile Trigger (Inactive) */}
+                    {/* Mobile Trigger */}
                     <div className="md:hidden flex items-center">
                         <button
                             type="button"
-                            className="p-2 bg-transparent border-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full"
-                            aria-label="Menu (obecnie nieaktywne)"
-                            disabled
+                            aria-label={isMenuOpen ? "Zamknij menu" : "Otwórz menu"}
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="relative w-10 h-10 flex items-center justify-center pointer-events-auto bg-transparent border-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full transition-all duration-300"
                         >
-                            <Menu className="text-moss w-8 h-8 transition-colors duration-500" />
+                            <svg 
+                                width="32" 
+                                height="32" 
+                                viewBox="0 0 32 32" 
+                                fill="none" 
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="overflow-visible"
+                            >
+                                {/* Top Line */}
+                                <line 
+                                    x1="4" y1="8" x2="28" y2="8" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2.5" 
+                                    strokeLinecap="round"
+                                    className={`transition-all duration-500 origin-center ${isMenuOpen ? 'rotate-45 translate-y-[8px]' : ''}`}
+                                />
+                                {/* Middle Line */}
+                                <line 
+                                    x1="4" y1="16" x2="28" y2="16" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2.5" 
+                                    strokeLinecap="round"
+                                    className={`transition-all duration-500 ${isMenuOpen ? 'opacity-0 -translate-x-4' : 'opacity-100'}`}
+                                />
+                                {/* Bottom Line */}
+                                <line 
+                                    x1="4" y1="24" x2="28" y2="24" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2.5" 
+                                    strokeLinecap="round"
+                                    className={`transition-all duration-500 origin-center ${isMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}
+                                />
+                            </svg>
                         </button>
                     </div>
                 </div>
             </nav>
+
+            <MobileMenu 
+                isOpen={isMenuOpen} 
+                onClose={() => setIsMenuOpen(false)} 
+                links={links}
+            />
         </>
     )
 }
