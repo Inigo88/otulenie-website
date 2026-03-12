@@ -15,6 +15,7 @@ import MobileMenu from './MobileMenu'
  */
 export default function Navbar({ isHero = true, onNavigate }) {
     const navbarRef = useRef(null)
+    const containerRef = useRef(null)
     const [reducedMotion, setReducedMotion] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isAnimating, setIsAnimating] = useState(false)
@@ -39,7 +40,6 @@ export default function Navbar({ isHero = true, onNavigate }) {
     }, { dependencies: [isHero, reducedMotion], scope: navbarRef })
 
     const links = [
-        { label: 'Start', href: '/' },
         { label: 'Oferta', href: '/oferta' },
         { label: 'O mnie', href: '/o-mnie' },
         { label: 'Obszar dojazdu', href: '/obszar-dojazdu' },
@@ -65,12 +65,19 @@ export default function Navbar({ isHero = true, onNavigate }) {
                     `}
                 >
                     {/* Logo */}
-                    <div className={`
-                        font-serif text-2xl font-bold tracking-tight transition-colors duration-500 px-4
-                        text-moss
-                    `}>
+                    <a 
+                        href="/" 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            onNavigate ? onNavigate('/') : window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className={`
+                            font-serif text-2xl font-bold tracking-tight transition-colors duration-500 px-4
+                            text-moss no-underline cursor-pointer
+                        `}
+                    >
                         Otulenie
-                    </div>
+                    </a>
 
                     {/* Desktop Navigation */}
                     <div className={`

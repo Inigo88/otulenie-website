@@ -25,6 +25,7 @@ export default function MobileMenu({ isOpen, onClose, links }) {
     const contentRef = useRef(null)
     const linkRefs = useRef([])
     const ctaRef = useRef(null)
+    const closeBtnRef = useRef(null)
 
     const [isVisible, setIsVisible] = useState(false)
     const [reducedMotion, setReducedMotion] = useState(false)
@@ -86,6 +87,11 @@ export default function MobileMenu({ isOpen, onClose, links }) {
                     { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
                     "-=0.2"
                 )
+                .fromTo(closeBtnRef.current,
+                    { opacity: 0, scale: 0.8 },
+                    { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)" },
+                    "-=0.4"
+                )
         }
     }, { dependencies: [isOpen], scope: modalRef })
 
@@ -143,6 +149,15 @@ export default function MobileMenu({ isOpen, onClose, links }) {
                 ref={contentRef}
                 className="relative z-10 flex-1 flex flex-col items-center justify-between p-8 pt-24 bg-linen/95 rounded-[2.5rem] shadow-2xl border border-moss/10"
             >
+                {/* B002: Explicit Close Button */}
+                <button
+                    ref={closeBtnRef}
+                    onClick={onClose}
+                    className="absolute top-8 right-8 p-3 text-moss hover:bg-moss/10 rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-olive"
+                    aria-label="Zamknij menu"
+                >
+                    <X size={28} />
+                </button>
                 {/* Navigation Links (US2) */}
                 <nav className="flex flex-col items-center gap-6 w-full mt-12">
                     {links.map((link, index) => (
@@ -152,7 +167,7 @@ export default function MobileMenu({ isOpen, onClose, links }) {
                             href={link.href}
                             onClick={onClose}
                             className={`
-                                text-4xl font-serif text-moss no-underline hover:text-olive transition-colors tracking-tight
+                                text-4xl font-sans text-moss no-underline hover:text-olive transition-colors tracking-tight
                                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-lg px-6 py-2
                             `}
                         >
@@ -171,7 +186,6 @@ export default function MobileMenu({ isOpen, onClose, links }) {
                         }}
                         aria-label="Zarezerwuj masaż na Booksy"
                     >
-                        <Calendar size={24} />
                         <span className="text-xl font-medium">Zarezerwuj masaż</span>
                     </MagneticButton>
                 </div>

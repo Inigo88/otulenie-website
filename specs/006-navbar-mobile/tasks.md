@@ -82,6 +82,18 @@
 
 ---
 
+## Phase 7: Bug Reporting and Fixes (Post-Implementation)
+
+**Purpose**: Addressing user feedback and UI refinements.
+
+- [x] T022 Create professional bug reports in `specs/006-navbar-mobile/bugs/` for the 4 identified issues
+- [x] T023 Remove redundant "Start" link and make logo interactive in `Navbar.jsx`
+- [x] T024 Add explicit close button visibility and accessibility to `MobileMenu.jsx`
+- [x] T025 Remove unnecessary icons from the booking CTA in `MobileMenu.jsx`
+- [x] T026 Update navigation typography to use standard sans-serif font
+
+---
+
 ## Dependencies & Execution Order
 
 1. **Phase 1-2** are blocking.
