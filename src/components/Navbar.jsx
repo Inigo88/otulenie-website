@@ -111,23 +111,27 @@ export default function Navbar({ isHero = true, onNavigate }) {
 
 function MobileOverlay({ isOpen, onClose, links }) {
     const overlayRef = useRef(null)
+    const modalRef = useRef(null)
 
     useGSAP(() => {
         if (isOpen) {
             gsap.to(overlayRef.current, {
                 opacity: 1,
-                padding: '24px',
                 visibility: 'visible',
-                duration: 0.4,
-                ease: 'power3.out'
+                duration: 0.3,
+                ease: 'power2.out'
             })
+            gsap.fromTo(modalRef.current,
+                { scale: 0.9, opacity: 0, y: 20 },
+                { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'expo.out', delay: 0.1 }
+            )
             gsap.from(".mobile-link", {
-                y: 40,
+                y: 20,
                 opacity: 0,
-                stagger: 0.1,
-                duration: 0.8,
-                ease: 'expo.out',
-                delay: 0.2
+                stagger: 0.08,
+                duration: 0.6,
+                ease: 'power3.out',
+                delay: 0.3
             })
         } else {
             gsap.to(overlayRef.current, {
@@ -142,49 +146,55 @@ function MobileOverlay({ isOpen, onClose, links }) {
     return (
         <div
             ref={overlayRef}
-            className="fixed inset-0 z-[60] bg-moss/98 backdrop-blur-2xl flex flex-col items-center justify-center invisible opacity-0 overflow-hidden"
+            className="fixed inset-0 z-[60] bg-moss/60 backdrop-blur-sm flex items-center justify-center p-6 invisible opacity-0 transition-all duration-300"
             role="dialog"
             aria-modal="true"
             aria-label="Nawigacja mobilna"
+            onClick={(e) => e.target === overlayRef.current && onClose()}
         >
-            {/* Background Decorative Elements */}
-            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-olive/20 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-olive/10 blur-[100px] rounded-full pointer-events-none" />
-
-            <button
-                onClick={onClose}
-                className="absolute top-8 right-8 p-4 text-linen/60 hover:text-linen focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full transition-colors"
-                aria-label="Zamknij menu"
+            <div
+                ref={modalRef}
+                className="relative w-full max-w-sm bg-moss rounded-[40px] shadow-2xl overflow-hidden flex flex-col items-center py-16 px-8 border border-linen/10"
             >
-                <X className="w-10 h-10" />
-            </button>
+                {/* Background Decorative Elements */}
+                <div className="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] bg-olive/20 blur-[80px] rounded-full pointer-events-none" />
+                <div className="absolute bottom-[-20%] right-[-20%] w-[80%] h-[80%] bg-olive/10 blur-[80px] rounded-full pointer-events-none" />
 
-            <div className="flex flex-col items-center gap-6 md:gap-10 relative z-10">
-                <span className="text-olive text-xs tracking-[0.3em] font-medium uppercase mb-4 opacity-60">Menu</span>
-                {links.map((link) => (
-                    <a
-                        key={link.label}
-                        href={link.href}
-                        onClick={onClose}
-                        className="mobile-link text-5xl md:text-7xl font-serif text-linen hover:text-olive transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-lg px-6 py-2"
-                    >
-                        {link.label}
-                    </a>
-                ))}
-                <div className="mobile-link mt-8">
-                    <MagneticButton
-                        className="bg-linen text-moss !px-12 !py-5 text-2xl font-serif tracking-tight shadow-2xl focus-visible:ring-linen active:scale-95"
-                        onClick={onClose}
-                        aria-label="Zarezerwuj teraz"
-                    >
-                        Zarezerwuj
-                    </MagneticButton>
+                <button
+                    onClick={onClose}
+                    className="absolute top-6 right-6 p-2 text-linen/40 hover:text-linen focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full transition-colors z-20"
+                    aria-label="Zamknij menu"
+                >
+                    <X className="w-8 h-8" />
+                </button>
+
+                <div className="flex flex-col items-center gap-8 relative z-10 w-full">
+                    <span className="text-olive text-[10px] tracking-[0.4em] font-medium uppercase mb-2 opacity-50">Menu</span>
+                    {links.map((link) => (
+                        <a
+                            key={link.label}
+                            href={link.href}
+                            onClick={onClose}
+                            className="mobile-link text-4xl font-serif text-linen hover:text-olive transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-xl px-4 py-1"
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+                    <div className="mobile-link mt-6 w-full">
+                        <MagneticButton
+                            className="bg-linen text-moss w-full !py-4 text-xl font-serif tracking-tight shadow-xl focus-visible:ring-linen active:scale-95"
+                            onClick={onClose}
+                            aria-label="Zarezerwuj teraz"
+                        >
+                            Zarezerwuj
+                        </MagneticButton>
+                    </div>
                 </div>
-            </div>
 
-            {/* Bottom Brand Mark */}
-            <div className="absolute bottom-12 font-serif text-linen/20 text-xl tracking-widest italic">
-                Otulenie
+                {/* Bottom Brand Mark */}
+                <div className="mt-12 font-serif text-linen/10 text-sm tracking-[0.2em] italic relative z-10">
+                    Otulenie
+                </div>
             </div>
         </div>
     )
