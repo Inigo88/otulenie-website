@@ -75,7 +75,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.2.3**: Develop the Hero section  
   **Description**: Create a full-height hero section leveraging a dark gradient overlay and staggered GSAP fade-up text animations.  
   **Branch**: `007-hero-section`  
-  **Status**: Backlog
+  **Status**: Clarified
 
 - **Feature 1.2.4**: Build interactive features cards  
   **Description**: Implement the three required functional micro-UIs: Diagnostic Shuffler, Telemetry Typewriter, and Cursor Protocol Scheduler.  
