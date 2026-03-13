@@ -1,6 +1,10 @@
 /**
  * RoundedContainer Component
  * Features: Semi-transparent linen background, backdrop-blur, responsive padding.
+ *
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - Container content
+ * @param {string} [props.className] - Additional CSS classes
  */
 export default function RoundedContainer({ children, className = "" }) {
     return (

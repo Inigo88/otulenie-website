@@ -9,6 +9,7 @@ Last updated: 2026-03-11
 - **Animations**: GSAP 3 (with ScrollTrigger plugin and `@gsap/react`)
 - **Icons**: Lucide React
 - **Fonts**: Google Fonts (Fraunces, Inter, Cormorant Garamond)
+- React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac (006-navbar-mobile)
 
 ## Project Structure
 
@@ -45,4 +46,5 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+- 006-navbar-mobile: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - 005-navbar: Implemented Floating Island Navbar with GSAP ScrollTrigger and mobile overlay.

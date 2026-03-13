@@ -1,30 +1,97 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { Menu, X } from 'lucide-react'
 import MagneticButton from './MagneticButton'
+import MobileMenu from './MobileMenu'
 
 /**
  * Navbar Component
  * Features: Morphing states (Hero/Island), Responsive mobile menu, Magnetic items.
+ *
+ * @param {Object} props
+ * @param {boolean} [props.isHero=true] - Whether the page is at the hero position (affects visual state)
+ * @param {function} [props.onNavigate] - Optional callback for client-side navigation (receives href)
  */
 export default function Navbar({ isHero = true, onNavigate }) {
     const navbarRef = useRef(null)
     const containerRef = useRef(null)
+    const [reducedMotion, setReducedMotion] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isAnimating, setIsAnimating] = useState(false)
+    const lineTopRef = useRef(null)
+    const lineMidRef = useRef(null)
+    const lineBottomRef = useRef(null)
+
+    useEffect(() => {
+        const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+        setReducedMotion(mq.matches)
+        const listener = (e) => setReducedMotion(e.matches)
+        mq.addEventListener('change', listener)
+        return () => mq.removeEventListener('change', listener)
+    }, [])
 
     useGSAP(() => {
         // T010: GSAP Morphing Animation (Aesthetics Only)
+        // VI-6: Respect prefers-reduced-motion
+        // B008: Force absolute transparency when menu is open to prevent overlay issues on scroll
         gsap.to(containerRef.current, {
-            backgroundColor: isHero ? 'rgba(253, 250, 240, 0)' : 'rgba(253, 250, 240, 0.8)',
-            backdropFilter: isHero ? 'blur(0px)' : 'blur(16px)',
-            duration: 0.5,
+            backgroundColor: isMenuOpen ? 'rgba(253, 250, 240, 0)' : (isHero ? 'rgba(253, 250, 240, 0)' : 'rgba(253, 250, 240, 0.8)'),
+            borderColor: isMenuOpen ? 'rgba(58, 77, 57, 0)' : (isHero ? 'rgba(58, 77, 57, 0)' : 'rgba(58, 77, 57, 0.1)'),
+            backdropFilter: isMenuOpen ? 'blur(0px)' : (isHero ? 'blur(0px)' : 'blur(16px)'),
+            boxShadow: isMenuOpen ? '0px 0px 0px rgba(0,0,0,0)' : (isHero ? '0px 0px 0px rgba(0,0,0,0)' : '0 1px 2px rgba(0,0,0,0.05)'),
+            duration: reducedMotion ? 0 : 0.5,
             ease: 'power3.inOut',
         })
-    }, { dependencies: [isHero], scope: navbarRef })
+    }, { dependencies: [isHero, isMenuOpen, reducedMotion], scope: navbarRef })
+
+    // B006, B007: Precision Hamburger-to-X Morph
+    useGSAP(() => {
+        if (!lineTopRef.current || !lineMidRef.current || !lineBottomRef.current) return
+
+        if (isMenuOpen) {
+            // Morph to X
+            gsap.to(lineTopRef.current, {
+                attr: { x1: 8, y1: 8, x2: 24, y2: 24 },
+                duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+            gsap.to(lineMidRef.current, {
+                opacity: 0,
+                attr: { x1: 16, x2: 16 },
+                duration: reducedMotion ? 0 : 0.4,
+                ease: "power3.out"
+            })
+            gsap.to(lineBottomRef.current, {
+                attr: { x1: 24, y1: 8, x2: 8, y2: 24 },
+                duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+        } else {
+            // Morph to Hamburger
+            gsap.to(lineTopRef.current, {
+                attr: { x1: 6, y1: 10, x2: 26, y2: 10 },
+                duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+            gsap.to(lineMidRef.current, {
+                opacity: 1,
+                attr: { x1: 6, x2: 26 },
+                duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+            gsap.to(lineBottomRef.current, {
+                attr: { x1: 6, y1: 22, x2: 26, y2: 22 },
+                duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+        }
+    }, { dependencies: [isMenuOpen, reducedMotion], scope: navbarRef })
 
     const links = [
         { label: 'Oferta', href: '/oferta' },
         { label: 'O mnie', href: '/o-mnie' },
+        { label: 'Obszar dojazdu', href: '/obszar-dojazdu' },
         { label: 'FAQ', href: '/faq' },
     ]
 
@@ -32,26 +99,36 @@ export default function Navbar({ isHero = true, onNavigate }) {
         <>
             <nav
                 ref={navbarRef}
+                aria-label="Nawigacja główna"
                 className={`
-        navbar fixed top-0 left-0 w-full z-50 p-6 flex justify-center transition-all duration-500
+        navbar fixed top-0 left-0 w-full z-[70] p-4 flex justify-center transition-all duration-500
         ${isHero ? 'bg-transparent' : 'py-2'}
       `}
             >
                 <div
                     ref={containerRef}
                     className={`
-                        flex items-center justify-between rounded-full border border-moss/10 transition-all duration-500
+                        flex items-center justify-between rounded-full border transition-all duration-500
                         w-full max-w-(--navbar-max-width) px-4 md:px-6 py-2
                         ${isHero ? 'shadow-none' : 'shadow-sm'}
+                        ${isMenuOpen ? 'bg-transparent border-transparent shadow-none' : 'bg-linen/80 border-moss/10 backdrop-blur-md'}
                     `}
                 >
                     {/* Logo */}
-                    <div className={`
-                        font-serif text-2xl font-bold tracking-tight transition-colors duration-500 px-4
-                        text-moss
-                    `}>
+                    <a 
+                        href="/" 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            onNavigate ? onNavigate('/') : window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className={`
+                            font-serif text-2xl font-bold tracking-tight transition-all duration-500 px-4
+                            text-moss no-underline cursor-pointer
+                            ${isMenuOpen ? 'opacity-0 pointer-events-none translate-x-[-10px]' : 'opacity-100'}
+                        `}
+                    >
                         Otulenie
-                    </div>
+                    </a>
 
                     {/* Desktop Navigation */}
                     <div className={`
@@ -76,25 +153,75 @@ export default function Navbar({ isHero = true, onNavigate }) {
                                 transition-all duration-500
                             `}
                         >
-                            Zarezerwuj
+                            Zarezerwuj masaż
                         </MagneticButton>
                     </div>
 
-                    {/* Mobile Trigger (Inactive) */}
+                    {/* Mobile Trigger */}
                     <div className="md:hidden flex items-center">
-                        <div
-                            className="p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full"
-                            aria-label="Menu (obecnie nieaktywne)"
+                        <button
+                            type="button"
+                            aria-label={isMenuOpen ? "Zamknij menu" : "Otwórz menu"}
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="relative w-10 h-10 flex items-center justify-center pointer-events-auto bg-transparent border-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full transition-all duration-300"
                         >
-                            <Menu className="text-moss w-8 h-8 transition-colors duration-500" />
-                        </div>
+                            <svg 
+                                width="32" 
+                                height="32" 
+                                viewBox="0 0 32 32" 
+                                fill="none" 
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="overflow-visible"
+                            >
+                                {/* Top Line */}
+                                <line 
+                                    ref={el => { if (el) lineTopRef.current = el }}
+                                    x1="6" y1="10" x2="26" y2="10" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2.5" 
+                                    strokeLinecap="round"
+                                />
+                                {/* Middle Line */}
+                                <line 
+                                    ref={el => { if (el) lineMidRef.current = el }}
+                                    x1="6" y1="16" x2="26" y2="16" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2.5" 
+                                    strokeLinecap="round"
+                                />
+                                {/* Bottom Line */}
+                                <line 
+                                    ref={el => { if (el) lineBottomRef.current = el }}
+                                    x1="6" y1="22" x2="26" y2="22" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2.5" 
+                                    strokeLinecap="round"
+                                />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </nav>
+
+            <MobileMenu 
+                isOpen={isMenuOpen} 
+                onClose={() => setIsMenuOpen(false)} 
+                links={links}
+            />
         </>
     )
 }
 
+/**
+ * NavLink — navigation anchor with magnetic hover effect.
+ *
+ * @param {Object} props
+ * @param {string} props.label - Visible link text
+ * @param {string} props.href - Navigation target
+ * @param {boolean} [props.isHero] - Whether in hero state (visual only)
+ * @param {boolean} [props.isCTA] - Marks link as a call-to-action (bold)
+ * @param {function} [props.onNavigate] - Optional client-side navigation callback
+ */
 function NavLink({ label, href, isHero, isCTA, onNavigate }) {
     const handleClick = (e) => {
         if (onNavigate) {
@@ -105,17 +232,20 @@ function NavLink({ label, href, isHero, isCTA, onNavigate }) {
 
     return (
         <MagneticButton
+            as="a"
+            href={href}
             strength={0.2}
             onClick={handleClick}
             className={`
                 bg-transparent !p-0 shadow-none hover:shadow-none
                 text-sm font-medium tracking-wide transition-colors duration-500
-                text-moss/70 hover:text-moss
+                text-moss/70 hover:text-moss no-underline
                 focus-visible:ring-1 focus-visible:ring-moss/30 rounded-lg
+                px-3 py-1 block
                 ${isCTA ? 'font-bold' : ''}
             `}
         >
-            <a href={href} className="px-3 py-1 block">{label}</a>
+            {label}
         </MagneticButton>
     )
 }
