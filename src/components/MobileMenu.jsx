@@ -143,10 +143,10 @@ export default function MobileMenu({ isOpen, onClose, links }) {
             {/* US1, US2: Content Container with Brand Presence */}
             <div 
                 ref={contentRef}
-                className="relative z-10 w-full flex flex-col items-center justify-between p-8 pt-24 pb-12 bg-linen/95 rounded-[2.5rem] shadow-2xl border border-moss/10"
+                className="relative z-10 w-full flex flex-col items-center justify-between p-6 pt-20 pb-10 bg-linen/95 rounded-[2.5rem] shadow-2xl border border-moss/10"
             >
                 {/* Navigation Links (US2, B005) */}
-                <nav className="flex flex-col items-center gap-6 w-full mt-12">
+                <nav className="flex flex-col items-center gap-2 w-full mt-8">
                     {links.map((link, index) => (
                         <MagneticButton
                             as="a"
@@ -167,7 +167,7 @@ export default function MobileMenu({ isOpen, onClose, links }) {
                 </nav>
 
                 {/* T015-T017: US3 Booking CTA */}
-                <div ref={ctaRef} className="w-full max-w-[280px] pb-8">
+                <div ref={ctaRef} className="w-full max-w-[280px] mt-12 pb-4">
                     <MagneticButton
                         className="w-full bg-olive text-linen flex items-center justify-center gap-3 py-6 shadow-lg hover:shadow-olive/20"
                         onClick={() => {

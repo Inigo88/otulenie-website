@@ -147,4 +147,19 @@
 
 ---
 
-## Dependencies & Execution Order
+## Phase 13: Z-Index & Stacking Refinement
+
+**Purpose**: Ensuring header transparency during scroll.
+
+- [x] T045 Force `Navbar.jsx` container to transparent when `isMenuOpen` in GSAP
+- [x] T046 Refine `MobileMenu.jsx` vertical rhythm (spacing/padding)
+- [x] T047 Verify scroll transparency and layout balance in browser
+
+---
+
+## Phase 14: Final Quality Closure
+
+**Purpose**: Confirming all visual and behavioral issues are resolved.
+
+- [x] T048 Verify and update final walkthrough.md with proofs
+- [x] T049 Final code push and notification

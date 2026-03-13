@@ -7,9 +7,9 @@ Fixed
 High (Visual Polish / Layout)
 
 ## Description
-1. The mobile modal is centered vertically instead of being aligned to the top of the screen.
-2. The Navbar's "island" container (border, background, shadow) remains visible over the modal content due to higher z-index, creating a jarring "box-in-box" look.
-3. The 'X' button and logo (when hidden) still occupy the navbar container which sits on top of the modal.
+1. The mobile modal is centered vertically instead of being aligned to the top of the screen. (Fixed in Phase 12)
+2. The Navbar's "island" container (border, background, shadow) remains visible over the modal content due to higher z-index, especially when the page is scrolled down.
+3. The GSAP scroll animation in `Navbar.jsx` overrides Tailwind transparency classes when `isMenuOpen` is true.
 
 ## Root Cause
 - `Navbar` z-index (70) is higher than `MobileMenu` (60).
