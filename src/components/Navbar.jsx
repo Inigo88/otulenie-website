@@ -11,9 +11,10 @@ import MobileMenu from './MobileMenu'
  *
  * @param {Object} props
  * @param {boolean} [props.isHero=true] - Whether the page is at the hero position (affects visual state)
+ * @param {boolean} [props.isVisible=true] - Whether the navbar is visible (used for delayed reveal)
  * @param {function} [props.onNavigate] - Optional callback for client-side navigation (receives href)
  */
-export default function Navbar({ isHero = true, onNavigate }) {
+export default function Navbar({ isHero = true, isVisible = true, onNavigate }) {
     const navbarRef = useRef(null)
     const containerRef = useRef(null)
     const [reducedMotion, setReducedMotion] = useState(false)
@@ -22,6 +23,16 @@ export default function Navbar({ isHero = true, onNavigate }) {
     const lineTopRef = useRef(null)
     const lineMidRef = useRef(null)
     const lineBottomRef = useRef(null)
+
+    // B025: Orchestrate sequence - Background color change first, then font color
+    const [delayedIsHero, setDelayedIsHero] = useState(isHero)
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setDelayedIsHero(isHero)
+        }, 200) // 200ms delay for font color shift
+        return () => clearTimeout(timeout)
+    }, [isHero])
 
     useEffect(() => {
         const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -37,13 +48,25 @@ export default function Navbar({ isHero = true, onNavigate }) {
         // B008: Force absolute transparency when menu is open to prevent overlay issues on scroll
         gsap.to(containerRef.current, {
             backgroundColor: isMenuOpen ? 'rgba(253, 250, 240, 0)' : (isHero ? 'rgba(253, 250, 240, 0)' : 'rgba(253, 250, 240, 0.8)'),
-            borderColor: isMenuOpen ? 'rgba(58, 77, 57, 0)' : (isHero ? 'rgba(58, 77, 57, 0)' : 'rgba(58, 77, 57, 0.1)'),
+            borderColor: isMenuOpen ? 'rgba(58, 77, 57, 0)' : (isHero ? 'rgba(253, 250, 240, 0.15)' : 'rgba(58, 77, 57, 0.1)'),
             backdropFilter: isMenuOpen ? 'blur(0px)' : (isHero ? 'blur(0px)' : 'blur(16px)'),
             boxShadow: isMenuOpen ? '0px 0px 0px rgba(0,0,0,0)' : (isHero ? '0px 0px 0px rgba(0,0,0,0)' : '0 1px 2px rgba(0,0,0,0.05)'),
             duration: reducedMotion ? 0 : 0.5,
             ease: 'power3.inOut',
         })
     }, { dependencies: [isHero, isMenuOpen, reducedMotion], scope: navbarRef })
+
+    // T010: Delayed Reveal Animation
+    useGSAP(() => {
+        gsap.to(navbarRef.current, {
+            opacity: isVisible ? 1 : 0,
+            y: isVisible ? 0 : -20,
+            pointerEvents: isVisible ? 'auto' : 'none',
+            duration: reducedMotion ? 0 : 0.8,
+            ease: "power4.out",
+            delay: isVisible && isHero ? 0.5 : 0 // Delay only on initial reveal at hero
+        })
+    }, { dependencies: [isVisible, reducedMotion], scope: navbarRef })
 
     // B006, B007: Precision Hamburger-to-X Morph
     useGSAP(() => {
@@ -100,10 +123,11 @@ export default function Navbar({ isHero = true, onNavigate }) {
             <nav
                 ref={navbarRef}
                 aria-label="Nawigacja główna"
+                style={{ opacity: 0, transform: 'translateY(-20px)' }}
                 className={`
-        navbar fixed top-0 left-0 w-full z-[70] p-4 flex justify-center transition-all duration-500
-        ${isHero ? 'bg-transparent' : 'py-2'}
-      `}
+                    navbar fixed top-0 left-0 w-full z-[70] p-4 flex justify-center
+                    ${isHero ? 'bg-transparent' : 'py-2'}
+                `}
             >
                 <div
                     ref={containerRef}
@@ -123,7 +147,8 @@ export default function Navbar({ isHero = true, onNavigate }) {
                         }}
                         className={`
                             font-serif text-2xl font-bold tracking-tight transition-all duration-500 px-4
-                            text-moss no-underline cursor-pointer
+                            no-underline cursor-pointer
+                            ${delayedIsHero && !isMenuOpen ? 'text-linen' : 'text-moss'}
                             ${isMenuOpen ? 'opacity-0 pointer-events-none translate-x-[-10px]' : 'opacity-100'}
                         `}
                     >
@@ -140,7 +165,7 @@ export default function Navbar({ isHero = true, onNavigate }) {
                                 key={link.label}
                                 label={link.label}
                                 href={link.href}
-                                isHero={isHero}
+                                isHero={delayedIsHero}
                                 onNavigate={onNavigate}
                             />
                         ))}
@@ -157,13 +182,16 @@ export default function Navbar({ isHero = true, onNavigate }) {
                         </MagneticButton>
                     </div>
 
-                    {/* Mobile Trigger */}
                     <div className="md:hidden flex items-center">
                         <button
                             type="button"
                             aria-label={isMenuOpen ? "Zamknij menu" : "Otwórz menu"}
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="relative w-10 h-10 flex items-center justify-center pointer-events-auto bg-transparent border-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full transition-all duration-300"
+                            className={`
+                                relative w-10 h-10 flex items-center justify-center pointer-events-auto bg-transparent border-none cursor-pointer 
+                                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full transition-all duration-300
+                                ${delayedIsHero && !isMenuOpen ? 'text-linen' : 'text-moss'}
+                            `}
                         >
                             <svg 
                                 width="32" 
@@ -239,9 +267,10 @@ function NavLink({ label, href, isHero, isCTA, onNavigate }) {
             className={`
                 bg-transparent !p-0 shadow-none hover:shadow-none
                 text-sm font-medium tracking-wide transition-colors duration-500
-                text-moss/70 hover:text-moss no-underline
+                no-underline
                 focus-visible:ring-1 focus-visible:ring-moss/30 rounded-lg
                 px-3 py-1 block
+                ${isHero ? 'text-linen/80 hover:text-linen' : 'text-moss/70 hover:text-moss'}
                 ${isCTA ? 'font-bold' : ''}
             `}
         >
