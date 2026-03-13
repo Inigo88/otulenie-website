@@ -137,4 +137,14 @@
 
 ---
 
+## Phase 12: Modal Aesthetic Restoration
+
+**Purpose**: Restoring the "card" feel after top-alignment.
+
+- [x] T042 Restore 1rem margins and full rounding in `MobileMenu.jsx`
+- [x] T043 Harmonize `Navbar.jsx` padding to match modal margins
+- [x] T044 Final visual verification of card aesthetic
+
+---
+
 ## Dependencies & Execution Order
