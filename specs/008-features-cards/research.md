@@ -18,9 +18,9 @@
 - **Rationale**: Hardcoded for now ensures performance. Easy to move to a JSON file later if needed.
 
 ## Decision: Interaction Motion
-- **Diagnostic Shuffler**: 3-second cycle interval. Smooth cross-fade or slide-up transition.
-- **Telemetry Typewriter**: 50ms per character typing; 15ms per character deleting; 2-second pause at full string.
-- **Cursor Protocol Scheduler**: `power4.out` easing for hover lift. Redirect on any interaction with primary CTA.
+- **Diagnostic Shuffler**: 3-second cycle interval. Vertical stack of 3 cards (`array.unshift(array.pop())`). Spring-bounce transition using `cubic-bezier(0.34, 1.56, 0.64, 1)`.
+- **Telemetry Typewriter**: 50ms per character typing; 15ms per character deleting; 2-second pause at full string. Includes a "Live Feed" label with a pulsing dot.
+- **Cursor Protocol Scheduler**: Weekly grid (S M T W T F S). Animated SVG cursor sequence: Enter → Select day → Visual `scale(0.95)` click → Highlight "Save" → Redirect. `power4.out` easing for hover lift.
 
 ## Alternatives Considered
 - **Direct Real-time Booksy Sync**: Rejected due to high implementation cost and potential latency. A high-fidelity mock maintains the "premium instrument" feel while guaranteeing performance.

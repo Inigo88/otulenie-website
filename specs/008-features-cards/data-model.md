@@ -16,6 +16,13 @@
 | label | String | The text to be typed out |
 | highlight | Boolean | Whether to apply Soft Olive color to the whole or part of string |
 
+## Entity: TelemetryIndicator
+| Field | Type | Description |
+|---|---|---|
+| label | String | "Live Feed" |
+| pulseColor | String | Forest Moss or Soft Olive |
+| status | String | 'Active' |
+
 ## Entity: SchedulerMockState
 | Field | Type | Description |
 |---|---|---|

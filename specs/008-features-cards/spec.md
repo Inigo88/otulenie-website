@@ -11,52 +11,53 @@
 - Q: How should the user initiate the "shuffling" of massage recommendations? → A: Passive Loop (Card shuffles automatically until hovered/clicked).
 - Q: Should the typewriter animation reveal all data points once or cycle continuously? → A: Continuous Cycle (Typing, pausing, clearing, and moving to the next stat).
 - Q: Should the Scheduler represent real-time availability from Booksy? → A: High-Fidelity Mock (Aesthetic reactive UI that redirects to Booksy upon interaction).
+- **Update**: Specification cross-verified against `.specify/context/desing.md`. Aligning all components with strict architectural patterns (Section C).
 
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Personalized Massage Recommendation (P1)
 
-As a seeker of relaxation who is overwhelmed by choices, I want to see a "Diagnostic Shuffler" that automatically cycles through recommendations so that I can quickly spot a massage type (Mocne, Głębokie, Czułe, Ciepłe) that addresses my current state without needing to trigger a manual shuffle.
+As a seeker of relaxation who is overwhelmed by choices, I want to see a "Diagnostic Shuffler" featuring a stack of 3 overlapping cards that cycle vertically, so that I can see the "Mocne", "Głębokie", "Czułe", and "Ciepłe" types presented in a dynamic, premium "shuffled" sequence.
 
 **Why this priority**: Directly solves a core user friction (indecision) and funnels the user toward a specific service, increasing conversion probability.
 
-**Independent Test**: Can be fully tested by observing the Shuffler card and verifying it cycles through distinct recommendations until interacted with.
+**Independent Test**: Can be fully tested by observing the Shuffler card cycle through the stack vertically and verify it uses the required `cubic-bezier(0.34, 1.56, 0.64, 1)` transition.
 
 **Acceptance Scenarios**:
 
-1. **Given** the Diagnostic Shuffler card is visible, **When** no interaction occurs, **Then** the card shuffles automatically through distinct massage types matching the "Otulenie Calm" preset styles.
-2. **Given** the card is shuffling, **When** the user hovers or clicks the card, **Then** the shuffle pauses on the current recommendation.
+1. **Given** the Diagnostic Shuffler card is visible, **When** no interaction occurs, **Then** the card cycles 3 overlapping massage types vertically every 3 seconds.
+2. **Given** the vertical cycle is active, **When** the user hovers, **Then** the animation pauses on the current card.
 3. **Given** a massage is recommended, **When** the user reads the description, **Then** a "Zarezerwuj" button is present and linked to the relevant Booksy service category.
 
 ---
 
 ### User Story 2 - Real-time Business Transparency (P2)
 
-As a prospective client, I want to see the "Telemetry Typewriter" actively presenting business data (e.g., "Masaże wykonane", "Obszar dojazdu: Wrocław + 20km") so that I feel a sense of trust through professional transparency and dynamic activity.
+As a prospective client, I want to see the "Telemetry Typewriter" actively presenting a monospace live-text feed with a "Live Feed" indicator, so that I feel a sense of professional transparency through a dynamic "technical" data capture.
 
-**Why this priority**: Builds trust and credibility, which is essential for a home-service business where the practitioner enters the client's personal space.
+**Why this priority**: Builds trust and credibility, essential for home services.
 
-**Independent Test**: Can be tested by observing the typewriter animation and verifying the data points are accurate to the business profile.
+**Independent Test**: Can be tested by observing the typewriter correctly cycles business stats and displays the blinking accent-colored cursor.
 
 **Acceptance Scenarios**:
 
-1. **Given** the Telemetry Typewriter card is in view, **When** the sequence starts, **Then** text is rendered with a smooth, premium GSAP-driven "typewriter" effect using the Inter font.
-2. **Given** the animation is running, **When** a specific stat is highlighted, **Then** the Soft Olive accent color is used to draw subtle attention per Constitution Principle I.
+1. **Given** the Telemetry Typewriter card is visible, **When** the sequence starts, **Then** a "Live Feed" label with a pulsing dot is present.
+2. **Given** the animation is running, **When** text is typed, **Then** a blinking Soft Olive (#6E8068) cursor is visible at the end of the string.
 
 ---
 
 ### User Story 3 - High-Fidelity Booking Intent (P1)
 
-As a client ready to book, I want to interact with a "Cursor Protocol Scheduler" micro-UI that feels reactive and premium, capturing my intent through a beautiful aesthetic mock of a calendar/timer, before being redirected to the actual Booksy platform to finalize my slot.
+As a client ready to book, I want to observe an animated SVG cursor interacting with a "Cursor Protocol Scheduler" weekly grid, so that I can visualize the ease of picking a slot before being redirected to finalize my booking on Booksy.
 
-**Why this priority**: This is the final high-impact interaction before the user leaves the site to book. It must feel "magnetic" to ensure no drop-off, without the complexity of a full real-time API sync.
+**Why this priority**: Final high-impact interaction to maintain conversion momentum.
 
-**Independent Test**: Can be tested by clicking the scheduler elements and ensuring the reactive UI triggers a redirect to the Booksy landing page area.
+**Independent Test**: Can be tested by verifying the SVG cursor moves to a day cell, performs a visual `scale(0.95)` click, and highlights a "Save" button before redirecting.
 
 **Acceptance Scenarios**:
 
-1. **Given** the Scheduler card is focused, **When** the user interacts with the time/date indicators, **Then** the UI reacts with a `scale(1.03)` and `translateY(-1px)` lift (Constitution Principle III).
-2. **Given** any interaction occurs within the scheduler mock, **When** the user triggers the primary action, **Then** the system opens the Booksy booking link in a new tab.
+1. **Given** the Scheduler card is visible, **When** the loop starts, **Then** an animated SVG cursor enters the grid, selects a day cell, and activates an accent highlight.
+2. **Given** a day is selected by the cursor, **When** the cursor moves to the "Zarezerwuj" button, **Then** the user is redirected to the Booksy booking link.
 
 ---
 
@@ -65,9 +66,9 @@ As a client ready to book, I want to interact with a "Cursor Protocol Scheduler"
 ### Functional Requirements
 
 - **FR-001**: System MUST render three distinct cards within a responsive grid/stack layout.
-- **FR-002**: **Diagnostic Shuffler**: MUST automatically cycle through massage recommendations using a passive GSAP loop; MUST pause on hover or click.
-- **FR-003**: **Telemetry Typewriter**: MUST use GSAP to animate sequential text revelation for business statistics; MUST loop through data points continuously with a clear/delete transition.
-- **FR-004**: **Cursor Protocol Scheduler**: MUST feature an interactive, high-fidelity mock date/time visualizer; MUST redirect to Booksy upon interaction with the primary CTA or mock elements.
+- **FR-002**: **Diagnostic Shuffler**: MUST implement 3 overlapping cards cycling vertically (`array.unshift(array.pop())`) every 3 seconds; MUST use `cubic-bezier(0.34, 1.56, 0.64, 1)` for spring-bounce transitions.
+- **FR-003**: **Telemetry Typewriter**: MUST implement a monospace live-text feed with a blinking Soft Olive cursor; MUST include a "Live Feed" label with a pulsing dot.
+- **FR-004**: **Cursor Protocol Scheduler**: MUST render a weekly grid (S M T W T F S) and animate an SVG cursor entering, selecting a day, and clicking a mock "Save" button.
 - **FR-005**: All cards MUST use Warm Linen backgrounds and respect the "Otulenie Calm" palette.
 - **FR-006**: System MUST ensure that at least one primary booking link is accessible from this section on mobile devices.
 - **FR-007**: Animations MUST respect the `prefers-reduced-motion` media query by disabling or significantly simplifying movement (Constitution Principle VI).
