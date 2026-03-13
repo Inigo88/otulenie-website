@@ -2,23 +2,31 @@
 
 **Feature Branch**: `008-features-cards`  
 **Created**: 2026-03-14  
-**Status**: Draft  
+**Status**: Finalized  
 **Input**: User description: "Build interactive features cards including Diagnostic Shuffler, Telemetry Typewriter, and Cursor Protocol Scheduler"
+
+## Clarifications
+
+### Session 2026-03-14
+- Q: How should the user initiate the "shuffling" of massage recommendations? → A: Passive Loop (Card shuffles automatically until hovered/clicked).
+- Q: Should the typewriter animation reveal all data points once or cycle continuously? → A: Continuous Cycle (Typing, pausing, clearing, and moving to the next stat).
+- Q: Should the Scheduler represent real-time availability from Booksy? → A: High-Fidelity Mock (Aesthetic reactive UI that redirects to Booksy upon interaction).
 
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Personalized Massage Recommendation (P1)
 
-As a seeker of relaxation who is overwhelmed by choices, I want to use a "Diagnostic Shuffler" so that I can quickly determine which of the four massage types (Mocne, Głębokie, Czułe, Ciepłe) best addresses my current physical and emotional state.
+As a seeker of relaxation who is overwhelmed by choices, I want to see a "Diagnostic Shuffler" that automatically cycles through recommendations so that I can quickly spot a massage type (Mocne, Głębokie, Czułe, Ciepłe) that addresses my current state without needing to trigger a manual shuffle.
 
 **Why this priority**: Directly solves a core user friction (indecision) and funnels the user toward a specific service, increasing conversion probability.
 
-**Independent Test**: Can be fully tested by interacting with the Shuffler card and verifying a clear, branded recommendation is presented.
+**Independent Test**: Can be fully tested by observing the Shuffler card and verifying it cycles through distinct recommendations until interacted with.
 
 **Acceptance Scenarios**:
 
-1. **Given** the Diagnostic Shuffler card is visible, **When** the user clicks or swipes to "shuffle" their state, **Then** the card displays a randomized but distinct massage recommendation matching the "Otulenie Calm" preset styles.
-2. **Given** a massage is recommended, **When** the user reads the description, **Then** a "Zarezerwuj" button is present and linked to the relevant Booksy service category.
+1. **Given** the Diagnostic Shuffler card is visible, **When** no interaction occurs, **Then** the card shuffles automatically through distinct massage types matching the "Otulenie Calm" preset styles.
+2. **Given** the card is shuffling, **When** the user hovers or clicks the card, **Then** the shuffle pauses on the current recommendation.
+3. **Given** a massage is recommended, **When** the user reads the description, **Then** a "Zarezerwuj" button is present and linked to the relevant Booksy service category.
 
 ---
 
@@ -39,16 +47,16 @@ As a prospective client, I want to see the "Telemetry Typewriter" actively prese
 
 ### User Story 3 - High-Fidelity Booking Intent (P1)
 
-As a client ready to book, I want to interact with a "Cursor Protocol Scheduler" micro-UI that feels reactive and premium, so that the transition to the external booking site (Booksy) feels like a natural continuation of the high-end experience.
+As a client ready to book, I want to interact with a "Cursor Protocol Scheduler" micro-UI that feels reactive and premium, capturing my intent through a beautiful aesthetic mock of a calendar/timer, before being redirected to the actual Booksy platform to finalize my slot.
 
-**Why this priority**: This is the final high-impact interaction before the user leaves the site to book. It must feel "magnetic" to ensure no drop-off.
+**Why this priority**: This is the final high-impact interaction before the user leaves the site to book. It must feel "magnetic" to ensure no drop-off, without the complexity of a full real-time API sync.
 
-**Independent Test**: Can be tested by clicking the scheduler and ensuring the external redirect to Booksy functions correctly and looks premium.
+**Independent Test**: Can be tested by clicking the scheduler elements and ensuring the reactive UI triggers a redirect to the Booksy landing page area.
 
 **Acceptance Scenarios**:
 
 1. **Given** the Scheduler card is focused, **When** the user interacts with the time/date indicators, **Then** the UI reacts with a `scale(1.03)` and `translateY(-1px)` lift (Constitution Principle III).
-2. **Given** an interaction occurs, **When** the user clicks the final CTA, **Then** the system opens the Booksy booking link in a new tab.
+2. **Given** any interaction occurs within the scheduler mock, **When** the user triggers the primary action, **Then** the system opens the Booksy booking link in a new tab.
 
 ---
 
@@ -57,9 +65,9 @@ As a client ready to book, I want to interact with a "Cursor Protocol Scheduler"
 ### Functional Requirements
 
 - **FR-001**: System MUST render three distinct cards within a responsive grid/stack layout.
-- **FR-002**: **Diagnostic Shuffler**: MUST implement a randomized state switcher with smooth GSAP transitions between massage types.
-- **FR-003**: **Telemetry Typewriter**: MUST use GSAP to animate sequential text revelation for business statistics.
-- **FR-004**: **Cursor Protocol Scheduler**: MUST feature an interactive date/time visualizer that responds to mouse/touch interaction with magnetic curves.
+- **FR-002**: **Diagnostic Shuffler**: MUST automatically cycle through massage recommendations using a passive GSAP loop; MUST pause on hover or click.
+- **FR-003**: **Telemetry Typewriter**: MUST use GSAP to animate sequential text revelation for business statistics; MUST loop through data points continuously with a clear/delete transition.
+- **FR-004**: **Cursor Protocol Scheduler**: MUST feature an interactive, high-fidelity mock date/time visualizer; MUST redirect to Booksy upon interaction with the primary CTA or mock elements.
 - **FR-005**: All cards MUST use Warm Linen backgrounds and respect the "Otulenie Calm" palette.
 - **FR-006**: System MUST ensure that at least one primary booking link is accessible from this section on mobile devices.
 - **FR-007**: Animations MUST respect the `prefers-reduced-motion` media query by disabling or significantly simplifying movement (Constitution Principle VI).

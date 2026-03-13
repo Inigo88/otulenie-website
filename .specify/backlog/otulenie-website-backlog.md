@@ -80,7 +80,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.2.4**: Build interactive features cards  
   **Description**: Implement the three required functional micro-UIs: Diagnostic Shuffler, Telemetry Typewriter, and Cursor Protocol Scheduler.  
   **Branch**: `008-features-cards`  
-  **Status**: Specified
+  **Status**: Clarified
 
 #### Epic 1.3: Deep Dive & Footer Elements
 
