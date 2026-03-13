@@ -126,4 +126,15 @@
 
 ---
 
+## Phase 11: Final Layout & Iconography Polish
+
+**Purpose**: Addressing hamburger line count and vertical alignment.
+
+- [x] T038 Create professional bug reports B007 & B008 in `specs/006-navbar-mobile/bugs/`
+- [x] T039 Restore 3-line hamburger with GSAP morph logic in `Navbar.jsx` (B007)
+- [x] T040 Align `MobileMenu` to top and neutralize `Navbar` container styles (B008)
+- [x] T041 Ensure 'X' button and links have consistent spacing/alignment (B008)
+
+---
+
 ## Dependencies & Execution Order

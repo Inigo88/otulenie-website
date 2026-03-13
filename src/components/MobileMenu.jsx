@@ -125,7 +125,7 @@ export default function MobileMenu({ isOpen, onClose, links }) {
         <div 
             ref={modalRef}
             className={`
-                fixed inset-0 z-60 flex items-center justify-center p-4 md:p-8
+                fixed inset-0 z-60 flex items-start justify-center
                 ${isOpen ? 'pointer-events-auto' : 'pointer-events-none invisible'}
                 transition-[visibility] duration-500
             `}
@@ -143,7 +143,7 @@ export default function MobileMenu({ isOpen, onClose, links }) {
             {/* US1, US2: Content Container with Brand Presence */}
             <div 
                 ref={contentRef}
-                className="relative z-10 flex-1 flex flex-col items-center justify-between p-8 pt-24 bg-linen/95 rounded-[2.5rem] shadow-2xl border border-moss/10"
+                className="relative z-10 w-full flex flex-col items-center justify-between p-8 pt-24 pb-12 bg-linen/95 rounded-b-[2.5rem] shadow-2xl border-x border-b border-moss/10"
             >
                 {/* Navigation Links (US2, B005) */}
                 <nav className="flex flex-col items-center gap-6 w-full mt-12">

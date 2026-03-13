@@ -20,6 +20,7 @@ export default function Navbar({ isHero = true, onNavigate }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isAnimating, setIsAnimating] = useState(false)
     const lineTopRef = useRef(null)
+    const lineMidRef = useRef(null)
     const lineBottomRef = useRef(null)
 
     useEffect(() => {
@@ -41,15 +42,21 @@ export default function Navbar({ isHero = true, onNavigate }) {
         })
     }, { dependencies: [isHero, reducedMotion], scope: navbarRef })
 
-    // B006: Precision Hamburger-to-X Morph
+    // B006, B007: Precision Hamburger-to-X Morph
     useGSAP(() => {
-        if (!lineTopRef.current || !lineBottomRef.current) return
+        if (!lineTopRef.current || !lineMidRef.current || !lineBottomRef.current) return
 
         if (isMenuOpen) {
             // Morph to X
             gsap.to(lineTopRef.current, {
                 attr: { x1: 8, y1: 8, x2: 24, y2: 24 },
                 duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+            gsap.to(lineMidRef.current, {
+                opacity: 0,
+                attr: { x1: 16, x2: 16 },
+                duration: reducedMotion ? 0 : 0.4,
                 ease: "power3.out"
             })
             gsap.to(lineBottomRef.current, {
@@ -61,6 +68,12 @@ export default function Navbar({ isHero = true, onNavigate }) {
             // Morph to Hamburger
             gsap.to(lineTopRef.current, {
                 attr: { x1: 6, y1: 10, x2: 26, y2: 10 },
+                duration: reducedMotion ? 0 : 0.6,
+                ease: "power3.out"
+            })
+            gsap.to(lineMidRef.current, {
+                opacity: 1,
+                attr: { x1: 6, x2: 26 },
                 duration: reducedMotion ? 0 : 0.6,
                 ease: "power3.out"
             })
@@ -92,9 +105,10 @@ export default function Navbar({ isHero = true, onNavigate }) {
                 <div
                     ref={containerRef}
                     className={`
-                        flex items-center justify-between rounded-full border border-moss/10 transition-all duration-500
+                        flex items-center justify-between rounded-full border transition-all duration-500
                         w-full max-w-(--navbar-max-width) px-4 md:px-6 py-2
                         ${isHero ? 'shadow-none' : 'shadow-sm'}
+                        ${isMenuOpen ? 'bg-transparent border-transparent shadow-none' : 'bg-linen/80 border-moss/10 backdrop-blur-md'}
                     `}
                 >
                     {/* Logo */}
@@ -160,6 +174,14 @@ export default function Navbar({ isHero = true, onNavigate }) {
                                 <line 
                                     ref={el => { if (el) lineTopRef.current = el }}
                                     x1="6" y1="10" x2="26" y2="10" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2.5" 
+                                    strokeLinecap="round"
+                                />
+                                {/* Middle Line */}
+                                <line 
+                                    ref={el => { if (el) lineMidRef.current = el }}
+                                    x1="6" y1="16" x2="26" y2="16" 
                                     stroke="currentColor" 
                                     strokeWidth="2.5" 
                                     strokeLinecap="round"
