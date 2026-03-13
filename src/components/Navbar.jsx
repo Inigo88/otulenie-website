@@ -11,9 +11,10 @@ import MobileMenu from './MobileMenu'
  *
  * @param {Object} props
  * @param {boolean} [props.isHero=true] - Whether the page is at the hero position (affects visual state)
+ * @param {boolean} [props.isVisible=true] - Whether the navbar is visible (used for delayed reveal)
  * @param {function} [props.onNavigate] - Optional callback for client-side navigation (receives href)
  */
-export default function Navbar({ isHero = true, onNavigate }) {
+export default function Navbar({ isHero = true, isVisible = true, onNavigate }) {
     const navbarRef = useRef(null)
     const containerRef = useRef(null)
     const [reducedMotion, setReducedMotion] = useState(false)
@@ -44,6 +45,18 @@ export default function Navbar({ isHero = true, onNavigate }) {
             ease: 'power3.inOut',
         })
     }, { dependencies: [isHero, isMenuOpen, reducedMotion], scope: navbarRef })
+
+    // T010: Delayed Reveal Animation
+    useGSAP(() => {
+        gsap.to(navbarRef.current, {
+            opacity: isVisible ? 1 : 0,
+            y: isVisible ? 0 : -20,
+            pointerEvents: isVisible ? 'auto' : 'none',
+            duration: reducedMotion ? 0 : 0.8,
+            ease: "power4.out",
+            delay: isVisible && isHero ? 0.5 : 0 // Delay only on initial reveal at hero
+        })
+    }, { dependencies: [isVisible, reducedMotion], scope: navbarRef })
 
     // B006, B007: Precision Hamburger-to-X Morph
     useGSAP(() => {
@@ -100,10 +113,11 @@ export default function Navbar({ isHero = true, onNavigate }) {
             <nav
                 ref={navbarRef}
                 aria-label="Nawigacja główna"
+                style={{ opacity: 0, transform: 'translateY(-20px)' }}
                 className={`
-        navbar fixed top-0 left-0 w-full z-[70] p-4 flex justify-center transition-all duration-500
-        ${isHero ? 'bg-transparent' : 'py-2'}
-      `}
+                    navbar fixed top-0 left-0 w-full z-[70] p-4 flex justify-center
+                    ${isHero ? 'bg-transparent' : 'py-2'}
+                `}
             >
                 <div
                     ref={containerRef}

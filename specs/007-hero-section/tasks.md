@@ -15,8 +15,8 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Verify project structure and branch `007-hero-section`
-- [ ] T002 [P] Research and select high-fidelity "Grounding Wellness" background image from Unsplash
+- [x] T001 Verify project structure and branch `007-hero-section`
+- [x] T002 [P] Research and select high-fidelity "Grounding Wellness" background image from Unsplash
 
 ---
 
@@ -26,9 +26,9 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T003 Implement `isHeroComplete` state and `onHeroComplete` callback in `src/App.jsx`
-- [ ] T004 Update `src/components/Navbar.jsx` to accept a `visible` or `revealed` prop for delayed entrance
-- [ ] T005 [P] Scaffold empty `Hero` component in `src/components/Hero.jsx`
+- [x] T003 Implement `isHeroComplete` state and `onHeroComplete` callback in `src/App.jsx`
+- [x] T004 Update `src/components/Navbar.jsx` to accept a `visible` or `revealed` prop for delayed entrance
+- [x] T005 [P] Scaffold empty `Hero` component in `src/components/Hero.jsx`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -42,11 +42,11 @@
 
 ### Implementation for User Story 1
 
-- [ ] T006 [P] [US1] Create Hero layout with `min-h-[100dvh]` and background container in `src/components/Hero.jsx`
-- [ ] T007 [US1] Apply dark gradient overlay and "Grounding Wellness" image in `src/components/Hero.jsx`
-- [ ] T008 [US1] Implement staggered GSAP fade-up for H1 ("Relaks, który przyjeżdża do Ciebie") and subheadline in `src/components/Hero.jsx`
-- [ ] T009 [US1] Wire the `onHeroComplete` trigger to fire ~0.5s after text animations finish in `src/components/Hero.jsx`
-- [ ] T010 [US1] Implement Navbar fade-in transition based on `isHeroComplete` in `src/App.jsx`
+- [x] T006 [P] [US1] Create Hero layout with `min-h-[100dvh]` and background container in `src/components/Hero.jsx`
+- [x] T007 [US1] Apply dark gradient overlay and "Grounding Wellness" image in `src/components/Hero.jsx`
+- [x] T008 [US1] Implement staggered GSAP fade-up for H1 ("Relaks, który przyjeżdża do Ciebie") and subheadline in `src/components/Hero.jsx`
+- [x] T009 [US1] Wire the `onHeroComplete` trigger to fire ~0.5s after text animations finish in `src/components/Hero.jsx`
+- [x] T010 [US1] Implement Navbar fade-in transition based on `isHeroComplete` in `src/App.jsx`
 
 **Checkpoint**: User Story 1 fully functional and testable independently
 
@@ -60,9 +60,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T011 [P] [US2] Integrate `MagneticButton` component into the Hero layout in `src/components/Hero.jsx`
-- [ ] T012 [US2] Update GSAP timeline to include CTA entrance in the stagger sequence in `src/components/Hero.jsx`
-- [ ] T013 [US2] Configure the Booksy destination URL for the CTA button
+- [x] T011 [P] [US2] Integrate `MagneticButton` component into the Hero layout in `src/components/Hero.jsx`
+- [x] T012 [US2] Update GSAP timeline to include CTA entrance in the stagger sequence in `src/components/Hero.jsx`
+- [x] T013 [US2] Configure the Booksy destination URL for the CTA button
 
 **Checkpoint**: User Story 2 should work independently alongside US1
 
@@ -72,10 +72,10 @@
 
 **Purpose**: Final refinements and quality assurance.
 
-- [ ] T014 [P] Verify `100dvh` stability on mobile device inspector
-- [ ] T015 [P] Implement `prefers-reduced-motion` check for GSAP timeline in `src/components/Hero.jsx`
-- [ ] T016 Run `speckit.analyze` for consistency between spec and implementation
-- [ ] T017 Final performance audit for CLS (SC-004) and text contrast (SC-002) meeting WCAG AA standards
+- [x] T014 [P] Verify `100dvh` stability on mobile device inspector
+- [x] T015 [P] Implement `prefers-reduced-motion` check for GSAP timeline in `src/components/Hero.jsx`
+- [x] T016 Run `speckit.analyze` for consistency between spec and implementation
+- [x] T017 Final performance audit for CLS (SC-004) and text contrast (SC-002) meeting WCAG AA standards
 
 ---
 
