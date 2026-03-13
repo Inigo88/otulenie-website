@@ -16,7 +16,7 @@ Implement three micro-UIs (Diagnostic Shuffler, Telemetry Typewriter, and Cursor
 **Target Platform**: Mobile-first Web
 **Project Type**: Web Application Landing Page
 **Performance Goals**: 60fps animations, fast LCP for mobile
-**Constraints**: No Tailwind unless explicitly required, single App.jsx unless > 600 lines
+**Constraints**: Single App.jsx unless > 600 lines
 **Scale/Scope**: High-fidelity, cinematic 1:1 pixel-perfect implementation
 
 ## Constitution Check

@@ -14,7 +14,8 @@ import { useGSAP } from '@gsap/react'
  * @param {number} [props.strength=0.4] - Magnetic pull strength (0 to 1)
  * @param {string|React.ElementType} [props.as='button'] - Element type to render (e.g. 'a', 'button')
  */
-const MagneticButton = forwardRef(({ children, className = "", onClick, strength = 0.4, as: Component = 'button', ...rest }, ref) => {
+const MagneticButton = forwardRef(({ children, className = "", onClick, strength = 0.4, as: Tag = 'button', ...rest }, ref) => {
+    const Component = Tag;
     const buttonRef = useRef(null)
     const [isHovered, setIsHovered] = useState(false)
     const [reducedMotion, setReducedMotion] = useState(false)
@@ -43,6 +44,7 @@ const MagneticButton = forwardRef(({ children, className = "", onClick, strength
         yTo.current = gsap.quickTo(buttonRef.current, "y", { duration: 0.8, ease: "power3.out" })
     }, { scope: buttonRef })
 
+    // eslint-disable-next-line react-hooks/refs
     const handleMouseMove = contextSafe((e) => {
         // Disable magnetic effect on touch devices (no hover) or reduced motion
         if (!window.matchMedia('(hover: hover)').matches || reducedMotion) return
@@ -61,6 +63,7 @@ const MagneticButton = forwardRef(({ children, className = "", onClick, strength
         yTo.current(deltaY * strength)
     })
 
+    // eslint-disable-next-line react-hooks/refs
     const handleMouseLeave = contextSafe(() => {
         setIsHovered(false)
         // Smooth return to center

@@ -11,7 +11,7 @@
 - Q: How should the user initiate the "shuffling" of massage recommendations? → A: Passive Loop (Card shuffles automatically until hovered/clicked).
 - Q: Should the typewriter animation reveal all data points once or cycle continuously? → A: Continuous Cycle (Typing, pausing, clearing, and moving to the next stat).
 - Q: Should the Scheduler represent real-time availability from Booksy? → A: High-Fidelity Mock (Aesthetic reactive UI that redirects to Booksy upon interaction).
-- **Update**: Specification cross-verified against `.specify/context/desing.md`. Aligning all components with strict architectural patterns (Section C).
+- **Update**: Specification cross-verified against `.specify/context/design.md`. Aligning all components with strict architectural patterns (Section C).
 - **Localization Update**: Week starts from Monday (Polish standard). Operating hours: Mon-Fri 17:00-22:00, Sat-Sun 09:00-22:00.
 
 ## User Scenarios & Testing *(mandatory)*
@@ -83,7 +83,7 @@ As a client ready to book, I want to observe an animated SVG cursor interacting 
 
 ### Measurable Outcomes
 
-- **SC-001**: User interactions with the Shuffler card result in a 95% completion rate (reaching a recommendation).
+- **SC-001**: The passive loop correctly completes a full cycle of 4 massage types with 100% reliability during visibility.
 - **SC-002**: All interactive cards maintain 60fps performance during hover and active state GSAP animations.
 - **SC-003**: 100% of interactive targets follow the minimum 24x24 CSS pixel size for touch accessibility (WCAG SC 2.5.8).
 - **SC-004**: The CTA in the Scheduler card correctly opens the external Booksy link in < 500ms (ignoring network latency).

@@ -1,11 +1,11 @@
-import { useRef, useState, useEffect } from 'react'
-import gsap from 'gsap'
+import { useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 
 import MagneticButton from './components/MagneticButton'
 import RoundedContainer from './components/RoundedContainer'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import FeatureCards from './components/FeatureCards/FeatureCards'
 
 function App() {
   const containerRef = useRef(null)
@@ -62,6 +62,8 @@ function App() {
             </MagneticButton>
           </div>
         </RoundedContainer>
+
+        <FeatureCards />
 
         {/* Placeholder for future sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">

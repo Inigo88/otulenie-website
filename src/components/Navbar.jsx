@@ -17,9 +17,10 @@ import MobileMenu from './MobileMenu'
 export default function Navbar({ isHero = true, isVisible = true, onNavigate }) {
     const navbarRef = useRef(null)
     const containerRef = useRef(null)
-    const [reducedMotion, setReducedMotion] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const [isAnimating, setIsAnimating] = useState(false)
+    const [reducedMotion, setReducedMotion] = useState(
+        () => typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
+    )
     const lineTopRef = useRef(null)
     const lineMidRef = useRef(null)
     const lineBottomRef = useRef(null)
@@ -34,9 +35,9 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
         return () => clearTimeout(timeout)
     }, [isHero])
 
+    // T014: Visual Preference Handling
     useEffect(() => {
         const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-        setReducedMotion(mq.matches)
         const listener = (e) => setReducedMotion(e.matches)
         mq.addEventListener('change', listener)
         return () => mq.removeEventListener('change', listener)
