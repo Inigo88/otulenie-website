@@ -187,12 +187,13 @@ At end of report, output a concise Next Actions block:
 ### 8. Update Backlog (If Applicable)
 
 - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
-  - If a backlog exists and the feature you analyzed is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Analysed`.
+  - If a backlog exists and the feature you analyzed is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Analysed` **ONLY if no issues (CRITICAL, HIGH, or MEDIUM) were identified** in the final report.
+  - If issues exist, do not update the backlog status until they are resolved and `/speckit.analyze` is re-run with zero remaining findings.
   - After updating the feature status, **always** run the automation script to propagate status changes to Epics and Milestones:
     ```bash
     chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
     ```
-  - Do not edit the backlog if the feature cannot be found.
+  - Do not edit the backlog if the feature cannot be found or if the analysis is still failing.
 
 ### 9. Offer Remediation
 
