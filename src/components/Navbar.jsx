@@ -24,6 +24,16 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
     const lineMidRef = useRef(null)
     const lineBottomRef = useRef(null)
 
+    // B025: Orchestrate sequence - Background color change first, then font color
+    const [delayedIsHero, setDelayedIsHero] = useState(isHero)
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setDelayedIsHero(isHero)
+        }, 200) // 200ms delay for font color shift
+        return () => clearTimeout(timeout)
+    }, [isHero])
+
     useEffect(() => {
         const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
         setReducedMotion(mq.matches)
@@ -138,7 +148,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                         className={`
                             font-serif text-2xl font-bold tracking-tight transition-all duration-500 px-4
                             no-underline cursor-pointer
-                            ${isHero && !isMenuOpen ? 'text-linen' : 'text-moss'}
+                            ${delayedIsHero && !isMenuOpen ? 'text-linen' : 'text-moss'}
                             ${isMenuOpen ? 'opacity-0 pointer-events-none translate-x-[-10px]' : 'opacity-100'}
                         `}
                     >
@@ -155,7 +165,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                                 key={link.label}
                                 label={link.label}
                                 href={link.href}
-                                isHero={isHero}
+                                isHero={delayedIsHero}
                                 onNavigate={onNavigate}
                             />
                         ))}
@@ -180,7 +190,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                             className={`
                                 relative w-10 h-10 flex items-center justify-center pointer-events-auto bg-transparent border-none cursor-pointer 
                                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full transition-all duration-300
-                                ${isHero && !isMenuOpen ? 'text-linen' : 'text-moss'}
+                                ${delayedIsHero && !isMenuOpen ? 'text-linen' : 'text-moss'}
                             `}
                         >
                             <svg 
