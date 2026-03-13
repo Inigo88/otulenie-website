@@ -15,6 +15,7 @@ You **MUST** consider the user input before proceeding. This includes the bug de
 1.  **Setup & Identify**: 
     - Determine the next available Bug ID (BXXX) by checking `specs/bugs/`.
     - Identify the related Feature ID to determine the correct subfolder (e.g., `specs/bugs/007-hero-section/`).
+    - **Create the target subfolder if it does not exist** before proceeding.
     - Create the bug report file using `.specify/templates/bug-template.md`.
 
 2.  **Report & Investigate**:
