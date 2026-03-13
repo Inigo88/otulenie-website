@@ -71,7 +71,7 @@ Load only the minimal necessary context from each artifact:
 
 **From context directory:**
 
-- Load all files in `.specify/context/` to ensure alignment with high-level design, product requirements, and technical stack decisions.
+- Load all files in `.specify/context/` to ensure alignment with existing project-wide principles, constraints, and high-level documentation.
 
 ### 3. Build Semantic Models
 
@@ -82,7 +82,7 @@ Create internal representations (do not include raw artifacts in output):
 - **Task coverage mapping**: Map each task to one or more requirements or stories (inference by keyword / explicit reference patterns like IDs or key phrases)
 - **Constitution rule set**: Extract principle names and MUST/SHOULD normative statements
 - **Backlog scope boundaries**: Extract the core business problem and epic constraints to evaluate if the implemented feature or plan fundamentally aligns with the product's ultimate goal.
-- **Contextual constraints**: Extract high-level design principles, product requirements, and tech stack boundaries from the `.specify/context/` directory.
+- **Contextual constraints**: Extract all relevant constraints, principles, and architectural boundaries from the files found in the `.specify/context/` directory.
 
 ### 4. Detection Passes (Token-Efficient Analysis)
 
@@ -129,9 +129,7 @@ Focus on high-signal findings. Limit to 50 findings total; aggregate remainder i
 
 #### H. Contextual Alignment
 
-- **Design Consistency**: Check if the feature design in `spec.md` or `plan.md` conflicts with the high-level design directions in `.specify/context/desing.md`.
-- **Requirements Traceability**: Ensure that the feature fulfills relevant high-level goals from `.specify/context/prd.md`.
-- **Tech Stack Compliance**: Verify that the technologies used in `plan.md` align with the global `tech-stack.md` (if present).
+- **Project Alignment**: Cross-reference the feature's specification and plan against all documentation in `.specify/context/`. Identify any conflicts with global project principles, architectural decisions, or established constraints.
 
 ### 5. Severity Assignment
 
