@@ -137,7 +137,8 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                         }}
                         className={`
                             font-serif text-2xl font-bold tracking-tight transition-all duration-500 px-4
-                            text-moss no-underline cursor-pointer
+                            no-underline cursor-pointer
+                            ${isHero && !isMenuOpen ? 'text-linen' : 'text-moss'}
                             ${isMenuOpen ? 'opacity-0 pointer-events-none translate-x-[-10px]' : 'opacity-100'}
                         `}
                     >
@@ -171,13 +172,16 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                         </MagneticButton>
                     </div>
 
-                    {/* Mobile Trigger */}
                     <div className="md:hidden flex items-center">
                         <button
                             type="button"
                             aria-label={isMenuOpen ? "Zamknij menu" : "Otwórz menu"}
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="relative w-10 h-10 flex items-center justify-center pointer-events-auto bg-transparent border-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full transition-all duration-300"
+                            className={`
+                                relative w-10 h-10 flex items-center justify-center pointer-events-auto bg-transparent border-none cursor-pointer 
+                                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded-full transition-all duration-300
+                                ${isHero && !isMenuOpen ? 'text-linen' : 'text-moss'}
+                            `}
                         >
                             <svg 
                                 width="32" 
@@ -253,9 +257,10 @@ function NavLink({ label, href, isHero, isCTA, onNavigate }) {
             className={`
                 bg-transparent !p-0 shadow-none hover:shadow-none
                 text-sm font-medium tracking-wide transition-colors duration-500
-                text-moss/70 hover:text-moss no-underline
+                no-underline
                 focus-visible:ring-1 focus-visible:ring-moss/30 rounded-lg
                 px-3 py-1 block
+                ${isHero ? 'text-linen/80 hover:text-linen' : 'text-moss/70 hover:text-moss'}
                 ${isCTA ? 'font-bold' : ''}
             `}
         >
