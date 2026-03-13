@@ -99,7 +99,7 @@ const Hero = ({ headline, subheadline, backgroundUrl, onHeroComplete }) => {
           <MagneticButton 
             as="a"
             href="https://booksy.com" 
-            className="bg-olive text-white px-10 py-5 text-xl font-medium rounded-full shadow-2xl hover:bg-moss transition-colors"
+            className="bg-olive text-linen px-10 py-5 text-xl font-medium rounded-full shadow-2xl hover:bg-moss transition-colors"
           >
             Zarezerwuj masaż
           </MagneticButton>
