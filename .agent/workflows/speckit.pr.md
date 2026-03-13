@@ -12,67 +12,100 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Outline
 
-1.  **Gather Context & Changes**:
-    - **Branch Identity**: Get current branch name (`git branch --show-current`).
-    - **Scope Analysis**: Identify the related Feature ID and Specification (e.g., `specs/007-hero-section/`).
-    - **Diff Review**: List changed files and summarize commits (`git log main..HEAD --oneline`).
-    - **Visual Evidence**: Check for any recently generated artifacts in the brain (screenshots, recordings) that serve as proof of work.
+1. **Gather branch and changes**:
+   - Current branch name (e.g. `git branch --show-current`)
+   - List of changed files (e.g. `git diff --name-status main...HEAD` or `origin/main...HEAD`; if main doesn't exist, use default branch)
+   - Short commit summary for this branch (e.g. `git log main..HEAD --oneline` or equivalent)
+   - Optionally: patch summary (e.g. `git diff main...HEAD --stat`) to infer scope
 
-2.  **Draft High-Fidelity Description**:
-    - **Title**: Use Conventional Commits: `type(scope): short description`.
-    - **Core Summary**: 1–3 high-impact sentences explaining the "What" and "Why".
-    - **Logical Grouping**: Categorize changes by component or theme (e.g., Navbar, Global Design System).
-    - **Constitution Alignment**: Briefly mention if the PR addresses specific Constitution principles (e.g., "Principle III: Clarity and Guidance").
+2. **Optional context** (if present in repo):
+   - If `FEATURE_DIR` or a spec exists for this feature (e.g. from `specs/` or `.specify`), briefly note the feature name or spec title for the PR title/description. Do not require it.
 
-3.  **Proof of Work & Documentation**:
-    - **Media Gallery**: Embed screenshots or recordings from the `artifacts` directory using `![caption](file:///path/to/media.webp)`.
-    - **Walkthrough Sync**: Ensure the `walkthrough.md` in the artifacts directory is up to date and linked if relevant.
-    - **README Update**: Analyze if new features/configs require documentation in the project `README.md`.
+3. **Build the PR description**:
+   - **Title**: Follow the **PR Title Convention** below (type + optional scope + imperative description).
+   - **What does this PR do?** 1–3 sentences summarizing the overall goal and why. Use this as the description heading so reviewers see it clearly.
+   - **Changes**: Group changes logically by theme or component. Use either:
+     - **Flat list** (small PRs): single bullets (e.g. "Add Next.js app scaffold", "Add spec 004 plan and tasks").
+     - **Nested list** (larger PRs): bold component/theme, then sub-bullets with specific details (e.g. "**App scaffold** — Add Next.js app, add layout and home page" then "**Spec 004** — Add plan and tasks"). Base everything on the actual diff/commits, not generic text.
+   - **Testing / checklist** (optional): Short "How to test" or "Checklist" if relevant (e.g. "Run `npm run build`", "Spec passes").
+   - Keep it concise; no need for long prose.
+  
+4. **Update Backlog (If Applicable)**:
+   - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
+   - If a backlog exists and the feature you are creating a PR for is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Done`.
+   - After updating the feature status, **always** run the automation script to propagate status changes to Epics and Milestones:
+     ```bash
+     chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
+     ```
+   - Do not edit the backlog if the feature cannot be found.
 
-4.  **Backlog & Status Sync**:
-    - Locate the backlog in `.specify/backlog/`.
-    - Update the status of the feature to `Done`.
-    - **Run Automation**: Trigger the status propagation script:
-      ```bash
-      chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
-      ```
+5. **Update README.md (if Applicable)**:
+   - *After receiving user confirmation but before executing the PR command*:
+   - Analyze the purpose of the current branch and the changes that have been made.
+   - Check if these changes introduce new functionality, architectural decisions, or configurations that should be documented in the `README.md`.
+   - If an update is necessary, carefully modify the `README.md` file.
+   - If the `README.md` was modified, immediately commit and push those changes to the current branch (e.g., `git add README.md && git commit -m "docs: update README for current feature additions" && git push`).
 
-5.  **Creation Gate & Execution**:
-    - Check for existing PRs via `gh pr view`.
-    - **Approval Phase**: Present the drafted description (including media previews) to the user.
-    - **Execute**: Once approved, use `gh pr create` or `gh pr edit` with a `--body-file` pointing to a temporary draft.
+6. **Execution**:
+   - Do **not** emit the PR description into the chat or save it to a permanent file.
+   - Check if a PR already exists for the current branch using `gh pr view`.
+   - **Ask the user** for confirmation before proceeding to either `create` or `edit` the PR.
+
+7. **Finalize PR creation**:
+   - Once the README step is complete (or skipped), write the drafted body to a temporary file, execute the PR command, and **clean up** the file afterward.
+   - For example:
+     ```bash
+     cat << 'EOF' > /tmp/PR_DESCRIPTION.md
+     <Body content>
+     EOF
+     
+     # If PR exists, ask user if they want to update it.
+     # If PR doesn't exist, ask user if they want to create it.
+     if gh pr view >/dev/null 2>&1; then
+       # [Agent prompts user: "A PR already exists. Update description?"]
+       gh pr edit --title "<Title>" --body-file /tmp/PR_DESCRIPTION.md
+     else
+       # [Agent prompts user: "No PR exists. Create a new one?"]
+       gh pr create --title "<Title>" --body-file /tmp/PR_DESCRIPTION.md
+     fi
+     
+     rm -f /tmp/PR_DESCRIPTION.md
+     ```
 
 ## PR Title Convention
 
-- `feat(scope): ...` — New feature implementation.
-- `fix(scope): ...` — Bug resolution (reference B0XX if applicable).
-- `docs(scope): ...` — Documentation updates (specs, templates).
-- `refactor(scope): ...` — Code improvement without feature change.
+Use **Conventional Commits** style: `type(scope): short description`.
 
-## Examples
+- **type**: `feat` (feature), `fix` (bugfix), `docs`, `chore`, `refactor`, `test`, `ci`, `build`, etc.
+- **scope** (optional): area of the repo (e.g. `app`, `api`, `spec-004`).
+- **description**: imperative, lowercase after the colon, no period at the end, ~50 chars or less when possible.
 
-### ✅ GOOD: Professional & Visual
-> **Title**: `feat(navbar): implement staggered transition for Hero state (B025)`
->
-> ### What does this PR do?
-> Improves the perceived quality of the Navbar by staggering the color transition between background and text. This ensures the "Island" background morphs before the text changes color, preventing visual "flicker."
->
-> ### Changes
-> - **Navbar Component**: Added `delayedIsHero` state and 200ms debounce logic.
-> - **Bug Documentation**: Updated B025 with resolution details and verification proof.
->
-> ### Proof of Work
-> ![Staggered Effect](file:///Users/szymon.stec/.../navbar_staggered.webp)
+**Good examples**:
+- `feat(app): add skeleton Next.js setup`
+- `fix(auth): correct session expiry handling`
+- `docs(spec): add 004 skeleton app plan and tasks`
+- `chore(deps): upgrade React to 19`
+- `refactor(api): simplify error middleware`
 
-### ❌ BAD: Vague & Low-Fidelity
-> **Title**: `PR for navbar`
->
-> ### Changes
-> - fixed some bugs in navbar.jsx
-> - changed colors
-> - updated some files
+**Bad examples**:
+- `Added skeleton app` — missing type; use imperative "add" not "added"
+- `FEAT: Add skeleton app` — type should be lowercase
+- `feat: Add skeleton app.` — no period; "add" can stay capitalized after colon if team prefers, but lowercase is conventional
+- `feat(skeleton-app-setup): Implement the full skeleton application setup for the project` — too long; keep description short
+- `WIP` or `fix stuff` — not descriptive; use proper type and description
 
-## Key Rules
-- Always use absolute paths for file links and media.
-- Titles must be imperative (e.g., "add", not "added").
-- Every PR should aim to include at least one piece of visual proof if UI changes were made.
+## PR Body Structure
+
+Use this structure for the body content:
+
+```markdown
+### What does this PR do?
+<1–3 sentences summarizing the goal and why>
+
+### Changes
+- ...
+- (Or grouped: **Component/theme** with sub-bullets per area)
+
+### Checklist / How to test (optional)
+- ...
+```
