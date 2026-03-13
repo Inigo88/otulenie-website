@@ -12,6 +12,7 @@
 - Q: Should the typewriter animation reveal all data points once or cycle continuously? → A: Continuous Cycle (Typing, pausing, clearing, and moving to the next stat).
 - Q: Should the Scheduler represent real-time availability from Booksy? → A: High-Fidelity Mock (Aesthetic reactive UI that redirects to Booksy upon interaction).
 - **Update**: Specification cross-verified against `.specify/context/desing.md`. Aligning all components with strict architectural patterns (Section C).
+- **Localization Update**: Week starts from Monday (Polish standard). Operating hours: Mon-Fri 17:00-22:00, Sat-Sun 09:00-22:00.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -68,7 +69,7 @@ As a client ready to book, I want to observe an animated SVG cursor interacting 
 - **FR-001**: System MUST render three distinct cards within a responsive grid/stack layout.
 - **FR-002**: **Diagnostic Shuffler**: MUST implement 3 overlapping cards cycling vertically (`array.unshift(array.pop())`) every 3 seconds; MUST use `cubic-bezier(0.34, 1.56, 0.64, 1)` for spring-bounce transitions.
 - **FR-003**: **Telemetry Typewriter**: MUST implement a monospace live-text feed with a blinking Soft Olive cursor; MUST include a "Live Feed" label with a pulsing dot.
-- **FR-004**: **Cursor Protocol Scheduler**: MUST render a weekly grid (S M T W T F S) and animate an SVG cursor entering, selecting a day, and clicking a mock "Save" button.
+- **FR-004**: **Cursor Protocol Scheduler**: MUST render a weekly grid starting from Monday (**M T W T F S S**); MUST animate an SVG cursor entering, selecting a day, and clicking a mock "Save" button; Mock behavior MUST reflect operating hours (17-22 weekdays, 9-22 weekends).
 - **FR-005**: All cards MUST use Warm Linen backgrounds and respect the "Otulenie Calm" palette.
 - **FR-006**: System MUST ensure that at least one primary booking link is accessible from this section on mobile devices.
 - **FR-007**: Animations MUST respect the `prefers-reduced-motion` media query by disabling or significantly simplifying movement (Constitution Principle VI).
