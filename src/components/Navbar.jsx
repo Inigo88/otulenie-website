@@ -38,7 +38,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
         // B008: Force absolute transparency when menu is open to prevent overlay issues on scroll
         gsap.to(containerRef.current, {
             backgroundColor: isMenuOpen ? 'rgba(253, 250, 240, 0)' : (isHero ? 'rgba(253, 250, 240, 0)' : 'rgba(253, 250, 240, 0.8)'),
-            borderColor: isMenuOpen ? 'rgba(58, 77, 57, 0)' : (isHero ? 'rgba(58, 77, 57, 0)' : 'rgba(58, 77, 57, 0.1)'),
+            borderColor: isMenuOpen ? 'rgba(58, 77, 57, 0)' : (isHero ? 'rgba(253, 250, 240, 0.15)' : 'rgba(58, 77, 57, 0.1)'),
             backdropFilter: isMenuOpen ? 'blur(0px)' : (isHero ? 'blur(0px)' : 'blur(16px)'),
             boxShadow: isMenuOpen ? '0px 0px 0px rgba(0,0,0,0)' : (isHero ? '0px 0px 0px rgba(0,0,0,0)' : '0 1px 2px rgba(0,0,0,0.05)'),
             duration: reducedMotion ? 0 : 0.5,
