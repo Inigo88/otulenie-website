@@ -55,10 +55,6 @@ You **MUST** consider the user input before proceeding (if not empty).
 5. **Update Backlog (If Applicable)**:
    - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
    - If a backlog exists and the feature you are tasking is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Tasked`.
-   - After updating the feature status, **always** run the automation script to propagate status changes to Epics and Milestones:
-     ```bash
-     chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
-     ```
    - Do not edit the backlog if the feature cannot be found.
 
 6. **Report**: Output path to generated tasks.md and summary:

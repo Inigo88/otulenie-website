@@ -165,10 +165,6 @@ Execution steps:
    - Update the `Status:` field in `FEATURE_SPEC` to `Finalized`.
    - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
    - If a backlog exists and the feature you are clarifying is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Clarified`.
-   - After updating the feature status, **always** run the automation script to propagate status changes to Epics and Milestones:
-     ```bash
-     chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
-     ```
    - Do not edit the backlog if the feature cannot be found.
 
 10. Report completion (after questioning loop ends or early termination):
