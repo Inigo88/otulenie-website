@@ -46,6 +46,6 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+- 008-features-cards: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - 007-hero-section: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - 006-navbar-mobile: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
-- 005-navbar: Implemented Floating Island Navbar with GSAP ScrollTrigger and mobile overlay.
