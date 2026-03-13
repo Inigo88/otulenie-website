@@ -1,5 +1,8 @@
 # Bug B011: Hero Text Branding Alignment
 
+**Feature**: 1.2.3 Hero Section
+
+
 **Status**: [x] Open | [x] Investigating | [x] Fix Proposed | [x] Resolved
 **Severity**: P1 (Branding Consistency)
 **Found in**: Feature 1.2.3 (Hero Section)

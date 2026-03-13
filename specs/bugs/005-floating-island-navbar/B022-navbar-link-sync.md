@@ -1,5 +1,8 @@
 # Bug Report: Inconsistent Navigation Links Across Components and Specs
 
+**Feature**: 1.2.1 Floating Island Navbar
+
+
 ## Status
 Fixed
 

@@ -1,5 +1,8 @@
 # Bug Report: Hero State Legibility Issues
 
+**Feature**: 1.2.1 Floating Island Navbar
+
+
 ## Status
 Fixed
 

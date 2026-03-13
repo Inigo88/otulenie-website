@@ -1,5 +1,8 @@
 # Bug Report: Olive Text Contrast on Small Text
 
+**Feature**: 1.1.1 Global Design System
+
+
 ## Status
 Noted (Future Fix)
 

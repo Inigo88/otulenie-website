@@ -1,5 +1,8 @@
 # Bug Report: Heading Hierarchy Skips H2
 
+**Feature**: 1.1.1 Global Design System
+
+
 ## Status
 Fixed
 

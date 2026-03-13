@@ -1,5 +1,8 @@
 # Bug Report: Mobile Menu Link Inconsistency (B005)
 
+**Feature**: 1.2.2 Full Mobile Navigation Modal
+
+
 ## Status
 Fixed
 

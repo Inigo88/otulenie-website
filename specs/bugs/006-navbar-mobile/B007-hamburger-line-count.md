@@ -1,5 +1,8 @@
 # Bug Report: Hamburger Icon Line Count (B007)
 
+**Feature**: 1.2.2 Full Mobile Navigation Modal
+
+
 ## Status
 Fixed
 

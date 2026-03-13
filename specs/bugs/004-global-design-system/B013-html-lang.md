@@ -1,5 +1,8 @@
 # Bug Report: HTML Lang Attribute Set to English
 
+**Feature**: 1.1.1 Global Design System
+
+
 ## Status
 Fixed
 

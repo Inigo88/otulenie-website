@@ -1,5 +1,8 @@
 # Bug Report: Nested Interactive Elements in NavLink
 
+**Feature**: 1.2.1 Floating Island Navbar
+
+
 ## Status
 Fixed
 

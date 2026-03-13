@@ -1,5 +1,8 @@
 # Bug Report: Navbar Header Continuity Issues (B006)
 
+**Feature**: 1.2.2 Full Mobile Navigation Modal
+
+
 ## Status
 Fixed
 

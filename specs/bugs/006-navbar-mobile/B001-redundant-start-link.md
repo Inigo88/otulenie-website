@@ -1,5 +1,8 @@
 # Bug Report: Redundant "Start" Navigation Link
 
+**Feature**: 1.2.2 Full Mobile Navigation Modal
+
+
 ## Status
 Fixed
 

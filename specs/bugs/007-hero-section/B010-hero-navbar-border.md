@@ -1,5 +1,8 @@
 # Bug B010: Navbar Border Definition in Hero State
 
+**Feature**: 1.2.3 Hero Section
+
+
 **Status**: [x] Open | [x] Investigating | [x] Fix Proposed | [x] Resolved
 **Severity**: P2 (Visual Enhancement)
 **Found in**: Feature 1.2.3 (Hero Section)

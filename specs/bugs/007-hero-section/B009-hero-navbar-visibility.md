@@ -1,5 +1,8 @@
 # Bug B009: Navbar Visibility on Hero Section
 
+**Feature**: 1.2.3 Hero Section
+
+
 **Status**: [x] Open | [x] Investigating | [x] Fix Proposed | [x] Resolved
 **Severity**: P0 (Functional/Aesthetic blocker)
 **Found in**: Feature 1.2.3 (Hero Section)

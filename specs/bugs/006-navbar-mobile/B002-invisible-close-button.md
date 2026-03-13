@@ -1,5 +1,8 @@
 # Bug Report: Invisible Mobile Close Button
 
+**Feature**: 1.2.2 Full Mobile Navigation Modal
+
+
 ## Status
 Fixed
 

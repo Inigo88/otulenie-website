@@ -1,5 +1,8 @@
 # Bug Report: Modal Layout and Header Continuity (B008)
 
+**Feature**: 1.2.2 Full Mobile Navigation Modal
+
+
 ## Status
 Fixed
 

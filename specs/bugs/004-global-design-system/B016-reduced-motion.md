@@ -1,5 +1,8 @@
 # Bug Report: GSAP Animations Ignore prefers-reduced-motion
 
+**Feature**: 1.1.1 Global Design System
+
+
 ## Status
 Fixed
 

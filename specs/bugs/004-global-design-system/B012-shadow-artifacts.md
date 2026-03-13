@@ -1,5 +1,8 @@
 # Bug Report: Shadow Artifacts ("Dark Blob")
 
+**Feature**: 1.1.1 Global Design System
+
+
 ## Status
 Fixed
 

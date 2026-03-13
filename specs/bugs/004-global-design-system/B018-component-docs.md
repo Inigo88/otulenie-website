@@ -1,5 +1,8 @@
 # Bug Report: Missing Component JSDoc Prop Documentation
 
+**Feature**: 1.1.1 Global Design System
+
+
 ## Status
 Fixed
 

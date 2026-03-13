@@ -1,5 +1,8 @@
 # Bug Report: Layout Jitter on Scroll Transition
 
+**Feature**: 1.2.1 Floating Island Navbar
+
+
 ## Status
 Fixed
 
