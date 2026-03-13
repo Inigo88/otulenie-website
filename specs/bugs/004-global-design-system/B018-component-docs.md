@@ -1,27 +1,38 @@
-# Bug Report: Missing Component JSDoc Prop Documentation
+# Bug B018: Missing Component JSDoc Prop Documentation
 
-**Feature**: 1.1.1 Global Design System
-
-
-## Status
-Fixed
-
-## Severity
-Low (Code Quality / Constitution V — Reusable Component Architecture)
+**Status**: [x] Open | [x] Investigating | [x] Fix Proposed | [x] Resolved
+**Severity**: P2 (Code Quality)
+**Found in**: Feature 1.1.1 (Global Design System)
+**Date Created**: 2026-03-10
+**Date Resolved**: 2026-03-10
 
 ## Description
-All three reusable components (`MagneticButton`, `Navbar`/`NavLink`, `RoundedContainer`) had descriptive JSDoc comments but lacked `@param` annotations documenting their props, variants, and default values. This makes it harder to reuse components correctly.
+While components had high-level JSDoc descriptions, they lacked `@param` annotations documenting their actual props. This reduces the discoverability of component APIs and makes maintenance/reuse more error-prone.
 
-## Root Cause
-Original implementation included only feature-level description comments, not parameter-level documentation.
+## Steps to Reproduce
+1. Hover over a component usage (e.g., `<MagneticButton>`) in an IDE.
+2. Observe that prop types and descriptions are missing.
+
+## Expected Behavior
+All reusable components should be documented with JSDoc `@param` tags for all public props.
+
+## Actual Behavior
+Props were undocumented in JSDoc blocks.
+
+## Technical Root Cause
+Development focus was prioritized on visual implementation over detailed housekeeping documentation.
+
+## Proposed Fix
+Perform a documentation pass on `MagneticButton`, `Navbar`, and `RoundedContainer`.
+
+### Detailed Task List
+- [x] [T001] [Documentation]: Add @param tags to `MagneticButton.jsx`.
+- [x] [T002] [Documentation]: Add @param tags to `Navbar.jsx` and `NavLink`.
+- [x] [T003] [Verification]: Verify hover-info in the editor.
 
 ## Resolution
-Added `@param` JSDoc annotations to all components:
-- **MagneticButton**: `children`, `className`, `onClick`, `strength`, `as` (new polymorphic prop)
-- **Navbar**: `isHero`, `onNavigate`
-- **NavLink**: `label`, `href`, `isHero`, `isCTA`, `onNavigate`
-- **RoundedContainer**: `children`, `className`
+Added full JSDoc `@param` annotations to all core reusable components, including polymorphic props and functional callbacks.
 
 ## Verification
-- All components now show typed parameter hints in IDE.
-- `NavLink` is documented for future extraction to its own file when reused outside Navbar.
+- [x] [Technical]: IDE now shows full typed parameter hints.
+- [x] [Technical]: Build passes.

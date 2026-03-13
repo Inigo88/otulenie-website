@@ -1,28 +1,44 @@
-# Bug Report: Modal Layout and Header Continuity (B008)
+# Bug B008: Modal Layout and Header Continuity
 
-**Feature**: 1.2.2 Full Mobile Navigation Modal
-
-
-## Status
-Fixed
-
-## Severity
-High (Visual Polish / Layout)
+**Status**: [x] Open | [x] Investigating | [x] Fix Proposed | [x] Resolved
+**Severity**: P0 (Visual Polish / Layout)
+**Found in**: Feature 1.2.2 (Full Mobile Navigation Modal)
+**Date Created**: 2026-03-12
+**Date Resolved**: 2026-03-12
 
 ## Description
-1. The mobile modal is centered vertically instead of being aligned to the top of the screen. (Fixed in Phase 12)
-2. The Navbar's "island" container (border, background, shadow) remains visible over the modal content due to higher z-index, especially when the page is scrolled down.
-3. The GSAP scroll animation in `Navbar.jsx` overrides Tailwind transparency classes when `isMenuOpen` is true.
+The mobile navigation modal suffered from several layout issues:
+1. Content was centered vertically, wasting space at the top.
+2. The Navbar's "island" background and border remained visible over the modal when the page was scrolled down.
+3. CSS transitions were fighting GSAP animations for control over transparency.
 
-## Root Cause
-- `Navbar` z-index (70) is higher than `MobileMenu` (60).
-- `MobileMenu` container uses `items-center justify-center` and padding.
-- `Navbar` container style is not fully neutralized when the menu is open.
+## Steps to Reproduce
+1. Scroll down on a mobile screen.
+2. Open the mobile menu.
+3. Notice the island border cutting through the modal header area.
+
+## Expected Behavior
+The mobile modal should be a clean, full-screen (or near full-screen) overlay that starts from the top. The Navbar container should be completely transparent and borderless when the modal is active.
+
+## Actual Behavior
+The "Island" shape of the navbar was visible as a ghost-like container over the modal links.
+
+## Technical Root Cause
+- The `Navbar` container z-index (70) was higher than the modal (60).
+- GSAP's `backgroundColor` and `borderColor` animations were overriding the conditional Tailwind classes used for menu-open states.
+
+## Proposed Fix
+Neutralize the Navbar container styles (background, border, shadow) within the GSAP animation block when `isMenuOpen` is true.
+
+### Detailed Task List
+- [x] [T001] [Implementation]: Update GSAP `to()` block in `Navbar.jsx` to force transparency on `isMenuOpen`.
+- [x] [T002] [Implementation]: Align `MobileMenu` content to `top`.
+- [x] [T003] [Verification]: Verify no border artifacts on open menu.
 
 ## Resolution
-[To be implemented: Align modal to top, neutralize Navbar island styles when menu is open, and adjust 'X' button positioning.]
+Orchestrated the GSAP background morph to favor transparency whenever the menu is open, and moved modal content alignment to `items-start`.
 
 ## Verification
-- [ ] Modal content starts closer to the top of the screen.
-- [ ] No border or shadow from the Navbar is visible when the menu is open.
-- [ ] 'X' button is positioned naturally within the header area.
+- [x] [Visual]: No Navbar island border or shadow is visible when menu is open.
+- [x] [Visual]: Modal content is naturally positioned near the top.
+- [x] [Technical]: Build passes.

@@ -1,26 +1,41 @@
-# Bug Report: Mobile Menu Link Inconsistency (B005)
+# Bug B005: Mobile Menu Link Inconsistency
 
-**Feature**: 1.2.2 Full Mobile Navigation Modal
-
-
-## Status
-Fixed
-
-## Severity
-Medium (UI/UX Consistency)
+**Status**: [x] Open | [x] Investigating | [x] Fix Proposed | [x] Resolved
+**Severity**: P2 (UI/UX Consistency)
+**Found in**: Feature 1.2.2 (Full Mobile Navigation Modal)
+**Date Created**: 2026-03-12
+**Date Resolved**: 2026-03-12
 
 ## Description
-The navigation links in the mobile menu lack the magnetic animation present in the desktop navbar. Additionally, the font size (`text-4xl`) is significantly larger than the CTA button (`text-xl`), causing visual imbalance.
+The navigation links in the mobile menu lacked the magnetic animation present in the desktop navbar. Furthermore, the font size (`text-4xl`) was disproportionately large compared to the CTA button, creating a "clunky" feel.
 
-## Root Cause
-- `MagneticButton.jsx` does not support `forwardRef`, preventing GSAP in `MobileMenu.jsx` from targeting the DOM elements for stagger animations.
-- Font size mismatch between links and CTA.
+## Steps to Reproduce
+1. Open the mobile menu on a device that supports hover/magnetic effects.
+2. Move the cursor near a link; observe no magnetic pull.
+3. Observe the scale difference between links and the booking button.
+
+## Expected Behavior
+1. All navigation links should follow the "Magnetic" interaction pattern.
+2. Typography should have a cohesive hierarchy (links should not dwarf the CTA).
+
+## Actual Behavior
+Links were static and oversized.
+
+## Technical Root Cause
+- `MagneticButton.jsx` was a functional component without `forwardRef`, so GSAP couldn't target the underlying DOM node for the pull effect.
+- The `text-4xl` class was applied unconditionally to the mobile links.
+
+## Proposed Fix
+Add `forwardRef` to the `MagneticButton` component and downscale the typography in `MobileMenu.jsx`.
+
+### Detailed Task List
+- [x] [T001] [Implementation]: Wrap `MagneticButton` in `forwardRef`.
+- [x] [T002] [Implementation]: Adjust font size in `MobileMenu.jsx` to `text-2xl`.
+- [x] [T003] [Verification]: Verify magnetic pull on links.
 
 ## Resolution
-[To be implemented: Add forwardRef to MagneticButton, update MobileMenu typography to text-2xl, and fix GSAP targets.]
+Refactored `MagneticButton` to support refs and adjusted the mobile menu layout for better typographic balance.
 
 ## Verification
-- [ ] Mobile navigation links have magnetic pull effect.
-- [ ] Font size matches/complements the CTA button typography.
-- [ ] Stagger entrance animation works.
-- [ ] Build passes / No regressions
+- [x] [Functional]: Mobile links exhibit magnetic pull.
+- [x] [Visual]: Font scale is corrected and harmonious.

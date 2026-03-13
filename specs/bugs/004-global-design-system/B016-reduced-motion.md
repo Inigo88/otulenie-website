@@ -1,26 +1,41 @@
-# Bug Report: GSAP Animations Ignore prefers-reduced-motion
+# Bug B016: GSAP Animations Ignore prefers-reduced-motion
 
-**Feature**: 1.1.1 Global Design System
-
-
-## Status
-Fixed
-
-## Severity
-Medium (Accessibility / WCAG 2.2 AA — SC 2.3.3 Animation from Interactions)
+**Status**: [x] Open | [x] Investigating | [x] Fix Proposed | [x] Resolved
+**Severity**: P1 (Accessibility / WCAG)
+**Found in**: Feature 1.1.1 (Global Design System)
+**Date Created**: 2026-03-10
+**Date Resolved**: 2026-03-10
 
 ## Description
-Two GSAP animations did not check `prefers-reduced-motion`: the header entrance fade-up in `App.jsx` and the navbar morph transition in `Navbar.jsx`. Users who request reduced motion still experienced animated transitions.
+Several GSAP animations (header entrance, navbar morph) were ignoring the system's `prefers-reduced-motion` setting. This can cause vestibular issues or discomfort for users who have explicitly requested reduced movement.
 
-## Root Cause
-Only `MagneticButton.jsx` implemented the `prefers-reduced-motion` check. The other GSAP usages were not wrapped in the same guard.
+## Steps to Reproduce
+1. Enable "Reduce Motion" in OS settings.
+2. Refresh the site.
+3. Observe the header sliding/fading in.
+
+## Expected Behavior
+Animations should be either disabled or significantly slowed/simplified when `prefers-reduced-motion` is active.
+
+## Actual Behavior
+Full animations were playing regardless of OS settings.
+
+## Technical Root Cause
+The GSAP triggers were not checking the `window.matchMedia` state before execution.
+
+## Proposed Fix
+Implement a global check for reduced motion and conditional logic within `useGSAP` hooks to adjust durations to 0.
+
+### Detailed Task List
+- [x] [T001] [Implementation]: Add `reducedMotion` state to `Navbar.jsx`.
+- [x] [T002] [Implementation]: Update `App.jsx` landing animation to check media query.
+- [x] [T003] [Verification]: Verify with browser emulation.
 
 ## Resolution
-- **App.jsx**: Header entrance animation is now wrapped in a `matchMedia('(prefers-reduced-motion: reduce)')` check — skipped entirely when reduced motion is preferred.
-- **Navbar.jsx**: Added a `reducedMotion` state with a `useEffect` listener. The GSAP morph animation duration is set to `0` when reduced motion is preferred, applying styles instantly.
+- Header entrance animation is now skipped when reduced motion is preferred.
+- Navbar morph duration is set to `0`, applying styles instantly.
 
 ## Verification
-- Tested with `prefers-reduced-motion: reduce` enabled in browser DevTools.
-- Header appears instantly without fade/slide animation.
-- Navbar morph applies background/blur changes instantly.
-- Build passes without errors.
+- [x] [Accessibility]: Animations are disabled when `reduce` is active.
+- [x] [Functional]: Instant state switching works correctly in the Navbar.
+- [x] [Technical]: Build passes.

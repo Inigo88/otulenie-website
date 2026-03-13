@@ -1,23 +1,38 @@
-# Bug Report: Olive Text Contrast on Small Text
+# Bug B015: Olive Text Contrast on Small Text
 
-**Feature**: 1.1.1 Global Design System
-
-
-## Status
-Noted (Future Fix)
-
-## Severity
-Medium (Accessibility / WCAG 2.2 AA — Color Contrast SC 1.4.3)
+**Status**: [x] Open | [x] Investigating | [x] Fix Proposed | [x] Resolved
+**Severity**: P1 (Accessibility / WCAG)
+**Found in**: Feature 1.1.1 (Global Design System)
+**Date Created**: 2026-03-10
+**Date Resolved**: 2026-03-10
 
 ## Description
-The olive accent color (`#6E8068`) on the linen background (`#fdfaf0`) yields approximately 3.5:1 contrast ratio. This passes for large text (≥18px or ≥14px bold) but fails the 4.5:1 requirement for normal-sized body text.
+The olive accent color (`#6E8068`) on the linen background (`#fdfaf0`) provides a ~3.5:1 contrast ratio. While this passes for large text, it fails the 4.5:1 requirement for normal-sized body text, posing a legibility risk for some users.
 
-## Root Cause
-The `text-olive` class is used in the `<h1>` heading on the word "Calm" at `text-5xl` / `text-7xl`, which qualifies as large text and passes. However, the color should not be used for smaller text without darkening.
+## Steps to Reproduce
+1. Apply `text-olive` to a paragraph of small text.
+2. Measure contrast with a WCAG tool.
+
+## Expected Behavior
+All text must meet WCAG 2.2 AA contrast standards (4.5:1 for normal text).
+
+## Actual Behavior
+The current olive color fails for small text tokens.
+
+## Technical Root Cause
+The specific HSL values for "Olive" were optimized for visual "calmness" rather than strict high-contrast legibility in small formats.
+
+## Proposed Fix
+Enforce a project-wide rule: `text-olive` must only be used on large text (≥18px or ≥14px bold). Use `text-moss` for smaller elements.
+
+### Detailed Task List
+- [x] [T001] [Investigation]: Audit all usages of `text-olive`.
+- [x] [T002] [Documentation]: Record the usage constraint in the design system.
 
 ## Resolution
-Current usage is compliant (only on large text in `<h1>`). Documented as a guideline: `text-olive` must only be used on text ≥18px or ≥14px bold. For smaller text, use `text-moss` instead.
+Documented the constraint. Current usage is limited to the `<h1>` headline, which is compliant.
 
 ## Verification
-- Checked all current usages of `text-olive` — only appears on large heading text.
-- No small-text violations currently exist.
+- [x] [Accessibility]: All current usages of `text-olive` appear on large heading text (compliant).
+- [x] [Visual]: Branding integrity is maintained.
+- [x] [Technical]: Build passes.
