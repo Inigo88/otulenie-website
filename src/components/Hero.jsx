@@ -85,7 +85,7 @@ const Hero = ({ headline, subheadline, backgroundUrl, onHeroComplete }) => {
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 text-center text-linen">
         <h1 
           ref={headlineRef}
-          className="text-5xl md:text-8xl font-fraunces mb-8 leading-[1.1] tracking-tight text-white drop-shadow-sm"
+          className="text-5xl md:text-8xl font-fraunces mb-8 leading-[1.1] tracking-tight text-linen drop-shadow-sm"
         >
           {headline}
         </h1>
