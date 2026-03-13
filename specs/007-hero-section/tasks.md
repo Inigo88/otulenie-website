@@ -45,7 +45,7 @@
 - [ ] T006 [P] [US1] Create Hero layout with `min-h-[100dvh]` and background container in `src/components/Hero.jsx`
 - [ ] T007 [US1] Apply dark gradient overlay and "Grounding Wellness" image in `src/components/Hero.jsx`
 - [ ] T008 [US1] Implement staggered GSAP fade-up for H1 ("Relaks, który przyjeżdża do Ciebie") and subheadline in `src/components/Hero.jsx`
-- [ ] T009 [US1] Wire the `onComplete` trigger to fire ~0.5s after text animations finish in `src/components/Hero.jsx`
+- [ ] T009 [US1] Wire the `onHeroComplete` trigger to fire ~0.5s after text animations finish in `src/components/Hero.jsx`
 - [ ] T010 [US1] Implement Navbar fade-in transition based on `isHeroComplete` in `src/App.jsx`
 
 **Checkpoint**: User Story 1 fully functional and testable independently
@@ -75,7 +75,7 @@
 - [ ] T014 [P] Verify `100dvh` stability on mobile device inspector
 - [ ] T015 [P] Implement `prefers-reduced-motion` check for GSAP timeline in `src/components/Hero.jsx`
 - [ ] T016 Run `speckit.analyze` for consistency between spec and implementation
-- [ ] T017 Final performance audit for CLS and 60fps animations
+- [ ] T017 Final performance audit for CLS (SC-004) and text contrast (SC-002) meeting WCAG AA standards
 
 ---
 

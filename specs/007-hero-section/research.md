@@ -16,6 +16,6 @@
 - **Alternatives considered**: `100vh` (causes overflow shifts), `100svh` (too small when bars hidden).
 
 ## Decision: Cross-Component Signalling for Navbar Reveal
-- **Decision**: Lift `isHeroComplete` state to `App.jsx` or use a shared layout state. Pass an `onComplete` callback from `App` to `Hero`.
+- **Decision**: Lift `isHeroComplete` state to `App.jsx` or use a shared layout state. Pass an `onHeroComplete` callback from `App` to `Hero`.
 - **Rationale**: Simple, predictable, and React-idiomatic. Decouples the Navbar from the Hero's internal GSAP timelines.
 - **Alternatives considered**: Redux/Context (overkill for single state), Custom Events (less "React-way").

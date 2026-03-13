@@ -11,7 +11,7 @@
 - Q: What is the core brand messaging we should use for the Hero section? → A: Option A (Headline: "Relaks, który przyjeżdża do Ciebie", Subheadline: "Profesjonalny masaż mobilny we Wrocławiu. Poczuj spokój w zaciszu własnego domu.")
 - Q: What should the visual "vibe" of the background image be? → A: Option B (Grounding Wellness: Warm wood textures, linen fabrics, gentle natural light, organic elements)
 - Q: Should the Navbar be visible immediately when the user lands on the Hero section? → A: Option B (Delayed Reveal: Navbar appears after Hero animations or on first scroll)
-- Q: Which event should be the primary trigger for revealing the Navbar? → A: Option A (Hero Completion: Navbar fades in ~0.5s after the CTA button finishes its entrance)
+- Q: Which event should be the primary trigger for revealing the Navbar? → A: Option A (Hero Completion: Navbar fades in ~0.5s after the CTA button finishes its entrance via `onHeroComplete`)
 
 
 ### User Story 1 - Cinematic First Impression (Priority: P1)
@@ -59,7 +59,7 @@ As a busy client, I want to be able to immediately book a massage from the Hero 
 - **FR-004**: System MUST include a primary headline (H1: "Relaks, który przyjeżdża do Ciebie") and a descriptive subheadline ("Profesjonalny masaż mobilny we Wrocławiu. Poczuj spokój w zaciszu własnego domu.").
 - **FR-005**: System MUST include a prominent "Zarezerwuj masaż" CTA button using the `MagneticButton` component.
 - **FR-006**: System MUST use a high-fidelity static background image with a "Grounding Wellness" vibe (warm wood, linen, natural light). It must include appropriate focal points for both desktop and mobile.
-- **FR-007**: System MUST delay the reveal of the Navbar (Floating Island) until the Hero section animations are complete. Specifically, the Navbar should fade in ~0.5s after the final Hero element (the CTA button) finishes its entrance.
+- **FR-007**: System MUST delay the reveal of the Navbar (Floating Island) until the Hero section animations are complete. Specifically, the Navbar should fade in ~0.5s after the final Hero element (the CTA button) finishes its entrance, triggered by the `onHeroComplete` callback.
 
 ## Success Criteria *(mandatory)*
 
