@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # otulenie-website Development Guidelines
 
 Last updated: 2026-03-11
