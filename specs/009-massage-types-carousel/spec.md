@@ -2,7 +2,7 @@
 
 **Feature Branch**: `009-massage-types-carousel`  
 **Created**: 2026-03-15  
-**Status**: Draft  
+**Status**: Finalized  
 **Input**: User description: "Replace offer section and feature cards with Massage Type Carousel. Consolidate the "Oferta" CTA and the micro-interaction cards into a single, high-fidelity responsive carousel that showcases the four signature massage types with direct booking capability."
 
 ## Context & Dependencies
@@ -38,7 +38,7 @@ As a client who has chosen a massage type, I want to initiate the booking proces
 
 **Acceptance Scenarios**:
 
-1. **Given** a massage card is visible, **When** the user clicks the "Zarezerwuj" button, **Then** the correct Booksy URL for that specific service (or general practice) is opened in a new tab.
+1. **Given** a massage card is visible, **When** the user clicks the "Zarezerwuj" button, **Then** the correct Booksy URL for that specific service (or general practice) is opened in a new tab (`target="_blank"`).
 
 ---
 
@@ -61,15 +61,28 @@ As a user who values aesthetics, I want the carousel to feel "alive" and premium
 
 - **What happens on extremely small mobile screens?** The carousel must stack into a single-column swipeable interface or a partial-card reveal to indicate horizontal scroll.
 - **How does the system handle "No Javascript"?** The cards should fallback to a static vertical or horizontal list so the content is still accessible.
+- **What happens if a massage type's data is missing?** The carousel MUST display a "Free consultation" fallback card (e.g., "Not sure? Book a consultation").
+
+## Clarifications
+
+### Session 2026-03-15
+
+- Q: How should the carousel behave if a specific massage type's data is missing or malformed in the source file? → A: Fallback to a "Free consultation" card.
+- Q: Which primary navigation controls should be visible to enable users to switch between cards on desktop? → A: Drag-and-drop and pagination dots.
+- Q: When a user clicks the "Zarezerwuj" button, should the Booksy link open in the same tab or a new tab? → A: New tab (`target="_blank"`), as per updated Project Constitution.
+- Q: Should the carousel rotate automatically? → A: Yes, every 5 seconds; pause on hover/interaction.
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
 - **FR-001**: System MUST render a responsive carousel containing 4 cards: Mocne, Głębokie, Czułe, and Ciepłe Otulenie.
+- **FR-001.1**: System MUST support drag-and-drop (desktop) and touch/swipe (mobile) for carousel navigation.
+- **FR-001.2**: System MUST display pagination dots for visual feedback of the active slide.
 - **FR-002**: System MUST use the condensed Polish descriptions from `.specify/context/massage-descriptions.md` for each card.
 - **FR-003**: Each card MUST display the name, duration (e.g., "1h" or "1h 30min"), and price (e.g., "180 PLN") clearly.
 - **FR-004**: System MUST use GSAP and ScrollTrigger for the carousel entrance and slide transitions (defaulting to `power3.out` easing).
+- **FR-004.1**: Carousel MUST auto-rotate every 5 seconds, pausing on hover or manual interaction (WCAG compliance).
 - **FR-005**: All cards and buttons MUST adhere to the "Otulenie Calm" palette: Forest Moss (#374833), Warm Linen (#fdfaf0), and Soft Olive (#6E8068).
 - **FR-006**: System MUST implement a "magnetic" hover effect on the primary CTA button within each card.
 - **FR-007**: System MUST apply the global 0.05 opacity SVG noise overlay to the carousel section.
@@ -82,7 +95,7 @@ As a user who values aesthetics, I want the carousel to feel "alive" and premium
 
 ### Measurable Outcomes
 
-- **SC-001**: Carousel is fully responsive and interactive on both mobile (touch/swipe) and desktop (mouse/arrows).
+- **SC-001**: Carousel is fully responsive and interactive on both mobile (touch/swipe) and desktop (drag-and-drop/dots).
 - **SC-002**: Animation frame rate remains consistently near 60fps during transitions.
 - **SC-003**: 100% of the text content is in Polish, matching the latest context updates.
 - **SC-004**: Primary booking CTA on each card is distinct and functional.

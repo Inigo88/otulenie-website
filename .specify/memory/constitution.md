@@ -2,7 +2,7 @@
 
 <!-- Sync Impact Report
 Version change: 1.2.0 → 1.2.1
-List of modified principles: None
+List of modified principles: II. The Focus on Conversion
 Added sections: None
 Removed sections: None
 Templates requiring updates:
@@ -25,6 +25,7 @@ Every functional and design decision must support the primary booking action.
 - The overarching goal is to convert visitors into booked appointments on Booksy. 
 - Avoid competing CTAs.
 - The primary booking CTA ("Zarezerwuj masaż") is omni-present and sticky on mobile.
+- All primary CTAs targeting external booking platforms (e.g., Booksy) MUST always open in a new tab (`target="_blank"`) to preserve user context.
 
 ### III. Micro-Interaction Polish
 Interactions must feel intentional and magnetic, not static or generic.
@@ -79,4 +80,4 @@ Otulenie addresses neck tension, stress, and lack of time for desk workers and b
 
 All design and implementation files must adhere to the design guidelines established here. Any deviation from the "Otulenie Calm" preset or the specified micro-interaction patterns requires explicit approval before code changes.
 
-**Version**: 1.2.0 | **Ratified**: 2026-03-09 | **Last Amended**: 2026-03-12
+**Version**: 1.2.1 | **Ratified**: 2026-03-09 | **Last Amended**: 2026-03-15
