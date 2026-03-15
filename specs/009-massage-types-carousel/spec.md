@@ -5,6 +5,12 @@
 **Status**: Draft  
 **Input**: User description: "Replace offer section and feature cards with Massage Type Carousel. Consolidate the "Nasza oferta" CTA and the micro-interaction cards into a single, high-fidelity responsive carousel that showcases the four signature massage types with direct booking capability."
 
+## Context & Dependencies
+
+This feature is strictly governed by the following context documents:
+- **Massage Descriptions**: [.specify/context/massage-descriptions.md](../../.specify/context/massage-descriptions.md) — Source of truth for all Polish marketing copy, pricing, and durations.
+- **Project Constitution**: [.specify/memory/constitution.md](../../.specify/memory/constitution.md) — Governing rules for GSAP animations and design tokens.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Browsing Massage Types (Priority: P1)
