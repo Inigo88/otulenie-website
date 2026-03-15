@@ -171,7 +171,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                             />
                         ))}
                         <MagneticButton
-                            aria-label="Nasza oferta i rezerwacja"
+                            aria-label="Oferta i rezerwacja"
                             className={`
                                 bg-olive text-linen
                                 !px-6 !py-2 text-sm shadow-none hover:shadow-lg

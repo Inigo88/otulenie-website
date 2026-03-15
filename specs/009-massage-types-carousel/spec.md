@@ -3,7 +3,7 @@
 **Feature Branch**: `009-massage-types-carousel`  
 **Created**: 2026-03-15  
 **Status**: Draft  
-**Input**: User description: "Replace offer section and feature cards with Massage Type Carousel. Consolidate the "Nasza oferta" CTA and the micro-interaction cards into a single, high-fidelity responsive carousel that showcases the four signature massage types with direct booking capability."
+**Input**: User description: "Replace offer section and feature cards with Massage Type Carousel. Consolidate the "Oferta" CTA and the micro-interaction cards into a single, high-fidelity responsive carousel that showcases the four signature massage types with direct booking capability."
 
 ## Context & Dependencies
 
@@ -23,7 +23,7 @@ As a potential client (Desk Worker or Mother), I want to see the available massa
 
 **Acceptance Scenarios**:
 
-1. **Given** the user is in the "Oferta" or "Nasza oferta" section, **When** they swipe or click the navigation arrows, **Then** the carousel transitions smoothly to the next massage card using GSAP animations.
+1. **Given** the user is in the "Oferta" section, **When** they swipe or click the navigation arrows, **Then** the carousel transitions smoothly to the next massage card using GSAP animations.
 2. **Given** a specific massage card is active, **When** the user views it, **Then** they see the name, duration, price, and the condensed Polish description.
 
 ---

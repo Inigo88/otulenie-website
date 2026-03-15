@@ -58,6 +58,11 @@ The website must meet WCAG 2.2 Level AA conformance to ensure usability for all 
 - **Reduced Motion**: Respect `prefers-reduced-motion` media query — disable or reduce GSAP animations for users who prefer reduced motion.
 - **Screen Reader Support**: Ensure correct heading hierarchy (`h1`→`h6`), meaningful link text, and logical DOM order matching visual order.
 
+### VII. Professional Solo Voice
+The platform represents a sole proprietorship. All copy must avoid plural ("Nasza", "Nasze") or personal possessive ("Moja", "Moje") pronouns in the UI. 
+- Use neutral, action-oriented naming (e.g., "Oferta" instead of "Nasza oferta").
+- Maintain a tone that is professional, therapeutic, and focused on the client's experience.
+
 ## Target Audience & Business Value
 Otulenie addresses neck tension, stress, and lack of time for desk workers and busy mothers. The digital presence must clearly articulate the convenience of a mobile massage service in Wrocław while building immense trust through calming design elements and transparent communication.
 

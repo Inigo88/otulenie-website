@@ -58,7 +58,7 @@ function App() {
 
           <div className="flex flex-wrap justify-center gap-6">
             <MagneticButton className="bg-linen text-moss border border-moss/20">
-              Nasza oferta
+              Oferta
             </MagneticButton>
           </div>
         </RoundedContainer>
