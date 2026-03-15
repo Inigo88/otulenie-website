@@ -66,8 +66,12 @@ Load only the minimal necessary context from each artifact:
 
 **From backlog:**
 
-- Load the current product backlog (e.g., `.specify/backlog/<product-name>-backlog.md` or similar)
+- Load the current product backlog (e.g., `.specify/backlog/<product-name>-backlog.md`)
 - Focus specifically on the **Product Description** and **Business Problem** contextual headers, as well as the overarching Epic the current feature belongs to.
+
+**From context directory:**
+
+- Load all files in `.specify/context/` to ensure alignment with existing project-wide principles, constraints, and high-level documentation.
 
 ### 3. Build Semantic Models
 
@@ -78,6 +82,7 @@ Create internal representations (do not include raw artifacts in output):
 - **Task coverage mapping**: Map each task to one or more requirements or stories (inference by keyword / explicit reference patterns like IDs or key phrases)
 - **Constitution rule set**: Extract principle names and MUST/SHOULD normative statements
 - **Backlog scope boundaries**: Extract the core business problem and epic constraints to evaluate if the implemented feature or plan fundamentally aligns with the product's ultimate goal.
+- **Contextual constraints**: Extract all relevant constraints, principles, and architectural boundaries from the files found in the `.specify/context/` directory.
 
 ### 4. Detection Passes (Token-Efficient Analysis)
 
@@ -122,6 +127,10 @@ Focus on high-signal findings. Limit to 50 findings total; aggregate remainder i
 - **Product Alignment**: Check if any functional requirement fundamentally contradicts the "Product Description" or "Business Problem" stated in the backlog.
 - **Architectural Cohesion**: Check if the implementation architecture (from plan.md) fundamentally conflicts with the grand scope of the product or its Epics.
 
+#### H. Contextual Alignment
+
+- **Project Alignment**: Cross-reference the feature's specification and plan against all documentation in `.specify/context/`. Identify any conflicts with global project principles, architectural decisions, or established constraints.
+
 ### 5. Severity Assignment
 
 Use this heuristic to prioritize findings:
@@ -152,6 +161,8 @@ Output a Markdown report (no file writes) with the following structure:
 
 **Backlog Cohesion Issues:** (if any)
 
+**Contextual Alignment Issues:** (if any)
+
 **Unmapped Tasks:** (if any)
 
 **Metrics:**
@@ -167,19 +178,15 @@ Output a Markdown report (no file writes) with the following structure:
 
 At end of report, output a concise Next Actions block:
 
-- If CRITICAL issues exist: Recommend resolving before `/speckit.implement`
-- If only LOW/MEDIUM: User may proceed, but provide improvement suggestions
+- If issues (CRITICAL, HIGH, MEDIUM, or LOW) exist: Recommended resolving before `/speckit.implement`
 - Provide explicit command suggestions: e.g., "Run /speckit.specify with refinement", "Run /speckit.plan to adjust architecture", "Manually edit tasks.md to add coverage for 'performance-metrics'"
 
 ### 8. Update Backlog (If Applicable)
 
 - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
-  - If a backlog exists and the feature you analyzed is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Analysed`.
-  - After updating the feature status, **always** run the automation script to propagate status changes to Epics and Milestones:
-    ```bash
-    chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
-    ```
-  - Do not edit the backlog if the feature cannot be found.
+  - If a backlog exists and the feature you analyzed is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Analysed` **ONLY if zero issues total (CRITICAL, HIGH, MEDIUM, and LOW) were identified** in the final report.
+  - If any issues exist (even LOW severity), do not update the backlog status until they are resolved and `/speckit.analyze` is re-run with zero remaining findings.
+  - Do not edit the backlog if the feature cannot be found or if the analysis is still failing.
 
 ### 9. Offer Remediation
 

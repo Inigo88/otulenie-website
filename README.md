@@ -15,6 +15,10 @@ The platform strictly adheres to a grounded, warm wellness aesthetic.
 This project enforces strict constraints to ensure a premium, performant, mobile-first experience.
 - **Stack:** React 19.x, Vite 6.x, Tailwind CSS v4.x, GSAP 3 (with ScrollTrigger plugin), Lucide React.
 - **Structure:** Single `App.jsx` holding the core experience. Components (e.g., `MagneticButton`, `RoundedContainer`) are extracted to `src/components/` *only* if `App.jsx` exceeds 600 lines. 
+- **Interactive Features:** Three functional micro-UIs implemented as distinct components:
+  - **Diagnostic Shuffler**: Randomized mood/treatment selector with GSAP card permutations.
+  - **Telemetry Typewriter**: Interactive copy-to-clipboard service descriptions with reactive layout.
+  - **Cursor Protocol Scheduler**: High-fidelity booking CTA with location-aware operating hours.
 - **Styling:** Single `index.css` for Tailwind layers and custom noise generation.
 - **Media:** Strict use of high-quality Unsplash images matching the `imageMood` profile. No placeholders permitted.
 

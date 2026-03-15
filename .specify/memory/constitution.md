@@ -1,11 +1,9 @@
 # Otulenie Website Constitution
 
 <!-- Sync Impact Report
-Version change: 1.1.0 → 1.2.0
+Version change: 1.2.0 → 1.2.1
 List of modified principles: None
-Added sections:
-  - V. Reusable Component Architecture
-  - VI. Accessibility Standards (WCAG 2.2 Level AA)
+Added sections: None
 Removed sections: None
 Templates requiring updates:
   - .specify/templates/plan-template.md (✅ updated)
@@ -72,7 +70,7 @@ Otulenie addresses neck tension, stress, and lack of time for desk workers and b
 - **Responsiveness:** Mobile-first design is mandatory. Stack elements vertically, reduce heading scales, and collapse navbars minimally on mobile.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+<!-- Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
 All design and implementation files must adhere to the design guidelines established here. Any deviation from the "Otulenie Calm" preset or the specified micro-interaction patterns requires explicit approval before code changes.
 

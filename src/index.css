@@ -9,10 +9,15 @@
   --color-moss: #374833;
   --color-linen: #fdfaf0;
   --color-olive: #6E8068;
+  --color-sand: #F5F1E6;
+  --color-warm-gray: #B4B0A5;
 
   --navbar-height: 80px;
   --navbar-max-width: 800px;
   --navbar-bg: transparent;
+
+  --card-shadow: 0 4px 24px -1px rgba(55, 72, 51, 0.05);
+  --card-shadow-hover: 0 12px 40px -2px rgba(55, 72, 51, 0.12);
 }
 
 @layer base {

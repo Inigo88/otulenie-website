@@ -26,13 +26,17 @@ export default function MobileMenu({ isOpen, onClose, links }) {
     const linkRefs = useRef([])
     const ctaRef = useRef(null)
 
-    const [isVisible, setIsVisible] = useState(false)
-    const [reducedMotion, setReducedMotion] = useState(false)
+    const [reducedMotion, setReducedMotion] = useState(
+        () => typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
+    )
+    const [isVisible, setIsVisible] = useState(isOpen)
 
-    // T018: Check for reduced motion
+    // T014: Visual Preference Handling
     useEffect(() => {
         const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-        setReducedMotion(mq.matches)
+        const listener = (e) => setReducedMotion(e.matches)
+        mq.addEventListener('change', listener)
+        return () => mq.removeEventListener('change', listener)
     }, [])
 
     // T019: Viewport Resize Handling
@@ -51,18 +55,21 @@ export default function MobileMenu({ isOpen, onClose, links }) {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden'
-            setIsVisible(true)
+            // Use a slight delay or microtask to avoid the synchronous setState warning
+            // while still allowing the component to render for animations
+            const timer = setTimeout(() => setIsVisible(true), 0)
+            return () => {
+                clearTimeout(timer)
+                document.body.style.overflow = 'unset'
+            }
         } else {
-            document.body.style.overflow = 'unset'
-        }
-        return () => {
             document.body.style.overflow = 'unset'
         }
     }, [isOpen])
 
 
     // T012: GSAP Entrance/Exit Timeline
-    const { contextSafe } = useGSAP(() => {
+    useGSAP(() => {
         if (!modalRef.current || reducedMotion) return
 
         if (isOpen) {

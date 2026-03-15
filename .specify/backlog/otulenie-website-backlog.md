@@ -80,6 +80,11 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.2.4**: Build interactive features cards  
   **Description**: Implement the three required functional micro-UIs: Diagnostic Shuffler, Telemetry Typewriter, and Cursor Protocol Scheduler.  
   **Branch**: `008-features-cards`  
+  **Status**: Done
+
+- **Feature 1.2.5**: Replace offer section and feature cards with Massage Type Carousel
+  **Description**: Consolidate the "Nasza oferta" CTA and the micro-interaction cards into a single, high-fidelity responsive carousel that showcases the four signature massage types with direct booking capability.
+  **Branch**: `017-massage-types-carousel`
   **Status**: Backlog
 
 #### Epic 1.3: Deep Dive & Footer Elements
