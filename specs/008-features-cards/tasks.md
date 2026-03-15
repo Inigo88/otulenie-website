@@ -24,8 +24,8 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create directory `src/components/FeatureCards/` following project structure
-- [ ] T002 [P] Update `src/App.jsx` to import and scaffold the `<FeatureCards />` section
+- [x] T001 Create directory `src/components/FeatureCards/` following project structure
+- [x] T002 [P] Update `src/App.jsx` to import and scaffold the `<FeatureCards />` section
 
 ---
 
@@ -35,8 +35,8 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T003 [P] Implement `src/components/FeatureCards/FeatureCards.jsx` as a responsive grid container
-- [ ] T004 [P] Define "Otulenie Calm" palette specific variables and card hover lift styles in `src/index.css`
+- [x] T003 [P] Implement `src/components/FeatureCards/FeatureCards.jsx` as a responsive grid container
+- [x] T004 [P] Define "Otulenie Calm" palette specific variables and card hover lift styles in `src/index.css`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -50,10 +50,10 @@
 
 ### Implementation for User Story 1
 
-- [ ] T005 [P] [US1] Define `MassageRecommendation` static data in `src/components/FeatureCards/DiagnosticShuffler.jsx`
-- [ ] T006 [US1] Build static markup for vertical overlapping cards in `src/components/FeatureCards/DiagnosticShuffler.jsx`
-- [ ] T007 [US1] Implement automatic vertical loop with `cubic-bezier(0.34, 1.56, 0.64, 1)` in `src/components/FeatureCards/DiagnosticShuffler.jsx` using `useGSAP`
-- [ ] T008 [US1] Add hover pause and link "Zarezerwuj" button to Booksy in `src/components/FeatureCards/DiagnosticShuffler.jsx`
+- [x] T005 [P] [US1] Define `MassageRecommendation` static data in `src/components/FeatureCards/DiagnosticShuffler.jsx`
+- [x] T006 [US1] Build static markup for vertical overlapping cards in `src/components/FeatureCards/DiagnosticShuffler.jsx`
+- [x] T007 [US1] Implement automatic vertical loop with `cubic-bezier(0.34, 1.56, 0.64, 1)` in `src/components/FeatureCards/DiagnosticShuffler.jsx` using `useGSAP`
+- [x] T008 [US1] Add hover pause and link "Zarezerwuj" button to Booksy in `src/components/FeatureCards/DiagnosticShuffler.jsx`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -67,10 +67,10 @@
 
 ### Implementation for User Story 3
 
-- [ ] T009 [P] [US3] Define weekly schedule mock data (Mon-Sun, 17-22/9-22) in `src/components/FeatureCards/CursorProtocolScheduler.jsx`
-- [ ] T010 [US3] Build weekly grid and animated SVG cursor markup in `src/components/FeatureCards/CursorProtocolScheduler.jsx`
-- [ ] T011 [US3] Implement GSAP sequence: Cursor Enter → Select Day → Scale(0.95) Click → Highlight Save in `src/components/FeatureCards/CursorProtocolScheduler.jsx`
-- [ ] T012 [US3] Map intent interactions to Booksy redirect in `src/components/FeatureCards/CursorProtocolScheduler.jsx`
+- [x] T009 [P] [US3] Define weekly schedule mock data (Mon-Sun, 17-22/9-22) in `src/components/FeatureCards/CursorProtocolScheduler.jsx`
+- [x] T010 [US3] Build weekly grid and animated SVG cursor markup in `src/components/FeatureCards/CursorProtocolScheduler.jsx`
+- [x] T011 [US3] Implement GSAP sequence: Cursor Enter → Select Day → Scale(0.95) Click → Highlight Save in `src/components/FeatureCards/CursorProtocolScheduler.jsx`
+- [x] T012 [US3] Map intent interactions to Booksy redirect in `src/components/FeatureCards/CursorProtocolScheduler.jsx`
 
 **Checkpoint**: At this point, User Story 3 should be fully functional and testable independently
 
@@ -84,9 +84,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T013 [P] [US2] Define `BusinessTelemetry` static data in `src/components/FeatureCards/TelemetryTypewriter.jsx`
-- [ ] T014 [US2] Build monospace live-feed markup with pulsing dot label in `src/components/FeatureCards/TelemetryTypewriter.jsx`
-- [ ] T015 [US2] Implement typing animation (50ms type, 15ms delete, 2s pause) with blinking Soft Olive cursor in `src/components/FeatureCards/TelemetryTypewriter.jsx`
+- [x] T013 [P] [US2] Define `BusinessTelemetry` static data in `src/components/FeatureCards/TelemetryTypewriter.jsx`
+- [x] T014 [US2] Build monospace live-feed markup with pulsing dot label in `src/components/FeatureCards/TelemetryTypewriter.jsx`
+- [x] T015 [US2] Implement typing animation (50ms type, 15ms delete, 2s pause) with blinking Soft Olive cursor in `src/components/FeatureCards/TelemetryTypewriter.jsx`
 
 **Checkpoint**: All three user stories should now be independently functional
 
@@ -96,9 +96,9 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T016 [P] Implement `prefers-reduced-motion` logic to disable/simplify animations in all card components
-- [ ] T017 [P] Verify all interactive targets are at least 24x24px for accessibility (WCAG SC 2.5.8)
-- [ ] T018 Run final validation against `quickstart.md`
+- [x] T016 [P] Implement `prefers-reduced-motion` logic to disable/simplify animations in all card components
+- [x] T017 [P] Verify all interactive targets are at least 24x24px for accessibility (WCAG SC 2.5.8)
+- [x] T018 Run final validation against `quickstart.md`
 
 ---
 

@@ -82,6 +82,11 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Branch**: `008-features-cards`  
   **Status**: Implemented
 
+- **Feature 1.2.5**: Replace offer section and feature cards with Massage Type Carousel
+  **Description**: Consolidate the "Nasza oferta" CTA and the micro-interaction cards into a single, high-fidelity responsive carousel that showcases the four signature massage types with direct booking capability.
+  **Branch**: `017-massage-types-carousel`
+  **Status**: Backlog
+
 #### Epic 1.3: Deep Dive & Footer Elements
 
 **Description**: Constructing the philosophy manifesto, service stacking archive, and comprehensive footer.  
