@@ -23,7 +23,7 @@ As a potential client (Desk Worker or Mother), I want to see the available massa
 
 **Acceptance Scenarios**:
 
-1. **Given** the user is in the "Oferta" section, **When** they swipe or click the navigation arrows, **Then** the carousel transitions smoothly to the next massage card using GSAP animations.
+1. **Given** the user is in the "Oferta" section, **When** they swipe or click the navigation arrows, **Then** the carousel transitions smoothly to the next massage card with a premium feel.
 2. **Given** a specific massage card is active, **When** the user views it, **Then** they see the name, duration, price, and the condensed Polish description.
 
 ---
@@ -48,7 +48,7 @@ As a user who values aesthetics, I want the carousel to feel "alive" and premium
 
 **Why this priority**: Alignment with brand constitution and premium positioning.
 
-**Independent Test**: Can be tested by observing the GSAP transitions, hover effects on cards, and the noise overlay application.
+**Independent Test**: Can be tested by observing the transitions, hover effects on cards, and the noise overlay application.
 
 **Acceptance Scenarios**:
 
@@ -81,7 +81,7 @@ As a user who values aesthetics, I want the carousel to feel "alive" and premium
 - **FR-001.2**: System MUST display pagination dots for visual feedback of the active slide.
 - **FR-002**: System MUST use the condensed Polish descriptions from `.specify/context/massage-descriptions.md` for each card.
 - **FR-003**: Each card MUST display the name, duration (e.g., "1h" or "1h 30min"), and price (e.g., "180 PLN") clearly.
-- **FR-004**: System MUST use GSAP and ScrollTrigger for the carousel entrance and slide transitions (defaulting to `power3.out` easing).
+- **FR-004**: System MUST implement smooth, cinematic entrance and slide transitions.
 - **FR-004.1**: Carousel MUST auto-rotate every 5 seconds, pausing on hover or manual interaction (WCAG compliance).
 - **FR-005**: All cards and buttons MUST adhere to the "Otulenie Calm" palette: Forest Moss (#374833), Warm Linen (#fdfaf0), and Soft Olive (#6E8068).
 - **FR-006**: System MUST implement a "magnetic" hover effect on the primary CTA button within each card.
