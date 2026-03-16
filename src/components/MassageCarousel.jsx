@@ -14,89 +14,174 @@ const MassageCarousel = () => {
   const activeSlideRef = useRef(0);
   const rotationIntervalRef = useRef(null);
 
+  // Clone data for infinite scroll effect
+  const DISPLAY_DATA = [...MASSAGE_DATA, ...MASSAGE_DATA.slice(0, 3)];
+
   useGSAP(() => {
-    if (!horizontalRef.current || !triggerRef.current) return;
+    if (!horizontalRef.current || !containerRef.current) return;
 
     const horizontalItems = horizontalRef.current;
-    const calculateWidth = () => horizontalItems.scrollWidth - window.innerWidth + (window.innerWidth * 0.1);
-
-    const st = ScrollTrigger.create({
-      trigger: triggerRef.current,
-      pin: true,
-      pinSpacing: true,
-      scrub: 1,
-      start: 'top top',
-      end: () => `+=${calculateWidth()}`,
-      invalidateOnRefresh: true
-    });
-
-    gsap.to(horizontalItems, {
-      x: () => -calculateWidth(),
-      ease: 'none',
-      scrollTrigger: st
-    });
-
-    return () => st.kill();
-  }, { scope: containerRef });
-
-  // Separate effect for rotation to keep useGSAP clean and avoid stale ScrollTrigger references
-  useEffect(() => {
-    rotationIntervalRef.current = setInterval(() => {
-      // Find ScrollTrigger for this component
-      const st = ScrollTrigger.getAll().find(s => s.trigger === triggerRef.current);
-      if (!st) return;
-
-      const nextSlide = (activeSlideRef.current + 1) % MASSAGE_DATA.length;
-      const targetScroll = st.start + (st.end - st.start) * (nextSlide / (MASSAGE_DATA.length - 1));
+    
+    // Width of one full set of items
+    const getBaseWidth = () => {
+      // Calculate width of original MASSAGE_DATA items only
+      const children = Array.from(horizontalItems.children);
+      const originalItems = children.slice(0, MASSAGE_DATA.length);
+      if (originalItems.length === 0) return 0;
       
-      gsap.to(window, { 
-        scrollTo: targetScroll, 
-        duration: 1.2, 
-        ease: 'power2.inOut',
-        overwrite: 'auto'
-      });
-    }, 6000);
+      const lastItem = originalItems[originalItems.length - 1];
+      return lastItem.offsetLeft + lastItem.offsetWidth;
+    };
+
+    const scrollDistance = window.innerHeight * 3; // Fixed large scroll for better control
+
+    // Simplified ScrollTrigger for state tracking only (no pinning, no linked animation)
+    const st = ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: 'top center',
+      end: 'bottom center',
+      onToggle: (self) => {
+        // Optional: track if section is in focus
+      }
+    });
+
+    // Helper to calculate target X for a given slide index
+    const getXForIndex = (index) => {
+      const children = Array.from(horizontalItems.children);
+      if (children.length === 0) return 0;
+      const targetItem = children[index];
+      const parentWidth = triggerRef.current.offsetWidth;
+      // Center the card in the viewport
+      return -(targetItem.offsetLeft - (parentWidth / 2) + (targetItem.offsetWidth / 2));
+    };
+
+    // T003: Use a proxy for Draggable to avoid transform conflicts
+    const dragProxy = document.createElement("div");
+    dragProxy.style.cssText = "position:fixed; visibility:hidden; pointer-events:none;";
+    document.body.appendChild(dragProxy);
+    
+    Draggable.create(dragProxy, {
+      type: "x",
+      trigger: horizontalItems,
+      inertia: true,
+      onPress: function() {
+        gsap.set(this.target, { x: gsap.getProperty(horizontalItems, "x") });
+        this.update();
+      },
+      onDrag: function() {
+        const baseWidth = getBaseWidth();
+        let newX = this.x % baseWidth;
+        if (newX > 0) newX -= baseWidth;
+        gsap.set(horizontalItems, { x: newX });
+        
+        // Update active slide during drag
+        const progress = Math.abs(newX) / baseWidth;
+        const index = Math.round(progress * MASSAGE_DATA.length) % MASSAGE_DATA.length;
+        if (index !== activeSlideRef.current) {
+          activeSlideRef.current = index;
+          setActiveSlide(index);
+        }
+      },
+      onThrowUpdate: function() {
+        const baseWidth = getBaseWidth();
+        let newX = this.x % baseWidth;
+        if (newX > 0) newX -= baseWidth;
+        gsap.set(horizontalItems, { x: newX });
+      }
+    });
 
     return () => {
-      if (rotationIntervalRef.current) clearInterval(rotationIntervalRef.current);
+      st.kill();
+      if (dragProxy.parentNode) dragProxy.parentNode.removeChild(dragProxy);
+      Draggable.get(dragProxy)?.kill();
     };
+  }, { scope: containerRef, dependencies: [] });
+
+  const handleDotClick = (index, isAuto = false) => {
+    if (!horizontalRef.current) return;
+
+    const baseWidth = Array.from(horizontalRef.current.children)
+      .slice(0, MASSAGE_DATA.length)
+      .reduce((acc, child) => acc + child.offsetWidth + 40, 0); // Approx width with gaps
+
+    // Simplified horizontal animation
+    const targetX = -(index * (horizontalRef.current.scrollWidth / DISPLAY_DATA.length));
+    
+    gsap.to(horizontalRef.current, { 
+      x: targetX, 
+      duration: 1.0, 
+      ease: 'power3.inOut',
+      overwrite: 'auto',
+      onUpdate: () => {
+        // Sync active slide state during animation if needed
+        const currentX = gsap.getProperty(horizontalRef.current, "x");
+        const progress = Math.abs(currentX) / (horizontalRef.current.scrollWidth - horizontalRef.current.offsetWidth);
+        const activeIdx = Math.round(progress * (MASSAGE_DATA.length - 1)) % MASSAGE_DATA.length;
+        if (activeIdx !== activeSlideRef.current) {
+          activeSlideRef.current = activeIdx;
+          setActiveSlide(activeIdx);
+        }
+      }
+    });
+  };
+
+  // Separate effect for auto-rotation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const st = ScrollTrigger.getAll().find(s => s.trigger === containerRef.current);
+      // Only auto-rotate if the section is somewhat in view
+      if (!st || !st.isActive) return;
+
+      const nextSlide = (activeSlideRef.current + 1) % MASSAGE_DATA.length;
+      handleDotClick(nextSlide, true);
+    }, 3000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full bg-linen py-20">
+    <section ref={containerRef} className="relative w-full bg-linen py-12 md:py-20 lg:py-24 overflow-x-hidden">
       <div className="noise-overlay" aria-hidden="true" />
       
-      {/* Static Header outside pinned content */}
-      <div className="container mx-auto px-6 md:px-12 mb-12">
-        <div className="flex items-end justify-between">
-          <h2 className="font-fraunces text-4xl text-moss md:text-6xl tracking-tight">
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 mb-10 md:mb-16 relative z-[100]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <h2 className="font-fraunces text-4xl text-moss md:text-6xl lg:text-7xl tracking-tight">
             Nasza <span className="font-accent italic text-olive">Oferta</span>
           </h2>
           
-          <div className="flex gap-2 pb-2">
+          <div className="flex gap-4 items-center bg-linen/90 backdrop-blur-xl p-3 rounded-full border border-moss/10 shadow-lg relative z-[110]">
             {MASSAGE_DATA.map((_, index) => (
-              <div 
+              <button 
                 key={index}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeSlide === index ? 'w-8 bg-olive' : 'w-2 bg-olive/20'
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleDotClick(index);
+                }}
+                className={`group relative h-4 transition-all duration-300 cursor-pointer outline-none ${
+                  activeSlide === index ? 'w-12' : 'w-4'
                 }`}
-              />
+                aria-label={`Przewiń do sekcji ${index + 1}`}
+              >
+                <span className={`absolute inset-0 rounded-full transition-all duration-300 ${
+                  activeSlide === index ? 'bg-olive' : 'bg-olive/20 group-hover:bg-olive/40'
+                }`} />
+              </button>
             ))}
           </div>
         </div>
       </div>
 
-      <div ref={triggerRef} className="relative flex h-[500px] w-full flex-col justify-center overflow-hidden">
-
-        <div className="relative h-[500px] w-full overflow-hidden">
+      <div ref={triggerRef} className="relative flex h-[500px] w-full flex-col justify-center overflow-hidden z-10">
+        <div className="relative h-full w-full overflow-hidden">
           <div 
             ref={horizontalRef} 
-            className="absolute flex gap-8 px-6 md:px-12 will-change-transform"
+            className="absolute flex gap-6 md:gap-10 px-6 md:px-12 will-change-transform py-4 z-10"
           >
-            {MASSAGE_DATA.map((item) => (
+            {DISPLAY_DATA.map((item, idx) => (
               <div 
-                key={item.id} 
-                className="group relative h-[450px] w-[300px] flex-shrink-0 cursor-grab overflow-hidden rounded-[2rem] bg-white p-8 shadow-card transition-shadow hover:shadow-card-hover md:w-[400px]"
+                key={`${item.id}-${idx}`} 
+                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-grab active:cursor-grabbing overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover md:h-[460px] md:w-[380px]"
               >
                 <div className="flex h-full flex-col">
                   <span className="mb-4 font-inter text-xs font-semibold uppercase tracking-[0.2em] text-olive/60">
