@@ -83,8 +83,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Status**: Done
 
 - **Feature 1.2.5**: Replace offer section and feature cards with Massage Type Carousel
-  **Description**: Consolidate the "Nasza oferta" CTA and the micro-interaction cards into a single, high-fidelity responsive carousel that showcases the four signature massage types with direct booking capability.
+  **Description**: Consolidate the "Oferta" CTA and the micro-interaction cards into a single, high-fidelity responsive carousel that showcases the four signature massage types with direct booking capability.
   **Branch**: `009-massage-types-carousel`  
+  **Status**: Done
+
+- **Feature 1.2.6**: Implement "Wellness Wheel" visual effect for Carousel
+  **Description**: Enhance the Massage Type Carousel with a curvilinear "wheel" perspective. Implement dynamic scaling (focus on 3 central cards) and opacity fading for peripheral cards to create a premium, immersive focus.
   **Status**: Backlog
 
 #### Epic 1.3: Deep Dive & Footer Elements

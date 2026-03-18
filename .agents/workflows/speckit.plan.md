@@ -83,7 +83,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 3. **Agent context update**:
    - Run `.specify/scripts/bash/update-agent-context.sh agy` to perform the automated update or initial creation.
-   - **Critical Review**: Immediately after the script runs, perform a manual review of the updated rules file (e.g., `.agent/rules/specify-rules.md`).
+   - **Critical Review**: Immediately after the script runs, perform a manual review of the updated rules file (e.g., `.agents/rules/specify-rules.md`).
    - **Refine & Fix**: Use your intelligence to polish the automated output:
      - Merge new technical details, dependencies, and project metadata into a clean, professional structure.
      - Correct any typos, truncation errors, or formatting issues introduced by the automation.

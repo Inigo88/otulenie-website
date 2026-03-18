@@ -74,7 +74,7 @@ QODER_FILE="$REPO_ROOT/QODER.md"
 AMP_FILE="$REPO_ROOT/AGENTS.md"
 SHAI_FILE="$REPO_ROOT/SHAI.md"
 KIRO_FILE="$REPO_ROOT/AGENTS.md"
-AGY_FILE="$REPO_ROOT/.agent/rules/specify-rules.md"
+AGY_FILE="$REPO_ROOT/.agents/rules/specify-rules.md"
 BOB_FILE="$REPO_ROOT/AGENTS.md"
 
 # Template file
