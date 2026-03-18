@@ -94,7 +94,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.2.7**: Modernize Massage Types Carousel  
   **Description**: Resolve shipped bugs (B028–B031: broken auto-rotation, wrong dot navigation, dot desync, no keyboard navigation), fix constitution violations (pronoun in heading, missing images, missing reduced-motion guard, wrong rotation interval), and add premium features (image-first cards, active card focus treatment, entrance animations).  
   **Branch**: `010-carousel-modern`  
-  **Status**: Specified
+  **Status**: Clarified
 
 
 **Description**: Constructing the philosophy manifesto, service stacking archive, and comprehensive footer.  

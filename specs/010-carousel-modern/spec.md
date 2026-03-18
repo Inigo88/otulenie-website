@@ -2,7 +2,7 @@
 
 **Feature Branch**: `010-carousel-modern`  
 **Created**: 2026-03-18  
-**Status**: Specified  
+**Status**: Clarified  
 **Builds on**: [009 spec.md](../009-massage-types-carousel/spec.md)  
 **Input**: Comprehensive analysis of shipped `MassageCarousel` component — identified bug regressions, constitution violations, and UX modernization opportunities.
 
@@ -13,8 +13,17 @@ This feature is strictly governed by the following context documents:
 - **Project Constitution**: [.specify/memory/constitution.md](../../.specify/memory/constitution.md) — Governing rules for GSAP animations, images, accessibility, and copy voice.
 - **Bug Reports**: [B028](../bugs/009-massage-types-carousel/B028-autorotation-broken.md), [B029](../bugs/009-massage-types-carousel/B029-dot-navigation-wrong-target.md), [B030](../bugs/009-massage-types-carousel/B030-dot-desync-after-drag.md), [B031](../bugs/009-massage-types-carousel/B031-no-keyboard-navigation.md)
 
-## Bug Fixes (P1/P2 — Must Ship)
+## Clarifications
 
+### Session 2026-03-18
+
+- Q: Should each carousel card display a real photographic cover image (Unsplash)? → A: No images on cards. Cards remain text-only.
+- Q: What is the hover target for pausing auto-rotation — the entire section, the active card, or any card? → A: Entire section (`mouseenter`/`mouseleave` on the section container).
+- Q: Should the active card be visually distinguished via scale/shadow treatment, dots only, or a border highlight? → A: Scale + shadow (active: `scale(1.0)` + elevated shadow; inactive visible: `scale(0.95)`, `opacity: 0.70`).
+- Q: Should `imageMood` be kept in `massageData.js` for future use, or removed since cards are now text-only? → A: Remove `imageMood` — unused fields add maintenance noise.
+- Q: Should the entrance animation fire once per page load or every time the user scrolls back to the section? → A: Once per page load (tracked via a `hasPlayed` ref; subsequent scroll-ins show no animation).
+
+## Bug Fixes (P1/P2 — Must Ship)
 The following bugs were found in the shipped carousel and must be resolved in this feature branch.
 
 ### B028 — Auto-Rotation Never Fires (P1)
@@ -55,11 +64,6 @@ The section heading reads `"Nasza Oferta"`, violating Principle VII (solo voice,
 Auto-rotation is coded at `3000ms`; the spec requires `5000ms`.  
 **Fix**: Update `setInterval` to `5000`.
 
-### V-003 — No Real Images on Cards (Technical Constraints)
-
-Cards are plain white text-only boxes. The constitution requires real Unsplash URLs matching each card's `imageMood`.  
-**See FR-008 below.**
-
 ### V-004 — No `prefers-reduced-motion` Guard (Principle VI)
 
 All animations fire unconditionally.  
@@ -68,16 +72,6 @@ All animations fire unconditionally.
 ---
 
 ## User Scenarios & Testing *(mandatory)*
-
-### User Story 1 — Visual Immersion via Image Cards (Priority: P1)
-
-As a potential client browsing services, I want to see each massage type presented with a real photographic image so that I can immediately connect emotionally with the service before reading the details.
-
-**Acceptance Scenarios**:
-1. **Given** the user views the "Oferta" section, **When** a card is visible, **Then** a real photograph fills the top of the card, matching the massage atmosphere (e.g., a warm candlelight ambience for "Ciepłe Otulenie").
-2. **Given** the image is overlaid with text, **When** the user reads the card, **Then** the text maintains a 4.5:1 contrast ratio against the image and gradient overlay.
-
----
 
 ### User Story 2 — Clear Active Card Focus (Priority: P2)
 
@@ -113,7 +107,6 @@ As a user with vestibular sensitivity, I want animations to be suppressed when I
 
 - **Drag inertia lands between two cards**: After a throw, the carousel must snap to the nearest card and update the active dot.
 - **Keyboard focus leaves section**: Focus moving away from the carousel via Tab must not trigger any carousel interaction.
-- **Network-slow image load**: Cards must display a linen-colored (`#fdfaf0`) placeholder background while Unsplash images load, with no layout shift.
 
 ---
 
@@ -121,13 +114,11 @@ As a user with vestibular sensitivity, I want animations to be suppressed when I
 
 ### Functional Requirements (New / Updated)
 
-- **FR-008**: Each card MUST display a real photographic cover image sourced from Unsplash, matching the card's `imageMood` attribute, occupying the top ≈55% of the card with a gradient overlay fading to the card's background color.
-- **FR-008.1**: The image gradient overlay MUST ensure a minimum 4.5:1 contrast ratio for all overlaid text (WCAG SC 1.4.3).
-- **FR-009**: The active carousel card MUST be visually distinguished via `scale(1.0)` and elevated shadow. Inactive visible cards MUST render at `scale(0.95)` and `opacity: 0.70`. Transitions between focus states animate at 300ms `power2.out`.
+- **FR-009**: The active carousel card MUST be visually distinguished via `scale(1.0)` and elevated shadow. Inactive visible cards MUST render at `scale(0.95)` and `opacity: 0.70`. Transitions between focus states MUST animate at 300ms `power2.out` easing.
 - **FR-010**: The section heading MUST read **"Oferta"** — no possessive pronoun.
 - **FR-011**: The carousel track container MUST support keyboard navigation: `ArrowLeft` → previous card, `ArrowRight` → next card. Container has `role="region"`, `aria-label="Oferta"`, `tabIndex={0}`.
-- **FR-012**: Cards MUST reveal with a GSAP staggered entrance animation (50ms stagger, `y: 30 → 0`, `opacity: 0 → 1`) when the section first enters the viewport.
-- **FR-013**: Auto-rotation MUST fire at a **5-second** interval (corrected from 3s), pausing on hover or manual interaction.
+- **FR-012**: Cards MUST reveal with a GSAP staggered entrance animation (50ms stagger, `y: 30 → 0`, `opacity: 0 → 1`) the **first time** the section enters the viewport per page load. Subsequent scrolls to the section MUST NOT replay the animation (tracked via a `hasAnimatedRef` boolean).
+- **FR-013**: Auto-rotation MUST fire at a **5-second** interval (corrected from 3s), pausing whenever the mouse enters the **entire "Oferta" section** (`mouseenter` on `containerRef`) and resuming on `mouseleave`. It also pauses on any manual interaction (dot click, drag).
 
 ### Non-Functional Requirements (New)
 
@@ -148,7 +139,7 @@ As a user with vestibular sensitivity, I want animations to be suppressed when I
 
 ## Key Entities
 
-- **Massage Type**: `id`, `name`, `type`, `duration`, `price`, `description`, `booksyUrl`, `imageMood`, **`imageUrl`** *(new field — real Unsplash URL)*.
+- **Massage Type**: `id`, `name`, `type`, `duration`, `price`, `description`, `booksyUrl`.
 
 ---
 
@@ -163,6 +154,5 @@ As a user with vestibular sensitivity, I want animations to be suppressed when I
 | SC-005 | Auto-rotation fires every **5 seconds** when the section is in view; pauses on hover/interaction. |
 | SC-006 | Keyboard `ArrowLeft`/`ArrowRight` navigate between cards when the section is focused. |
 | SC-007 | All GSAP animations are disabled/instant when `prefers-reduced-motion: reduce` is active. |
-| SC-008 | Real photographic Unsplash images appear on all 5 cards with no layout shift on load. |
-| SC-009 | Active card is visually distinguished (scale/shadow/opacity) from adjacent cards at all times. |
-| SC-010 | Section heading reads "Oferta" with no possessive pronoun. |
+| SC-008 | Active card is visually distinguished (scale/shadow/opacity) from adjacent cards at all times. |
+| SC-009 | Section heading reads "Oferta" with no possessive pronoun. |
