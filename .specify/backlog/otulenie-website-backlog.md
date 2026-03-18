@@ -102,17 +102,17 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 1.3.1**: Develop the Philosophy Manifesto section  
   **Description**: Build a dark-themed parallax-supported section using GSAP SplitText reveal animations to highlight brand differentiation.  
-  **Branch**: `010-philosophy-section`  
+  **Branch**: `011-philosophy-section`  
   **Status**: Backlog
 
 - **Feature 1.3.2**: Implement "Sticky Stacking Archive" for massage protocols  
   **Description**: Create three scroll-linked stacking cards governed by GSAP ScrollTrigger to display massage protocols and values.  
-  **Branch**: `011-stacking-services`  
+  **Branch**: `012-stacking-services`  
   **Status**: Backlog
 
 - **Feature 1.3.3**: Build Footer with operational indicator  
   **Description**: Develop the deep dark rounded-top footer containing navigation links and a pulsing "System Operational" interactive dot.  
-  **Branch**: `012-footer`  
+  **Branch**: `013-footer`  
   **Status**: Backlog
 
 ---
@@ -129,12 +129,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.1.1**: Build the 'Oferta' page  
   **Description**: Create a dedicated page detailing the four massage types (Mocne, Głębokie, Czułe, Ciepłe) with prominent individual CTAs.  
-  **Branch**: `013-oferta-page`  
+  **Branch**: `014-oferta-page`  
   **Status**: Backlog
 
 - **Feature 2.1.2**: Implement the 'Obszar dojazdu' page  
   **Description**: Build an informative page detailing the Wrocław service coverage and specific out-of-city travel policies.  
-  **Branch**: `014-obszar-page`  
+  **Branch**: `015-obszar-page`  
   **Status**: Backlog
 
 #### Epic 2.2: Trust & Booking Support
@@ -144,15 +144,15 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.2.1**: Create the 'O mnie' page  
   **Description**: Build a highly trust-focused page detailing the practitioner's philosophy, natural approach, and commitment to calm.  
-  **Branch**: `015-omnie-page`  
+  **Branch**: `016-omnie-page`  
   **Status**: Backlog
 
 - **Feature 2.2.2**: Develop the 'FAQ' accordion component  
   **Description**: Implement an interactive, smooth-animating accordion listing common questions about home preparation, pain, and payment options.  
-  **Branch**: `016-faq-page`  
+  **Branch**: `017-faq-page`  
   **Status**: Backlog
 
 - **Feature 2.2.3**: Build primary booking flow interactions  
   **Description**: Ensure robust integration with Booksy links site-wide and format secondary contact options efficiently.  
-  **Branch**: `017-booking-flow`  
+  **Branch**: `018-booking-flow`  
   **Status**: Backlog
