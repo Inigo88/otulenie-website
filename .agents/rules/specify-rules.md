@@ -10,10 +10,9 @@ Last updated: 2026-03-11
 - **Runtime**: Node.js >= 20.0.0 (Enforced)
 - **Framework**: React 19.x, Vite 6.x
 - **Styling**: Tailwind CSS v4.x (CSS-first configuration via `@theme`)
-- **Animations**: GSAP 3 (with ScrollTrigger plugin and `@gsap/react`)
+- **Animations**: GSAP 3 (with ScrollTrigger + Draggable + InertiaPlugin, `@gsap/react`)
 - **Icons**: Lucide React
 - **Fonts**: Google Fonts (Fraunces, Inter, Cormorant Garamond)
-- React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac (006-navbar-mobile)
 
 ## Project Structure
 
@@ -51,6 +50,6 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+- 010-carousel-modern: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger + Draggable + InertiaPlugin), `@gsap/react` (`useGSAP`)
 - 008-features-cards: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - 007-hero-section: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
-- 006-navbar-mobile: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
