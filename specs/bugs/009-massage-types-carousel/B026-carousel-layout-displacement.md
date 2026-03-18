@@ -1,10 +1,10 @@
 # Bug B026: Carousel Layout Displacement and Vertical Overlap
 
-**Status**: [ ] Open | [x] Investigating | [ ] Fix Proposed | [ ] Resolved
-**Severity**: P0 (Functional blocker / Visual Regression)
-**Found in**: Feature 1.2.5 (Massage Type Carousel)
-**Date Created**: 2026-03-16
-**Date Resolved**: [YYYY-MM-DD]
+**Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [x] Resolved  
+**Severity**: P0 (Functional blocker / Visual Regression)  
+**Found in**: Feature 1.2.5 (Massage Type Carousel)  
+**Date Created**: 2026-03-16  
+**Date Resolved**: 2026-03-16
 
 ## Description
 The implementing of the Massage Type Carousel has introduced significant layout issues. When reaching the "Nasza Oferta" section:
