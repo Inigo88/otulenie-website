@@ -47,7 +47,7 @@ src/
 - **004-base-components**: Interactive components (MagneticButton, RoundedContainer) designed and planned.
 
 <!-- MANUAL ADDITIONS START -->
-<!-- These items are preserved across auto-updates -->
+<!-- These items are for user input only preserved across auto-updates -->
 - Always verify animations on a mobile-sized viewport (width: 390px).
 - Use `lucide-react` for all functional iconography.
 - **Constitution Maintenance**: Do not update `constitution.md` or its version solely to record synchronization with other artifacts (e.g. backlog). Only update when material changes to Principles, Audience, or Constraints occur.
