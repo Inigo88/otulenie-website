@@ -1,9 +1,10 @@
 # Bug B029: Dot Navigation Targets Wrong Card Position
 
-**Status**: [ ] Open | [ ] Investigating | [x] Fix Proposed | [ ] Resolved  
+**Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [x] Resolved  
 **Severity**: P1 (Core navigation is unreliable)  
 **Found in**: Feature 009 (Massage Types Carousel) — shipped code  
 **Date Created**: 2026-03-18  
+**Date Resolved**: 2026-03-19
 **Fix Branch**: `010-carousel-modern`
 
 ## Description
@@ -57,11 +58,15 @@ const targetX = getXForIndex(index);
 gsap.to(horizontalRef.current, { x: targetX, duration: 1.0, ease: 'power3.inOut', overwrite: 'auto' });
 ```
 
-## Verification
+## Resolution
 
-- [ ] Clicking dot 1 navigates to "Mocne Otulenie" (index 0)
-- [ ] Clicking dot 2 navigates to "Głębokie Otulenie" (index 1)
-- [ ] Clicking dot 3 navigates to "Czułe Otulenie" (index 2)
-- [ ] Clicking dot 4 navigates to "Ciepłe Otulenie" (index 3)
-- [ ] Clicking dot 5 navigates to "Bezpłatna Konsultacja" (index 4)
-- [ ] Active dot updates to reflect the navigated card
+The dot navigation targets were fixed by:
+1. **Lifting `getXForIndex`**: Extracted the centering logic into a stable `useCallback` shared across all navigation triggers.
+2. **Correcting targetX**: Replaced the proportional formula with the actual `offsetLeft`-based calculation to ensure precision.
+
+## Verification
+- [x] Clicking dot 1 navigates to "Mocne Otulenie" (index 0)
+- [x] Clicking dot 2 navigates to "Głębokie Otulenie" (index 1)
+- [x] Clicking dot 3 navigates to "Czułe Otulenie" (index 2)
+- [x] Clicking dot 4 navigates to "Ciepłe Otulenie" (index 3)
+- [x] Active dot updates to reflect the navigated card

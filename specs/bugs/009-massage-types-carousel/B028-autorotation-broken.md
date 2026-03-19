@@ -1,9 +1,10 @@
 # Bug B028: Auto-Rotation Never Fires
 
-**Status**: [ ] Open | [ ] Investigating | [x] Fix Proposed | [ ] Resolved  
+**Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [x] Resolved  
 **Severity**: P1 (Critical — spec requirement FR-004.1 not met)  
 **Found in**: Feature 009 (Massage Types Carousel) — shipped code  
 **Date Created**: 2026-03-18  
+**Date Resolved**: 2026-03-19
 **Fix Branch**: `010-carousel-modern`
 
 ## Description
@@ -61,9 +62,15 @@ const interval = setInterval(() => {
 }, 5000); // corrected from 3000
 ```
 
-## Verification
+## Resolution
 
-- [ ] Auto-rotation fires every 5 seconds when "Oferta" is in the viewport
-- [ ] Auto-rotation pauses when cursor hovers over the section
-- [ ] Auto-rotation does NOT fire when "Oferta" is scrolled out of view
-- [ ] `prefers-reduced-motion` disables auto-rotation entirely
+Auto-rotation was fixed by:
+1. **Implementing `isInViewRef`**: Switched from gating on `ScrollTrigger.isActive` to a custom `isInViewRef` boolean updated by `onEnter`/`onLeave` callbacks.
+2. **Standardizing Interval**: Corrected the interval to `5000ms` as per spec.
+3. **Motion Safety**: Wrapped the timer in a `prefersReducedMotion` check and gated it with `isHoveredRef` and `isPausedRef` for interaction safety.
+
+## Verification
+- [x] Auto-rotation fires every 5 seconds when "Oferta" is in the viewport
+- [x] Auto-rotation pauses when cursor hovers over the section
+- [x] Auto-rotation does NOT fire when "Oferta" is scrolled out of view
+- [x] `prefers-reduced-motion` disables auto-rotation entirely

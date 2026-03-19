@@ -1,9 +1,10 @@
 # Bug B030: Active Dot Desync After Drag Inertia
 
-**Status**: [ ] Open | [ ] Investigating | [x] Fix Proposed | [ ] Resolved  
+**Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [x] Resolved  
 **Severity**: P2 (Visual inconsistency)  
 **Found in**: Feature 009 (Massage Types Carousel) — shipped code  
 **Date Created**: 2026-03-18  
+**Date Resolved**: 2026-03-19
 **Fix Branch**: `010-carousel-modern`
 
 ## Description
@@ -66,8 +67,13 @@ onThrowComplete: function() {
 }
 ```
 
-## Verification
+## Resolution
 
-- [ ] After drag and inertia settle, the active dot reflects the card now centered in the viewport
-- [ ] After drag, active dot does not flicker or jump
-- [ ] Active dot state is consistent with `activeSlideRef.current` value
+The drag inertia desync was fixed by:
+1. **Adding `onThrowComplete`**: Implemented the missing callback to detect the final settled position after GSAP inertia completes.
+2. **Nearest Card Logic**: Integrated the same centering logic used for dots to find the closest card and force-sync the `activeSlide` state.
+
+## Verification
+- [x] After drag and inertia settle, the active dot reflects the card now centered in the viewport
+- [x] After drag, active dot does not flicker or jump
+- [x] Active dot state is consistent with `activeSlideRef.current` value

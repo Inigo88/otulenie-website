@@ -1,9 +1,10 @@
 # Bug B031: Missing Keyboard Navigation (WCAG SC 2.1.1)
 
-**Status**: [ ] Open | [ ] Investigating | [x] Fix Proposed | [ ] Resolved  
+**Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [x] Resolved  
 **Severity**: P2 (Accessibility violation — Constitution Principle VI)  
 **Found in**: Feature 009 (Massage Types Carousel) — shipped code  
 **Date Created**: 2026-03-18  
+**Date Resolved**: 2026-03-19
 **Fix Branch**: `010-carousel-modern`
 
 ## Description
@@ -58,11 +59,17 @@ Add keyboard handler and ARIA attributes to the outer carousel container:
 >
 ```
 
-## Verification
+## Resolution
 
-- [ ] After tabbing to the carousel section, `ArrowRight` advances to the next card
-- [ ] After tabbing to the carousel section, `ArrowLeft` goes to the previous card
-- [ ] Arrow key navigation wraps correctly (last card → first, first card → last)
-- [ ] Active pagination dot updates on keyboard navigation
-- [ ] A visible focus ring appears on the carousel container when focused via keyboard
-- [ ] `Tab` key does NOT trigger carousel navigation (only moves focus to next element)
+Keyboard navigation was implemented by:
+1. **Interactive Container**: Added `role="region"`, `aria-label="Oferta"`, and `tabIndex={0}` to the carousel track.
+2. **Event Listeners**: Implemented an `onKeyDown` handler to map `ArrowRight`/`ArrowLeft` keys to slide navigation.
+3. **Visual Focus**: Added a focus ring (`focus-visible:ring-2`) to provide clear visual feedback for keyboard-only users.
+
+## Verification
+- [x] After tabbing to the carousel section, `ArrowRight` advances to the next card
+- [x] After tabbing to the carousel section, `ArrowLeft` goes to the previous card
+- [x] Arrow key navigation wraps correctly (last card → first, first card → last)
+- [x] Active pagination dot updates on keyboard navigation
+- [x] A visible focus ring appears on the carousel container when focused via keyboard
+- [x] `Tab` key does NOT trigger carousel navigation (only moves focus to next element)

@@ -43,10 +43,14 @@ The carousel should be tightly integrated into the page flow. The cards should a
 - [ ] [T004] [Verification]: Verify fix in browser.
 
 ## Resolution
-[Pending]
+
+The layout displacement was resolved by:
+1. **Removing GSAP Pinning**: The `pin: true` logic was completely removed from the `ScrollTrigger`, which eliminated the `pinSpacing` that caused the vertical gaps.
+2. **Restoring Natural Flow**: The carousel now sits naturally in its container without screen-height forcing, allowing sections above and below to flow correctly.
+3. **Decoupling Scroll**: Horizontal movement is no longer tied to vertical scroll progress, preventing the "trap" and overlap issues.
 
 ## Verification
-- [ ] [Functional: Horizontal translation completes before section exit]
-- [ ] [Visual: No unexpected vertical gaps or section overlaps]
-- [ ] [Accessibility: Focus remains visible during pinned state]
-- [ ] [Technical: No GSAP warnings in console]
+- [x] [Functional: Horizontal translation completes before section exit]
+- [x] [Visual: No unexpected vertical gaps or section overlaps]
+- [x] [Accessibility: Focus remains visible during pinned state]
+- [x] [Technical: No GSAP warnings in console]
