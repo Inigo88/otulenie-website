@@ -7,6 +7,7 @@ trigger: always_on
 Last updated: 2026-03-11
 
 ## Active Technologies
+
 - **Runtime**: Node.js >= 20.0.0 (Enforced)
 - **Framework**: React 19.x, Vite 6.x
 - **Styling**: Tailwind CSS v4.x (CSS-first configuration via `@theme`)
@@ -24,20 +25,23 @@ src/
 ```
 
 ## Architectural Constraints (from Constitution)
+
 - **Mobile-First**: All layouts must stack vertically on mobile and prioritize tap targets.
 - **Aesthetic**: Strictly adhere to #374833 (Moss), #fdfaf0 (Linen), and #6E8068 (Olive).
 - **Noise Overlay**: A persistent `0.05` opacity noise pattern must be present globally.
 - **GSAP Context**: Always use `@gsap/react` hooks (`useGSAP`) for clean cleanup in React components.
 - **Flat Structure**: Keep components in `App.jsx` until it exceeds 600 lines.
 - **Interactive Polish**:
-    - Magnetic buttons MUST use a dampened offset (30-50%) on hover (desktop).
-    - Rounded containers MUST use `backdrop-blur-md` and 60-80% opacity.
+  - Magnetic buttons MUST use a dampened offset (30-50%) on hover (desktop).
+  - Rounded containers MUST use `backdrop-blur-md` and 60-80% opacity.
 
 ## Commands
+
 - `npm run dev`: Start development server (Node 20 required)
 - `npm run build`: Production build (Vite 6)
 
 ## Recent Milestones
+
 - **002-project-setup**: Base infrastructure initialized (React 19 + Vite 6).
 - **003-design-system**: Tailwind v4 tokens and noise overlay specified.
 - **004-base-components**: Interactive components (MagneticButton, RoundedContainer) designed and planned.
@@ -50,6 +54,7 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+
 - 010-carousel-modern: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger + Draggable + InertiaPlugin), `@gsap/react` (`useGSAP`)
 - 008-features-cards: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - 007-hero-section: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
