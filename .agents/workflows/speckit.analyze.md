@@ -2,7 +2,7 @@
 description: Perform a non-destructive cross-artifact consistency and quality analysis across spec.md, plan.md, and tasks.md after task generation.
 ---
 
-# User Input
+## User Input
 
 ```text
 $ARGUMENTS
@@ -10,17 +10,17 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
-# Goal
+## Goal
 
 Identify inconsistencies, duplications, ambiguities, and underspecified items across the three core artifacts (`spec.md`, `plan.md`, `tasks.md`) before implementation. This command MUST run only after `/speckit.tasks` has successfully produced a complete `tasks.md`.
 
-# Operating Constraints
+## Operating Constraints
 
 **STRICTLY READ-ONLY**: Do **not** modify any files. Output a structured analysis report. Offer an optional remediation plan (user must explicitly approve before any follow-up editing commands would be invoked manually).
 
 **Constitution Authority**: The project constitution (`.specify/memory/constitution.md`) is **non-negotiable** within this analysis scope. Constitution conflicts are automatically CRITICAL and require adjustment of the spec, plan, or tasks—not dilution, reinterpretation, or silent ignoring of the principle. If a principle itself needs to change, that must occur in a separate, explicit constitution update outside `/speckit.analyze`.
 
-# Execution Steps
+## Execution Steps
 
 ### 1. Initialize Analysis Context
 
@@ -144,7 +144,7 @@ Use this heuristic to prioritize findings:
 
 Output a Markdown report (no file writes) with the following structure:
 
-# Specification Analysis Report
+## Specification Analysis Report
 
 | ID | Category | Severity | Location(s) | Summary | Recommendation |
 | :-- | :--- | :--- | :--- | :--- | :--- |
@@ -192,7 +192,7 @@ At end of report, output a concise Next Actions block:
 
 Ask the user: "Would you like me to suggest concrete remediation edits for the top N issues?" (Do NOT apply them automatically.)
 
-# Operating Principles
+## Operating Principles
 
 ### Context Efficiency
 
@@ -209,6 +209,6 @@ Ask the user: "Would you like me to suggest concrete remediation edits for the t
 - **Use examples over exhaustive rules** (cite specific instances, not generic patterns)
 - **Report zero issues gracefully** (emit success report with coverage statistics)
 
-# Context
+## Context
 
 $ARGUMENTS

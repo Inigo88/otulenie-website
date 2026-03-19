@@ -2,7 +2,7 @@
 description: Execute the end-to-end bug resolution workflow - from reporting and planning to implementation and verification.
 ---
 
-# User Input
+## User Input
 
 ```text
 $ARGUMENTS
@@ -10,7 +10,7 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding. This includes the bug description, reproduction steps, and any provided media (screenshots/recordings).
 
-# Outline
+## Outline
 
 1. **Setup & Identify**:
     - Determine the next available Bug ID (BXXX) by checking `specs/bugs/`.
@@ -47,7 +47,7 @@ You **MUST** consider the user input before proceeding. This includes the bug de
     - Update the **walkthrough.md** if the fix has a user-facing impact.
     - Commit and push all changes: `fix(scope): resolve BXXX [Title]`.
 
-# Task Rules
+## Task Rules
 
 ### Bug Identification (BXXX)
 
@@ -64,7 +64,7 @@ You **MUST** consider the user input before proceeding. This includes the bug de
 - Use `browser_subagent` for UI/UX verification.
 - Always check for regressions in related components designated in the **Technical Root Cause**.
 
-# Examples
+## Examples
 
 ### ✅ GOOD: Structured & Precise
 
@@ -85,7 +85,7 @@ You **MUST** consider the user input before proceeding. This includes the bug de
 > **Technical Root Cause**: CSS is bad.
 > **Proposed Fix**: Change the CSS classes until it looks better. No task list provided.
 
-# Key Rules
+## Key Rules
 
 - Use absolute paths at all times.
 - Never skip the **Approval Gate** for non-trivial fixes.

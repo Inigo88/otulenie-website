@@ -6,7 +6,7 @@ handoffs:
     prompt: Implement the feature specification based on the updated constitution. I want to build...
 ---
 
-# User Input
+## User Input
 
 ```text
 $ARGUMENTS
@@ -14,7 +14,7 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
-# Outline
+## Outline
 
 You are updating the project constitution at `.specify/memory/constitution.md`. This file is a TEMPLATE containing placeholder tokens in square brackets (e.g. `[PROJECT_NAME]`, `[PRINCIPLE_1_NAME]`). Your job is to (a) collect/derive concrete values, (b) fill the template precisely, and (c) propagate any amendments across dependent artifacts.
 

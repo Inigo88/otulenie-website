@@ -2,7 +2,7 @@
 description: Generate a pull request description and optionally create the PR using the gh CLI.
 ---
 
-# User Input
+## User Input
 
 ```text
 $ARGUMENTS
@@ -10,7 +10,7 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
-# Outline
+## Outline
 
 1. **Gather branch and changes**:
    - Current branch name (e.g. `git branch --show-current`)
@@ -72,7 +72,7 @@ You **MUST** consider the user input before proceeding (if not empty).
      rm -f /tmp/PR_DESCRIPTION.md
      ```
 
-# PR Title Convention
+## PR Title Convention
 
 Use **Conventional Commits** style: `type(scope): short description`.
 
@@ -94,7 +94,7 @@ Use **Conventional Commits** style: `type(scope): short description`.
 - `feat(skeleton-app-setup): Implement the full skeleton application setup for the project` — too long; keep description short
 - `WIP` or `fix stuff` — not descriptive; use proper type and description
 
-# PR Body Structure
+## PR Body Structure
 
 Use this structure for the body content:
 

@@ -10,7 +10,7 @@ handoffs:
     prompt: Create a checklist for the following domain...
 ---
 
-# User Input
+## User Input
 
 ```text
 $ARGUMENTS
@@ -18,7 +18,7 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
-# Outline
+## Outline
 
 1. **Setup**: Run `.specify/scripts/bash/setup-plan.sh --json` from repo root and parse JSON for FEATURE_SPEC, IMPL_PLAN, SPECS_DIR, BRANCH. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
 
@@ -41,7 +41,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 5. **Stop and report**: Command ends after Phase 2 planning. Report branch, IMPL_PLAN path, and generated artifacts.
 
-# Phases
+## Phases
 
 ### Phase 0: Outline & Research
 
@@ -93,7 +93,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 **Output**: data-model.md, /contracts/*, quickstart.md, agent-specific rules file (audited and refined).
 
-# Key rules
+## Key rules
 
 - Use absolute paths
 - ERROR on gate failures or unresolved clarifications

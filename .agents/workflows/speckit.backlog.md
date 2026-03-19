@@ -2,7 +2,7 @@
 description: Create a product backlog from a natural language product description.
 ---
 
-# User Input
+## User Input
 
 ```text
 $ARGUMENTS
@@ -10,7 +10,7 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
-# Outline
+## Outline
 
 The text the user typed after the command **is** the product description. Assume you always have it available in this conversation even if `$ARGUMENTS` appears literally below. If the user provided an empty command, ask for a short product description before proceeding.
 
@@ -43,7 +43,7 @@ Given the product description, do this:
 
 6. **Report**: Confirm the output file path and give a short summary (product name, number of milestones/epics/features).
 
-# Status values
+## Status values
 
 Use exactly one of these for every milestone, epic, and feature:
 
@@ -61,7 +61,7 @@ Use exactly one of these for every milestone, epic, and feature:
 | Cancelled | Dropped from scope. |
 | Done | Delivered / Pull request merged. |
 
-# Template structure (reminder)
+## Template structure (reminder)
 
 - Product description (short)
 - Business problem
@@ -70,7 +70,7 @@ Use exactly one of these for every milestone, epic, and feature:
 - Each item: **Title**, **Description**, **Status**
 - Preserve the status legend.
 
-# General guidelines
+## General guidelines
 
 - Focus on **WHAT** the product does and **WHO** it serves; avoid implementation detail.
 - Milestones should be few (e.g. 2–4) and represent major phases.
