@@ -1,4 +1,4 @@
-# Otulenie — Massage Website Specification
+# Otulenie - Massage Website Specification
 
 ## 1. Business Overview
 
@@ -6,20 +6,20 @@
 Otulenie
 
 **Secondary descriptor:**  
-Otulenie – Praktyka Masażu
+Otulenie - Praktyka Masa--u
 
 **Service type:**  
-Mobile massage service (massage at the client’s home)
+Mobile massage service (massage at the client's home)
 
 **Location:**  
-Wrocław, Poland
+Wroc--aw, Poland
 
 **Service positioning:**  
-Relaxation and muscle tension relief delivered at the client’s home for people who value convenience and calm.
+Relaxation and muscle tension relief delivered at the client's home for people who value convenience and calm.
 
 **Core value proposition:**
 
-> Mobilny masaż relaksacyjny we Wrocławiu — rozluźnienie i spokój bez wychodzenia z domu.
+> Mobilny masa-- relaksacyjny we Wroc--awiu - rozlu--nienie i spok--j bez wychodzenia z domu.
 
 **Primary client outcome:**
 - reduced muscle tension (neck, shoulders, back)
@@ -52,13 +52,13 @@ Men (allowed but not the primary marketing focus)
 # 3. Service Area
 
 **Primary area:**  
-Wrocław
+Wroc--aw
 
 **Travel policy:**
 
 | Area | Policy |
 |---|---|
-| Wrocław city limits | travel included |
+| Wroc--aw city limits | travel included |
 | Outside city | up to 10 km |
 | Outside fee | additional travel fee |
 
@@ -67,7 +67,7 @@ Wrocław
 # 4. Services
 
 ## 1. Mocne Otulenie
-Type: regeneracyjny masaż pleców  
+Type: regeneracyjny masa-- plec--w  
 Duration: 60 minutes  
 Price: 180 PLN
 
@@ -76,8 +76,8 @@ Focused massage targeting tension in the back, shoulders and neck.
 
 ---
 
-## 2. Głębokie Otulenie
-Type: regeneracyjny masaż całego ciała  
+## 2. G----bokie Otulenie
+Type: regeneracyjny masa-- ca--ego cia--a  
 Duration: 90 minutes  
 Price: 240 PLN
 
@@ -86,8 +86,8 @@ Deep relaxation and tension release for the whole body.
 
 ---
 
-## 3. Czułe Otulenie
-Type: relaksacyjny masaż całego ciała  
+## 3. Czu--e Otulenie
+Type: relaksacyjny masa-- ca--ego cia--a  
 Duration: 90 minutes  
 Price: 240 PLN
 
@@ -96,8 +96,8 @@ Gentle, calming full-body massage focused on relaxation.
 
 ---
 
-## 4. Ciepłe Otulenie
-Type: relaksacyjny masaż świecą  
+## 4. Ciep--e Otulenie
+Type: relaksacyjny masa-- --wiec--  
 Duration: 90 minutes  
 Price: 270 PLN
 
@@ -114,7 +114,7 @@ Booksy
 
 Primary call to action:
 
-"Zarezerwuj masaż"
+"Zarezerwuj masa--"
 
 Behavior:
 - opens Booksy booking page
@@ -169,7 +169,7 @@ Website language:
 Polish only
 
 Reason:
-Primary target market is Polish-speaking clients in Wrocław.
+Primary target market is Polish-speaking clients in Wroc--aw.
 
 ---
 
@@ -190,7 +190,7 @@ Pages:
 
 # 10. Homepage Structure
 
-## Section 1 — Hero
+## Section 1 - Hero
 
 Purpose:
 Immediate understanding of service and booking action.
@@ -198,31 +198,31 @@ Immediate understanding of service and booking action.
 Content:
 
 Headline:
-Otulenie – Praktyka Masażu
+Otulenie - Praktyka Masa--u
 
 Subheadline:
-Mobilny masaż relaksacyjny we Wrocławiu  
-Rozluźnienie i spokój bez wychodzenia z domu
+Mobilny masa-- relaksacyjny we Wroc--awiu  
+Rozlu--nienie i spok--j bez wychodzenia z domu
 
 Primary CTA:
-Zarezerwuj masaż
+Zarezerwuj masa--
 
 CTA behavior:
 Open Booksy booking page
 
 ---
 
-## Section 2 — Key Benefits
+## Section 2 - Key Benefits
 
 Example items:
 
-- Dojazd na terenie Wrocławia
+- Dojazd na terenie Wroc--awia
 - Spokojna atmosfera w Twoim domu
-- Profesjonalny sprzęt i olejki
+- Profesjonalny sprz--t i olejki
 
 ---
 
-## Section 3 — Massage Types
+## Section 3 - Massage Types
 
 Short service cards:
 
@@ -234,27 +234,27 @@ Each card contains:
 
 Services displayed:
 - Mocne Otulenie
-- Głębokie Otulenie
-- Czułe Otulenie
-- Ciepłe Otulenie
+- G----bokie Otulenie
+- Czu--e Otulenie
+- Ciep--e Otulenie
 
 ---
 
-## Section 4 — How It Works
+## Section 4 - How It Works
 
 3-step explanation:
 
 1. Rezerwujesz termin
-2. Przyjeżdżam z całym sprzętem
-3. Odpoczywasz i się rozluźniasz
+2. Przyje--d--am z ca--ym sprz--tem
+3. Odpoczywasz i si-- rozlu--niasz
 
 ---
 
-## Section 5 — Service Area
+## Section 5 - Service Area
 
 Content:
 
-Travel included in Wrocław.
+Travel included in Wroc--aw.
 
 Extra travel available up to 10 km outside city limits.
 
@@ -262,24 +262,24 @@ Optional map visualization.
 
 ---
 
-## Section 6 — Reviews
+## Section 6 - Reviews
 
 Testimonials from:
 - Booksy
 - Google (if available)
 
 Recommended number:
-3–5 testimonials minimum.
+3-5 testimonials minimum.
 
 ---
 
-## Section 7 — Final CTA
+## Section 7 - Final CTA
 
 Large call-to-action button again.
 
 Text:
 
-Zarezerwuj masaż
+Zarezerwuj masa--
 
 ---
 
@@ -319,7 +319,7 @@ Avoid overly long biography.
 Content:
 
 - explanation of service area
-- Wrocław coverage
+- Wroc--aw coverage
 - outside-city policy
 - possible map
 
@@ -332,12 +332,12 @@ reduce uncertainty for clients.
 
 Typical questions:
 
-- Jak przygotować się do masażu?
-- Czy potrzebuję ręczników?
-- Czy masaż jest bolesny?
-- Czy mogę zarezerwować masaż dla dwóch osób?
-- Jak wygląda płatność?
-- Jak wygląda dojazd masażysty?
+- Jak przygotowa-- si-- do masa--u?
+- Czy potrzebuj-- r--cznik--w?
+- Czy masa-- jest bolesny?
+- Czy mog-- zarezerwowa-- masa-- dla dw--ch os--b?
+- Jak wygl--da p--atno----?
+- Jak wygl--da dojazd masa--ysty?
 
 ---
 
@@ -349,7 +349,7 @@ direct booking.
 Content:
 
 Headline:
-Zarezerwuj wizytę
+Zarezerwuj wizyt--
 
 Primary button:
 Booksy booking link.
@@ -378,7 +378,7 @@ Sticky mobile CTA button.
 
 Example:
 
-[ Zarezerwuj masaż ]
+[ Zarezerwuj masa-- ]
 
 Always visible during scrolling.
 
@@ -424,7 +424,7 @@ Minimum set:
 
 Recommended total:
 
-5–8 photos.
+5-8 photos.
 
 ---
 
@@ -474,7 +474,7 @@ Everything on the site must support this action.
 
 Conversion flow:
 
-User sees service → understands value → clicks Booksy → books appointment.
+User sees service --- understands value --- clicks Booksy --- books appointment.
 
 Avoid:
 multiple competing CTAs.

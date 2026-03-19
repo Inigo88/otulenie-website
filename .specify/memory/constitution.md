@@ -1,14 +1,14 @@
 # Otulenie Website Constitution
 
 <!-- Sync Impact Report
-Version change: 1.2.0 → 1.2.1
+Version change: 1.2.0 --- 1.2.1
 List of modified principles: II. The Focus on Conversion
 Added sections: None
 Removed sections: None
 Templates requiring updates:
-  - .specify/templates/plan-template.md (✅ updated)
-  - .specify/templates/spec-template.md (✅ updated)
-  - .specify/templates/tasks-template.md (✅ updated)
+  - .specify/templates/plan-template.md (--- updated)
+  - .specify/templates/spec-template.md (--- updated)
+  - .specify/templates/tasks-template.md (--- updated)
 Follow-up TODOs: None
 -->
 
@@ -24,7 +24,7 @@ The platform must act as a digital instrument with cinematic, 1:1 pixel-perfect 
 Every functional and design decision must support the primary booking action.
 - The overarching goal is to convert visitors into booked appointments on Booksy. 
 - Avoid competing CTAs.
-- The primary booking CTA ("Zarezerwuj masaż") is omni-present and sticky on mobile.
+- The primary booking CTA ("Zarezerwuj masa--") is omni-present and sticky on mobile.
 - All primary CTAs targeting external booking platforms (e.g., Booksy) MUST always open in a new tab (`target="_blank"`) to preserve user context.
 
 ### III. Micro-Interaction Polish
@@ -43,21 +43,21 @@ Design deeply respects the mobile reality of the target audience.
 Prioritize creating separate, well-encapsulated components that can be reused across the application.
 - Before creating a new component, always check if an existing component can be extended or composed to fulfill the requirement.
 - Components must have a single, clear responsibility and expose a well-defined props/API surface.
-- Shared UI primitives (buttons, cards, inputs, modals, etc.) live in a dedicated `components/` directory and are imported wherever needed — never duplicated.
+- Shared UI primitives (buttons, cards, inputs, modals, etc.) live in a dedicated `components/` directory and are imported wherever needed - never duplicated.
 - When modifying a component, ensure all existing consumers remain unaffected or are updated accordingly.
 - Document component usage (props, variants) via JSDoc or inline comments at the top of the file.
 
 ### VI. Accessibility Standards (WCAG 2.2 Level AA)
 The website must meet WCAG 2.2 Level AA conformance to ensure usability for all visitors.
-- **Semantic HTML**: Use appropriate HTML5 elements (`<nav>`, `<main>`, `<section>`, `<button>`, `<header>`, `<footer>`, etc.) — never `<div>` for interactive elements.
+- **Semantic HTML**: Use appropriate HTML5 elements (`<nav>`, `<main>`, `<section>`, `<button>`, `<header>`, `<footer>`, etc.) - never `<div>` for interactive elements.
 - **Color Contrast**: Minimum 4.5:1 contrast ratio for normal text and 3:1 for large text (18px+ or 14px+ bold) against backgrounds.
 - **Keyboard Navigation**: All interactive elements must be fully operable via keyboard (Tab, Enter, Escape, Arrow keys). No keyboard traps.
 - **Focus Indicators**: Visible focus outlines on all interactive elements; focus must not be obscured by overlapping content (SC 2.4.11).
-- **Target Size**: Interactive touch targets must be at least 24×24 CSS pixels (SC 2.5.8).
+- **Target Size**: Interactive touch targets must be at least 24--24 CSS pixels (SC 2.5.8).
 - **ARIA Attributes**: Use `aria-label`, `aria-expanded`, `aria-hidden`, `role`, and other ARIA attributes where native semantics are insufficient.
 - **Alt Text**: All meaningful images have descriptive `alt` attributes; decorative images use `alt=""`.
-- **Reduced Motion**: Respect `prefers-reduced-motion` media query — disable or reduce GSAP animations for users who prefer reduced motion.
-- **Screen Reader Support**: Ensure correct heading hierarchy (`h1`→`h6`), meaningful link text, and logical DOM order matching visual order.
+- **Reduced Motion**: Respect `prefers-reduced-motion` media query - disable or reduce GSAP animations for users who prefer reduced motion.
+- **Screen Reader Support**: Ensure correct heading hierarchy (`h1`---`h6`), meaningful link text, and logical DOM order matching visual order.
 
 ### VII. Professional Solo Voice
 The platform represents a sole proprietorship. All copy must avoid plural ("Nasza", "Nasze") or personal possessive ("Moja", "Moje") pronouns in the UI. 
@@ -65,7 +65,7 @@ The platform represents a sole proprietorship. All copy must avoid plural ("Nasz
 - Maintain a tone that is professional, therapeutic, and focused on the client's experience.
 
 ## Target Audience & Business Value
-Otulenie addresses neck tension, stress, and lack of time for desk workers and busy mothers. The digital presence must clearly articulate the convenience of a mobile massage service in Wrocław while building immense trust through calming design elements and transparent communication.
+Otulenie addresses neck tension, stress, and lack of time for desk workers and busy mothers. The digital presence must clearly articulate the convenience of a mobile massage service in Wroc--aw while building immense trust through calming design elements and transparent communication.
 
 ## Technical Constraints
 - **Stack:** React 19.x, Vite 6.x, Tailwind CSS v4.x, GSAP 3 (with ScrollTrigger plugin), Lucide React for icons. *Note: Tailwind CSS v4.x is explicitly required here.*

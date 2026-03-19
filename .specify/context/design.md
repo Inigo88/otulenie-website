@@ -1,8 +1,8 @@
-## Fixed Design System (NEVER CHANGE)
+# Fixed Design System (NEVER CHANGE)
 
-### Preset — "Otulenie Calm" (Grounded Home Wellness)
+# Preset - "Otulenie Calm" (Grounded Home Wellness)
 
-- **Identity:** Calm, warm, grounding wellness brought into the client’s home — soft, natural, and deeply relaxing.
+- **Identity:** Calm, warm, grounding wellness brought into the client's home - soft, natural, and deeply relaxing.
 
 - **Palette:**  
   Forest Moss `#374833` (Primary)  
@@ -41,40 +41,40 @@ These rules apply to ALL presets. They are what make the output premium.
 
 ---
 
-## Component Architecture (NEVER CHANGE STRUCTURE — only adapt content/colors)
+## Component Architecture (NEVER CHANGE STRUCTURE - only adapt content/colors)
 
-### A. NAVBAR — "The Floating Island"
+### A. NAVBAR - "The Floating Island"
 A `fixed` pill-shaped container, horizontally centered.
 - **Morphing Logic:** Transparent with light text at hero top. Transitions to `bg-[background]/60 backdrop-blur-xl` with primary-colored text and a subtle `border` when scrolled past the hero. Use `IntersectionObserver` or ScrollTrigger.
 - Contains: Logo (brand name as text), 3-4 nav links, CTA button (accent color).
 
-### B. HERO SECTION — "The Opening Shot"
+### B. HERO SECTION - "The Opening Shot"
 - `100dvh` height. Full-bleed background image (sourced from Unsplash matching preset's `imageMood`) with a heavy **primary-to-black gradient overlay** (`bg-gradient-to-t`).
 - **Layout:** Content pushed to the **bottom-left third** using flex + padding.
 - **Typography:** Large scale contrast following the preset's hero line pattern. First part in bold sans heading font. Second part in massive serif italic drama font (3-5x size difference).
-- **Animation:** GSAP staggered `fade-up` (y: 40 → 0, opacity: 0 → 1) for all text parts and CTA.
+- **Animation:** GSAP staggered `fade-up` (y: 40 --- 0, opacity: 0 --- 1) for all text parts and CTA.
 - CTA button below the headline, using the accent color.
 
-### C. FEATURES — "Interactive Functional Artifacts"
+### C. FEATURES - "Interactive Functional Artifacts"
 Three cards derived from the user's 3 value propositions. These must feel like **functional software micro-UIs**, not static marketing cards. Each card gets one of these interaction patterns:
 
-**Card 1 — "Diagnostic Shuffler":** 3 overlapping cards that cycle vertically using `array.unshift(array.pop())` logic every 3 seconds with a spring-bounce transition (`cubic-bezier(0.34, 1.56, 0.64, 1)`). Labels derived from user's first value prop (generate 3 sub-labels).
+**Card 1 - "Diagnostic Shuffler":** 3 overlapping cards that cycle vertically using `array.unshift(array.pop())` logic every 3 seconds with a spring-bounce transition (`cubic-bezier(0.34, 1.56, 0.64, 1)`). Labels derived from user's first value prop (generate 3 sub-labels).
 
-**Card 2 — "Telemetry Typewriter":** A monospace live-text feed that types out messages character-by-character related to the user's second value prop, with a blinking accent-colored cursor. Include a "Live Feed" label with a pulsing dot.
+**Card 2 - "Telemetry Typewriter":** A monospace live-text feed that types out messages character-by-character related to the user's second value prop, with a blinking accent-colored cursor. Include a "Live Feed" label with a pulsing dot.
 
-**Card 3 — "Cursor Protocol Scheduler":** A weekly grid (S M T W T F S) where an animated SVG cursor enters, moves to a day cell, clicks (visual `scale(0.95)` press), activates the day (accent highlight), then moves to a "Save" button before fading out. Labels from user's third value prop.
+**Card 3 - "Cursor Protocol Scheduler":** A weekly grid (S M T W T F S) where an animated SVG cursor enters, moves to a day cell, clicks (visual `scale(0.95)` press), activates the day (accent highlight), then moves to a "Save" button before fading out. Labels from user's third value prop.
 
 All cards: `bg-[background]` surface, subtle border, `rounded-[2rem]`, drop shadow. Each card has a heading (sans bold) and a brief descriptor.
 
-### D. PHILOSOPHY — "The Manifesto"
+### D. PHILOSOPHY - "The Manifesto"
 - Full-width section with the **dark color** as background.
 - A parallaxing organic texture image (Unsplash, `imageMood` keywords) at low opacity behind the text.
 - **Typography:** Two contrasting statements. Pattern:
-  - "Most [industry] focuses on: [common approach]." — neutral, smaller.
-  - "We focus on: [differentiated approach]." — massive, drama serif italic, accent-colored keyword.
+  - "Most [industry] focuses on: [common approach]." - neutral, smaller.
+  - "We focus on: [differentiated approach]." - massive, drama serif italic, accent-colored keyword.
 - **Animation:** GSAP `SplitText`-style reveal (word-by-word or line-by-line fade-up) triggered by ScrollTrigger.
 
-### E. PROTOCOL — "Sticky Stacking Archive"
+### E. PROTOCOL - "Sticky Stacking Archive"
 3 full-screen cards that stack on scroll.
 - **Stacking Interaction:** Using GSAP ScrollTrigger with `pin: true`. As a new card scrolls into view, the card underneath scales to `0.9`, blurs to `20px`, and fades to `0.5`.
 - **Each card gets a unique canvas/SVG animation:**

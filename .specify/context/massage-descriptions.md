@@ -3,35 +3,35 @@
 This document contains standardized descriptions, pricing, and timing for Otulenie massage services, extracted from the primary PRD and refined for high-fidelity communication.
 
 ## 1. Mocne Otulenie
-- **Type**: Regeneracyjny masaż pleców
+- **Type**: Regeneracyjny masa-- plec--w
 - **Duration**: 1h
 - **Price**: 180 PLN
-- **Short Description**: Precyzyjny masaż pleców i karku, który uwalnia od napięć dnia i przywraca ciału lekkość.
-- **Description**: **Odciążone plecy, odzyskany spokój.** Ten masaż to precyzyjna odpowiedź na napięcia, które kumulują się w Tobie przez cały dzień. Skupiamy się na karku i barach, przywracając ciału elastyczność dzięki głębokim, uważnym technikom. To moment, w którym zdecydowana siła spotyka się z czułą troską, przynosząc natychmiastową lekkość i fizyczną wolność.
+- **Short Description**: Precyzyjny masa-- plec--w i karku, kt--ry uwalnia od napi---- dnia i przywraca cia--u lekko----.
+- **Description**: **Odci----one plecy, odzyskany spok--j.** Ten masa-- to precyzyjna odpowied-- na napi--cia, kt--re kumuluj-- si-- w Tobie przez ca--y dzie--. Skupiamy si-- na karku i barach, przywracaj--c cia--u elastyczno---- dzi--ki g----bokim, uwa--nym technikom. To moment, w kt--rym zdecydowana si--a spotyka si-- z czu---- trosk--, przynosz--c natychmiastow-- lekko---- i fizyczn-- wolno----.
 
 ---
 
-## 2. Głębokie Otulenie
-- **Type**: Regeneracyjny masaż ciała
+## 2. G----bokie Otulenie
+- **Type**: Regeneracyjny masa-- cia--a
 - **Duration**: 1h 30min
 - **Price**: 240 PLN
-- **Short Description**: Intensywna regeneracja całego ciała, wyciszająca system nerwowy i przywraca swobodę ruchu.
-- **Description**: **Pełny reset, głębokie rozluźnienie.** Kiedy stres zastyga w mięśniach, potrzebujesz czegoś więcej niż tylko dotyku. Głębokie Otulenie to intensywna regeneracja, w której precyzyjne ruchy docierają do źródeł napięcia. To sesja, po której poczujesz, jak system nerwowy się wycisza, a każdy mięsień odzyskuje przestrzeń i swobodę.
+- **Short Description**: Intensywna regeneracja ca--ego cia--a, wyciszaj--ca system nerwowy i przywraca swobod-- ruchu.
+- **Description**: **Pe--ny reset, g----bokie rozlu--nienie.** Kiedy stres zastyga w mi----niach, potrzebujesz czego-- wi--cej ni-- tylko dotyku. G----bokie Otulenie to intensywna regeneracja, w kt--rej precyzyjne ruchy docieraj-- do --r--de-- napi--cia. To sesja, po kt--rej poczujesz, jak system nerwowy si-- wycisza, a ka--dy mi--sie-- odzyskuje przestrze-- i swobod--.
 
 ---
 
-## 3. Czułe Otulenie
-- **Type**: Relaksacyjny masaż ciała
+## 3. Czu--e Otulenie
+- **Type**: Relaksacyjny masa-- cia--a
 - **Duration**: 1h 30min
 - **Price**: 240 PLN
-- **Short Description**: Łagodny, rytmiczny masaż całego ciała, który uspokaja umysł i otula zmysły głębokim spokojem.
-- **Description**: **Łagodna przystań dla zmysłów.** W świecie, który nigdy nie przestaje wołać o Twoją uwagę, oferujemy Ci bezpieczny powrót do Siebie. Czułe Otulenie to rytmiczny, kojący masaż całego ciała, który wycisza przestymulowany umysł i przywraca wewnętrzną harmonię. To miękki, niemal medytacyjny proces, w którym Twoje ciało zostaje otulone spokojem, dając Ci przestrzeń na regenerację duszy.
+- **Short Description**: --agodny, rytmiczny masa-- ca--ego cia--a, kt--ry uspokaja umys-- i otula zmys--y g----bokim spokojem.
+- **Description**: **--agodna przysta-- dla zmys----w.** W --wiecie, kt--ry nigdy nie przestaje wo--a-- o Twoj-- uwag--, oferujemy Ci bezpieczny powr--t do Siebie. Czu--e Otulenie to rytmiczny, koj--cy masa-- ca--ego cia--a, kt--ry wycisza przestymulowany umys-- i przywraca wewn--trzn-- harmoni--. To mi--kki, niemal medytacyjny proces, w kt--rym Twoje cia--o zostaje otulone spokojem, daj--c Ci przestrze-- na regeneracj-- duszy.
 
 ---
 
-## 4. Ciepłe Otulenie
-- **Type**: Relaksacyjny masaż gorąca świecą
+## 4. Ciep--e Otulenie
+- **Type**: Relaksacyjny masa-- gor--ca --wiec--
 - **Duration**: 1h 30min
 - **Price**: 270 PLN
-- **Short Description**: Rozgrzewający rytuał z użyciem ciepłej świecy, który głęboko koi, odpręża i przywraca dobrostan.
-- **Description**: **Relaksujący rytuał ciepła.** Pozwól, by łagodne ciepło świecy i jej kojący aromat stały się wstępem do pełnego odprężenia. Ciepły wosk w formie odżywczego olejku powoli uwalnia napięcia, rozgrzewając mięśnie i regenerując skórę. To pełen troski masaż, który wycisza, uspokaja i przywraca poczucie dobrostanu. To chwila głębokiego ukojenia, która pozostawia po sobie spokój i wewnętrzne ciepło.
+- **Short Description**: Rozgrzewaj--cy rytua-- z u--yciem ciep--ej --wiecy, kt--ry g----boko koi, odpr----a i przywraca dobrostan.
+- **Description**: **Relaksuj--cy rytua-- ciep--a.** Pozw--l, by --agodne ciep--o --wiecy i jej koj--cy aromat sta--y si-- wst--pem do pe--nego odpr----enia. Ciep--y wosk w formie od--ywczego olejku powoli uwalnia napi--cia, rozgrzewaj--c mi----nie i regeneruj--c sk--r--. To pe--en troski masa--, kt--ry wycisza, uspokaja i przywraca poczucie dobrostanu. To chwila g----bokiego ukojenia, kt--ra pozostawia po sobie spok--j i wewn--trzne ciep--o.
