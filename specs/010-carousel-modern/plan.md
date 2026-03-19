@@ -72,17 +72,20 @@ src/
 #### [MODIFY] [MassageCarousel.jsx](file:///Users/szymon.stec/Documents/Code/otulenie-website/src/components/MassageCarousel.jsx)
 
 **Bug Fixes:**
+
 - **B029**: Extract `getXForIndex` as a `useCallback` (stable ref, `[]` deps) outside `useGSAP`. Replace the broken formula in `handleDotClick` with `getXForIndex(index)`.
 - **B028**: Extend the existing ScrollTrigger with `onEnter`/`onLeave`/`onEnterBack`/`onLeaveBack` callbacks to maintain `isInViewRef`. In the `useEffect` auto-rotation: replace `ScrollTrigger.isActive` gate with `isInViewRef.current`; fix interval from `3000` → `5000`.
 - **B030**: Add `onThrowComplete` to `Draggable.create()` — compute nearest card index from settled `x`, call `setActiveSlide` and update `activeSlideRef.current`.
 - **B031**: Add `onKeyDown` on outer track container; map `ArrowLeft`/`ArrowRight` to `handleDotClick(prev/next)`. Add `role="region"`, `aria-label="Oferta"`, `tabIndex={0}`, and `outline-none focus-visible:ring-2 focus-visible:ring-moss/50` to the track container.
 
 **Constitution Fixes:**
+
 - **V-001**: Change `"Nasza Oferta"` heading to `"Oferta"`.
 - **V-002**: Change `setInterval(..., 3000)` to `setInterval(..., 5000)`.
 - **V-004**: Add `prefersReducedMotion` constant (`window.matchMedia('(prefers-reduced-motion: reduce)').matches`) evaluated once on mount; pass as `duration: prefersReducedMotion ? 0 : <value>` to all GSAP calls; skip auto-rotation `setInterval` entirely when true.
 
 **New Features:**
+
 - **FR-009**: Add a `useEffect` watching `activeSlide`. On change, GSAP `to()` the active card to `{ scale: 1, opacity: 1 }` and all others to `{ scale: 0.95, opacity: 0.7 }` at `duration: 0.3, ease: 'power2.out'` (instant if reduced motion).
 - **FR-012**: In the ScrollTrigger `onEnter` callback: check `hasAnimatedRef.current` before firing `gsap.fromTo(cards, { y: 30, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.05, duration: 0.6 })`. After firing, set `hasAnimatedRef.current = true`. Skip entirely if reduced motion.
 
