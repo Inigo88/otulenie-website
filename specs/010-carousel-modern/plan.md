@@ -15,7 +15,7 @@ Refactor the shipped `MassageCarousel` and `massageData.js` to fix 4 confirmed b
 **Testing**: Browser-based manual verification (no existing test suite)  
 **Target Platform**: Mobile-first Web (primary: 390px mobile, secondary: 1440px desktop)  
 **Performance Goals**: ≥60fps during all transitions; entrance animation uses `will-change: transform`  
-**Constraints**: Tailwind v4.x; GSAP exclusively for all animations (no CSS transitions on transformed elements); `useGSAP` for GSAP contexts in React  
+**Constraints**: Tailwind v4.x; GSAP exclusively for all animations (no CSS transitions on transformed elements); `useGSAP` (from `@gsap/react`) for all GSAP contexts in React — this supersedes the older `gsap.context()` in `useEffect` pattern referenced in `desing.md` and Constitution Principle III; a constitution amendment to align Principle III with `useGSAP` is tracked separately  
 **Scale/Scope**: Refactor of a single 224-line component + 53-line data file
 
 ## Constitution Check
@@ -40,7 +40,7 @@ specs/010-carousel-modern/
 ├── research.md     ✅ Phase 0 complete
 ├── data-model.md   ✅ Phase 1 complete
 ├── quickstart.md   ✅ Phase 1 complete
-└── tasks.md        ⬜ Phase 2 (/speckit.tasks)
+└── tasks.md        ✅ Phase 2 complete
 ```
 
 ### Source Code (affected files only)

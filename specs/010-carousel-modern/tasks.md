@@ -109,8 +109,10 @@
 ### Implementation
 
 - [ ] T018 [US-V] Change the section heading from `"Nasza Oferta"` to `"Oferta"` in `src/components/MassageCarousel.jsx` (fixes V-001, FR-010)
-- [ ] T019 [US-V] Add `onMouseEnter` handler on `containerRef`'s element that sets `isHoveredRef.current = true`; add `onMouseLeave` that sets `isHoveredRef.current = false`; update the auto-rotation `setInterval` gate to also check `!isHoveredRef.current` in `src/components/MassageCarousel.jsx` (FR-013 hover pause)
-- [ ] T020 [US-V] Add `isHoveredRef = useRef(false)` declaration alongside the other refs in `src/components/MassageCarousel.jsx`
+- [ ] T019 [US-V] Add `onMouseEnter` handler on `containerRef`'s element that sets `isHoveredRef.current = true`; add `onMouseLeave` that sets `isHoveredRef.current = false`; update the auto-rotation `setInterval` gate to also check `!isHoveredRef.current && !isPausedRef.current` in `src/components/MassageCarousel.jsx` (FR-013 hover pause)
+- [ ] T020 [US-V] Add `isHoveredRef = useRef(false)` and `isPausedRef = useRef(false)` declarations alongside the other refs in `src/components/MassageCarousel.jsx`
+- [ ] T020b [US-V] In `handleDotClick`, set `isPausedRef.current = true` before the GSAP scroll call, and schedule `isPausedRef.current = false` after a single 5s timeout (this prevents an immediate auto-advance right after a manual dot navigation, per FR-013 resumption rule) in `src/components/MassageCarousel.jsx`
+- [ ] T020c [US-V] In `Draggable`'s `onDragStart` callback, set `isPausedRef.current = true`; in `onDragEnd` / `onThrowComplete`, set `isPausedRef.current = false` after a 5s `setTimeout` — ensuring auto-rotation does not fire immediately after a drag interaction in `src/components/MassageCarousel.jsx` (FR-013 drag pause)
 
 **Checkpoint**: "Oferta" heading. Hover mouse over section → rotation pauses.
 
@@ -121,9 +123,10 @@
 **Purpose**: Final verification sweep, dead code cleanup, mobile smoke test.
 
 - [ ] T021 Remove any remaining references to `imageMood` in `src/components/MassageCarousel.jsx` (e.g. any `card.imageMood` usage or dangling comments)
-- [ ] T022 [P] Verify the `DISPLAY_DATA` clone count (3 clones) still produces correct infinite wrap behavior after the `getXForIndex` refactor in `src/components/MassageCarousel.jsx`
+- [ ] T022 [P] Verify the `DISPLAY_DATA` clone count (3 clones) still produces correct infinite wrap behavior after the `getXForIndex` refactor in `src/components/MassageCarousel.jsx`; explicitly test touch/swipe drag on a 390px mobile viewport to confirm infinite-wrap edge cases (swipe from first card left, swipe from last card right) snap correctly (SC-001, FR-001.1)
 - [ ] T023 [P] Run `npm run build` and confirm zero TypeScript/ESLint errors
-- [ ] T024 Test all verification checklist items from `quickstart.md` on a 390px mobile viewport
+- [ ] T024 Test all verification checklist items from `quickstart.md` on a 390px mobile viewport; covers SC-001 (responsive mobile touch/swipe), SC-003 (100% Polish copy matching `massage-descriptions.md`)
+- [ ] T024b Open DevTools → Performance tab → record a full carousel scroll+navigation cycle → confirm slide transitions sustain ≥60fps (SC-002)
 - [ ] T025 Commit all changes with message `feat(carousel): modernize MassageCarousel — fix B028-B031, constitution violations, add FR-009 FR-012`
 
 ---

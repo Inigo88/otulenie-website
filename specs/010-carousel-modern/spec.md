@@ -73,6 +73,16 @@ All animations fire unconditionally.
 
 ## User Scenarios & Testing *(mandatory)*
 
+### User Story 1 — Base Service Browsing & Booking (Priority: P1, Carried-Forward)
+
+As a prospective client, I want to scroll through the massage cards, read the descriptions and pricing, and tap a booking CTA, so that I can book the service that fits my needs without leaving the page.
+
+**Acceptance Scenarios**:
+1. **Given** the "Oferta" section is visible, **When** I scroll to it, **Then** I can see all 5 cards (4 massage types + consultation fallback) with name, duration, price, and a CTA button.
+2. **Given** I tap the "Zarezerwuj" CTA on any card, **When** it is tapped, **Then** the Booksy booking page opens in a new browser tab, preserving my current page context.
+
+---
+
 ### User Story 2 — Clear Active Card Focus (Priority: P2)
 
 As a user browsing the carousel, I want to clearly see which card is currently in focus so that I understand where I am in the sequence.
@@ -105,7 +115,7 @@ As a user with vestibular sensitivity, I want animations to be suppressed when I
 
 ### Edge Cases
 
-- **Drag inertia lands between two cards**: After a throw, the carousel must snap to the nearest card and update the active dot.
+- **Drag inertia lands between two cards**: After a throw, the carousel must snap to the nearest card and update the active dot. See **SC-010**.
 - **Keyboard focus leaves section**: Focus moving away from the carousel via Tab must not trigger any carousel interaction.
 
 ---
@@ -114,11 +124,11 @@ As a user with vestibular sensitivity, I want animations to be suppressed when I
 
 ### Functional Requirements (New / Updated)
 
-- **FR-009**: The active carousel card MUST be visually distinguished via `scale(1.0)` and elevated shadow. Inactive visible cards MUST render at `scale(0.95)` and `opacity: 0.70`. Transitions between focus states MUST animate at 300ms `power2.out` easing.
+- **FR-009**: The active carousel card MUST be visually distinguished via `scale(1.0)` and elevated shadow (`box-shadow: 0 20px 60px rgba(55, 72, 51, 0.25)`). Inactive visible cards MUST render at `scale(0.95)` and `opacity: 0.70`. Transitions between focus states MUST animate at 300ms `power2.out` easing.
 - **FR-010**: The section heading MUST read **"Oferta"** — no possessive pronoun.
 - **FR-011**: The carousel track container MUST support keyboard navigation: `ArrowLeft` → previous card, `ArrowRight` → next card. Container has `role="region"`, `aria-label="Oferta"`, `tabIndex={0}`.
-- **FR-012**: Cards MUST reveal with a GSAP staggered entrance animation (50ms stagger, `y: 30 → 0`, `opacity: 0 → 1`) the **first time** the section enters the viewport per page load. Subsequent scrolls to the section MUST NOT replay the animation (tracked via a `hasAnimatedRef` boolean).
-- **FR-013**: Auto-rotation MUST fire at a **5-second** interval (corrected from 3s), pausing whenever the mouse enters the **entire "Oferta" section** (`mouseenter` on `containerRef`) and resuming on `mouseleave`. It also pauses on any manual interaction (dot click, drag).
+- **FR-012**: Cards MUST reveal with a GSAP staggered entrance animation (`stagger: 0.05s` — intentionally lighter than the design system's 0.15s default to keep the row entrance crisp; `y: 30 → 0`, `opacity: 0 → 1`, `will-change: transform`) the **first time** the section enters the viewport per page load. Subsequent scrolls to the section MUST NOT replay the animation (tracked via a `hasAnimatedRef` boolean).
+- **FR-013**: Auto-rotation MUST fire at a **5-second** interval (corrected from 3s), pausing whenever the mouse enters the **entire "Oferta" section** (`mouseenter` on `containerRef`) and resuming on `mouseleave`. It also pauses on any manual interaction (dot click, drag start). After a manual interaction pause, auto-rotation resumes on the next scheduled tick once the hover/interaction state is cleared (i.e., the interval is not reset — the existing tick fires when conditions allow).
 
 ### Non-Functional Requirements (New)
 
@@ -148,7 +158,7 @@ As a user with vestibular sensitivity, I want animations to be suppressed when I
 | ID | Criterion |
 |---|---|
 | SC-001 | Carousel is fully responsive on mobile (touch/swipe) and desktop (drag/dots/keyboard). |
-| SC-002 | All transitions render at consistently ≥60fps in DevTools. |
+| SC-002 | All transitions render at consistently ≥60fps in DevTools Performance tab during slide transitions. |
 | SC-003 | 100% of text content is in Polish, matching `massage-descriptions.md`. |
 | SC-004 | Each "Zarezerwuj" CTA opens Booksy in a new tab. |
 | SC-005 | Auto-rotation fires every **5 seconds** when the section is in view; pauses on hover/interaction. |
@@ -156,3 +166,4 @@ As a user with vestibular sensitivity, I want animations to be suppressed when I
 | SC-007 | All GSAP animations are disabled/instant when `prefers-reduced-motion: reduce` is active. |
 | SC-008 | Active card is visually distinguished (scale/shadow/opacity) from adjacent cards at all times. |
 | SC-009 | Section heading reads "Oferta" with no possessive pronoun. |
+| SC-010 | After a drag+inertia throw, the carousel snaps to the nearest card and the active dot updates to match. |
