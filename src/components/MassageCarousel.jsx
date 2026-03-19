@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,6 +13,14 @@ const MassageCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const activeSlideRef = useRef(0);
   const rotationIntervalRef = useRef(null);
+  const isInViewRef = useRef(false);
+  const hasAnimatedRef = useRef(false);
+  const isHoveredRef = useRef(false);
+  const isPausedRef = useRef(false);
+
+  const prefersReducedMotion = typeof window !== 'undefined' 
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
+    : false;
 
   // Clone data for infinite scroll effect
   const DISPLAY_DATA = [...MASSAGE_DATA, ...MASSAGE_DATA.slice(0, 3)];
@@ -24,7 +32,6 @@ const MassageCarousel = () => {
     
     // Width of one full set of items
     const getBaseWidth = () => {
-      // Calculate width of original MASSAGE_DATA items only
       const children = Array.from(horizontalItems.children);
       const originalItems = children.slice(0, MASSAGE_DATA.length);
       if (originalItems.length === 0) return 0;
@@ -33,27 +40,34 @@ const MassageCarousel = () => {
       return lastItem.offsetLeft + lastItem.offsetWidth;
     };
 
-    const scrollDistance = window.innerHeight * 3; // Fixed large scroll for better control
-
-    // Simplified ScrollTrigger for state tracking only (no pinning, no linked animation)
+    // Viewport-aware ScrollTrigger for auto-rotation gating and entrance animation
     const st = ScrollTrigger.create({
       trigger: containerRef.current,
-      start: 'top center',
-      end: 'bottom center',
-      onToggle: (self) => {
-        // Optional: track if section is in focus
-      }
+      start: 'top bottom',
+      end: 'bottom top',
+      onEnter: () => { 
+        isInViewRef.current = true; 
+        
+        // T016: Entrance animation (one-shot)
+        if (!hasAnimatedRef.current && !prefersReducedMotion && horizontalItems.children.length > 0) {
+          const cards = Array.from(horizontalItems.children).slice(0, MASSAGE_DATA.length);
+          gsap.fromTo(cards, 
+            { y: 30, opacity: 0 }, 
+            { 
+              y: 0, 
+              opacity: 1, 
+              stagger: 0.05, 
+              duration: 0.6, 
+              ease: 'power2.out',
+              onComplete: () => { hasAnimatedRef.current = true; }
+            }
+          );
+        }
+      },
+      onLeave: () => { isInViewRef.current = false; },
+      onEnterBack: () => { isInViewRef.current = true; },
+      onLeaveBack: () => { isInViewRef.current = false; }
     });
-
-    // Helper to calculate target X for a given slide index
-    const getXForIndex = (index) => {
-      const children = Array.from(horizontalItems.children);
-      if (children.length === 0) return 0;
-      const targetItem = children[index];
-      const parentWidth = triggerRef.current.offsetWidth;
-      // Center the card in the viewport
-      return -(targetItem.offsetLeft - (parentWidth / 2) + (targetItem.offsetWidth / 2));
-    };
 
     // T003: Use a proxy for Draggable to avoid transform conflicts
     const dragProxy = document.createElement("div");
@@ -67,26 +81,44 @@ const MassageCarousel = () => {
       onPress: function() {
         gsap.set(this.target, { x: gsap.getProperty(horizontalItems, "x") });
         this.update();
+        isPausedRef.current = true;
       },
       onDrag: function() {
         const baseWidth = getBaseWidth();
         let newX = this.x % baseWidth;
         if (newX > 0) newX -= baseWidth;
         gsap.set(horizontalItems, { x: newX });
-        
-        // Update active slide during drag
-        const progress = Math.abs(newX) / baseWidth;
-        const index = Math.round(progress * MASSAGE_DATA.length) % MASSAGE_DATA.length;
-        if (index !== activeSlideRef.current) {
-          activeSlideRef.current = index;
-          setActiveSlide(index);
-        }
       },
       onThrowUpdate: function() {
         const baseWidth = getBaseWidth();
         let newX = this.x % baseWidth;
         if (newX > 0) newX -= baseWidth;
         gsap.set(horizontalItems, { x: newX });
+      },
+      onThrowComplete: function() {
+        const currentX = gsap.getProperty(horizontalItems, "x");
+        const children = Array.from(horizontalItems.children).slice(0, MASSAGE_DATA.length);
+        
+        // Find closest index
+        let closestIdx = 0;
+        let minDiff = Infinity;
+        
+        children.forEach((child, i) => {
+          const childTargetX = getXForIndex(i);
+          const diff = Math.abs(currentX - childTargetX);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIdx = i;
+          }
+        });
+
+        activeSlideRef.current = closestIdx;
+        setActiveSlide(closestIdx);
+
+        // Resume auto-rotation after interaction
+        setTimeout(() => {
+          isPausedRef.current = false;
+        }, 5000);
       }
     });
 
@@ -97,29 +129,55 @@ const MassageCarousel = () => {
     };
   }, { scope: containerRef, dependencies: [] });
 
+  // Stable helper to calculate target X for a given slide index
+  const getXForIndex = useCallback((index) => {
+    if (!horizontalRef.current || !triggerRef.current) return 0;
+    const children = Array.from(horizontalRef.current.children);
+    if (children.length === 0) return 0;
+    const targetItem = children[index];
+    const parentWidth = triggerRef.current.offsetWidth;
+    // Center the card in the viewport
+    return -(targetItem.offsetLeft - (parentWidth / 2) + (targetItem.offsetWidth / 2));
+  }, []);
+
   const handleDotClick = (index, isAuto = false) => {
     if (!horizontalRef.current) return;
 
-    const baseWidth = Array.from(horizontalRef.current.children)
-      .slice(0, MASSAGE_DATA.length)
-      .reduce((acc, child) => acc + child.offsetWidth + 40, 0); // Approx width with gaps
+    if (!isAuto) {
+      isPausedRef.current = true;
+      setTimeout(() => {
+        isPausedRef.current = false;
+      }, 5000);
+    }
 
-    // Simplified horizontal animation
-    const targetX = -(index * (horizontalRef.current.scrollWidth / DISPLAY_DATA.length));
+    const targetX = getXForIndex(index);
     
     gsap.to(horizontalRef.current, { 
       x: targetX, 
-      duration: 1.0, 
+      duration: prefersReducedMotion ? 0 : 1.0, 
       ease: 'power3.inOut',
       overwrite: 'auto',
       onUpdate: () => {
         // Sync active slide state during animation if needed
         const currentX = gsap.getProperty(horizontalRef.current, "x");
-        const progress = Math.abs(currentX) / (horizontalRef.current.scrollWidth - horizontalRef.current.offsetWidth);
-        const activeIdx = Math.round(progress * (MASSAGE_DATA.length - 1)) % MASSAGE_DATA.length;
-        if (activeIdx !== activeSlideRef.current) {
-          activeSlideRef.current = activeIdx;
-          setActiveSlide(activeIdx);
+        const children = Array.from(horizontalRef.current.children).slice(0, MASSAGE_DATA.length);
+        
+        // Find closest index based on x position
+        let closestIdx = 0;
+        let minDiff = Infinity;
+        
+        children.forEach((child, i) => {
+          const childTargetX = getXForIndex(i);
+          const diff = Math.abs(currentX - childTargetX);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIdx = i;
+          }
+        });
+
+        if (closestIdx !== activeSlideRef.current) {
+          activeSlideRef.current = closestIdx;
+          setActiveSlide(closestIdx);
         }
       }
     });
@@ -127,16 +185,51 @@ const MassageCarousel = () => {
 
   // Separate effect for auto-rotation
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const interval = setInterval(() => {
-      const st = ScrollTrigger.getAll().find(s => s.trigger === containerRef.current);
-      // Only auto-rotate if the section is somewhat in view
-      if (!st || !st.isActive) return;
+      // Gate auto-rotation by viewport, hover, and interaction state
+      if (!isInViewRef.current || isHoveredRef.current || isPausedRef.current) return;
 
       const nextSlide = (activeSlideRef.current + 1) % MASSAGE_DATA.length;
       handleDotClick(nextSlide, true);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
+  }, [handleDotClick, prefersReducedMotion]);
+
+  // Active card focus treatment effect
+  useEffect(() => {
+    if (!horizontalRef.current) return;
+    
+    // Select only the original cards (not clones) for the state sync
+    // The items are in horizontalRef.current.children
+    const children = Array.from(horizontalRef.current.children).slice(0, MASSAGE_DATA.length);
+    
+    children.forEach((child, index) => {
+      const isActive = index === activeSlide;
+      gsap.to(child, {
+        scale: isActive ? 1 : 0.95,
+        opacity: isActive ? 1 : 0.7,
+        duration: prefersReducedMotion ? 0 : 0.4,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+    });
+  }, [activeSlide, prefersReducedMotion]);
+
+  // Initial mount styling
+  useEffect(() => {
+    if (!horizontalRef.current) return;
+    const children = Array.from(horizontalRef.current.children).slice(0, MASSAGE_DATA.length);
+    
+    children.forEach((child, index) => {
+      const isActive = index === 0;
+      gsap.set(child, {
+        scale: isActive ? 1 : 0.95,
+        opacity: isActive ? 1 : 0.7
+      });
+    });
   }, []);
 
   return (
@@ -146,7 +239,7 @@ const MassageCarousel = () => {
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 mb-10 md:mb-16 relative z-[100]">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <h2 className="font-fraunces text-4xl text-moss md:text-6xl lg:text-7xl tracking-tight">
-            Nasza <span className="font-accent italic text-olive">Oferta</span>
+            Oferta
           </h2>
           
           <div className="flex gap-4 items-center bg-linen/90 backdrop-blur-xl p-3 rounded-full border border-moss/10 shadow-lg relative z-[110]">
@@ -172,7 +265,24 @@ const MassageCarousel = () => {
         </div>
       </div>
 
-      <div ref={triggerRef} className="relative flex h-[500px] w-full flex-col justify-center overflow-hidden z-10">
+      <div 
+        ref={triggerRef} 
+        className="relative flex h-[500px] w-full flex-col justify-center overflow-hidden z-10 outline-none focus-visible:ring-2 focus-visible:ring-moss/50 rounded-2xl"
+        role="region"
+        aria-label="Oferta"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            handleDotClick((activeSlideRef.current + 1) % MASSAGE_DATA.length);
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            handleDotClick((activeSlideRef.current - 1 + MASSAGE_DATA.length) % MASSAGE_DATA.length);
+          }
+        }}
+        onMouseEnter={() => { isHoveredRef.current = true; }}
+        onMouseLeave={() => { isHoveredRef.current = false; }}
+      >
         <div className="relative h-full w-full overflow-hidden">
           <div 
             ref={horizontalRef} 

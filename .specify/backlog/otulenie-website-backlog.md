@@ -90,7 +90,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.2.6**: Modernize Massage Types Carousel  
   **Description**: Resolve shipped bugs (B028–B031: broken auto-rotation, wrong dot navigation, dot desync, no keyboard navigation), fix constitution violations (pronoun in heading, missing images, missing reduced-motion guard, wrong rotation interval), and add premium features (image-first cards, active card focus treatment, entrance animations).  
   **Branch**: `010-carousel-modern`  
-  **Status**: Analysed
+  **Status**: Implemented
 
 - **Feature 1.2.7**: Implement "Wellness Wheel" visual effect for Carousel  
   **Description**: Enhance the Massage Type Carousel with a curvilinear "wheel" perspective. Implement dynamic scaling (focus on 3 central cards) and opacity fading for peripheral cards to create a premium, immersive focus.  
