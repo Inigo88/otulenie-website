@@ -94,8 +94,8 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 1.2.7**: Implement "Wellness Wheel" visual effect for Carousel  
   **Description**: Enhance the Massage Type Carousel with a curvilinear "wheel" perspective. Implement dynamic scaling (focus on 3 central cards) and opacity fading for peripheral cards to create a premium, immersive focus.  
-  **Branch**: ``
-  **Status**: Backlog
+  **Branch**: `011-wellness-wheel`  
+  **Status**: Clarified
 
 #### Epic 1.3: Philosophy, Archive & Footer
 
@@ -104,17 +104,17 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 1.3.1**: Develop the Philosophy Manifesto section  
   **Description**: Build a dark-themed parallax-supported section using GSAP SplitText reveal animations to highlight brand differentiation.  
-  **Branch**: `011-philosophy-section`  
+  **Branch**: `012-philosophy-section`  
   **Status**: Backlog
 
 - **Feature 1.3.2**: Implement "Sticky Stacking Archive" for massage protocols  
   **Description**: Create three scroll-linked stacking cards governed by GSAP ScrollTrigger to display massage protocols and values.  
-  **Branch**: `012-stacking-services`  
+  **Branch**: `013-stacking-services`  
   **Status**: Backlog
 
 - **Feature 1.3.3**: Build Footer with operational indicator  
   **Description**: Develop the deep dark rounded-top footer containing navigation links and a pulsing "System Operational" interactive dot.  
-  **Branch**: `013-footer`  
+  **Branch**: `014-footer`  
   **Status**: Backlog
 
 ---
@@ -131,12 +131,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.1.1**: Build the 'Oferta' page  
   **Description**: Create a dedicated page detailing the four massage types (Mocne, Głębokie, Czułe, Ciepłe) with prominent individual CTAs.  
-  **Branch**: `014-oferta-page`  
+  **Branch**: `015-oferta-page`  
   **Status**: Backlog
 
 - **Feature 2.1.2**: Implement the 'Obszar dojazdu' page  
   **Description**: Build an informative page detailing the Wrocław service coverage and specific out-of-city travel policies.  
-  **Branch**: `015-obszar-page`  
+  **Branch**: `016-obszar-page`  
   **Status**: Backlog
 
 #### Epic 2.2: Trust & Booking Support
@@ -146,15 +146,15 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.2.1**: Create the 'O mnie' page  
   **Description**: Build a highly trust-focused page detailing the practitioner's philosophy, natural approach, and commitment to calm.  
-  **Branch**: `016-omnie-page`  
+  **Branch**: `017-omnie-page`  
   **Status**: Backlog
 
 - **Feature 2.2.2**: Develop the 'FAQ' accordion component  
   **Description**: Implement an interactive, smooth-animating accordion listing common questions about home preparation, pain, and payment options.  
-  **Branch**: `017-faq-page`  
+  **Branch**: `018-faq-page`  
   **Status**: Backlog
 
 - **Feature 2.2.3**: Build primary booking flow interactions  
   **Description**: Ensure robust integration with Booksy links site-wide and format secondary contact options efficiently.  
-  **Branch**: `018-booking-flow`  
+  **Branch**: `019-booking-flow`  
   **Status**: Backlog
