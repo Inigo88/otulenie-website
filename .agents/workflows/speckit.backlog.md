@@ -2,7 +2,7 @@
 description: Create a product backlog from a natural language product description.
 ---
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS

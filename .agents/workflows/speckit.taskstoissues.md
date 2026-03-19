@@ -3,7 +3,7 @@ description: Convert existing tasks into actionable, dependency-ordered GitHub i
 tools: ['github/github-mcp-server/issue_write']
 ---
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS

@@ -2,7 +2,7 @@
 description: Generate a pull request description and optionally create the PR using the gh CLI.
 ---
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS

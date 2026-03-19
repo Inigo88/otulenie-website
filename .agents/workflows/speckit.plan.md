@@ -10,7 +10,7 @@ handoffs:
     prompt: Create a checklist for the following domain...
 ---
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS

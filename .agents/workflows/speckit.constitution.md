@@ -6,7 +6,7 @@ handoffs:
     prompt: Implement the feature specification based on the updated constitution. I want to build...
 ---
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS

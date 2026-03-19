@@ -2,7 +2,7 @@
 description: Execute the end-to-end bug resolution workflow - from reporting and planning to implementation and verification.
 ---
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS
