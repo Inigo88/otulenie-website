@@ -34,14 +34,6 @@ export const MASSAGE_DATA = [
     price: '270 PLN',
     description: 'Rozgrzewający rytuał z użyciem ciepłej świecy, który głęboko koi, odpręża i przywraca dobrostan.',
     booksyUrl: 'https://booksy.com'
-  },
-  {
-    id: 'free-consultation',
-    name: 'Bezpłatna Konsultacja',
-    type: 'Konsultacja',
-    duration: '15 min',
-    price: '0 PLN',
-    description: 'Nie wiesz co wybrać? Porozmawiajmy o Twoich potrzebach.',
-    booksyUrl: 'https://booksy.com'
   }
+
 ];
