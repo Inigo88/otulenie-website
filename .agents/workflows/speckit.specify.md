@@ -2,7 +2,7 @@
 description: Create or update the feature specification from a natural language feature description.
 ---
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS
@@ -10,7 +10,7 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
-## Outline
+# Outline
 
 The text the user typed after `/speckit.specify` in the triggering message **is** the feature description. Assume you always have it available in this conversation even if `$ARGUMENTS` appears literally below. Do not ask the user to repeat it unless they provided an empty command.
 
@@ -164,7 +164,7 @@ Given that feature description, do this:
 
 **NOTE:** The script creates and checks out the new branch and initializes the spec file before writing.
 
-## General Guidelines
+# General Guidelines
 
 ### Quick Guidelines
 

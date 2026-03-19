@@ -2,7 +2,7 @@
 description: Generate a custom checklist for the current feature based on user requirements.
 ---
 
-## Checklist Purpose: "Unit Tests for English"
+# Checklist Purpose: "Unit Tests for English"
 
 **CRITICAL CONCEPT**: Checklists are **UNIT TESTS FOR REQUIREMENTS WRITING** - they validate the quality, clarity, and completeness of requirements in a given domain.
 
@@ -23,7 +23,7 @@ description: Generate a custom checklist for the current feature based on user r
 
 **Metaphor**: If your spec is code written in English, the checklist is its unit test suite. You're testing whether the requirements are well-written, complete, unambiguous, and ready for implementation - NOT whether the implementation works.
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS
@@ -31,7 +31,7 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
-## Execution Steps
+# Execution Steps
 
 1. **Setup**: Run `.specify/scripts/bash/check-prerequisites.sh --json` from repo root and parse JSON for FEATURE_DIR and AVAILABLE_DOCS list.
    - All file paths must be absolute.
