@@ -52,8 +52,9 @@
 - [ ] T011 [US1] Add a click handler to the *outer card container* in `src/components/MassageCarousel.jsx` that triggers `handleDotClick(index)` (so clicking anywhere on peripheral cards centers them, bypassing the disabled CTA).
 - [ ] T012 [US1] Wrap the entire body of `updateWheel` in an `if (prefersReducedMotion) return;` guard to ensure compliance with NFR-001.
 - [ ] T013 [US1] Clamp the maximum `rotationY` and minimum `scale` values inside `updateWheel` if `window.innerWidth <= 390` (mobile breakpoint reduction).
+- [ ] T014 [US1] Add an `onFocus` handler to the mapped card container `<div>` in `src/components/MassageCarousel.jsx` that calls `handleDotClick(index)` to ensure keyboard tabbing automatically centers the newly focused card.
 
-**Checkpoint**: The math foundation exists, but isn't explicitly tied to drag yet.
+**Checkpoint**: The math foundation exists, keyboard focus drives the wheel, but isn't explicitly tied to drag yet.
 
 ---
 
@@ -65,12 +66,13 @@
 
 ### Implementation
 
-- [ ] T014 [US2] Hook `updateWheel` into the user drag: inside `Draggable.create()` config in `src/components/MassageCarousel.jsx`, add `onDrag: updateWheel` and `onThrowUpdate: updateWheel`.
-- [ ] T015 [US2] Hook `updateWheel` into programmatic navigation: in `handleDotClick` inside `src/components/MassageCarousel.jsx`, add `onUpdate: updateWheel` to the `gsap.to(horizontalItems...)` call.
-- [ ] T016 [US2] Hook `updateWheel` into auto-rotation: in the `useEffect` interval inside `src/components/MassageCarousel.jsx`, add `onUpdate: updateWheel` to the `gsap.to(horizontalItems...)` call.
-- [ ] T017 [US2] Fire `updateWheel()` manually exactly once at the bottom of the initial `useGSAP` hook in `src/components/MassageCarousel.jsx` (or inside the entrance animation `onComplete`) to ensure the very first DOM render applies the 3D curves.
+- [ ] T015 [US2] Hook `updateWheel` into the user drag: inside `Draggable.create()` config in `src/components/MassageCarousel.jsx`, add `onDrag: updateWheel` and `onThrowUpdate: updateWheel`.
+- [ ] T016 [US2] Hook `updateWheel` into programmatic navigation: in `handleDotClick` inside `src/components/MassageCarousel.jsx`, add `onUpdate: updateWheel` to the `gsap.to(horizontalItems...)` call.
+- [ ] T017 [US2] Hook `updateWheel` into auto-rotation: in the `useEffect` interval inside `src/components/MassageCarousel.jsx`, add `onUpdate: updateWheel` to the `gsap.to(horizontalItems...)` call.
+- [ ] T018 [US2] Attach a `window.addEventListener('resize', updateWheel)` inside the `useGSAP` block (with appropriate cleanup) in `src/components/MassageCarousel.jsx` to ensure wheel bounds and math re-calculate accurately upon device rotation or resize.
+- [ ] T019 [US2] Fire `updateWheel()` manually exactly once at the bottom of the initial `useGSAP` hook in `src/components/MassageCarousel.jsx` (or inside the entrance animation `onComplete`) to ensure the very first DOM render applies the 3D curves.
 
-**Checkpoint**: All interactive events and programmatic tweens successfully drive the continuous wheel layout.
+**Checkpoint**: All interactive events, window resizes, and programmatic tweens successfully drive the continuous wheel layout.
 
 ---
 
@@ -78,9 +80,9 @@
 
 **Purpose**: Dead code cleanup, layout debugging, and commit.
 
-- [ ] T018 Run `npm run build` and monitor for ESLint / React warnings regarding the new `onClick` handlers and `updateWheel` dependencies.
-- [ ] T019 Conduct a visual QA sweep in a 390px viewport to ensure `rotationY` isn't crushing Polish copy text legibility. Adjust clamping variables in `updateWheel` if necessary.
-- [ ] T020 Commit all changes as `feat(carousel): implement Wellness Wheel 3D continuous interpolation across drag and nav`
+- [ ] T020 Run `npm run build` and monitor for ESLint / React warnings regarding the new `onClick`/`onFocus` handlers and `updateWheel` dependencies.
+- [ ] T021 Conduct a visual QA sweep in a 390px viewport to ensure `rotationY` isn't crushing Polish copy text legibility. Adjust clamping variables in `updateWheel` if necessary.
+- [ ] T022 Commit all changes as `feat(carousel): implement Wellness Wheel 3D continuous interpolation across drag and nav`
 
 ---
 

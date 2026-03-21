@@ -96,7 +96,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.2.7**: Implement "Wellness Wheel" visual effect for Carousel  
   **Description**: Enhance the Massage Type Carousel with a curvilinear "wheel" perspective. Implement dynamic scaling (focus on 3 central cards) and opacity fading for peripheral cards to create a premium, immersive focus.  
   **Branch**: `011-wellness-wheel`  
-  **Status**: Tasked
+  **Status**: Analysed
 
 #### Epic 1.3: Philosophy, Archive & Footer
 
