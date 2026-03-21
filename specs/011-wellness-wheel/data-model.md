@@ -4,7 +4,7 @@
 
 ## Entities
 
-### `MassageType` 
+### `MassageType`
 
 We retain the exact finalized `MASSAGE_DATA` structure from `010-carousel-modern`. No new data fields (like `imageMood` or `position`) are required. The "Wellness Wheel" effect relies entirely on DOM geometry, indexing, and GSAP math.
 
@@ -15,7 +15,7 @@ We retain the exact finalized `MASSAGE_DATA` structure from `010-carousel-modern
 The `MassageCarousel` component manages the following internal state (building directly on 010):
 
 | State / Ref | Type | Description |
-|---|---|---|
+| :--- | :--- | :--- |
 | `activeSlide` | `useState(number)` | Index (0–4) of the settled card (used strictly for pagination dots sync) |
 | `activeSlideRef` | `useRef(number)` | Mirror of `activeSlide` for use in GSAP closures |
 | `isInViewRef` | `useRef(boolean)` | `true` when the section is in the viewport; guards auto-rotation |

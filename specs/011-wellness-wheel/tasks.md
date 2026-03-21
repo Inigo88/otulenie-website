@@ -43,7 +43,7 @@
 
 **Independent Test**: The `updateWheel` function must be able to read track `x` and statically apply size/fading/3D rotation correctly to the cards based on their distance from center.
 
-### Implementation
+### US1 Implementation
 
 - [x] T007 [US1] Inside `useGSAP` in `src/components/MassageCarousel.jsx`, write a stable `const updateWheel = () => { ... }` function that begins by calculating the current pixel center of the viewport relative to the track's live `x` translation.
 - [x] T008 [US1] Expand `updateWheel`: iterate over all `cardElements`. For each, calculate its absolute distance from the center, map it to a `distanceRatio` (0.0 = center, 1.0 = edge).
@@ -64,7 +64,7 @@
 
 **Independent Test**: Drag the carousel — cards should smoothly morph. Let it auto-rotate — morphs perfectly. Click a dot — morphs perfectly.
 
-### Implementation
+### US2 Implementation
 
 - [x] T015 [US2] Hook `updateWheel` into the user drag: inside `Draggable.create()` config in `src/components/MassageCarousel.jsx`, add `onDrag: updateWheel` and `onThrowUpdate: updateWheel`.
 - [x] T016 [US2] Hook `updateWheel` into programmatic navigation: in `handleDotClick` inside `src/components/MassageCarousel.jsx`, add `onUpdate: updateWheel` to the `gsap.to(horizontalItems...)` call.

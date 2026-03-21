@@ -18,7 +18,7 @@ npm run dev
 ## Files to Change
 
 | File | Change |
-|---|---|
+| :--- | :--- |
 | `index.css` / `tailwind.config` | Add `perspective` and `preserve-3d` utilities if missing in v4 |
 | `MassageCarousel.jsx` | Replace the binary active/inactive scaling logic with exactly interpolated `updateWheel()` function across animations |
 

@@ -8,7 +8,8 @@
 
 **Rationale**: The spec requires *continuous interpolation*. Tweening to fixed states (like in 010) won't work for dragging. When a card is exactly halfway between center and edge, its scale should be 0.925 (if edge is 0.85). We need a master `updateWheel()` GSAP function that runs on every frame of movement.
 
-**Alternatives considered**: 
+**Alternatives considered**:
+
 - Native ScrollTrigger `scrub` — rejected because the carousel track itself doesn't scroll natively; we are using `Draggable` and programmatic `x` translation.
 
 ---

@@ -5,7 +5,7 @@
 
 ## Summary
 
-Enhance the `MassageCarousel` constructed in `010-carousel-modern` with a "Wellness Wheel" 3D perspective. The core logic shifts from applying binary `activeSlide` GSAP tweens (a flat approach) to a continuously interpolated layout tracking live `x` dragging context. This creates a rotating drum illusion while fading, scaling, and lowering peripheral cards dynamically. The CTA is also context-aware, disabling entirely on non-central cards. 
+Enhance the `MassageCarousel` constructed in `010-carousel-modern` with a "Wellness Wheel" 3D perspective. The core logic shifts from applying binary `activeSlide` GSAP tweens (a flat approach) to a continuously interpolated layout tracking live `x` dragging context. This creates a rotating drum illusion while fading, scaling, and lowering peripheral cards dynamically. The CTA is also context-aware, disabling entirely on non-central cards.
 
 ## Technical Context
 
@@ -61,6 +61,7 @@ src/
 ### Configuration Updates
 
 #### [MODIFY] [index.css](file:///Users/szymon.stec/Documents/Code/otulenie-website/src/index.css)
+
 - Verify/add support for CSS 3D perspective utilities (`perspective`, `transform-style`, `backface-visibility`) if not natively available in Tailwind v4 preset, adding them to `@theme` or `@utility` blocks as needed.
 
 ### UI Components
@@ -68,14 +69,17 @@ src/
 #### [MODIFY] [MassageCarousel.jsx](file:///Users/szymon.stec/Documents/Code/otulenie-website/src/components/MassageCarousel.jsx)
 
 **1. Setup 3D Context (CSS):**
+
 - Add `perspective: 1000px` to the `containerRef`'s outer root `section` to anchor the 3D perspective viewpoint.
 - Add `transform-style: preserve-3d` to the `horizontalRef.current` track element.
 - Add `backface-visibility: hidden` to all the individual card elements mapping over `DISPLAY_DATA`.
 
 **2. Tear Down `010` Binary Scaling:**
+
 - Remove the `useEffect` that listens to `activeSlide` and tweens cards instantly to `scale: 1` or `scale: 0.95`. That logic was flat and binary.
 
 **3. Implement Continuous GSAP Math (`updateWheel`):**
+
 - Inside `useGSAP`, declare a reusable function `updateWheel()`.
 - The function reads `gsap.getProperty(horizontalRef.current, "x")`.
 - It iterates over the card elements (including clones), calculating their absolute `centerDistance` from the viewport center line using bounding boxes safely isolated by GSAP layout math to avoid reflows.
@@ -88,11 +92,13 @@ src/
 - Apply a dynamic class or set `style.pointerEvents = 'none'` to cards with `distanceRatio > 0.1` to prevent stray Booksy clicks on peripheral cards.
 
 **4. Hook into GSAP Lifecycle:**
+
 - `Draggable.create()` config: Add `updateWheel` to `onDrag` and `onThrowUpdate`.
 - Auto-rotation `setInterval`: During the GSAP tween from slide A to slide B, use `onUpdate: updateWheel` inside the tween so it smoothly sweeps the 3D arc.
 - `handleDotClick`: Same `onUpdate: updateWheel` binding during the snapping tween.
 
 **5. Mobile Responsiveness & Reduced Motion Guard:**
+
 - Check window width inside `updateWheel` to clamp maximum 3D `rotationY` and scale down scaling intensity.
 - Inside the reduced motion guard: bypass `updateWheel` logic entirely, allowing standard flat scrolling and instant clicks.
 
