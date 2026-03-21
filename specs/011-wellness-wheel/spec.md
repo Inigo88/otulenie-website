@@ -40,6 +40,15 @@ As a site visitor, I want the transitions between cards to feel fluid and organi
 
 ## Clarifications
 
+### Recent Refinements (2026-03-21)
+
+These refinements ensure the "Wellness Wheel" builds smoothly on the previously completed `010-carousel-modern` feature:
+
+- **Continuous Interpolation**: Transform values (scale, opacity, y, rotationY) must interpolate smoothly frame-by-frame based on exact pixel distance from center, replacing the binary active/inactive states from 010.
+- **CTA Interaction**: The Booksy CTA button must be disabled (`pointer-events: none`) on all peripheral cards to ensure clicking centers the card instead of triggering navigation away from the site.
+- **3D Performance**: Explicitly added `preserve-3d`, `backface-visibility`, and `perspective` requirements to prevent clipping and improve performance.
+- **Data Model Sync**: Dropped `MassageCard` entity in favor of the finalized `MASSAGE_DATA` from 010.
+
 ### Session 2026-03-19
 
 - Q: Does the "wheel" effect include 3D rotation? → A: Subtle 3D (Subtle `rotationY` and `perspective`).
@@ -53,18 +62,18 @@ As a site visitor, I want the transitions between cards to feel fluid and organi
 
 - **FR-001**: System MUST implement a curvilinear "wheel" perspective for the Massage Carousel cards using subtle `rotationY` and `perspective` to simulate a physical drum.
 - **FR-002**: System MUST apply a dynamic vertical offset (`y` translation) based on the card's horizontal progress to create an arc effect.
-- **FR-003**: System MUST implement dynamic scaling where the card nearest to the viewport center is at 100% scale (or slightly larger), and peripheral cards scale down (e.g., to 85-90%).
+- **FR-003**: System MUST implement *continuous* dynamic scaling based on the exact pixel distance from the viewport center (interpolating frame-by-frame during drag/scroll). The center card scales to 100% (or slightly larger), while peripheral cards scale down (e.g., to 85-90%).
 - **FR-004**: System MUST automatically center the focused card (via tabbing or arrow keys) within the "wheel" to ensure immediate legibility and focus sync.
-- **FR-005**: Click/Tap Interaction MUST center the selected card within the "wheel" before triggering any primary action (e.g., opening a Booksy link).
-- **FR-006**: System MUST apply gradual opacity fading to cards as they move away from the center of the viewport (peripheral cards should have ~40-60% opacity).
+- **FR-005**: Click/Tap Interaction MUST center the selected card within the "wheel" before triggering any primary action. The Booksy CTA button MUST be disabled/unclickable (`pointer-events: none`) on all peripheral cards. Clicking anywhere on a peripheral card triggers navigation to center it.
+- **FR-006**: System MUST apply gradual, continuous opacity fading to cards (interpolated based on distance) as they move away from the center of the viewport (peripheral cards should have ~40-60% opacity).
 - **FR-007**: System MUST ensure the 3 central cards remain the primary focus and are most legible.
-- **FR-008**: Transformations MUST be handled via GSAP for high-performance, hardware-accelerated rendering.
+- **FR-008**: Transformations MUST be handled via GSAP for high-performance, hardware-accelerated rendering. The track container MUST use `transform-style: preserve-3d` with a defined `perspective`, and cards MUST use `backface-visibility: hidden` to prevent repaints and clipping.
 - **FR-009**: The effect MUST be responsive and adapt its "curvature" and "scaling" intensity for mobile viewports (390px width), prioritizing legibility and content width by using a subtler arc.
 - **FR-010**: System MUST respect the `prefers-reduced-motion` media query by simplifying or disabling the curvilinear/scaling animations if requested.
 
 ### Key Entities *(include if feature involves data)*
 
-- **MassageCard**: The visual representation of a massage type, now enhanced with spatial properties (scale, rotation, opacity, y-offset) defined by its position in the "Wellness Wheel".
+- **MASSAGE_DATA**: We will retain the exact finalized `MASSAGE_DATA` structure from the `010-carousel-modern` feature. No new data fields are required; the "Wellness Wheel" effect relies entirely on DOM geometry and GSAP math.
 
 ## Success Criteria *(mandatory)*
 
