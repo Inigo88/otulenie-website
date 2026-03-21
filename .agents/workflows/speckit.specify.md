@@ -77,17 +77,17 @@ Given that feature description, do this:
          - No reasonable default exists
        - **LIMIT: Maximum 3 [NEEDS CLARIFICATION] markers total**
        - Prioritize clarifications by impact: scope > security/privacy > user experience > technical details
-    4. Fill User Scenarios & Testing section
+    5. Fill User Scenarios & Testing section
        If no clear user flow: ERROR "Cannot determine user scenarios"
-    5. Generate Functional Requirements
+    6. Generate Functional Requirements
        Each requirement must be testable
        Use reasonable defaults for unspecified details (document assumptions in Assumptions section)
-    6. Define Success Criteria
+    7. Define Success Criteria
        Create measurable, technology-agnostic outcomes
        Include both quantitative metrics (time, performance, volume) and qualitative measures (user satisfaction, task completion)
        Each criterion must be verifiable without implementation details
-    7. Identify Key Entities (if data involved)
-    8. Return: SUCCESS (spec ready for planning)
+    8. Identify Key Entities (if data involved)
+    9. Return: SUCCESS (spec ready for planning)
 
 5. Write the specification to SPEC_FILE using the template structure, replacing placeholders with details derived from the feature description (arguments) while preserving section order and headings.
 
@@ -155,9 +155,11 @@ Given that feature description, do this:
      1. Update the `**Branch**:` field for that specific feature with the newly created branch name.
      2. Update the `**Status**:` field for that specific feature to `Specified`.
    - After updating the feature status, **always** run the automation script to propagate status changes to Epics and Milestones:
+
      ```bash
      chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
      ```
+
    - Do not edit the backlog if the feature cannot be found.
 
 8. Report completion with branch name, spec file path, checklist results, backlog update status, and readiness for the next phase (`/speckit.clarify` or `/speckit.plan`).

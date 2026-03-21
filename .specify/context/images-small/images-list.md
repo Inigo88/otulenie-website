@@ -3,7 +3,7 @@
 This folder contains optimized images for the Otulenie website.
 
 | Filename | Size (KB) | Dimensions | Description |
-|----------|-----------|------------|-------------|
+| --- | --- | --- | --- |
 | [IMG-01.jpg](file:///Users/szymon.stec/Documents/Code/otulenie-website/.specify/context/images-small/IMG-01.jpg) | 182 | 800x1200 | A vertical shot of the massage therapist, a man with a beard and glasses, smiling warmly at the camera. He is wearing a beige/sand t-shirt and matching pants, standing in a brightly lit studio. |
 | [IMG-02.jpg](file:///Users/szymon.stec/Documents/Code/otulenie-website/.specify/context/images-small/IMG-02.jpg) | 162 | 1200x800 | The therapist sitting on a massage table in the studio, looking at the camera. He is wearing a dark brown/maroon t-shirt and beige pants, surrounded by lush green plants. |
 | [IMG-03.jpg](file:///Users/szymon.stec/Documents/Code/otulenie-website/.specify/context/images-small/IMG-03.jpg) | 179 | 800x1200 | A vertical portrait of the therapist sitting and looking at the camera. He is wearing a dark brown/maroon t-shirt. The background is soft and airy with plants. |

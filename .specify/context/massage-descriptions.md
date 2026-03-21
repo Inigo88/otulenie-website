@@ -3,6 +3,7 @@
 This document contains standardized descriptions, pricing, and timing for Otulenie massage services, extracted from the primary PRD and refined for high-fidelity communication.
 
 ## 1. Mocne Otulenie
+
 - **Type**: Regeneracyjny masa-- plec--w
 - **Duration**: 1h
 - **Price**: 180 PLN
@@ -12,6 +13,7 @@ This document contains standardized descriptions, pricing, and timing for Otulen
 ---
 
 ## 2. G----bokie Otulenie
+
 - **Type**: Regeneracyjny masa-- cia--a
 - **Duration**: 1h 30min
 - **Price**: 240 PLN
@@ -21,6 +23,7 @@ This document contains standardized descriptions, pricing, and timing for Otulen
 ---
 
 ## 3. Czu--e Otulenie
+
 - **Type**: Relaksacyjny masa-- cia--a
 - **Duration**: 1h 30min
 - **Price**: 240 PLN
@@ -30,6 +33,7 @@ This document contains standardized descriptions, pricing, and timing for Otulen
 ---
 
 ## 4. Ciep--e Otulenie
+
 - **Type**: Relaksacyjny masa-- gor--ca --wiec--
 - **Duration**: 1h 30min
 - **Price**: 270 PLN
