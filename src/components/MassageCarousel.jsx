@@ -12,11 +12,11 @@ const MassageCarousel = () => {
   const triggerRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const activeSlideRef = useRef(0);
-  const rotationIntervalRef = useRef(null);
   const isInViewRef = useRef(false);
   const hasAnimatedRef = useRef(false);
   const isHoveredRef = useRef(false);
   const isPausedRef = useRef(false);
+  const updateWheelRef = useRef(null);
 
   const prefersReducedMotion = typeof window !== 'undefined' 
     ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
@@ -59,7 +59,10 @@ const MassageCarousel = () => {
               stagger: 0.05, 
               duration: 0.6, 
               ease: 'power2.out',
-              onComplete: () => { hasAnimatedRef.current = true; }
+              onComplete: () => { 
+                hasAnimatedRef.current = true;
+                if (updateWheelRef.current) updateWheelRef.current(); // Ensure 3D layout runs after entrance 
+              }
             }
           );
         }
@@ -68,6 +71,63 @@ const MassageCarousel = () => {
       onEnterBack: () => { isInViewRef.current = true; },
       onLeaveBack: () => { isInViewRef.current = false; }
     });
+
+    // T007 - T013: Continuous GSAP Math
+    const updateWheel = () => {
+      if (!horizontalRef.current || !triggerRef.current || prefersReducedMotion) return;
+
+      const trackX = gsap.getProperty(horizontalRef.current, "x");
+      const parentWidth = triggerRef.current.offsetWidth;
+      // Center of the viewport mapped into the horizontal track space
+      const viewportCenter = -trackX + (parentWidth / 2);
+      const cards = Array.from(horizontalRef.current.children);
+      
+      const isMobile = window.innerWidth <= 390;
+      const MAX_ROTATION = isMobile ? 25 : 45; 
+      const MIN_SCALE = isMobile ? 0.90 : 0.85;
+      const MIN_OPACITY = 0.40;
+      const MAX_Y_OFFSET = 40; 
+      const EFFECT_DISTANCE = parentWidth * 0.8; 
+
+      cards.forEach((card) => {
+        const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+        const distance = cardCenter - viewportCenter;
+        const absDistance = Math.abs(distance);
+        const distanceRatio = Math.min(absDistance / EFFECT_DISTANCE, 1.0);
+        
+        const scale = 1.0 - (distanceRatio * (1.0 - MIN_SCALE));
+        const opacity = 1.0 - (distanceRatio * (1.0 - MIN_OPACITY));
+        const yOffset = distanceRatio * MAX_Y_OFFSET;
+        
+        const rotationDirection = distance < 0 ? 1 : -1;
+        const rotationY = distanceRatio * MAX_ROTATION * rotationDirection;
+
+        gsap.set(card, {
+          scale,
+          opacity,
+          y: yOffset,
+          rotationY,
+          overwrite: 'auto'
+        });
+
+        // T010: CTA Pointer Events Guard
+        const cta = card.querySelector('.booksy-cta');
+        if (cta) {
+          cta.style.pointerEvents = distanceRatio > 0.15 ? 'none' : 'auto';
+        }
+      });
+    };
+
+    updateWheelRef.current = updateWheel;
+    updateWheel(); // T019: Fire initially
+
+    // T018: Resize listener inside useGSAP context natively bound
+    let resizeTimer;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => updateWheel(), 100);
+    };
+    window.addEventListener('resize', handleResize);
 
     // T003: Use a proxy for Draggable to avoid transform conflicts
     const dragProxy = document.createElement("div");
@@ -88,12 +148,14 @@ const MassageCarousel = () => {
         let newX = this.x % baseWidth;
         if (newX > 0) newX -= baseWidth;
         gsap.set(horizontalItems, { x: newX });
+        updateWheel(); // T014
       },
       onThrowUpdate: function() {
         const baseWidth = getBaseWidth();
         let newX = this.x % baseWidth;
         if (newX > 0) newX -= baseWidth;
         gsap.set(horizontalItems, { x: newX });
+        updateWheel(); // T014
       },
       onThrowComplete: function() {
         const currentX = gsap.getProperty(horizontalItems, "x");
@@ -124,10 +186,11 @@ const MassageCarousel = () => {
 
     return () => {
       st.kill();
+      window.removeEventListener('resize', handleResize);
       if (dragProxy.parentNode) dragProxy.parentNode.removeChild(dragProxy);
       Draggable.get(dragProxy)?.kill();
     };
-  }, { scope: containerRef, dependencies: [] });
+  }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   // Stable helper to calculate target X for a given slide index
   const getXForIndex = useCallback((index) => {
@@ -140,7 +203,7 @@ const MassageCarousel = () => {
     return -(targetItem.offsetLeft - (parentWidth / 2) + (targetItem.offsetWidth / 2));
   }, []);
 
-  const handleDotClick = (index, isAuto = false) => {
+  const handleDotClick = useCallback((index, isAuto = false) => {
     if (!horizontalRef.current) return;
 
     if (!isAuto) {
@@ -158,11 +221,12 @@ const MassageCarousel = () => {
       ease: 'power3.inOut',
       overwrite: 'auto',
       onUpdate: () => {
+        if (updateWheelRef.current) updateWheelRef.current(); // T015: Programmatic update
+
         // Sync active slide state during animation if needed
         const currentX = gsap.getProperty(horizontalRef.current, "x");
         const children = Array.from(horizontalRef.current.children).slice(0, MASSAGE_DATA.length);
         
-        // Find closest index based on x position
         let closestIdx = 0;
         let minDiff = Infinity;
         
@@ -181,7 +245,7 @@ const MassageCarousel = () => {
         }
       }
     });
-  };
+  }, [getXForIndex, prefersReducedMotion]);
 
   // Separate effect for auto-rotation
   useEffect(() => {
@@ -198,42 +262,9 @@ const MassageCarousel = () => {
     return () => clearInterval(interval);
   }, [handleDotClick, prefersReducedMotion]);
 
-  // Active card focus treatment effect
-  useEffect(() => {
-    if (!horizontalRef.current) return;
-    
-    // Select only the original cards (not clones) for the state sync
-    // The items are in horizontalRef.current.children
-    const children = Array.from(horizontalRef.current.children).slice(0, MASSAGE_DATA.length);
-    
-    children.forEach((child, index) => {
-      const isActive = index === activeSlide;
-      gsap.to(child, {
-        scale: isActive ? 1 : 0.95,
-        opacity: isActive ? 1 : 0.7,
-        duration: prefersReducedMotion ? 0 : 0.4,
-        ease: 'power2.out',
-        overwrite: 'auto'
-      });
-    });
-  }, [activeSlide, prefersReducedMotion]);
-
-  // Initial mount styling
-  useEffect(() => {
-    if (!horizontalRef.current) return;
-    const children = Array.from(horizontalRef.current.children).slice(0, MASSAGE_DATA.length);
-    
-    children.forEach((child, index) => {
-      const isActive = index === 0;
-      gsap.set(child, {
-        scale: isActive ? 1 : 0.95,
-        opacity: isActive ? 1 : 0.7
-      });
-    });
-  }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full bg-linen py-12 md:py-20 lg:py-24 overflow-x-hidden">
+    <section ref={containerRef} className="relative w-full bg-linen py-12 md:py-20 lg:py-24 overflow-x-hidden [perspective:1000px]">
       <div className="noise-overlay" aria-hidden="true" />
       
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 mb-10 md:mb-16 relative z-[100]">
@@ -286,12 +317,23 @@ const MassageCarousel = () => {
         <div className="relative h-full w-full overflow-hidden">
           <div 
             ref={horizontalRef} 
-            className="absolute flex gap-6 md:gap-10 px-6 md:px-12 will-change-transform py-4 z-10"
+            className="absolute flex gap-6 md:gap-10 px-6 md:px-12 will-change-transform py-4 z-10 [transform-style:preserve-3d]"
           >
             {DISPLAY_DATA.map((item, idx) => (
               <div 
                 key={`${item.id}-${idx}`} 
-                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-grab active:cursor-grabbing overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover md:h-[460px] md:w-[380px]"
+                onClick={() => {
+                  // T011: Outer card click bypasses disabled CTA to center card
+                  const originalIndex = idx % MASSAGE_DATA.length;
+                  handleDotClick(originalIndex);
+                }}
+                onFocus={() => {
+                  // T014: Keyboard focus ensures wheel spins to active
+                  const originalIndex = idx % MASSAGE_DATA.length;
+                  handleDotClick(originalIndex);
+                }}
+                tabIndex={0}
+                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-grab active:cursor-grabbing overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover focus-visible:ring-2 focus-visible:ring-moss/50 focus:outline-none md:h-[460px] md:w-[380px] [backface-visibility:hidden]"
               >
                 <div className="flex h-full flex-col">
                   <span className="mb-4 font-inter text-xs font-semibold uppercase tracking-[0.2em] text-olive/60">
@@ -315,7 +357,7 @@ const MassageCarousel = () => {
                       href={item.booksyUrl} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="bg-moss text-linen px-6 py-3 text-sm"
+                      className="booksy-cta bg-moss text-linen px-6 py-3 text-sm"
                     >
                       Zarezerwuj
                     </MagneticButton>

@@ -17,8 +17,8 @@
 
 **Purpose**: Verify the environment and prepare CSS 3D foundations.
 
-- [ ] T001 Confirm correct branch `011-wellness-wheel` is checked out (`git branch --show-current`)
-- [ ] T002 Verify that Tailwind CSS v4 is available in `src/index.css` and supports `perspective`, `transform-style`, and `backface-visibility` utilities (add them manually to `@utility` if they are missing from v4 core)
+- [x] T001 Confirm correct branch `011-wellness-wheel` is checked out (`git branch --show-current`)
+- [x] T002 Verify that Tailwind CSS v4 is available in `src/index.css` and supports `perspective`, `transform-style`, and `backface-visibility` utilities (add them manually to `@utility` if they are missing from v4 core)
 
 ---
 
@@ -28,10 +28,10 @@
 
 **⚠️ CRITICAL**: These tasks unblock all subsequent phases.
 
-- [ ] T003 Update the outer `<section>` (bound to `containerRef`) in `src/components/MassageCarousel.jsx` to include `perspective-[1000px]` (or equivalent custom class) to anchor the 3D vanishing point.
-- [ ] T004 Apply `transform-style-preserve-3d` (or equivalent CSS) to the scrollable track `<div>` (`horizontalRef.current`) in `src/components/MassageCarousel.jsx`.
-- [ ] T005 Apply `backface-visibility-hidden` (or equivalent CSS) to the individual massage card `<div>` elements inside `DISPLAY_DATA.map` in `src/components/MassageCarousel.jsx`.
-- [ ] T006 Delete the existing `useEffect` in `src/components/MassageCarousel.jsx` that watches `[activeSlide]` and fires binary GSAP `scale/opacity` tweens (removing the old 010 interaction model).
+- [x] T003 Update the outer `<section>` (bound to `containerRef`) in `src/components/MassageCarousel.jsx` to include `perspective-[1000px]` (or equivalent custom class) to anchor the 3D vanishing point.
+- [x] T004 Apply `transform-style-preserve-3d` (or equivalent CSS) to the scrollable track `<div>` (`horizontalRef.current`) in `src/components/MassageCarousel.jsx`.
+- [x] T005 Apply `backface-visibility-hidden` (or equivalent CSS) to the individual massage card `<div>` elements inside `DISPLAY_DATA.map` in `src/components/MassageCarousel.jsx`.
+- [x] T006 Delete the existing `useEffect` in `src/components/MassageCarousel.jsx` that watches `[activeSlide]` and fires binary GSAP `scale/opacity` tweens (removing the old 010 interaction model).
 
 **Checkpoint**: DOM acts as an empty 3D stage. Binary focus logic deleted.
 
@@ -45,14 +45,14 @@
 
 ### Implementation
 
-- [ ] T007 [US1] Inside `useGSAP` in `src/components/MassageCarousel.jsx`, write a stable `const updateWheel = () => { ... }` function that begins by calculating the current pixel center of the viewport relative to the track's live `x` translation.
-- [ ] T008 [US1] Expand `updateWheel`: iterate over all `cardElements`. For each, calculate its absolute distance from the center, map it to a `distanceRatio` (0.0 = center, 1.0 = edge).
-- [ ] T009 [US1] Expand `updateWheel`: Use GSAP `set()` on each card to apply math-driven `scale` (e.g. 1.0 down to 0.85), `opacity` (1.0 down to 0.4), `y` (0 down to 40px), and `rotationY` (mapped to left/right orientation relative to the viewport).
-- [ ] T010 [US1] Expand `updateWheel` (CTA guard): If `distanceRatio > 0.1`, apply `pointerEvents: 'none'` to the card to disable Booksy clicks on non-central items; restore `pointerEvents: 'auto'` when centered.
-- [ ] T011 [US1] Add a click handler to the *outer card container* in `src/components/MassageCarousel.jsx` that triggers `handleDotClick(index)` (so clicking anywhere on peripheral cards centers them, bypassing the disabled CTA).
-- [ ] T012 [US1] Wrap the entire body of `updateWheel` in an `if (prefersReducedMotion) return;` guard to ensure compliance with NFR-001.
-- [ ] T013 [US1] Clamp the maximum `rotationY` and minimum `scale` values inside `updateWheel` if `window.innerWidth <= 390` (mobile breakpoint reduction).
-- [ ] T014 [US1] Add an `onFocus` handler to the mapped card container `<div>` in `src/components/MassageCarousel.jsx` that calls `handleDotClick(index)` to ensure keyboard tabbing automatically centers the newly focused card.
+- [x] T007 [US1] Inside `useGSAP` in `src/components/MassageCarousel.jsx`, write a stable `const updateWheel = () => { ... }` function that begins by calculating the current pixel center of the viewport relative to the track's live `x` translation.
+- [x] T008 [US1] Expand `updateWheel`: iterate over all `cardElements`. For each, calculate its absolute distance from the center, map it to a `distanceRatio` (0.0 = center, 1.0 = edge).
+- [x] T009 [US1] Expand `updateWheel`: Use GSAP `set()` on each card to apply math-driven `scale` (e.g. 1.0 down to 0.85), `opacity` (1.0 down to 0.4), `y` (0 down to 40px), and `rotationY` (mapped to left/right orientation relative to the viewport).
+- [x] T010 [US1] Expand `updateWheel` (CTA guard): If `distanceRatio > 0.1`, apply `pointerEvents: 'none'` to the card to disable Booksy clicks on non-central items; restore `pointerEvents: 'auto'` when centered.
+- [x] T011 [US1] Add a click handler to the *outer card container* in `src/components/MassageCarousel.jsx` that triggers `handleDotClick(index)` (so clicking anywhere on peripheral cards centers them, bypassing the disabled CTA).
+- [x] T012 [US1] Wrap the entire body of `updateWheel` in an `if (prefersReducedMotion) return;` guard to ensure compliance with NFR-001.
+- [x] T013 [US1] Clamp the maximum `rotationY` and minimum `scale` values inside `updateWheel` if `window.innerWidth <= 390` (mobile breakpoint reduction).
+- [x] T014 [US1] Add an `onFocus` handler to the mapped card container `<div>` in `src/components/MassageCarousel.jsx` that calls `handleDotClick(index)` to ensure keyboard tabbing automatically centers the newly focused card.
 
 **Checkpoint**: The math foundation exists, keyboard focus drives the wheel, but isn't explicitly tied to drag yet.
 
@@ -66,11 +66,11 @@
 
 ### Implementation
 
-- [ ] T015 [US2] Hook `updateWheel` into the user drag: inside `Draggable.create()` config in `src/components/MassageCarousel.jsx`, add `onDrag: updateWheel` and `onThrowUpdate: updateWheel`.
-- [ ] T016 [US2] Hook `updateWheel` into programmatic navigation: in `handleDotClick` inside `src/components/MassageCarousel.jsx`, add `onUpdate: updateWheel` to the `gsap.to(horizontalItems...)` call.
-- [ ] T017 [US2] Hook `updateWheel` into auto-rotation: in the `useEffect` interval inside `src/components/MassageCarousel.jsx`, add `onUpdate: updateWheel` to the `gsap.to(horizontalItems...)` call.
-- [ ] T018 [US2] Attach a `window.addEventListener('resize', updateWheel)` inside the `useGSAP` block (with appropriate cleanup) in `src/components/MassageCarousel.jsx` to ensure wheel bounds and math re-calculate accurately upon device rotation or resize.
-- [ ] T019 [US2] Fire `updateWheel()` manually exactly once at the bottom of the initial `useGSAP` hook in `src/components/MassageCarousel.jsx` (or inside the entrance animation `onComplete`) to ensure the very first DOM render applies the 3D curves.
+- [x] T015 [US2] Hook `updateWheel` into the user drag: inside `Draggable.create()` config in `src/components/MassageCarousel.jsx`, add `onDrag: updateWheel` and `onThrowUpdate: updateWheel`.
+- [x] T016 [US2] Hook `updateWheel` into programmatic navigation: in `handleDotClick` inside `src/components/MassageCarousel.jsx`, add `onUpdate: updateWheel` to the `gsap.to(horizontalItems...)` call.
+- [x] T017 [US2] Hook `updateWheel` into auto-rotation: in the `useEffect` interval inside `src/components/MassageCarousel.jsx`, add `onUpdate: updateWheel` to the `gsap.to(horizontalItems...)` call.
+- [x] T018 [US2] Attach a `window.addEventListener('resize', updateWheel)` inside the `useGSAP` block (with appropriate cleanup) in `src/components/MassageCarousel.jsx` to ensure wheel bounds and math re-calculate accurately upon device rotation or resize.
+- [x] T019 [US2] Fire `updateWheel()` manually exactly once at the bottom of the initial `useGSAP` hook in `src/components/MassageCarousel.jsx` (or inside the entrance animation `onComplete`) to ensure the very first DOM render applies the 3D curves.
 
 **Checkpoint**: All interactive events, window resizes, and programmatic tweens successfully drive the continuous wheel layout.
 
@@ -80,9 +80,9 @@
 
 **Purpose**: Dead code cleanup, layout debugging, and commit.
 
-- [ ] T020 Run `npm run build` and monitor for ESLint / React warnings regarding the new `onClick`/`onFocus` handlers and `updateWheel` dependencies.
-- [ ] T021 Conduct a visual QA sweep in a 390px viewport to ensure `rotationY` isn't crushing Polish copy text legibility. Adjust clamping variables in `updateWheel` if necessary.
-- [ ] T022 Commit all changes as `feat(carousel): implement Wellness Wheel 3D continuous interpolation across drag and nav`
+- [x] T020 Run `npm run build` and monitor for ESLint / React warnings regarding the new `onClick`/`onFocus` handlers and `updateWheel` dependencies.
+- [x] T021 Conduct a visual QA sweep in a 390px viewport to ensure `rotationY` isn't crushing Polish copy text legibility. Adjust clamping variables in `updateWheel` if necessary.
+- [x] T022 Commit all changes as `feat(carousel): implement Wellness Wheel 3D continuous interpolation across drag and nav`
 
 ---
 
