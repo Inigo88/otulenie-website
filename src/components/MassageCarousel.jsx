@@ -22,21 +22,20 @@ const MassageCarousel = () => {
     ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
     : false;
 
-  // Clone data for infinite scroll effect
-  const DISPLAY_DATA = [...MASSAGE_DATA, ...MASSAGE_DATA.slice(0, 3)];
+  // Use original data; no clones for infinite effect in the Wellness Wheel 011
+  const DISPLAY_DATA = MASSAGE_DATA;
 
   useGSAP(() => {
     if (!horizontalRef.current || !containerRef.current) return;
 
     const horizontalItems = horizontalRef.current;
     
-    // Width of one full set of items
+    // Total width of all items
     const getBaseWidth = () => {
       const children = Array.from(horizontalItems.children);
-      const originalItems = children.slice(0, MASSAGE_DATA.length);
-      if (originalItems.length === 0) return 0;
+      if (children.length === 0) return 0;
       
-      const lastItem = originalItems[originalItems.length - 1];
+      const lastItem = children[children.length - 1];
       return lastItem.offsetLeft + lastItem.offsetWidth;
     };
 
@@ -138,28 +137,26 @@ const MassageCarousel = () => {
       type: "x",
       trigger: horizontalItems,
       inertia: true,
+      bounds: {
+        minX: getXForIndex(MASSAGE_DATA.length - 1),
+        maxX: getXForIndex(0)
+      },
       onPress: function() {
         gsap.set(this.target, { x: gsap.getProperty(horizontalItems, "x") });
         this.update();
         isPausedRef.current = true;
       },
       onDrag: function() {
-        const baseWidth = getBaseWidth();
-        let newX = this.x % baseWidth;
-        if (newX > 0) newX -= baseWidth;
-        gsap.set(horizontalItems, { x: newX });
-        updateWheel(); // T014
+        gsap.set(horizontalItems, { x: this.x });
+        updateWheel();
       },
       onThrowUpdate: function() {
-        const baseWidth = getBaseWidth();
-        let newX = this.x % baseWidth;
-        if (newX > 0) newX -= baseWidth;
-        gsap.set(horizontalItems, { x: newX });
-        updateWheel(); // T014
+        gsap.set(horizontalItems, { x: this.x });
+        updateWheel();
       },
       onThrowComplete: function() {
         const currentX = gsap.getProperty(horizontalItems, "x");
-        const children = Array.from(horizontalItems.children).slice(0, MASSAGE_DATA.length);
+        const children = Array.from(horizontalItems.children);
         
         // Find closest index
         let closestIdx = 0;
