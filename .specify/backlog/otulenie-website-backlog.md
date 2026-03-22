@@ -111,7 +111,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.3.2**: Implement "Sticky Stacking Archive" for massage protocols  
   **Description**: Create three scroll-linked stacking cards governed by GSAP ScrollTrigger to display massage protocols and values.  
   **Branch**: `013-stacking-services`  
-  **Status**: Implemented
+  **Status**: Done
 
 - **Feature 1.3.3**: Build Footer with operational indicator  
   **Description**: Develop the deep dark rounded-top footer containing navigation links and a pulsing "System Operational" interactive dot.  
