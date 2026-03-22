@@ -5,7 +5,7 @@
 
 ## Summary
 
-Restrict website imagery to local, optimized assets derived from high-resolution source photography (6240x4160). This involves migrating source files from `.specify/context/images/` to `public/images-small/`, resizing (max-width 2560px), and converting them to WebP format using `sips`, and updating site constants in `App.jsx`.
+Restrict website imagery to local, optimized assets derived from high-resolution source photography (6240x4160). This involves migrating source files from `.specify/context/images/` to `public/images-small/`, resizing (max-width 2560px), and converting them to WebP format using `sips`. Implementation covers Hero, Stacking Archive, and Philosophy background updates with mandatory `alt` text and Moss #374833 fallback.
 
 ## Technical Context
 
@@ -16,8 +16,8 @@ Restrict website imagery to local, optimized assets derived from high-resolution
 **Target Platform**: Mobile-first Web
 **Project Type**: Web Application Landing Page
 **Performance Goals**: < 200ms LCP for Hero image, 0 external photography dependencies.
-**Constraints**: All source JPEGs must be resized (max-width 2560px) and converted to WebP; Icons/SVGs exempt.
-**Scale/Scope**: Asset migration and data mapping across current interactive architectural sections (Hero, Stacking Archive).
+**Constraints**: All source JPEGs must be resized (max-width 2560px) and converted to WebP; Icons/SVGs exempt; All image components must support mandatory `alt` text and #374833 fallback.
+**Scale/Scope**: Asset migration and data mapping across current interactive architectural sections (Hero, Stacking Archive, Philosophy).
 
 ## Constitution Check
 

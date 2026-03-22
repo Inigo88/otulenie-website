@@ -18,7 +18,7 @@
 **Purpose**: Project initialization and basic structure
 
 - [ ] T001 Create destination directory `public/images-small/`
-- [ ] T002 Copy high-res source assets from `.specify/context/images/*.jpg` to `public/images-small/`
+- [ ] T002 Copy all relevant source assets from `.specify/context/images/` to `public/images-small/`
 
 ---
 
@@ -37,14 +37,14 @@
 
 ## Phase 3: User Story 1 - 100% Brand Control (Priority: P1) 🎯 MVP
 
-**Goal**: Eliminate external image dependencies and use branded Hero visuals.
+**Goal**: Eliminate external image dependencies and use branded Hero visuals with mandatory accessibility.
 
-**Independent Test**: Verify Hero section loads `images-small/IMG-06.webp` and network tab shows no external photography calls.
+**Independent Test**: Verify Hero section loads `images-small/IMG-06.webp`, has `alt` text, and network tab shows no external photography calls.
 
 ### Implementation for User Story 1
 
-- [ ] T005 [P] [US1] Update `HERO_IMAGE` constant to `/images-small/IMG-06.webp` in `src/App.jsx`
-- [ ] T006 [US1] Ensure `Hero` component renders the updated local path in `src/App.jsx`
+- [ ] T005 [P] [US1] Update `HERO_IMAGE` constant in `src/App.jsx` to include `/images-small/IMG-06.webp` and mandatory `altText`
+- [ ] T006 [US1] Update `Hero` component in `src/App.jsx` to render local path, use `altText`, and implement solid **Moss #374833** fallback
 - [ ] T007 [US1] Audit code for any remaining Unsplash or external photography URLs and remove them
 
 **Checkpoint**: User Story 1 (MVP) is fully functional and testable independently.
@@ -53,14 +53,15 @@
 
 ## Phase 4: User Story 2 - Accurate Service Representation (Priority: P2)
 
-**Goal**: Show actual photos of massage setup in Stacking Archive.
+**Goal**: Show actual photos of massage setup in Stacking Archive and Philosophy section.
 
-**Independent Test**: Verify Stacking Archive display relevant local WebP assets.
+**Independent Test**: Verify Stacking Archive and Philosophy sections display relevant local WebP assets with proper fallbacks.
 
 ### Implementation for User Story 2
 
-- [ ] T008 [P] [US2] Update `STACKING_CARDS` array with local WebP paths in `src/App.jsx`
-- [ ] T009 [US2] Verify `StackingArchive` correctly renders local assets with depth effects in `src/App.jsx`
+- [ ] T008 [P] [US2] Update `STACKING_CARDS` constant in `src/App.jsx` with local WebP paths and `altText` fields
+- [ ] T009 [US2] Update `StackingArchive` component in `src/App.jsx` to support `alt` text and implement **Moss #374833** fallback
+- [ ] T010 [P] [US2] Update **Philosophy** section in `src/App.jsx` to use `images-small/IMG-19.webp` and implement **Moss #374833** fallback
 
 **Checkpoint**: User Story 2 is fully functional and integrates with local asset library.
 
@@ -70,9 +71,10 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T010 [P] Verify image focus and `object-cover` behavior on 390px viewport
-- [ ] T011 [P] Validate WebP optimization and load times (< 200ms LCP for Hero)
-- [ ] T012 Run `quickstart.md` validation steps
+- [ ] T011 [P] Verify image focus and `object-cover` behavior on 390px viewport
+- [ ] T012 [P] Validate WebP optimization and load times (< 200ms LCP for Hero)
+- [ ] T013 Run `quickstart.md` validation steps
+- [ ] T014 Run `/speckit.analyze` to verify 100% coverage and zero gaps
 
 ---
 
@@ -89,31 +91,3 @@
 
 - **User Story 1 (P1)**: Independent after Phase 2.
 - **User Story 2 (P2)**: Independent after Phase 2.
-
----
-
-## Parallel Example: Implementation
-
-```bash
-# Developer A starts US1:
-Task: "Update HERO_IMAGE constant"
-
-# Developer B starts US2:
-Task: "Update STACKING_CARDS array"
-```
-
----
-
-## Implementation Strategy
-
-### MVP First (User Story 1 Only)
-
-1. Complete Phase 1 & 2.
-2. Complete Phase 3 (US1).
-3. **STOP and VALIDATE**: Verify local Hero image and zero external calls.
-
-### Incremental Delivery
-
-1. Deploy MVP (US1).
-2. Follow up with US2 (Archive enhancement).
-3. Final polish and verification.

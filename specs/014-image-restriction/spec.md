@@ -12,7 +12,7 @@
 - Q: What should be the visual fallback behavior for missing assets? → A: Solid Moss (#374833) background with subtle brand texture.
 - Q: Are any image types exempt from the local-only rule? → A: Yes, only photoshoot photography (JPEGs) is restricted to local assets; technical SVGs, brand icons, and noise patterns are exempt.
 - Q: Should photos be converted to modern formats during migration? → A: Yes, convert all JPEGs to WebP for production use.
-- Q: How should the right images be chosen? → A: Use the descriptions provided in `images-small/images-list.md` to map assets to components.
+- Q: How should the right images be chosen? → A: Use the descriptions and alt text provided in `.specify/context/images-list.md` to map assets to components.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -47,30 +47,28 @@ As a prospective client, I want to see actual photos of the massage services (oi
 
 ### Edge Cases
 
--   **Missing Assets**: If a local JPEG is missing, the system MUST render a solid `Moss #374833` background (or a `backdrop-blur` placeholder) to prevent broken layouts.
 -   **Responsive Handling**: Does `object-cover` correctly preserve the focus on the therapist/action across mobile and desktop viewports? (Must be verified on 390px viewport).
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
--   **FR-001**: System MUST migrate all files from `.specify/context/images-small/` to the directory where they can be served (e.g., `public/images-small/`), CONVERTING them to `.webp` format in the process.
--   **FR-002**: System MUST replace the Unsplash URL in the `Hero` component background with `images-small/IMG-06.jpg`.
--   **FR-003**: System MUST update `STACKING_CARDS` data in `App.jsx` to use local assets:
-    -   Card 1 (Relaks): `images-small/IMG-07.jpg` (or `IMG-01.jpg` for portrait focus)
-    -   Card 2 (Uważność): `images-small/IMG-12.jpg` (Macro close-up)
-    -   Card 3 (Regeneracja): `images-small/IMG-14.jpg` (Back massage technique)
--   **FR-004**: SYSTEM MUST NOT use any external photography providers or generated lifestyle placeholders.
--   **FR-005**: `Hero` component MUST be updated to accept and render these new local image paths.
--   **FR-006**: Exemptions: Technical SVGs, Lucide icons, and the SVG noise data-URL are EXEMPT from the local-only JPEG restriction.
--   **FR-007**: Image Selection: All content photography selection MUST be guided by the visual descriptions in `images-small/images-list.md`.
+-   **FR-001**: System MUST migrate all files from `.specify/context/images/` to `public/images-small/`, resizing them to a maximum width of **2560px** and converting them to `.webp` format using `sips` for production optimization.
+-   **FR-002**: System MUST replace the Unsplash URL in the `Hero` component background with `images-small/IMG-06.webp`.
+-   **FR-003**: System MUST update `STACKING_CARDS` data in `App.jsx` to use local assets with mandatory `alt` text:
+    -   Card 1 (Relaks): `images-small/IMG-07.webp`
+    -   Card 2 (Uważność): `images-small/IMG-12.webp`
+    -   Card 3 (Regeneracja): `images-small/IMG-14.webp`
+-   **FR-007**: Image Selection: All content photography selection MUST be guided by the visual descriptions in `.specify/context/images-list.md`.
+-   **FR-008**: System MUST update the **Philosophy** section background texture with `images-small/IMG-19.webp` (Artistic oil pour) including mandatory `alt` text as per design context for organic parallax effect.
+-   **FR-009**: System MUST implement a visual fallback to solid **Moss #374833** for any missing local image assets to maintain UI stability.
 
 ### Key Entities *(include if feature involves data)*
 
--   **Massage Asset**: Represents a local JPEG file in `images-small`.
-    -   `filename`: e.g., `IMG-01.jpg`
-    -   `altText`: Descriptive text for accessibility (e.g., "Therapist pouring warm herbal oil over a guest's back")
-    -   `description`: Mapping to specific sections (Hero, Carousel, Archive)
+-   **Massage Asset**: Represents a local WebP file in `images-small`.
+    -   `filename`: e.g., `IMG-01.webp`
+    -   `altText`: [MANDATORY] Descriptive text for accessibility.
+    -   `description`: Mapping to specific sections (Hero, Carousel, Archive, Philosophy)
 
 ## Success Criteria *(mandatory)*
 

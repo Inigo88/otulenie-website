@@ -62,11 +62,11 @@ Wroc--aw
 
 **Travel policy:**
 
-| Area | Policy |
-| --- | --- |
-| Wroc--aw city limits | travel included |
-| Outside city | up to 10 km |
-| Outside fee | additional travel fee |
+| Area                 | Policy                |
+| -------------------- | --------------------- |
+| Wroc--aw city limits | travel included       |
+| Outside city         | up to 10 km           |
+| Outside fee          | additional travel fee |
 
 ---
 
@@ -427,11 +427,13 @@ Avoid:
 
 ---
 
-## 18. Required Photography
+## 18. Required Photography (Asset Examples)
 
 All content photography (lifestyle, sessions) must be sourced exclusively from the local `images-small` folder and optimized to `.webp`. Technical icons (Lucide) and the SVG noise pattern are exempt.
 
-Minimum set:
+**Note**: The list below represents a reference set. The final mapping of specific assets to UI components is defined in the active **Feature Specification** or `.specify/context/images-list.md`.
+
+Reference set (examples):
 
 1. Massage table setup (e.g., IMG-07.jpg)
 2. Massage action (hands on shoulders/back) (e.g., IMG-08.jpg, IMG-10.jpg)
