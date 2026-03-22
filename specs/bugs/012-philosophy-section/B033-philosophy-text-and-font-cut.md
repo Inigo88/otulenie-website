@@ -9,6 +9,7 @@
 ## Description
 
 The Philosophy section contained several active issues:
+
 1. The text said "My skupiamy się na Tobie", implying multiple people. The founder is a solo practitioner, so the text needs to reflect a singular voice ("Ja skupiam się na Tobie").
 2. The italic serif font in the main heading was being cut off both vertically (ascenders/descenders) and horizontally (the italic 'J' was clipped on the left), making the text not completely visible.
 
