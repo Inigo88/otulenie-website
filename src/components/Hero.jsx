@@ -10,10 +10,11 @@ import MagneticButton from './MagneticButton';
  * @param {Object} props
  * @param {string} props.headline - Primary brand message
  * @param {string} props.subheadline - Supporting message
- * @param {string} props.backgroundUrl - Unsplash image URL
+ * @param {string} props.backgroundUrl - Optimized local WebP URL
+ * @param {string} props.altText - Mandatory accessibility text
  * @param {Function} props.onHeroComplete - Callback fired after entrance GSAP timeline finishes
  */
-const Hero = ({ headline, subheadline, backgroundUrl, onHeroComplete }) => {
+const Hero = ({ headline, subheadline, backgroundUrl, altText, onHeroComplete }) => {
   const containerRef = useRef(null);
   const headlineRef = useRef(null);
   const subheadlineRef = useRef(null);
@@ -63,16 +64,15 @@ const Hero = ({ headline, subheadline, backgroundUrl, onHeroComplete }) => {
     <section 
       ref={containerRef}
       id="hero"
-      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-stone-900"
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-moss"
     >
       {/* Background Container */}
       <div className="absolute inset-0 z-0">
         <img 
           ref={bgRef}
           src={backgroundUrl} 
-          alt="" 
+          alt={altText} 
           className="w-full h-full object-cover"
-          aria-hidden="true"
         />
         {/* Dark Gradient Overlay (FR-002) */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/30 to-black/60" />
