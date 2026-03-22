@@ -61,7 +61,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.1.4**: Restrict website imagery to `images-small`  
   **Description**: Migrate all external Unsplash URLs and generated placeholder PNGs to optimized local assets from the `images-small` directory to ensure 100% brand control.  
   **Branch**: `014-image-restriction`  
-  **Status**: Specified
+  **Status**: Clarified
 
 #### Epic 1.2: Homepage High-Impact Sections
 

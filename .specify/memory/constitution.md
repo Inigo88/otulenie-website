@@ -68,7 +68,7 @@ The website must meet WCAG 2.2 Level AA conformance to ensure usability for all 
 - **Target Size**: Interactive touch targets must be at least 24--24 CSS pixels (SC 2.5.8).
 - **ARIA Attributes**: Use `aria-label`, `aria-expanded`, `aria-hidden`, `role`, and other ARIA attributes where native semantics are insufficient.
 - **Alt Text**: All meaningful images have descriptive `alt` attributes; decorative images use `alt=""`.
-- **Image Sourcing**: Strictly use only local assets from the `images-small` folder. External sources (Unsplash, Pixabay, etc.) and AI-generated images are prohibited.
+- **Image Sourcing**: Strictly use local photography assets (JPEGs) from the `images-small` folder for all content and lifestyle imagery. Technical SVGs, brand icons (Lucide), and data-URL noise patterns are exempt. Selection MUST be guided by `images-small/images-list.md`.
 - **Reduced Motion**: Respect `prefers-reduced-motion` media query - disable or reduce GSAP animations for users who prefer reduced motion.
 - **Screen Reader Support**: Ensure correct heading hierarchy (`h1`---`h6`), meaningful link text, and logical DOM order matching visual order.
 
@@ -87,7 +87,7 @@ Otulenie addresses neck tension, stress, and lack of time for desk workers and b
 
 - **Stack:** React 19.x, Vite 6.x, Tailwind CSS v4.x, GSAP 3 (with ScrollTrigger plugin), Lucide React for icons. *Note: Tailwind CSS v4.x is explicitly required here.*
 - **Fonts:** Load via Google Fonts `<link>` tags based on the preset (Fraunces, Inter, Cormorant Garamond).
-- **Images:** Use only local assets from the `images-small` folder. Never use Unsplash, external URLs, or generated images.
+- **Images:** Content photography MUST use local assets from the `images-small` folder, optimized to `.webp`. Selection MUST follow `images-small/images-list.md` descriptions. Technical SVGs and icons are exempt.
 - **Structure:** Single `App.jsx` with components defined alongside, or split into a `components/` directory only if the file exceeds 600 lines. Single `index.css` for directives and noise.
 - **Completeness:** Every card, label, and animation must be fully implemented and functional. Partial implementations are rejected.
 - **Responsiveness:** Mobile-first design is mandatory. Stack elements vertically, reduce heading scales, and collapse navbars minimally on mobile.

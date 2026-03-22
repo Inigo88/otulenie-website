@@ -429,7 +429,7 @@ Avoid:
 
 ## 18. Required Photography
 
-All imagery must be sourced exclusively from the local `images-small` folder.
+All content photography (lifestyle, sessions) must be sourced exclusively from the local `images-small` folder and optimized to `.webp`. Technical icons (Lucide) and the SVG noise pattern are exempt.
 
 Minimum set:
 

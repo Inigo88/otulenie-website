@@ -2,8 +2,17 @@
 
 **Feature Branch**: `014-image-restriction`  
 **Created**: 2026-03-22  
-**Status**: Draft  
+**Status**: Finalized  
 **Input**: User description: "Restrict website imagery to image-small"
+
+## Clarifications
+
+### Session 2026-03-22
+- Q: Should each `Massage Asset` include an `alt` text attribute? → A: Yes, add `alt` text as a mandatory field.
+- Q: What should be the visual fallback behavior for missing assets? → A: Solid Moss (#374833) background with subtle brand texture.
+- Q: Are any image types exempt from the local-only rule? → A: Yes, only photoshoot photography (JPEGs) is restricted to local assets; technical SVGs, brand icons, and noise patterns are exempt.
+- Q: Should photos be converted to modern formats during migration? → A: Yes, convert all JPEGs to WebP for production use.
+- Q: How should the right images be chosen? → A: Use the descriptions provided in `images-small/images-list.md` to map assets to components.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -17,8 +26,8 @@ As a business owner, I want my website to use only my professionally shot local 
 
 **Acceptance Scenarios**:
 
-1. **Given** the website is running locally, **When** I inspect the network tab, **Then** all image assets must be loaded from the local file system (e.g., `/images-small/`).
-2. **Given** the Hero section is rendered, **When** I check the background image, **Then** it must be `IMG-07.jpg` (or another approved local asset) instead of an Unsplash URL.
+1.  **Given** the website is running locally, **When** I inspect the network tab, **Then** all image assets must be loaded from the local file system (e.g., `/images-small/`).
+2.  **Given** the Hero section is rendered, **When** I check the background image, **Then** it must be `IMG-07.jpg` (or another approved local asset) instead of an Unsplash URL.
 
 ---
 
@@ -32,39 +41,42 @@ As a prospective client, I want to see actual photos of the massage services (oi
 
 **Acceptance Scenarios**:
 
-1. **Given** the "Ciepłe Otulenie" service card, **When** viewed in the carousel, **Then** it must display `IMG-20.jpg` (showing the warm oil pouring).
-2. **Given** the "Stacking Services" section, **When** I scroll through the cards, **Then** each card must show a high-quality local JPEG representing the specific benefit (e.g., table setup for "Relaks", macro hands for "Uważność").
+1.  **Given** the "Ciepłe Otulenie" service card, **When** viewed in the carousel, **Then** it must display `IMG-20.jpg` (showing the warm oil pouring).
+2.  **Given** the "Stacking Services" section, **When** I scroll through the cards, **Then** each card must show a high-quality local JPEG representing the specific benefit (e.g., table setup for "Relaks", macro hands for "Uważność").
 
 ---
 
 ### Edge Cases
 
-- **Missing Assets**: How does the system handle a missing JPEG in the `public/images-small` folder? (Standard browser fallback applies, but build-time checks or Vite alias should minimize this).
-- **Responsive Handling**: Does `object-cover` correctly preserve the focus on the therapist/action across mobile and desktop viewports? (Must be verified on 390px viewport).
+-   **Missing Assets**: If a local JPEG is missing, the system MUST render a solid `Moss #374833` background (or a `backdrop-blur` placeholder) to prevent broken layouts.
+-   **Responsive Handling**: Does `object-cover` correctly preserve the focus on the therapist/action across mobile and desktop viewports? (Must be verified on 390px viewport).
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
-- **FR-001**: System MUST migrate all files from `.specify/context/images-small/` to the directory where they can be served (e.g., `public/images-small/`).
-- **FR-002**: System MUST replace the Unsplash URL in the `Hero` component background with `images-small/IMG-07.jpg`.
-- **FR-003**: System MUST update `STACKING_CARDS` data in `App.jsx` to use local assets:
-    - Card 1 (Relaks): `images-small/IMG-07.jpg` (or `IMG-01.jpg` for portrait focus)
-    - Card 2 (Uważność): `images-small/IMG-12.jpg` (Macro close-up)
-    - Card 3 (Regeneracja): `images-small/IMG-14.jpg` (Back massage technique)
-- **FR-004**: System MUST update `MASSAGE_DATA` constants to include an `image` field mapped to local assets:
-    - Mocne Otulenie: `images-small/IMG-10.jpg`
-    - Głębokie Otulenie: `images-small/IMG-14.jpg`
-    - Czułe Otulenie: `images-small/IMG-08.jpg`
-    - Ciepłe Otulenie: `images-small/IMG-21.jpg`
-- **FR-005**: `MassageCarousel` and `Hero` components MUST be updated to accept and render these new local image paths.
-- **FR-006**: SYSTEM MUST NOT use any external image providers or generated placeholders.
+-   **FR-001**: System MUST migrate all files from `.specify/context/images-small/` to the directory where they can be served (e.g., `public/images-small/`), CONVERTING them to `.webp` format in the process.
+-   **FR-002**: System MUST replace the Unsplash URL in the `Hero` component background with `images-small/IMG-07.jpg`.
+-   **FR-003**: System MUST update `STACKING_CARDS` data in `App.jsx` to use local assets:
+    -   Card 1 (Relaks): `images-small/IMG-07.jpg` (or `IMG-01.jpg` for portrait focus)
+    -   Card 2 (Uważność): `images-small/IMG-12.jpg` (Macro close-up)
+    -   Card 3 (Regeneracja): `images-small/IMG-14.jpg` (Back massage technique)
+-   **FR-004**: System MUST update `MASSAGE_DATA` constants to include an `image` field mapped to local assets:
+    -   Mocne Otulenie: `images-small/IMG-10.jpg`
+    -   Głębokie Otulenie: `images-small/IMG-14.jpg`
+    -   Czułe Otulenie: `images-small/IMG-08.jpg`
+    -   Ciepłe Otulenie: `images-small/IMG-21.jpg`
+-   **FR-005**: `MassageCarousel` and `Hero` components MUST be updated to accept and render these new local image paths.
+-   **FR-006**: SYSTEM MUST NOT use any external photography providers or generated lifestyle placeholders.
+-   **FR-007**: Exemptions: Technical SVGs, Lucide icons, and the SVG noise data-URL are EXEMPT from the local-only JPEG restriction.
+-   **FR-008**: Image Selection: All content photography selection MUST be guided by the visual descriptions in `images-small/images-list.md`.
 
 ### Key Entities *(include if feature involves data)*
 
-- **Massage Asset**: Represents a local JPEG file in `images-small`.
-    - `filename`: e.g., `IMG-01.jpg`
-    - `description`: Mapping to specific sections (Hero, Carousel, Archive)
+-   **Massage Asset**: Represents a local JPEG file in `images-small`.
+    -   `filename`: e.g., `IMG-01.jpg`
+    -   `altText`: Descriptive text for accessibility (e.g., "Therapist pouring warm herbal oil over a guest's back")
+    -   `description`: Mapping to specific sections (Hero, Carousel, Archive)
 
 ## Success Criteria *(mandatory)*
 

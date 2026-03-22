@@ -21,7 +21,7 @@ This project enforces strict constraints to ensure a premium, performant, mobile
 - **Stack:** React 19.x, Vite 6.x, Tailwind CSS v4.x, GSAP 3 (with ScrollTrigger plugin), Lucide React.
 - **Structure:** Single `App.jsx` holding the core experience. Components (e.g., `MagneticButton`, `RoundedContainer`) are extracted to `src/components/` *only* if `App.jsx` exceeds 600 lines.
 - **Styling:** Single `index.css` for Tailwind layers and custom noise generation.
-- **Media:** Strict use of local, high-quality images from the `images-small` folder. No Unsplash, placeholders, or generated imagery permitted.
+- **Media:** Content photography (massage sessions, lifestyle) MUST use local assets from the `images-small` folder, optimized to `.webp`. Technical icons (Lucide) and noise SVGs are exempt. No Unsplash permitted.
 
 ## ---- Documentation & Spec System
 
