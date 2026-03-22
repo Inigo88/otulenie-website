@@ -41,7 +41,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 #### Epic 1.1: Design System & Infrastructure Setup
 
 **Description**: Initializing the tech stack, global styles, and animation utilities.  
-**Status**: Done
+**Status**: In progress
 
 - **Feature 1.1.1**: Setup project structure and core dependencies  
   **Description**: Initialize the frontend application (Vite 6.x + React 19.x) with necessary libraries including GSAP for animations and Tailwind CSS v4.x.  
@@ -58,10 +58,15 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Branch**: `004-base-components`  
   **Status**: Done
 
+- **Feature 1.1.4**: Restrict website imagery to `images-small`  
+  **Description**: Migrate all external Unsplash URLs and generated placeholder PNGs to optimized local assets from the `images-small` directory to ensure 100% brand control.  
+  **Branch**: `014-image-restriction`  
+  **Status**: Specified
+
 #### Epic 1.2: Homepage High-Impact Sections
 
 **Description**: Building the critical above-the-fold and core value proposition interactive sections.  
-**Status**: In progress
+**Status**: Done
 
 - **Feature 1.2.1**: Implement the "Floating Island" Navbar  
   **Description**: Build a fixed, pill-shaped navbar that morphs its background and style based on the page's scroll position.  
@@ -96,7 +101,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.2.7**: Implement "Wellness Wheel" visual effect for Carousel  
   **Description**: Enhance the Massage Type Carousel with a curvilinear "wheel" perspective. Implement dynamic scaling (focus on 3 central cards) and opacity fading for peripheral cards to create a premium, immersive focus.  
   **Branch**: `011-wellness-wheel`  
-  **Status**: Implemented
+  **Status**: Done
 
 #### Epic 1.3: Philosophy, Archive & Footer
 
@@ -115,7 +120,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 1.3.3**: Build Footer with operational indicator  
   **Description**: Develop the deep dark rounded-top footer containing navigation links and a pulsing "System Operational" interactive dot.  
-  **Branch**: `014-footer`  
+  **Branch**: `015-footer`  
+  **Status**: Backlog
+
+- **Feature 1.3.4**: Build primary booking flow interactions  
+  **Description**: Ensure robust integration with Booksy links site-wide and format secondary contact options efficiently.  
+  **Branch**: `016-booking-flow`  
   **Status**: Backlog
 
 ---
@@ -132,12 +142,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.1.1**: Build the 'Oferta' page  
   **Description**: Create a dedicated page detailing the four massage types (Mocne, Głębokie, Czułe, Ciepłe) with prominent individual CTAs.  
-  **Branch**: `015-oferta-page`  
+  **Branch**: `017-oferta-page`  
   **Status**: Backlog
 
 - **Feature 2.1.2**: Implement the 'Obszar dojazdu' page  
   **Description**: Build an informative page detailing the Wrocław service coverage and specific out-of-city travel policies.  
-  **Branch**: `016-obszar-page`  
+  **Branch**: `018-obszar-page`  
   **Status**: Backlog
 
 #### Epic 2.2: Trust & Booking Support
@@ -147,15 +157,10 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.2.1**: Create the 'O mnie' page  
   **Description**: Build a highly trust-focused page detailing the practitioner's philosophy, natural approach, and commitment to calm.  
-  **Branch**: `017-omnie-page`  
+  **Branch**: `019-omnie-page`  
   **Status**: Backlog
 
 - **Feature 2.2.2**: Develop the 'FAQ' accordion component  
   **Description**: Implement an interactive, smooth-animating accordion listing common questions about home preparation, pain, and payment options.  
-  **Branch**: `018-faq-page`  
-  **Status**: Backlog
-
-- **Feature 2.2.3**: Build primary booking flow interactions  
-  **Description**: Ensure robust integration with Booksy links site-wide and format secondary contact options efficiently.  
-  **Branch**: `019-booking-flow`  
+  **Branch**: `020-faq-page`  
   **Status**: Backlog

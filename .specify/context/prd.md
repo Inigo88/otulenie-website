@@ -429,17 +429,16 @@ Avoid:
 
 ## 18. Required Photography
 
+All imagery must be sourced exclusively from the local `images-small` folder.
+
 Minimum set:
 
-1. Massage table setup
-2. Massage action (hands on shoulders/back)
-3. Arrival/travel element (optional)
-4. Atmosphere details (oil, towel, candle)
-5. Portrait of practitioner
+1. Massage table setup (e.g., IMG-07.jpg)
+2. Massage action (hands on shoulders/back) (e.g., IMG-08.jpg, IMG-10.jpg)
+3. Atmosphere details (oil, towel, candle) (e.g., IMG-05.jpg, IMG-21.jpg)
+4. Portrait of practitioner (e.g., IMG-01.jpg, IMG-02.jpg)
 
-Recommended total:
-
-5-8 photos.
+Total available assets: 23 optimized JPEGs.
 
 ---
 

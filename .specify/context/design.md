@@ -18,6 +18,7 @@
 
 - **Image Mood:**  
   natural daylight, linen fabrics, warm interiors, wooden textures, soft shadows, plants, close-up massage moments, peaceful home environments.
+  **Source:** Strictly use only local assets from `.specify/context/images-small/`.
 
 - **Hero line pattern:**  
   "[Calm benefit]" (Soft Serif)  
@@ -55,7 +56,7 @@ A `fixed` pill-shaped container, horizontally centered.
 
 ### B. HERO SECTION - "The Opening Shot"
 
-- `100dvh` height. Full-bleed background image (sourced from Unsplash matching preset's `imageMood`) with a heavy **primary-to-black gradient overlay** (`bg-gradient-to-t`).
+- `100dvh` height. Full-bleed background image (**sourced from `images-small`** matching preset's `imageMood`) with a heavy **primary-to-black gradient overlay** (`bg-gradient-to-t`).
 - **Layout:** Content pushed to the **bottom-left third** using flex + padding.
 - **Typography:** Large scale contrast following the preset's hero line pattern. First part in bold sans heading font. Second part in massive serif italic drama font (3-5x size difference).
 - **Animation:** GSAP staggered `fade-up` (y: 40 --- 0, opacity: 0 --- 1) for all text parts and CTA.
@@ -76,7 +77,7 @@ All cards: `bg-[background]` surface, subtle border, `rounded-[2rem]`, drop shad
 ### D. PHILOSOPHY - "The Manifesto"
 
 - Full-width section with the **dark color** as background.
-- A parallaxing organic texture image (Unsplash, `imageMood` keywords) at low opacity behind the text.
+-- A parallaxing organic texture image (**from `images-small`**) at low opacity behind the text.
 - **Typography:** Two contrasting statements. Pattern:
   - "Most [industry] focuses on: [common approach]." - neutral, smaller.
   - "We focus on: [differentiated approach]." - massive, drama serif italic, accent-colored keyword.
