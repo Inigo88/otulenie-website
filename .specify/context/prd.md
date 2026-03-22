@@ -1,4 +1,4 @@
-# Otulenie — Massage Website Specification
+# Otulenie - Massage Website Specification
 
 ## 1. Business Overview
 
@@ -6,68 +6,75 @@
 Otulenie
 
 **Secondary descriptor:**  
-Otulenie – Praktyka Masażu
+Otulenie - Praktyka Masa--u
 
 **Service type:**  
-Mobile massage service (massage at the client’s home)
+Mobile massage service (massage at the client's home)
 
 **Location:**  
-Wrocław, Poland
+Wroc--aw, Poland
 
 **Service positioning:**  
-Relaxation and muscle tension relief delivered at the client’s home for people who value convenience and calm.
+Relaxation and muscle tension relief delivered at the client's home for people who value convenience and calm.
 
 **Core value proposition:**
 
-> Mobilny masaż relaksacyjny we Wrocławiu — rozluźnienie i spokój bez wychodzenia z domu.
+> Mobilny masa-- relaksacyjny we Wroc--awiu - rozlu--nienie i spok--j bez wychodzenia z domu.
 
 **Primary client outcome:**
+
 - reduced muscle tension (neck, shoulders, back)
 - nervous system relaxation
 - mental reset and stress reduction
 
 ---
 
-# 2. Target Clients
+## 2. Target Clients
 
 ## Primary segments
 
 ### Desk workers
+
 Typical problems:
+
 - neck tension
 - shoulder tightness
 - back stiffness from sitting
 
 ### Busy women / mothers
+
 Typical problems:
+
 - lack of time for self-care
 - stress and mental overload
 - need for relaxation at home
 
 ## Secondary segment
+
 Men (allowed but not the primary marketing focus)
 
 ---
 
-# 3. Service Area
+## 3. Service Area
 
 **Primary area:**  
-Wrocław
+Wroc--aw
 
 **Travel policy:**
 
 | Area | Policy |
-|---|---|
-| Wrocław city limits | travel included |
+| --- | --- |
+| Wroc--aw city limits | travel included |
 | Outside city | up to 10 km |
 | Outside fee | additional travel fee |
 
 ---
 
-# 4. Services
+## 4. Services
 
 ## 1. Mocne Otulenie
-Type: regeneracyjny masaż pleców  
+
+Type: regeneracyjny masa-- plec--w  
 Duration: 60 minutes  
 Price: 180 PLN
 
@@ -76,8 +83,9 @@ Focused massage targeting tension in the back, shoulders and neck.
 
 ---
 
-## 2. Głębokie Otulenie
-Type: regeneracyjny masaż całego ciała  
+## 2. G----bokie Otulenie
+
+Type: regeneracyjny masa-- ca--ego cia--a  
 Duration: 90 minutes  
 Price: 240 PLN
 
@@ -86,8 +94,9 @@ Deep relaxation and tension release for the whole body.
 
 ---
 
-## 3. Czułe Otulenie
-Type: relaksacyjny masaż całego ciała  
+## 3. Czu--e Otulenie
+
+Type: relaksacyjny masa-- ca--ego cia--a  
 Duration: 90 minutes  
 Price: 240 PLN
 
@@ -96,8 +105,9 @@ Gentle, calming full-body massage focused on relaxation.
 
 ---
 
-## 4. Ciepłe Otulenie
-Type: relaksacyjny masaż świecą  
+## 4. Ciep--e Otulenie
+
+Type: relaksacyjny masa-- --wiec--  
 Duration: 90 minutes  
 Price: 270 PLN
 
@@ -106,7 +116,7 @@ Relaxation massage using warm candle oil for a sensory calming experience.
 
 ---
 
-# 5. Booking System
+## 5. Booking System
 
 Primary booking platform:
 
@@ -114,12 +124,14 @@ Booksy
 
 Primary call to action:
 
-"Zarezerwuj masaż"
+"Zarezerwuj masa--"
 
 Behavior:
+
 - opens Booksy booking page
 
 Secondary contact options:
+
 - phone
 - social media message (Instagram etc.)
 
@@ -131,7 +143,7 @@ Conversion hierarchy:
 
 ---
 
-# 6. Payment Methods
+## 6. Payment Methods
 
 Accepted payment methods:
 
@@ -143,7 +155,7 @@ Priority order:
 
 ---
 
-# 7. Domain Strategy
+## 7. Domain Strategy
 
 Current domain:
 
@@ -162,18 +174,18 @@ SEO domains redirect to primary domain.
 
 ---
 
-# 8. Language
+## 8. Language
 
 Website language:
 
 Polish only
 
 Reason:
-Primary target market is Polish-speaking clients in Wrocław.
+Primary target market is Polish-speaking clients in Wroc--aw.
 
 ---
 
-# 9. Website Architecture
+## 9. Website Architecture
 
 Minimal high-conversion structure.
 
@@ -188,9 +200,9 @@ Pages:
 
 ---
 
-# 10. Homepage Structure
+## 10. Homepage Structure
 
-## Section 1 — Hero
+## Section 1 - Hero
 
 Purpose:
 Immediate understanding of service and booking action.
@@ -198,63 +210,65 @@ Immediate understanding of service and booking action.
 Content:
 
 Headline:
-Otulenie – Praktyka Masażu
+Otulenie - Praktyka Masa--u
 
 Subheadline:
-Mobilny masaż relaksacyjny we Wrocławiu  
-Rozluźnienie i spokój bez wychodzenia z domu
+Mobilny masa-- relaksacyjny we Wroc--awiu  
+Rozlu--nienie i spok--j bez wychodzenia z domu
 
 Primary CTA:
-Zarezerwuj masaż
+Zarezerwuj masa--
 
 CTA behavior:
 Open Booksy booking page
 
 ---
 
-## Section 2 — Key Benefits
+## Section 2 - Key Benefits
 
 Example items:
 
-- Dojazd na terenie Wrocławia
+- Dojazd na terenie Wroc--awia
 - Spokojna atmosfera w Twoim domu
-- Profesjonalny sprzęt i olejki
+- Profesjonalny sprz--t i olejki
 
 ---
 
-## Section 3 — Massage Types
+## Section 3 - Massage Types
 
 Short service cards:
 
 Each card contains:
+
 - name
 - short description
 - duration
 - price
 
 Services displayed:
+
 - Mocne Otulenie
-- Głębokie Otulenie
-- Czułe Otulenie
-- Ciepłe Otulenie
+- G----bokie Otulenie
+- Czu--e Otulenie
+- Ciep--e Otulenie
 
 ---
 
-## Section 4 — How It Works
+## Section 4 - How It Works
 
 3-step explanation:
 
 1. Rezerwujesz termin
-2. Przyjeżdżam z całym sprzętem
-3. Odpoczywasz i się rozluźniasz
+2. Przyje--d--am z ca--ym sprz--tem
+3. Odpoczywasz i si-- rozlu--niasz
 
 ---
 
-## Section 5 — Service Area
+## Section 5 - Service Area
 
 Content:
 
-Travel included in Wrocław.
+Travel included in Wroc--aw.
 
 Extra travel available up to 10 km outside city limits.
 
@@ -262,28 +276,29 @@ Optional map visualization.
 
 ---
 
-## Section 6 — Reviews
+## Section 6 - Reviews
 
 Testimonials from:
+
 - Booksy
 - Google (if available)
 
 Recommended number:
-3–5 testimonials minimum.
+3-5 testimonials minimum.
 
 ---
 
-## Section 7 — Final CTA
+## Section 7 - Final CTA
 
 Large call-to-action button again.
 
 Text:
 
-Zarezerwuj masaż
+Zarezerwuj masa--
 
 ---
 
-# 11. Oferta Page
+## 11. Oferta Page
 
 Detailed service descriptions.
 
@@ -298,7 +313,7 @@ Each service includes:
 
 ---
 
-# 12. O mnie Page
+## 12. O mnie Page
 
 Purpose:
 Build trust.
@@ -314,12 +329,12 @@ Avoid overly long biography.
 
 ---
 
-# 13. Obszar dojazdu Page
+## 13. Obszar dojazdu Page
 
 Content:
 
 - explanation of service area
-- Wrocław coverage
+- Wroc--aw coverage
 - outside-city policy
 - possible map
 
@@ -328,20 +343,20 @@ reduce uncertainty for clients.
 
 ---
 
-# 14. FAQ Page
+## 14. FAQ Page
 
 Typical questions:
 
-- Jak przygotować się do masażu?
-- Czy potrzebuję ręczników?
-- Czy masaż jest bolesny?
-- Czy mogę zarezerwować masaż dla dwóch osób?
-- Jak wygląda płatność?
-- Jak wygląda dojazd masażysty?
+- Jak przygotowa-- si-- do masa--u?
+- Czy potrzebuj-- r--cznik--w?
+- Czy masa-- jest bolesny?
+- Czy mog-- zarezerwowa-- masa-- dla dw--ch os--b?
+- Jak wygl--da p--atno----?
+- Jak wygl--da dojazd masa--ysty?
 
 ---
 
-# 15. Rezerwacja Page
+## 15. Rezerwacja Page
 
 Purpose:
 direct booking.
@@ -349,7 +364,7 @@ direct booking.
 Content:
 
 Headline:
-Zarezerwuj wizytę
+Zarezerwuj wizyt--
 
 Primary button:
 Booksy booking link.
@@ -360,7 +375,7 @@ social media message.
 
 ---
 
-# 16. Mobile-First Design Requirements
+## 16. Mobile-First Design Requirements
 
 Primary device:
 Mobile.
@@ -378,13 +393,13 @@ Sticky mobile CTA button.
 
 Example:
 
-[ Zarezerwuj masaż ]
+[ Zarezerwuj masa-- ]
 
 Always visible during scrolling.
 
 ---
 
-# 17. Visual Direction
+## 17. Visual Direction
 
 Brand tone:
 
@@ -412,7 +427,7 @@ Avoid:
 
 ---
 
-# 18. Required Photography
+## 18. Required Photography
 
 Minimum set:
 
@@ -424,11 +439,11 @@ Minimum set:
 
 Recommended total:
 
-5–8 photos.
+5-8 photos.
 
 ---
 
-# 19. Color Palette
+## 19. Color Palette
 
 Suggested palette:
 
@@ -446,7 +461,7 @@ Dark neutral
 
 ---
 
-# 20. Platform Recommendation
+## 20. Platform Recommendation
 
 Preferred site builders:
 
@@ -464,7 +479,7 @@ simple content site with strong mobile experience.
 
 ---
 
-# 21. Conversion Principles
+## 21. Conversion Principles
 
 Key rule:
 
@@ -474,7 +489,7 @@ Everything on the site must support this action.
 
 Conversion flow:
 
-User sees service → understands value → clicks Booksy → books appointment.
+User sees service --- understands value --- clicks Booksy --- books appointment.
 
 Avoid:
 multiple competing CTAs.

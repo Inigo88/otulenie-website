@@ -6,8 +6,7 @@ export const MASSAGE_DATA = [
     duration: '1h',
     price: '180 PLN',
     description: 'Precyzyjny masaż pleców i karku, który uwalnia od napięć dnia i przywraca ciału lekkość.',
-    booksyUrl: 'https://booksy.com',
-    imageMood: 'relaxing-back-massage'
+    booksyUrl: 'https://booksy.com'
   },
   {
     id: 'glebokie-otulenie',
@@ -16,8 +15,7 @@ export const MASSAGE_DATA = [
     duration: '1h 30min',
     price: '240 PLN',
     description: 'Intensywna regeneracja całego ciała, wyciszająca system nerwowy i przywraca swobodę ruchu.',
-    booksyUrl: 'https://booksy.com',
-    imageMood: 'deep-tissue-massage'
+    booksyUrl: 'https://booksy.com'
   },
   {
     id: 'czule-otulenie',
@@ -26,8 +24,7 @@ export const MASSAGE_DATA = [
     duration: '1h 30min',
     price: '240 PLN',
     description: 'Łagodny, rytmiczny masaż całego ciała, który uspokaja umysł i otula zmysły głębokim spokojem.',
-    booksyUrl: 'https://booksy.com',
-    imageMood: 'gentle-massage-wellness'
+    booksyUrl: 'https://booksy.com'
   },
   {
     id: 'cieple-otulenie',
@@ -36,17 +33,7 @@ export const MASSAGE_DATA = [
     duration: '1h 30min',
     price: '270 PLN',
     description: 'Rozgrzewający rytuał z użyciem ciepłej świecy, który głęboko koi, odpręża i przywraca dobrostan.',
-    booksyUrl: 'https://booksy.com',
-    imageMood: 'warm-candle-massage'
-  },
-  {
-    id: 'free-consultation',
-    name: 'Bezpłatna Konsultacja',
-    type: 'Konsultacja',
-    duration: '15 min',
-    price: '0 PLN',
-    description: 'Nie wiesz co wybrać? Porozmawiajmy o Twoich potrzebach.',
-    booksyUrl: 'https://booksy.com',
-    imageMood: 'wellness-consultation'
+    booksyUrl: 'https://booksy.com'
   }
+
 ];

@@ -2,7 +2,7 @@
 description: Generate a pull request description and optionally create the PR using the gh CLI.
 ---
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS
@@ -34,9 +34,11 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
    - If a backlog exists and the feature you are creating a PR for is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Done`.
    - After updating the feature status, **always** run the automation script to propagate status changes to Epics and Milestones:
+
      ```bash
      chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
      ```
+
    - Do not edit the backlog if the feature cannot be found.
 
 5. **Update README.md (if Applicable)**:
@@ -54,6 +56,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 7. **Finalize PR creation**:
    - Once the README step is complete (or skipped), write the drafted body to a temporary file, execute the PR command, and **clean up** the file afterward.
    - For example:
+
      ```bash
      cat << 'EOF' > /tmp/PR_DESCRIPTION.md
      <Body content>
@@ -81,6 +84,7 @@ Use **Conventional Commits** style: `type(scope): short description`.
 - **description**: imperative, lowercase after the colon, no period at the end, ~50 chars or less when possible.
 
 **Good examples**:
+
 - `feat(app): add skeleton Next.js setup`
 - `fix(auth): correct session expiry handling`
 - `docs(spec): add 004 skeleton app plan and tasks`
@@ -88,6 +92,7 @@ Use **Conventional Commits** style: `type(scope): short description`.
 - `refactor(api): simplify error middleware`
 
 **Bad examples**:
+
 - `Added skeleton app` — missing type; use imperative "add" not "added"
 - `FEAT: Add skeleton app` — type should be lowercase
 - `feat: Add skeleton app.` — no period; "add" can stay capitalized after colon if team prefers, but lowercase is conventional

@@ -1,4 +1,4 @@
-## Technical Requirements (NEVER CHANGE)
+# Technical Requirements (NEVER CHANGE)
 
 - **Stack:** React 19.x, Vite 6.x, Tailwind CSS v4.x, GSAP 3 (with ScrollTrigger plugin), Lucide React for icons.
 - **Fonts:** Load via Google Fonts `<link>` tags in `index.html` based on the selected preset.

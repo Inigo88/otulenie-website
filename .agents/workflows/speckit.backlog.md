@@ -2,7 +2,7 @@
 description: Create a product backlog from a natural language product description.
 ---
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS
@@ -47,19 +47,19 @@ Given the product description, do this:
 
 Use exactly one of these for every milestone, epic, and feature:
 
-| Status        | When to use |
-|---------------|-------------|
-| Backlog       | Default for new items. For features: waiting to be specified. |
-| In progress   | (Milestones/Epics only) Currently being worked on. |
-| Specified     | Feature specification created (`/speckit.specify`). |
-| Clarified     | Specification clarified and updated (`/speckit.clarify`). |
-| Planned       | Implementation plan created (`/speckit.plan`). |
-| Tasked        | Actionable tasks generated (`/speckit.tasks`). |
-| Analysed      | Artifacts analyzed for consistency (`/speckit.analyze`). |
-| Implemented   | Tasks executed and code written (`/speckit.implement`). |
-| Blocked       | Blocked by dependency, decision, or another item. |
-| Cancelled     | Dropped from scope. |
-| Done          | Delivered / Pull request merged. |
+| Status | When to use |
+| :--- | :--- |
+| Backlog | Default for new items. For features: waiting to be specified. |
+| In progress | (Milestones/Epics only) Currently being worked on. |
+| Specified | Feature specification created (/speckit.specify). |
+| Clarified | Specification clarified and updated (/speckit.clarify). |
+| Planned | Implementation plan created (/speckit.plan). |
+| Tasked | Actionable tasks generated (/speckit.tasks). |
+| Analysed | Artifacts analyzed for consistency (/speckit.analyze). |
+| Implemented | Tasks executed and code written (/speckit.implement). |
+| Blocked | Blocked by dependency, decision, or another item. |
+| Cancelled | Dropped from scope. |
+| Done | Delivered / Pull request merged. |
 
 ## Template structure (reminder)
 

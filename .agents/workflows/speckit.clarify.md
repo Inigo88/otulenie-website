@@ -2,7 +2,7 @@
 description: Identify underspecified areas in the current feature spec by asking up to 5 highly targeted clarification questions and encoding answers back into the spec.
 ---
 
-## User Input
+# User Input
 
 ```text
 $ARGUMENTS
@@ -103,10 +103,10 @@ Execution steps:
        - Then render all options as a Markdown table:
 
        | Option | Description |
-       |--------|-------------|
-       | A | <Option A description> |
-       | B | <Option B description> |
-       | C | <Option C description> (add D/E as needed up to 5) |
+       | :--- | :--- |
+       | A | `Option A description` |
+       | B | `Option B description` |
+       | C | `Option C description` (add D/E as needed up to 5) |
        | Short | Provide a different short answer (<=5 words) (Include only if free-form alternative is appropriate) |
 
        - After the table, add: `You can reply with the option letter (e.g., "A"), accept the recommendation by saying "yes" or "recommended", or provide your own short answer.`
@@ -168,12 +168,13 @@ Execution steps:
    - Do not edit the backlog if the feature cannot be found.
 
 10. Report completion (after questioning loop ends or early termination):
-   - Number of questions asked & answered.
-   - Path to updated spec.
-   - Sections touched (list names).
-   - Coverage summary table listing each taxonomy category with Status: Resolved (was Partial/Missing and addressed), Deferred (exceeds question quota or better suited for planning), Clear (already sufficient), Outstanding (still Partial/Missing but low impact).
-   - Final status of Spec and Backlog (Finalized).
-   - Suggested next command (e.g., `/speckit.plan`).
+
+    - Number of questions asked & answered.
+    - Path to updated spec.
+    - Sections touched (list names).
+    - Coverage summary table listing each taxonomy category with Status: Resolved (was Partial/Missing and addressed), Deferred (exceeds question quota or better suited for planning), Clear (already sufficient), Outstanding (still Partial/Missing but low impact).
+    - Final status of Spec and Backlog (Finalized).
+    - Suggested next command (e.g., `/speckit.plan`).
 
 Behavior rules:
 
