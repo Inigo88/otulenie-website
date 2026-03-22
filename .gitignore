@@ -48,5 +48,5 @@ Thumbs.db
 .eslintcache
 *.tmp
 
-# PR Drafts
-PR_DESCRIPTION.md
+# High-resolution source images
+.specify/context/images/
