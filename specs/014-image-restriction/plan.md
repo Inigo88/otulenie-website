@@ -17,7 +17,7 @@ Restrict website imagery to local, optimized assets derived from high-resolution
 **Project Type**: Web Application Landing Page
 **Performance Goals**: < 200ms LCP for Hero image, 0 external photography dependencies.
 **Constraints**: All source JPEGs must be resized (max-width 2560px) and converted to WebP; Icons/SVGs exempt.
-**Scale/Scope**: Asset migration and data mapping across all current interactive sections (Hero, Carousel, Stacking Archive).
+**Scale/Scope**: Asset migration and data mapping across current interactive architectural sections (Hero, Stacking Archive).
 
 ## Constitution Check
 
@@ -49,7 +49,7 @@ specs/014-image-restriction/
 public/
 └── images-small/        # [NEW] Destination for optimized WebP assets
 src/
-└── App.jsx              # Update HERO, STACKING_CARDS, and MASSAGE_DATA constants
+└── App.jsx              # Update HERO and STACKING_CARDS constants
 ```
 
 **Structure Decision**: Assets will be placed in `public/images-small/` to allow direct serving. Components in `App.jsx` will be updated to point to these paths relative to the root.

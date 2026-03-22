@@ -21,16 +21,12 @@ rm public/images-small/*.jpg
 
 ## Step 2: Code Implementation
 1. Open `src/App.jsx`.
-2. Locate `HERO` (or similar background style) and update to `/images-small/IMG-07.webp`.
+2. Locate `HERO` (or similar background style) and update to `/images-small/IMG-06.webp`.
 3. Update `STACKING_CARDS` array objects with `image: "/images-small/[FILENAME].webp"`.
-4. Update `MASSAGE_DATA` array:
-   - Map `image` to corresponding local WebP path.
-   - Add `alt` attribute to each object for WCAG compliance.
 
 ## Step 3: Component Updates
 1. Ensure the `Hero` component uses the new path.
-2. Ensure `MassageCarousel` items render the `img` with `alt` text.
-3. Ensure `StackingArchive` (or similar) handles the new local paths.
+2. Ensure `StackingArchive` (or similar) handles the new local paths.
 
 ## Step 4: Verification
 1. Run `npm run dev`.
