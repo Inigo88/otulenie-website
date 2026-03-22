@@ -101,12 +101,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 #### Epic 1.3: Philosophy, Archive & Footer
 
 **Description**: Constructing the philosophy manifesto, service stacking archive, and comprehensive footer.  
-**Status**: Backlog
+**Status**: In progress
 
 - **Feature 1.3.1**: Develop the Philosophy Manifesto section  
   **Description**: Build a dark-themed parallax-supported section using GSAP SplitText reveal animations to highlight brand differentiation.  
   **Branch**: `012-philosophy-section`  
-  **Status**: Backlog
+  **Status**: Specified
 
 - **Feature 1.3.2**: Implement "Sticky Stacking Archive" for massage protocols  
   **Description**: Create three scroll-linked stacking cards governed by GSAP ScrollTrigger to display massage protocols and values.  
