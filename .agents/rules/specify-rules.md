@@ -58,7 +58,8 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+
+- 012-philosophy-section: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide React
 - 011-wellness-wheel: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger + Draggable + InertiaPlugin), `@gsap/react` (`useGSAP`)
 
 - 010-carousel-modern: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger + Draggable + InertiaPlugin), `@gsap/react` (`useGSAP`)
-- 008-features-cards: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
