@@ -187,38 +187,40 @@ const StackingArchive = () => {
     gsap.set(cards, { filter: 'brightness(1)', scale: 1 })
 
 
-    cards.forEach((card) => {
-      // Entry animation: scale up, fade in, and brighten as card reaches sticky position
-      gsap.fromTo(card, 
-        { scale: 0.9, filter: 'brightness(0.8)', opacity: 0 },
-        {
-          scale: 1,
-          filter: 'brightness(1)',
-          opacity: 1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: card,
-            start: "top 98%", // Start as soon as it enters viewport
-            end: "top 12%",   // Resolves near its sticky 'top' position
-            scrub: true,
-          }
-        }
-      )
-    })
-
+    // B037: Unified lifecycle timeline for each card to prevent scale/filter conflicts
     cards.forEach((card, i) => {
-      if (i === cards.length - 1) return // Last card doesn't scale down
-
-      gsap.to(card, {
-        scale: 0.9,
-        filter: 'brightness(0.6)',
+      const nextCard = cards[i + 1]
+      
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: cards[i + 1], // Triggered when NEXT card enters
-          start: "top 80%",
-          end: "top 20%",
+          trigger: card,
+          start: "top 98%",
+          // The lifecycle ends when the next card finishes its entry
+          endTrigger: nextCard || card,
+          end: nextCard ? "top 12%" : "bottom 0%",
           scrub: true,
+          invalidateOnRefresh: true
         }
       })
+
+      // 1. Enter (occupies the first part of the scroll range)
+      tl.fromTo(card, 
+        { scale: 0.9, filter: 'brightness(0.8)', opacity: 0 },
+        { scale: 1, filter: 'brightness(1)', opacity: 1, duration: 1, ease: 'none' }
+      )
+
+      // 2. Persistent state (active focus)
+      // The timeline will naturally pause and hold the 'scale: 1' state until the next card movements begin
+      // We use a relative offset to start the exit when the next card enters
+      if (nextCard) {
+        // The exit should be much slower and happen as the next card scrolls up
+        tl.to(card, {
+          scale: 0.9,
+          filter: 'brightness(0.4)', // Dim further for depth
+          ease: 'none',
+          duration: 1
+        }, "+=1") // Add a gap (duration: 1) where the card stays at scale 1
+      }
     })
   }, { scope: containerRef })
 

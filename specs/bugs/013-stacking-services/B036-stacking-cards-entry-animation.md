@@ -64,6 +64,8 @@ cards.forEach((card, i) => {
 
 ## Verification
 
-- [ ] [Visual: All cards have entry animations]
-- [ ] [Visual: Third card is no longer static]
-- [ ] [Functional: Entry and exit animations don't conflict]
+- [x] [Visual: All cards have entry animations]
+- [x] [Visual: Third card is no longer static]
+- [x] [Functional: Entry and exit animations don't conflict]
+
+**Note**: This bug was resolved as a side-effect of the unified lifecycle timeline refactor implemented for B037. Validation confirms all cards now have high-premium entrance transitions.
