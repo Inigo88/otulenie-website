@@ -11,6 +11,7 @@ The platform strictly adheres to a grounded, warm wellness aesthetic.
 - **Visual Texture**: A global `0.05` opacity SVG `<feTurbulence>` noise overlay is required on all views to eliminate flat digital gradients.
 - **Interaction**: All buttons and links feature magnetic `scale(1.03)` or lifts utilizing precise GSAP easing (`cubic-bezier`).
 - **Carousel**: Implements a curvilinear "Wellness Wheel" with dynamic 3D scaling and opacity fading to ensure immersive service discovery.
+- **Philosophy Section**: A dark-themed, parallax-supported section utilizing `split-type` for cinematic, line-by-line staggered reveal animations as the user scrolls.
 
 ## ------ Technical Blueprint
 
