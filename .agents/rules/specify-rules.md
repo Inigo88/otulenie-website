@@ -58,8 +58,7 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
-
+- 013-stacking-services: Implemented Sticky Stacking Archive utilizing CSS `position: sticky` and GSAP 3 (ScrollTrigger) for scale/brightness depth effects.
 - 012-philosophy-section: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide React
 - 011-wellness-wheel: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger + Draggable + InertiaPlugin), `@gsap/react` (`useGSAP`)
 
-- 010-carousel-modern: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger + Draggable + InertiaPlugin), `@gsap/react` (`useGSAP`)
