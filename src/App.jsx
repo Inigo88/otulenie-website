@@ -183,6 +183,29 @@ const StackingArchive = () => {
 
     const cards = cardRefs.current.filter(Boolean)
     
+    // B035: Set explicit initial state to prevent "black flicker" on mount/scroll
+    gsap.set(cards, { filter: 'brightness(1)', scale: 1 })
+
+
+    cards.forEach((card) => {
+      // Entry animation: scale up, fade in, and brighten as card reaches sticky position
+      gsap.fromTo(card, 
+        { scale: 0.9, filter: 'brightness(0.8)', opacity: 0 },
+        {
+          scale: 1,
+          filter: 'brightness(1)',
+          opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: card,
+            start: "top 98%", // Start as soon as it enters viewport
+            end: "top 12%",   // Resolves near its sticky 'top' position
+            scrub: true,
+          }
+        }
+      )
+    })
+
     cards.forEach((card, i) => {
       if (i === cards.length - 1) return // Last card doesn't scale down
 
