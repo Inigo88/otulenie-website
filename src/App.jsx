@@ -49,15 +49,17 @@ const PhilosophyManifesto = () => {
     shapesRef.current.forEach((shape, index) => {
       if (!shape) return
       
-      const speed = (index + 1) * 15
+      // B034: Increase travel distance for noticeable depth
+      const movement = (index + 1) * 50
       gsap.to(shape, {
-        yPercent: speed,
+        yPercent: movement,
         ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top bottom',
           end: 'bottom top',
           scrub: true,
+          invalidateOnRefresh: true
         }
       })
     })
@@ -71,14 +73,14 @@ const PhilosophyManifesto = () => {
       className="relative py-32 md:py-48 bg-moss text-linen overflow-hidden"
       aria-labelledby="philosophy-title"
     >
-      {/* T009: Background parallax shapes */}
+      {/* T009: Background parallax shapes - B034 visibility fix */}
       <div 
         ref={el => shapesRef.current[0] = el}
-        className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-olive/20 rounded-full blur-[100px] pointer-events-none -z-0" 
+        className="absolute top-[-15%] left-[-10%] w-[45vw] h-[45vw] bg-olive/40 rounded-full blur-[80px] pointer-events-none -z-0" 
       />
       <div 
         ref={el => shapesRef.current[1] = el}
-        className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-sand/10 rounded-full blur-[120px] pointer-events-none -z-0" 
+        className="absolute bottom-[-15%] right-[-10%] w-[55vw] h-[55vw] bg-sand/30 rounded-full blur-[100px] pointer-events-none -z-0" 
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
