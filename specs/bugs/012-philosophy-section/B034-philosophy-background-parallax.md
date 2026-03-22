@@ -38,9 +38,9 @@ The Philosophy section background was perceived as "plain" and static. Investiga
 
 ### Implementation Strategy
 
-- **Approach**: 
-    1. Increase background shape opacity and reduce blur slightly to ensure visibility. 
-    2. Refactor the GSAP `useGSAP` loop to ensure ScrollTrigger is correctly initialized and scrubbing. 
+- **Approach**:
+    1. Increase background shape opacity and reduce blur slightly to ensure visibility.
+    2. Refactor the GSAP `useGSAP` loop to ensure ScrollTrigger is correctly initialized and scrubbing.
     3. Increase the `yPercent` delta to make the movement obvious.
 - **Affected Components**:
   - `src/App.jsx`: Update shape classes and parallax animation logic.
