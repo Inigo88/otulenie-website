@@ -104,4 +104,4 @@ All cards: `bg-[background]` surface, subtle border, `rounded-[2rem]`, drop shad
 
 - Deep dark-colored background, `rounded-t-[4rem]`.
 - Grid layout: Brand name + tagline, navigation columns, legal links.
-- **"System Operational" status indicator** with a pulsing green dot and monospace label.
+- **"System Operational" status indicator** (Optional/Removed per project-specific requirements).

@@ -37,7 +37,7 @@ As a prospective client who has scrolled to the bottom of the page, I want to fi
 
 ### Functional Requirements
 
-- **FR-001**: System MUST render a footer with a deep dark background (`bg-moss`) and a rounded top edge (`rounded-t-[3rem]` on desktop, adjusted for mobile).
+- **FR-001**: System MUST render a footer with a deep dark background (`bg-moss`) and a rounded top edge (`rounded-t-[3rem]` on desktop, `rounded-t-[2rem]` on mobile).
 - **FR-002**: System MUST include the "Otulenie" logo/name in a prominent serif font.
 - **FR-003**: System MUST provide navigation links to: Home, Oferta, O mnie, Obszar dojazdu, FAQ.
 - **FR-004**: System MUST show contact details: Phone number, Email address, and Social Media links (Instagram, Facebook) as simple clickable icons.

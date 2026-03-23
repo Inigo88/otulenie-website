@@ -19,6 +19,7 @@ This document contains the official contact channels for Otulenie.
 - **Instagram**: [pm.otulenie](https://www.instagram.com/pm.otulenie/)
 - **Facebook**: [Otulenie - Praktyka masażu](https://www.facebook.com/profile.php?id=61579695762768)
 - **Email**: [pm.otulenie@gmail.com](mailto:pm.otulenie@gmail.com)
+- **Location**: "Obszar działania: Wrocław i okolice"
 
 ## Operational Strategy
 
