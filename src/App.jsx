@@ -177,7 +177,7 @@ const StackingCard = ({ card, index, total, cardRefs }) => {
   return (
     <div
       ref={el => cardRefs.current[index] = el}
-      className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row md:h-[500px] ${index === total - 1 ? 'mb-0' : 'mb-[10vh]'} ${card.color} ${card.textColor}`}
+      className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row h-[550px] md:h-[500px] ${index === total - 1 ? 'mb-0' : 'mb-[10vh]'} ${card.color} ${card.textColor}`}
       style={{
         top: reducedMotion ? 'auto' : `calc(50vh - 250px + ${index * 32}px)`,
         zIndex: index + 1
@@ -251,6 +251,11 @@ const StackingArchive = () => {
           ease: 'none',
           duration: 1
         }, "+=1") // Add a gap (duration: 1) where the card stays at scale 1
+      } else {
+        // B043: For the last card, we add a dummy hold phase so the 'Enter' 
+        // animation doesn't stretch across the entire remaining scroll distance.
+        // This ensures it reaches 100% focus while it is centered.
+        tl.to({}, { duration: 2 })
       }
     })
   }, { scope: containerRef })
