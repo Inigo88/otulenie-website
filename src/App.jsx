@@ -292,17 +292,17 @@ const Footer = () => {
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 md:gap-12 mb-16">
           {/* Brand Section */}
-          <div className="md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <h2 className="font-serif text-3xl font-bold mb-6">Otulenie</h2>
-            <p className="text-linen/70 text-sm leading-relaxed max-w-[200px]">
+            <p className="text-linen/70 text-sm leading-relaxed md:max-w-[200px]">
               Relaks, który przyjeżdża do Ciebie. Profesjonalny masaż mobilny we Wrocławiu.
             </p>
           </div>
 
           {/* Navigation Section */}
-          <div className="md:col-span-1">
+          <div className="col-span-1">
             <h3 className="font-sans text-xs uppercase tracking-widest text-olive font-bold mb-6">Nawigacja</h3>
             <ul className="space-y-4">
               {FOOTER_LINKS.map(link => (
@@ -319,7 +319,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Section */}
-          <div className="md:col-span-1">
+          <div className="col-span-1">
             <h3 className="font-sans text-xs uppercase tracking-widest text-olive font-bold mb-6">Kontakt</h3>
             <ul className="space-y-4">
               <li>
@@ -339,7 +339,7 @@ const Footer = () => {
           </div>
 
           {/* Social Section */}
-          <div className="md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <h3 className="font-sans text-xs uppercase tracking-widest text-olive font-bold mb-6">Obserwuj nas</h3>
             <div className="flex gap-4">
               {SOCIAL_LINKS.map(social => (
@@ -361,11 +361,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-linen/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="pt-8 border-t border-linen/10 flex flex-row flex-wrap justify-between items-center gap-6">
           <p className="text-linen/40 text-xs">
             © 2026 Otulenie - Praktyka masażu. Wszelkie prawa zastrzeżone.
           </p>
-          <div className="flex gap-8">
+          <div className="flex gap-4 md:gap-8">
             {LEGAL_LINKS.map(link => (
               <a
                 key={link.name}
