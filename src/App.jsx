@@ -158,13 +158,13 @@ const StackingCard = ({ card, index, total, cardRefs }) => {
   return (
     <div 
       ref={el => cardRefs.current[index] = el}
-      className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row mb-[10vh] ${card.color} ${card.textColor}`}
+      className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row md:h-[500px] mb-[10vh] ${card.color} ${card.textColor}`}
       style={{ 
         top: reducedMotion ? 'auto' : `calc(8vh + ${index * 32}px)`,
         zIndex: index + 1
       }}
     >
-      <div className="w-full md:w-1/2 h-[250px] md:h-auto overflow-hidden bg-moss">
+      <div className="w-full md:w-1/2 h-[250px] md:h-full overflow-hidden bg-moss">
         <img 
           src={card.image} 
           alt={card.altText} 
