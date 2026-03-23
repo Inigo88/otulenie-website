@@ -83,6 +83,15 @@ const PhilosophyManifesto = () => {
         className="absolute bottom-[-15%] right-[-10%] w-[55vw] h-[55vw] bg-sand/30 rounded-full blur-[100px] pointer-events-none -z-0" 
       />
 
+      {/* FR-008: Philosophy background texture */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none -z-10 bg-moss">
+        <img 
+          src="/images-small/IMG-19.webp" 
+          alt="Artystyczne ujęcie rozlewanego olejku do masażu" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-4xl">
           {/* T006: Typography structure - industry statement */}
@@ -109,7 +118,8 @@ const STACKING_CARDS = [
     id: 1,
     title: "Relaks w Twoim Domu",
     description: "Zapomnij o korkach i pośpiechu. Przywożę ze sobą wszystko, co potrzebne by zamienić Twój salon w profesjonalny salon masażu. Po wszystkim nie musisz nigdzie wracać – zostajesz w swojej bezpiecznej przestrzeni, pozwalając ciału na pełne odprężenie.",
-    image: "/images/stacking/relaks.png",
+    image: "/images-small/IMG-07.webp",
+    altText: "Przytulnie przygotowany stół do masażu w domowym wnętrzu z ciepłym oświetleniem",
     color: "bg-olive",
     textColor: "text-linen"
   },
@@ -117,7 +127,8 @@ const STACKING_CARDS = [
     id: 2,
     title: "Moc Uważności",
     description: "To nie jest masaż „na szybko”. Każdy ruch jest świadomy i celowy. Zamiast sztywnych schematów, podążam za sygnałami Twojego ciała, dostosowując nacisk i tempo, by uwolnić dokładnie te napięcia, które Cię obciążają.",
-    image: "/images/stacking/uwaznosc.png",
+    image: "/images-small/IMG-12.webp",
+    altText: "Zbliżenie na dłonie terapeuty wykonujące uważny masaż z użyciem naturalnych olejków",
     color: "bg-moss",
     textColor: "text-linen"
   },
@@ -125,7 +136,8 @@ const STACKING_CARDS = [
     id: 3,
     title: "Głęboka Regeneracja",
     description: "Twoje ciało pamięta każdy stres i godziny spędzone przy biurku. Precyzyjny, głęboki masaż fizycznie rozpuszcza blokady w karku i ramionach, wyciszając układ nerwowy i przynosząc uczucie prawdziwego, regenerującego relaksu.",
-    image: "/images/stacking/regeneracja.png",
+    image: "/images-small/IMG-14.webp",
+    altText: "Detale zestawu do masażu: naturalne oleje i kamienie w spokojnej aranżacji",
     color: "bg-sand",
     textColor: "text-moss"
   }
@@ -146,16 +158,16 @@ const StackingCard = ({ card, index, total, cardRefs }) => {
   return (
     <div 
       ref={el => cardRefs.current[index] = el}
-      className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row mb-[10vh] ${card.color} ${card.textColor}`}
+      className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row md:h-[500px] mb-[10vh] ${card.color} ${card.textColor}`}
       style={{ 
         top: reducedMotion ? 'auto' : `calc(8vh + ${index * 32}px)`,
         zIndex: index + 1
       }}
     >
-      <div className="w-full md:w-1/2 h-[250px] md:h-auto overflow-hidden">
+      <div className="w-full md:w-1/2 h-[250px] md:h-full overflow-hidden bg-moss">
         <img 
           src={card.image} 
-          alt={card.title} 
+          alt={card.altText} 
           className="w-full h-full object-cover"
         />
       </div>
@@ -280,7 +292,8 @@ function App() {
       <Hero 
         headline="Relaks, który przyjeżdża do Ciebie"
         subheadline="Profesjonalny masaż mobilny we Wrocławiu. Poczuj spokój w zaciszu własnego domu."
-        backgroundUrl="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=2070"
+        backgroundUrl="/images-small/IMG-05.webp"
+        altText="Bliżenie na luksusowe akcesoria do masażu: olejki i naturalne ręczniki w ciepłym świetle"
         onHeroComplete={() => setIsHeroComplete(true)}
       />
 
