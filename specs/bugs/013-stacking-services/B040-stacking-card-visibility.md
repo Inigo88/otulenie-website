@@ -49,10 +49,12 @@ On short viewports:
 
 ## Resolution
 
-The visibility issue for the 3rd stacking card was resolved by adjusting the sticky `top` property and the parent section's padding. By increasing the offset to `15vh`, the card headers now consistently clear the floating navbar even on small laptop screens. The addition of `60vh` bottom padding to the `StackingArchive` container provides a dedicated scroll buffer, ensuring the last card remains "pinned" for a sufficient duration before being pushed up by the footer.
+The visibility and layout issues for the `StackingArchive` were resolved through a two-step refinement:
+1.  **Centering**: Switched from a fixed `15vh` offset to a dynamic `calc(50vh - 250px)` centering logic. This ensures that on any screen (e.g., standard 1080p or smaller laptops), the 500px high cards are perfectly vertically balanced.
+2.  **Gap Reduction**: Eliminated the excessive footer gap by removing the cumulative effect of `main` tag padding (`pb-48`), card bottom margin (`mb-[10vh]`), and section padding. The last card now has `mb-0` and the section uses `pb-[20vh]`, creating a tight, professional transition.
 
 ## Verification
 
-- [x] [Functional]: 3rd card stays sticky for at least 15vh of scroll distance.
-- [x] [Visual]: 3rd card title is never obscured by the navbar.
-- [x] [Technical]: No regressions in GSAP animations or other stacking cards.
+- [x] [Functional]: All 3 cards center correctly and clear the navbar.
+- [x] [Visual]: Transition from 3rd card to footer is consistent (~20vh gap).
+- [x] [Technical]: No regressions on mobile stacking or GSAP scroll logic.

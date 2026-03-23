@@ -177,9 +177,9 @@ const StackingCard = ({ card, index, total, cardRefs }) => {
   return (
     <div
       ref={el => cardRefs.current[index] = el}
-      className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row md:h-[500px] mb-[10vh] ${card.color} ${card.textColor}`}
+      className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row md:h-[500px] ${index === total - 1 ? 'mb-0' : 'mb-[10vh]'} ${card.color} ${card.textColor}`}
       style={{
-        top: reducedMotion ? 'auto' : `calc(15vh + ${index * 32}px)`,
+        top: reducedMotion ? 'auto' : `calc(50vh - 250px + ${index * 32}px)`,
         zIndex: index + 1
       }}
     >
@@ -258,7 +258,7 @@ const StackingArchive = () => {
   return (
     <section
       ref={containerRef}
-      className="relative px-6 md:px-12 pt-32 pb-[60vh] bg-linen"
+      className="relative px-6 md:px-12 pt-32 pb-[20vh] bg-linen"
       aria-labelledby="archive-title"
     >
       <h2 id="archive-title" className="sr-only">Archiwum Korzyści</h2>
@@ -431,7 +431,7 @@ function App() {
         onHeroComplete={() => setIsHeroComplete(true)}
       />
 
-      <main id="main-content" className="z-10 relative pt-24 pb-48 w-full max-w-full overflow-visible">
+      <main id="main-content" className="z-10 relative pt-24 pb-0 w-full max-w-full overflow-visible">
         <div className="mb-24">
           <MassageCarousel />
         </div>
