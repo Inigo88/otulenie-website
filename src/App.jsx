@@ -278,25 +278,9 @@ const StackingArchive = () => {
 }
 
 const Footer = () => {
-  const footerRef = useRef(null)
-
-  useGSAP(() => {
-    gsap.from(footerRef.current, {
-      y: 100,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power4.out',
-      scrollTrigger: {
-        trigger: footerRef.current,
-        start: 'top 95%',
-        toggleActions: 'play none none reverse'
-      }
-    })
-  }, { scope: footerRef })
 
   return (
     <footer
-      ref={footerRef}
       className="bg-moss text-linen pt-20 pb-10 rounded-t-[2rem] md:rounded-t-[3rem] relative overflow-hidden"
     >
       {/* Subtle Noise for deep background */}
