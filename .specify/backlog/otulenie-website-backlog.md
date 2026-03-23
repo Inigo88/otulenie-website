@@ -121,7 +121,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.3.3**: Build Footer for navigation and contact  
   **Description**: Develop the deep dark rounded-top footer containing navigation links and contact information.  
   **Branch**: `015-footer`  
-  **Status**: Implemented
+  **Status**: Done
 
 - **Feature 1.3.4**: Build primary booking flow interactions  
   **Description**: Ensure robust integration with Booksy links site-wide and format secondary contact options efficiently.  
