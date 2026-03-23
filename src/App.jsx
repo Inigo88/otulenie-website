@@ -179,7 +179,7 @@ const StackingCard = ({ card, index, total, cardRefs }) => {
       ref={el => cardRefs.current[index] = el}
       className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row md:h-[500px] mb-[10vh] ${card.color} ${card.textColor}`}
       style={{
-        top: reducedMotion ? 'auto' : `calc(8vh + ${index * 32}px)`,
+        top: reducedMotion ? 'auto' : `calc(15vh + ${index * 32}px)`,
         zIndex: index + 1
       }}
     >
@@ -258,7 +258,7 @@ const StackingArchive = () => {
   return (
     <section
       ref={containerRef}
-      className="relative px-6 md:px-12 py-32 bg-linen"
+      className="relative px-6 md:px-12 pt-32 pb-[60vh] bg-linen"
       aria-labelledby="archive-title"
     >
       <h2 id="archive-title" className="sr-only">Archiwum Korzyści</h2>
