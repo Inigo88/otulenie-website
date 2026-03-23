@@ -13,6 +13,7 @@ The platform strictly adheres to a grounded, warm wellness aesthetic.
 - **Carousel**: Implements a curvilinear "Wellness Wheel" with dynamic 3D scaling and opacity fading to ensure immersive service discovery.
 - **Philosophy Section**: A dark-themed, parallax-supported section utilizing `split-type` for cinematic, line-by-line staggered reveal animations as the user scrolls.
 - **Sticky Stacking Archive**: Implements layered "massage protocol" cards that stack and scale using `GSAP ScrollTrigger`, creating a tactile, depth-focused exploration of service values.
+- **Global Footer**: A deep dark (`#374833`) rounded-top footer providing navigation and contact details with a premium tactile feel.
 
 ## ------ Technical Blueprint
 
