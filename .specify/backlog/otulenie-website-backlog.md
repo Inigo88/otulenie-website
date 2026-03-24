@@ -133,12 +133,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Branch**: `021-svg-logo`  
   **Status**: Backlog
 
-#### Epic 1.5: Trust & Social Proof
+#### Epic 1.4: Trust & Social Proof
 
 **Description**: Building credibility through client feedback and professional qualifications.
 **Status**: Backlog
 
-- **Feature 1.5.1**: Implement Featured Testimonials section
+- **Feature 1.4.1**: Implement Featured Testimonials section
   **Description**: Create a premium, GSAP-animated section for client reviews with subtle branding and cinematic layout.
   **Branch**: `023-testimonials`
   **Status**: Backlog
@@ -157,6 +157,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.1.1**: Build the 'Oferta' page  
   **Description**: Create a dedicated page detailing the four massage types (Mocne, Głębokie, Czułe, Ciepłe) with prominent individual CTAs. MUST implement unique IDs/anchors for each service to support direct deep-linking from the Homepage Carousel.
+  **Branch**: `017-oferta-page`
   **Status**: Backlog
 
 - **Feature 2.1.2**: Implement the 'Obszar dojazdu' page  
@@ -196,14 +197,9 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Branch**: `022-google-analytics`
   **Status**: Backlog
 
-#### Epic 3.2: High-Fidelity Personalization
-
-**Description**: Advanced interactive enhancements to improve luxury brand perception.
-**Status**: Backlog
-
 - **Feature 3.2.1**: Implement Time-Aware Aesthetic Transitions
   **Description**: Adjust site accent colors or noise intensity automatically based on the visitor's local time (e.g., warmer evening mode).
-  **Branch**: `025-time-aware-ui`
+  **Branch**: `024-time-aware-ui`
   **Status**: Backlog
 
 #### Epic 3.3: SEO & Content Optimization
@@ -213,5 +209,5 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 3.3.1**: Perform SEO Audit & Wording Optimization
   **Description**: Complete a full site SEO analysis and update micro-copy/meta-tags to improve organic reach and tone consistency.
-  **Branch**: `026-seo-audit`
+  **Branch**: `025-seo-audit`
   **Status**: Backlog
