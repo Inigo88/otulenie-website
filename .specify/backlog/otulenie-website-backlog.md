@@ -126,7 +126,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.3.4**: Build primary booking flow interactions  
   **Description**: Ensure robust integration with Booksy links site-wide and format secondary contact options efficiently.  
   **Branch**: `016-booking-flow`  
-  **Status**: Backlog
+  **Status**: Clarified
 
 - **Feature 1.3.5**: Implement SVG Logo across the application  
   **Description**: Replace text-based brand identifiers with the official `public/logo.svg` asset in the Navbar and upcoming Footer to ensure brand consistency.  
@@ -146,8 +146,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 **Status**: Backlog
 
 - **Feature 2.1.1**: Build the 'Oferta' page  
-  **Description**: Create a dedicated page detailing the four massage types (Mocne, Głębokie, Czułe, Ciepłe) with prominent individual CTAs.  
-  **Branch**: `017-oferta-page`  
+  **Description**: Create a dedicated page detailing the four massage types (Mocne, Głębokie, Czułe, Ciepłe) with prominent individual CTAs. MUST implement unique IDs/anchors for each service to support direct deep-linking from the Homepage Carousel.
   **Status**: Backlog
 
 - **Feature 2.1.2**: Implement the 'Obszar dojazdu' page  
