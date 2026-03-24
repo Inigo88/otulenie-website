@@ -143,11 +143,6 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Branch**: `023-testimonials`
   **Status**: Backlog
 
-- **Feature 1.5.2**: Create Certifications & Qualifications Gallery
-  **Description**: Build a dedicated interactive block displaying professional certificates and education to establish therapeutic trust.
-  **Branch**: `024-certifications`
-  **Status**: Backlog
-
 ---
 
 ### Milestone 2: Detailed Informational Pages
@@ -175,7 +170,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 **Status**: Backlog
 
 - **Feature 2.2.1**: Create the 'O mnie' page  
-  **Description**: Build a highly trust-focused page detailing the practitioner's philosophy, natural approach, and commitment to calm.  
+  **Description**: Build a highly trust-focused page detailing the practitioner's philosophy, natural approach, and commitment to calm. MUST include a dedicated interactive gallery for professional certifications and qualifications.
   **Branch**: `019-omnie-page`  
   **Status**: Backlog
 
