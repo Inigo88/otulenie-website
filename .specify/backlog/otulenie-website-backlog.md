@@ -133,16 +133,6 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Branch**: `021-svg-logo`  
   **Status**: Backlog
 
-#### Epic 1.4: Analytics & Conversion Tracking
-
-**Description**: Implementing tools to measure user behavior and conversion success.
-**Status**: Backlog
-
-- **Feature 1.4.1**: Integrate Google Analytics (GA4)
-  **Description**: Setup GA4 tracking to measure homepage interactions, carousel engagement, and successful redirects to Booksy. Implement custom event logging for primary CTAs.
-  **Branch**: `022-google-analytics`
-  **Status**: Backlog
-
 ---
 
 ### Milestone 2: Detailed Informational Pages
