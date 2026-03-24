@@ -178,3 +178,20 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Description**: Implement an interactive, smooth-animating accordion listing common questions about home preparation, pain, and payment options.  
   **Branch**: `020-faq-page`  
   **Status**: Backlog
+
+---
+
+### Milestone 3: Optimization & Growth
+
+**Description**: Implementing tools to measure user behavior and conversion success.
+**Status**: Backlog
+
+#### Epic 3.1: Analytics & Conversion Tracking
+
+**Description**: Setup and refine tracking infrastructure.
+**Status**: Backlog
+
+- **Feature 3.1.1**: Integrate Google Analytics (GA4)
+  **Description**: Setup GA4 tracking to measure homepage interactions, carousel engagement, and successful redirects to Booksy. Implement custom event logging for primary CTAs.
+  **Branch**: `022-google-analytics`
+  **Status**: Backlog
