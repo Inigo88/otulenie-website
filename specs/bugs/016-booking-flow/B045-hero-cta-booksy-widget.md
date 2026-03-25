@@ -56,7 +56,7 @@ In `src/components/Hero.jsx`:
 
 ## Resolution
 
-The Hero CTA in `src/components/Hero.jsx` was updated to use the centralized `BOOKSY_URL` constant instead of a hardcoded string. The `ms-booking-button` class was added to the `MagneticButton` to enable the Booksy widget trigger. Additionally, security and accessibility attributes (`target="_blank"`, `rel="noopener noreferrer"`, and `aria-label`) were implemented as per the specification. Verified in the browser that attributes are present and the script correctly identifies the button.
+The Hero CTA in `src/components/Hero.jsx` was updated to implement a "proxy-click" strategy. The Booksy script's default teal button is hidden via CSS in `src/index.css`. An `onClick` handler in `Hero.jsx` programmatically triggers the hidden Booksy button to launch the integrated overlay. This ensures the site maintains its premium aesthetic while providing the official Booksy booking flow. Verified in the browser that the overlay appears correctly and the default button is hidden.
 
 ## Verification
 

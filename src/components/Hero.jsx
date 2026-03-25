@@ -61,6 +61,19 @@ const Hero = ({ headline, subheadline, backgroundUrl, altText, onHeroComplete })
 
   }, { scope: containerRef });
 
+  /**
+   * handleBookingClick - Triggers the official Booksy widget overlay
+   * by programmatically clicking the hidden .booksy-widget-button.
+   */
+  const handleBookingClick = (e) => {
+    const booksyBtn = document.querySelector('.booksy-widget-button');
+    if (booksyBtn) {
+      e.preventDefault();
+      booksyBtn.click();
+    }
+    // Else: Fallback to the direct BOOKSY_URL link defined in props
+  };
+
   return (
     <section 
       ref={containerRef}
@@ -102,6 +115,7 @@ const Hero = ({ headline, subheadline, backgroundUrl, altText, onHeroComplete })
             href={BOOKSY_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleBookingClick}
             className="ms-booking-button bg-olive text-linen px-10 py-5 text-xl font-medium rounded-full shadow-2xl hover:bg-moss transition-colors"
             aria-label="Zarezerwuj masaż (otwiera nową kartę / okno Booksy)"
           >
