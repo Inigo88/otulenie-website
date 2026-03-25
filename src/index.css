@@ -54,8 +54,10 @@
   }
 }
 
-/* Hide default Booksy widget button to maintain premium aesthetic */
-.booksy-widget-button {
+/* Hide default Booksy widget elements to maintain premium aesthetic */
+.booksy-widget-button,
+.booksy-widget-container,
+.booksy-business-link {
   display: none !important;
 }
 

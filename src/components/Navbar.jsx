@@ -4,7 +4,8 @@ import { useGSAP } from '@gsap/react'
 import { Menu, X } from 'lucide-react'
 import MagneticButton from './MagneticButton'
 import MobileMenu from './MobileMenu'
-import { NAV_LINKS, BOOKSY_URL, BOOKSY_WIDGET_ID } from '../constants/links'
+import { NAV_LINKS, BOOKSY_URL } from '../constants/links'
+import { useBooksy } from '../hooks/useBooksy'
 
 /**
  * Navbar Component
@@ -22,6 +23,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
     const [reducedMotion, setReducedMotion] = useState(
         () => typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
     )
+    const { triggerBooksy } = useBooksy()
     const lineTopRef = useRef(null)
     const lineMidRef = useRef(null)
     const lineBottomRef = useRef(null)
@@ -113,18 +115,6 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
         }
     }, { dependencies: [isMenuOpen, reducedMotion], scope: navbarRef })
 
-    // B047 Refined: Adaptive booking behavior
-    const handleBookingClick = (e) => {
-        if (typeof window !== 'undefined' && window.innerWidth < 768) {
-            return; // Use direct link on mobile
-        }
-        const booksyBtn = document.querySelector('.booksy-widget-button');
-        if (booksyBtn) {
-            e.preventDefault();
-            booksyBtn.click();
-        }
-    }
-
     return (
         <>
             <nav
@@ -181,7 +171,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                             href={BOOKSY_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={handleBookingClick}
+                            onClick={triggerBooksy}
                             aria-label="Zarezerwuj masaż na Booksy (otwiera nową kartę)"
                             className={`
                                 bg-olive text-linen

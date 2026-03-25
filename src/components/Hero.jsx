@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { BOOKSY_URL } from '../constants/links';
 import MagneticButton from './MagneticButton';
+import { useBooksy } from '../hooks/useBooksy';
 
 /**
  * Hero Section Component
@@ -21,6 +22,7 @@ const Hero = ({ headline, subheadline, backgroundUrl, altText, onHeroComplete })
   const subheadlineRef = useRef(null);
   const ctaRef = useRef(null);
   const bgRef = useRef(null);
+  const { triggerBooksy } = useBooksy();
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -60,24 +62,6 @@ const Hero = ({ headline, subheadline, backgroundUrl, altText, onHeroComplete })
     );
 
   }, { scope: containerRef });
-
-  /**
-   * handleBookingClick - Adaptive booking behavior
-   * - Mobile (< 768px): Opens direct link in new tab (default <a> behavior)
-   * - Desktop (>= 768px): Triggers official Booksy widget overlay
-   */
-  const handleBookingClick = (e) => {
-    // B047 Refined: Use direct link on mobile for better UX
-    if (window.innerWidth < 768) {
-      return; // Let default anchor behavior take over
-    }
-
-    const booksyBtn = document.querySelector('.booksy-widget-button');
-    if (booksyBtn) {
-      e.preventDefault();
-      booksyBtn.click();
-    }
-  };
 
   return (
     <section 
@@ -120,7 +104,7 @@ const Hero = ({ headline, subheadline, backgroundUrl, altText, onHeroComplete })
             href={BOOKSY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={handleBookingClick}
+            onClick={triggerBooksy}
             className="ms-booking-button bg-olive text-linen px-10 py-5 text-xl font-medium rounded-full shadow-2xl hover:bg-moss transition-colors"
             aria-label="Zarezerwuj masaż (otwiera nową kartę / okno Booksy)"
           >

@@ -14,42 +14,7 @@ import PhilosophyManifesto from './components/PhilosophyManifesto'
 import StackingArchive from './components/StackingArchive'
 import Footer from './components/Footer'
 
-/**
- * useBooksyWidget - Dynamically loads the Booksy widget script.
- * @param {string} widgetId - The Booksy business ID.
- * @returns {Object} { isLoaded, error }
- */
-const useBooksyWidget = (widgetId) => {
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    if (!widgetId) return
-
-    // Check if script already exists
-    if (document.querySelector('script[src*="booksy.com/widget/code.js"]')) {
-      setIsLoaded(true)
-      return
-    }
-
-    const script = document.createElement('script')
-    script.src = `https://booksy.com/widget/code.js?id=${widgetId}&country=pl&lang=pl`
-    script.async = true
-
-    script.onload = () => setIsLoaded(true)
-    script.onerror = () => setError('Failed to load Booksy widget')
-
-    document.body.appendChild(script)
-
-    return () => {
-      // We generally keep the script loaded to prevent flickering on navigation,
-      // but if the component unmounts and we want strict cleanup:
-      // document.body.removeChild(script);
-    }
-  }, [widgetId])
-
-  return { isLoaded, error }
-}
+import BooksyWidget from './components/BooksyWidget'
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger)
@@ -59,9 +24,6 @@ function App() {
   const containerRef = useRef(null)
   const [isHero, setIsHero] = useState(true)
   const [isHeroComplete, setIsHeroComplete] = useState(false)
-
-  // T002: Foundational - Load Booksy widget script
-  const { isLoaded: isBooksyLoaded } = useBooksyWidget(BOOKSY_WIDGET_ID)
 
   useGSAP(() => {
     // Navbar threshold toggle
@@ -73,77 +35,10 @@ function App() {
     })
   }, { scope: containerRef })
 
-  // B046 & B047: Handle Booksy widget UI behavior (Closing & Scrolling)
-  useEffect(() => {
-    const handleCloseBooksy = (e) => {
-      const isBackdropClick = e.type === 'click' && e.target.classList.contains('booksy-widget-overlay');
-      const isEscapePress = e.type === 'keydown' && e.key === 'Escape';
-
-      if (isBackdropClick || isEscapePress) {
-        const overlay = document.querySelector('.booksy-widget-overlay');
-        const dialog = document.querySelector('.booksy-widget-dialog');
-        
-        if (overlay || dialog) {
-          overlay?.remove();
-          dialog?.remove();
-          // Restore scrolling
-          document.body.style.overflow = '';
-          document.body.style.position = '';
-        }
-      }
-    };
-
-    // B047 Refined: MutationObserver to move dialog into overlay for proper scrolling
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === 1) { // ELEMENT_NODE
-            if (node.classList.contains('booksy-widget-overlay')) {
-              document.documentElement.classList.add('booksy-active');
-              document.body.classList.add('booksy-active');
-              const dialog = document.querySelector('.booksy-widget-dialog');
-              if (dialog && dialog.parentNode !== node) {
-                node.appendChild(dialog);
-              }
-            } else if (node.classList.contains('booksy-widget-dialog')) {
-              document.documentElement.classList.add('booksy-active');
-              document.body.classList.add('booksy-active');
-              const overlay = document.querySelector('.booksy-widget-overlay');
-              if (overlay && node.parentNode !== overlay) {
-                overlay.appendChild(node);
-              }
-            }
-          }
-        });
-
-        mutation.removedNodes.forEach((node) => {
-          if (node.nodeType === 1) {
-            if (node.classList.contains('booksy-widget-overlay') || node.classList.contains('booksy-widget-dialog')) {
-              if (!document.querySelector('.booksy-widget-overlay') && !document.querySelector('.booksy-widget-dialog')) {
-                document.documentElement.classList.remove('booksy-active');
-                document.body.classList.remove('booksy-active');
-              }
-            }
-          }
-        });
-      });
-    });
-
-    observer.observe(document.body, { childList: true });
-    document.addEventListener('click', handleCloseBooksy);
-    document.addEventListener('keydown', handleCloseBooksy);
-
-    return () => {
-      observer.disconnect();
-      document.documentElement.classList.remove('booksy-active');
-      document.body.classList.remove('booksy-active');
-      document.removeEventListener('click', handleCloseBooksy);
-      document.removeEventListener('keydown', handleCloseBooksy);
-    };
-  }, []);
-
   return (
     <div ref={containerRef} className="min-h-screen bg-linen relative overflow-x-hidden">
+      {/* Centralized Booksy logic and script loading */}
+      <BooksyWidget />
       {/* T004: Global Noise Overlay */}
       <div className="noise-overlay" aria-hidden="true" />
 

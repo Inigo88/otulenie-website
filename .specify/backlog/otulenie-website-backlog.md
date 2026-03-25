@@ -180,6 +180,21 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Branch**: `020-faq-page`  
   **Status**: Backlog
 
+#### Epic 2.3: Legal & Compliance
+
+**Description**: Implementing mandatory legal documentation to ensure GDPR compliance and clear terms of service.  
+**Status**: Backlog
+
+- **Feature 2.3.1**: Create the 'Polityka Prywatności' page  
+  **Description**: Develop a dedicated page for the Privacy Policy (GDPR), detailing data collection and processing for massage services.  
+  **Branch**: `026-privacy-policy`  
+  **Status**: Backlog
+
+- **Feature 2.3.2**: Create the 'Regulamin' page  
+  **Description**: Build a page for the Terms and Conditions, outlining service rules, cancellations, and booking policies.  
+  **Branch**: `027-regulamin`  
+  **Status**: Backlog
+
 ---
 
 ### Milestone 3: Optimization & Growth
