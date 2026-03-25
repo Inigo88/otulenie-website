@@ -53,3 +53,75 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   }
 }
+
+/* Hide default Booksy widget elements to maintain premium aesthetic */
+.booksy-widget-button,
+.booksy-widget-container,
+.booksy-business-link {
+  display: none !important;
+}
+
+/* B047 Refined: Responsive Booksy Layout */
+
+/* 1. Global Overlay Styles */
+.booksy-widget-overlay {
+  z-index: 2000000000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  overflow-y: auto !important; /* The single scrollbar container */
+  padding: 40px 0 !important;
+}
+
+/* Hide body & html scrollbar when widget is open */
+html.booksy-active,
+body.booksy-active {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+/* 2. Desktop Specific (> 768px) */
+@media (min-width: 769px) {
+  .booksy-widget-dialog {
+    width: 770px !important;
+    max-width: 95vw !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    height: auto !important;
+    min-height: 1677px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* 3. Mobile Specific (<= 768px) */
+@media (max-width: 768px) {
+  .booksy-widget-dialog {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    height: auto !important;
+    min-height: 1700px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .booksy-widget-overlay {
+    padding: 24px 0 !important;
+  }
+}
+
+.booksy-widget-dialog iframe {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 1677px !important; /* Match content height to avoid internal scroll */
+}

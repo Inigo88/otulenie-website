@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { X, Calendar } from 'lucide-react'
+import { BOOKSY_URL } from '../constants/links'
 import MagneticButton from './MagneticButton'
 
 /**
@@ -176,12 +177,13 @@ export default function MobileMenu({ isOpen, onClose, links }) {
                 {/* T015-T017: US3 Booking CTA */}
                 <div ref={ctaRef} className="w-full max-w-[280px] mt-12 pb-4">
                     <MagneticButton
+                        as="a"
+                        href={BOOKSY_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-full bg-olive text-linen flex items-center justify-center gap-3 py-6 shadow-lg hover:shadow-olive/20"
-                        onClick={() => {
-                            onClose()
-                            window.open('https://booksy.com/pl-pl/s/otulenie', '_blank')
-                        }}
-                        aria-label="Zarezerwuj masaż na Booksy"
+                        onClick={onClose}
+                        aria-label="Zarezerwuj masaż na Booksy (otwiera nową kartę)"
                     >
                         <span className="text-xl font-medium">Zarezerwuj masaż</span>
                     </MagneticButton>

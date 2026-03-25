@@ -4,6 +4,8 @@ import { useGSAP } from '@gsap/react'
 import { Menu, X } from 'lucide-react'
 import MagneticButton from './MagneticButton'
 import MobileMenu from './MobileMenu'
+import { NAV_LINKS, BOOKSY_URL } from '../constants/links'
+import { useBooksy } from '../hooks/useBooksy'
 
 /**
  * Navbar Component
@@ -21,6 +23,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
     const [reducedMotion, setReducedMotion] = useState(
         () => typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
     )
+    const { triggerBooksy } = useBooksy()
     const lineTopRef = useRef(null)
     const lineMidRef = useRef(null)
     const lineBottomRef = useRef(null)
@@ -112,13 +115,6 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
         }
     }, { dependencies: [isMenuOpen, reducedMotion], scope: navbarRef })
 
-    const links = [
-        { label: 'Oferta', href: '/oferta' },
-        { label: 'O mnie', href: '/o-mnie' },
-        { label: 'Obszar dojazdu', href: '/obszar-dojazdu' },
-        { label: 'FAQ', href: '/faq' },
-    ]
-
     return (
         <>
             <nav
@@ -161,7 +157,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                         hidden md:flex items-center transition-all duration-500
                         ${isHero ? 'gap-8' : 'gap-4'}
                     `}>
-                        {links.map((link) => (
+                        {NAV_LINKS.map((link) => (
                             <NavLink
                                 key={link.label}
                                 label={link.label}
@@ -171,12 +167,17 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                             />
                         ))}
                         <MagneticButton
-                            aria-label="Oferta i rezerwacja"
+                            as="a"
+                            href={BOOKSY_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={triggerBooksy}
+                            aria-label="Zarezerwuj masaż na Booksy (otwiera nową kartę)"
                             className={`
                                 bg-olive text-linen
                                 !px-6 !py-2 text-sm shadow-none hover:shadow-lg
                                 focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2
-                                transition-all duration-500
+                                transition-all duration-500 booksy-cta
                             `}
                         >
                             Zarezerwuj masaż
@@ -235,7 +236,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
             <MobileMenu 
                 isOpen={isMenuOpen} 
                 onClose={() => setIsMenuOpen(false)} 
-                links={links}
+                links={NAV_LINKS}
             />
         </>
     )

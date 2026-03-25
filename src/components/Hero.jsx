@@ -1,7 +1,9 @@
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { BOOKSY_URL } from '../constants/links';
 import MagneticButton from './MagneticButton';
+import { useBooksy } from '../hooks/useBooksy';
 
 /**
  * Hero Section Component
@@ -20,6 +22,7 @@ const Hero = ({ headline, subheadline, backgroundUrl, altText, onHeroComplete })
   const subheadlineRef = useRef(null);
   const ctaRef = useRef(null);
   const bgRef = useRef(null);
+  const { triggerBooksy } = useBooksy();
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -98,8 +101,12 @@ const Hero = ({ headline, subheadline, backgroundUrl, altText, onHeroComplete })
         <div ref={ctaRef} className="flex justify-center">
           <MagneticButton 
             as="a"
-            href="https://booksy.com" 
-            className="bg-olive text-linen px-10 py-5 text-xl font-medium rounded-full shadow-2xl hover:bg-moss transition-colors"
+            href={BOOKSY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={triggerBooksy}
+            className="ms-booking-button bg-olive text-linen px-10 py-5 text-xl font-medium rounded-full shadow-2xl hover:bg-moss transition-colors"
+            aria-label="Zarezerwuj masaż (otwiera nową kartę / okno Booksy)"
           >
             Zarezerwuj masaż
           </MagneticButton>
