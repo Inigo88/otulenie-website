@@ -2,7 +2,7 @@
 
 **Feature Branch**: `017-svg-logo`  
 **Created**: 2026-03-25  
-**Status**: Draft  
+**Status**: Finalized  
 **Input**: User description: "Implement SVG Logo across the application"
 
 ## User Scenarios & Testing *(mandatory)*
@@ -49,10 +49,13 @@ As a visitor reaching the end of the page, I want to see the official logo in th
 - **FR-001**: System MUST render the `public/logo.svg` asset in the `Navbar` component.
 - **FR-002**: System MUST render the `public/logo.svg` asset in the `Footer` component.
 - **FR-003**: The logo MUST be wrapped in a link pointing to the homepage (`/`).
-- **FR-004**: In the `Navbar`, the logo's color MUST dynamically transition between `Linen` (#fdfaf0) and `Moss` (#374833) based on the `isHero` state.
+- **FR-004**: In the `Navbar`, the logo's color MUST dynamically transition between `Linen` (#fdfaf0) and `Moss` (#374833) based on the `delayedIsHero` state (derived from `isHero` with a 200ms delay).
 - **FR-005**: In the `Footer`, the logo color MUST be `Linen` (#fdfaf0).
 - **FR-006**: The SVG MUST use `fill="currentColor"` internal implementation to allow CSS-based color control.
-- **FR-007**: System MUST maintain the existing `font-serif` fallback or accessibility labels for screen readers.
+- **FR-007**: System MUST provide the accessibility label "Otulenie - Strona główna" for the logo link (aria-label).
+- **FR-008**: System MUST provide a text fallback ("Otulenie" in `font-serif`) if the SVG asset fails to load.
+- **FR-009**: In the `Navbar`, the logo MUST use a dampened `MagneticButton` effect (`strength={0.1}`).
+- **FR-010**: The SVG logo MUST be sized to match the visual height of the current `text-2xl` brand text (approx 32px).
 
 ## Success Criteria *(mandatory)*
 
@@ -62,3 +65,17 @@ As a visitor reaching the end of the page, I want to see the official logo in th
 - **SC-002**: Logo color transitions in the Navbar align with the existing background/text animation timing (0.5s duration).
 - **SC-003**: Navigation functionality (scroll-to-top) is preserved when clicking the logo.
 - **SC-004**: The implementation strictly adheres to the "Otulenie Calm" palette (#374833 and #fdfaf0).
+
+## Clarifications
+
+### Session 2026-03-25
+
+- Q: Does the SVG logo need to be implemented in the mobile navigation modal? → A: No, it will be handled when the mobile menu is rebuilt separately.
+- Q: What specific text should be used for the logo's ARIA label? → A: "Otulenie - Strona główna".
+- Q: What is the fallback strategy if the SVG fails to load? → A: Render the current text "Otulenie" in `font-serif` (Fraunces).
+- Q: Should the logo have a magnetic hover effect? → A: Yes, but with a dampened strength (`strength={0.1}`).
+- Q: How should the logo be sized? → A: Match the visual height of the current `text-2xl` text (approx 32px height).
+
+## Out of Scope
+
+- Implementation of the SVG logo within the `MobileMenu` component/modal.

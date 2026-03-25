@@ -129,9 +129,9 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Status**: Done
 
 - **Feature 1.3.5**: Implement SVG Logo across the application  
-  **Description**: Replace text-based brand identifiers with the official `public/logo.svg` asset in the Navbar and upcoming Footer to ensure brand consistency.  
+  **Description**: Replace text-based brand identifiers with the official `public/logo.svg` asset in the Navbar and Footer to ensure brand consistency.  
   **Branch**: `017-svg-logo`  
-  **Status**: Specified
+  **Status**: Analysed
 
 #### Epic 1.4: Trust & Social Proof
 
