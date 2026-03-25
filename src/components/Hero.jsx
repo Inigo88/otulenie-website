@@ -99,8 +99,11 @@ const Hero = ({ headline, subheadline, backgroundUrl, altText, onHeroComplete })
         <div ref={ctaRef} className="flex justify-center">
           <MagneticButton 
             as="a"
-            href="https://booksy.com" 
-            className="bg-olive text-linen px-10 py-5 text-xl font-medium rounded-full shadow-2xl hover:bg-moss transition-colors"
+            href={BOOKSY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ms-booking-button bg-olive text-linen px-10 py-5 text-xl font-medium rounded-full shadow-2xl hover:bg-moss transition-colors"
+            aria-label="Zarezerwuj masaż (otwiera nową kartę / okno Booksy)"
           >
             Zarezerwuj masaż
           </MagneticButton>
