@@ -44,12 +44,17 @@ Default third-party widgets often use fixed widths or absolute positioning that 
 
 ## Resolution
 
-Implemented a robust "Overlay-as-Scroll-Container" strategy. Using a `MutationObserver` in `src/App.jsx`, the Booksy dialog is dynamically moved inside the `.booksy-widget-overlay`. The overlay is converted into a flex container with `overflow-y: auto`, enabling smooth, full-length scrolling for the 1700px+ widget content. CSS fixes (`flex-shrink: 0`, `justify-content: flex-start`) ensure the dialog expands to its full height without truncation, while maintaining refined mobile aesthetics (margins and rounded corners).
+Implemented a comprehensive, cross-device Booksy UX fix:
+- **Mobile Flex-Scroll**: Converted `.booksy-widget-overlay` into a flex container with `overflow-y: auto`. Used a `MutationObserver` to move the dialog inside this overlay, enabling full-length vertical scrolling (1700px+).
+- **Desktop Restoration**: Restored strict `width: 770px` for viewports > 768px to prevent "narrow widget" regressions.
+- **Dual Scroll-Lock**: Implemented a `booksy-active` class that locks both `html` and `body` (`overflow: hidden`) while the widget is active. This eliminates "triple scrollbars" and prevents background scroll-chaining.
+- **Aesthetic Refinement**: Maintained the floating sheet look with `92vw` width, `20px` border-radius, and soft shadows on mobile.
 
 ## Verification
 
-- [x] [Visual: Widget fits 100% width on mobile]
-- [x] [Visual: Full content length (1700px+) is accessible]
-- [x] [Visual: Scrolling is handled by the overlay, no internal scrollbars]
-- [x] [Visual: Floating sheet look with margins and rounded corners]
-- [x] [Functional: Booking form remains interactive on mobile]
+- [x] [Visual: Widget fits 770px on desktop]
+- [x] [Visual: Widget fits 92vw on mobile]
+- [x] [Visual: Full content length (1700px+) is accessible on all devices]
+- [x] [Visual: Single scrollbar (overlay only), background is locked]
+- [x] [Visual: Floating sheet look with margins and rounded corners on mobile]
+- [x] [Functional: Booking form remains interactive on all viewports]

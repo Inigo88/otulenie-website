@@ -99,14 +99,29 @@ function App() {
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === 1) { // ELEMENT_NODE
             if (node.classList.contains('booksy-widget-overlay')) {
+              document.documentElement.classList.add('booksy-active');
+              document.body.classList.add('booksy-active');
               const dialog = document.querySelector('.booksy-widget-dialog');
               if (dialog && dialog.parentNode !== node) {
                 node.appendChild(dialog);
               }
             } else if (node.classList.contains('booksy-widget-dialog')) {
+              document.documentElement.classList.add('booksy-active');
+              document.body.classList.add('booksy-active');
               const overlay = document.querySelector('.booksy-widget-overlay');
               if (overlay && node.parentNode !== overlay) {
                 overlay.appendChild(node);
+              }
+            }
+          }
+        });
+
+        mutation.removedNodes.forEach((node) => {
+          if (node.nodeType === 1) {
+            if (node.classList.contains('booksy-widget-overlay') || node.classList.contains('booksy-widget-dialog')) {
+              if (!document.querySelector('.booksy-widget-overlay') && !document.querySelector('.booksy-widget-dialog')) {
+                document.documentElement.classList.remove('booksy-active');
+                document.body.classList.remove('booksy-active');
               }
             }
           }
@@ -120,6 +135,8 @@ function App() {
 
     return () => {
       observer.disconnect();
+      document.documentElement.classList.remove('booksy-active');
+      document.body.classList.remove('booksy-active');
       document.removeEventListener('click', handleCloseBooksy);
       document.removeEventListener('keydown', handleCloseBooksy);
     };
