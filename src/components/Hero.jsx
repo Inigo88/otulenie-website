@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { BOOKSY_URL } from '../constants/links';
 import MagneticButton from './MagneticButton';
 
 /**

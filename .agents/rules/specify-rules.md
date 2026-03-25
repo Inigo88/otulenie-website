@@ -9,6 +9,7 @@ Last updated: 2026-03-11
 ## Active Technologies
 - Local file system (`public/images-small/`) (014-image-restriction)
 - React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac (015-footer)
+- React 19.x, Tailwind CSS v4.x, Node >= 20 + GSAP 3 (ScrollTrigger), Lucide React, @gsap/reac (016-booking-flow)
 
 - **Runtime**: Node.js >= 20.0.0 (Enforced)
 - **Framework**: React 19.x, Vite 6.x
@@ -60,7 +61,7 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+- 016-booking-flow: Added React 19.x, Tailwind CSS v4.x, Node >= 20 + GSAP 3 (ScrollTrigger), Lucide React, @gsap/reac
 - 015-footer: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - 014-image-restriction: Restricted website imagery to local assets (public/images-small/), converted to WebP format, and updated App.jsx constants for Hero and Carousel.
-- 013-stacking-services: Implemented Sticky Stacking Archive utilizing CSS `position: sticky` and GSAP 3 (ScrollTrigger) for scale/brightness depth effects.
 

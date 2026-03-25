@@ -24,12 +24,12 @@ As a Prospective Client, I want to see a prominent "Book Now" (Zarezerwuj) butto
 
 **Why this priority**: Directly addresses the primary business goal of converting visitors into Booksy appointments.
 
-**Independent Test**: Can be tested by clicking the "Zarezerwuj" button in the Hero section and verifying it opens the official Booksy link (`https://booksy.com/pl-pl/336663...`) in a new tab.
+**Independent Test**: Can be tested by clicking the "Zarezerwuj" button in the Hero section and verifying it opens the official Booksy link (`https://otulenie.booksy.com/h`) in a new tab.
 
 **Acceptance Scenarios**:
 
-1. **Given** the user is on the Hero section, **When** they click "Zarezerwuj masaż", **Then** the official Booksy URL opens in a new tab.
-2. **Given** the user is browsing the Massage Carousel, **When** they click the CTA on a card, **Then** they are redirected to the corresponding section of the 'Oferta' page.
+1. **Given** the user is on the Hero section, **When** they click "Zarezerwuj masaż", **Then** the official Booksy URL opens in a new tab (`target="_blank"`).
+2. **Given** the user is browsing the Massage Carousel, **When** they click the CTA on a card, **Then** they are redirected to the 'Oferta' page without anchors.
 
 ---
 
@@ -58,7 +58,7 @@ As a Prospective Client, I want to learn more about a specific massage type from
 
 **Acceptance Scenarios**:
 
-1. **Given** the user is on the homepage Carousel, **When** they click "Dowiedz się więcej" (or similar), **Then** they navigate to `/oferta#[service-id]`.
+1. **Given** the user is on the homepage Carousel, **When** they click "Dowiedz się więcej" (or similar), **Then** they navigate to the `/oferta` page.
 
 ---
 
@@ -70,7 +70,7 @@ As a Prospective Client, I want to learn more about a specific massage type from
 ## Assumptions
 
 - **Official Data Source**: All contact and booking information is sourced from `.specify/context/contact.md`.
-- **Booksy URL**: The primary booking link is `https://booksy.com/pl-pl/336663_otulenie-praktyka-masazu_masaz_13715_wroclaw`.
+- **Booksy URL**: The primary booking link is `https://otulenie.booksy.com/h`.
 - **Contact Details**: The official phone is `+48 780 530 235` and email is `pm.otulenie@gmail.com`.
 - **Magnetic Buttons**: It is assumed the `MagneticButton` component is already functional and can be used for all CTAs.
 
@@ -79,14 +79,14 @@ As a Prospective Client, I want to learn more about a specific massage type from
 ### Functional Requirements
 
 - **FR-001**: System MUST centralize the Booksy booking URL in a single constant file (`src/constants/links.js` or similar) to ensure site-wide consistency.
-- **FR-002**: Direct "Zarezerwuj" (Book) buttons (e.g., Hero, Mobile Menu) MUST use the official Booksy URL from the central constant.
-- **FR-003**: Carousel Card CTAs MUST be changed from "Zarezerwuj" to "Dowiedz się więcej" (or local equivalent) and link directly to the '/oferta' page (without anchors for now).
+- **FR-002**: Direct "Zarezerwuj" (Book) buttons (e.g., Hero, Mobile Menu) MUST use the official Booksy URL and open in a new tab (`target="_blank"`).
+- **FR-003**: Carousel Card CTAs MUST be changed from "Zarezerwuj" to "Dowiedz się więcej" (or local equivalent) and link directly to the '/oferta' page without anchors for now.
 - **FR-004**: System MUST implement a "Secondary Contact" block formatting phone and email as interactive `tel:` and `mailto:` links, ensuring they do not compete visually with the primary booking action.
 - **FR-005**: The Phone Number MUST be displayed as "+48 780 530 235" for readability but use the raw "+48780530235" as the link target.
-- **FR-005**: The Mobile Navigation Modal MUST include a primary "Zarezerwuj" CTA at the bottom of the link list pointing to the official Booksy URL.
-- **FR-006**: System MUST implement the Booksy Widget Script specifically for the Hero section CTA. All other "Zarezerwuj" CTAs MUST remain as direct `href` links to the centralized Booksy URL.
-- **FR-007**: All booking and contact CTAs MUST implement a "Magnetic" hover effect only on desktop viewports. This effect MUST be strictly disabled on mobile/touch interfaces for all interactive elements to ensure layout stability and performance (Ref: Constitution).
-- **FR-008**: System MUST provide clear `aria-label` attributes for all external booking and social links.
+- **FR-006**: The Mobile Navigation Modal MUST include a primary "Zarezerwuj" CTA at the bottom of the link list pointing to the official Booksy URL using `target="_blank"`.
+- **FR-007**: System MUST implement the Booksy Widget Script specifically for the Hero section CTA. All other "Zarezerwuj" CTAs MUST remain as direct `href` links to the centralized Booksy URL using `target="_blank"`.
+- **FR-008**: All booking and contact CTAs MUST implement a "Magnetic" hover effect only on desktop viewports. This effect MUST be strictly disabled on mobile/touch interfaces for all interactive elements to ensure layout stability and performance (Ref: Constitution).
+- **FR-009**: System MUST provide clear `aria-label` attributes for all external booking and social links.
 
 ### Key Entities *(include if feature involves data)*
 

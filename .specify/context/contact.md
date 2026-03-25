@@ -4,7 +4,7 @@ This document contains the official contact channels for Otulenie.
 
 ## Primary Booking Channel
 
-- **Booksy**: [https://booksy.com/pl-pl/336663_otulenie-praktyka-masazu_masaz_13715_wroclaw](https://booksy.com/pl-pl/336663_otulenie-praktyka-masazu_masaz_13715_wroclaw)
+- **Booksy**: [https://otulenie.booksy.com/h](https://otulenie.booksy.com/h)
 - **Booksy Widget Script**:
 
   ```html

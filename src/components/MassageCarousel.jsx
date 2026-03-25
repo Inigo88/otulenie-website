@@ -351,12 +351,11 @@ const MassageCarousel = () => {
 
                     <MagneticButton 
                       as="a" 
-                      href={item.booksyUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                      href="#oferta" 
                       className="booksy-cta bg-moss text-linen px-6 py-3 text-sm"
+                      aria-label={`Dowiedz się więcej o masażu: ${item.name}`}
                     >
-                      Zarezerwuj
+                      Dowiedz się więcej
                     </MagneticButton>
                   </div>
                 </div>
