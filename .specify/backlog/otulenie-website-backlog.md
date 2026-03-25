@@ -126,7 +126,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.3.4**: Build primary booking flow interactions  
   **Description**: Ensure robust integration with Booksy links site-wide and format secondary contact options efficiently.  
   **Branch**: `016-booking-flow`  
-  **Status**: Implemented
+  **Status**: Done
 
 - **Feature 1.3.5**: Implement SVG Logo across the application  
   **Description**: Replace text-based brand identifiers with the official `public/logo.svg` asset in the Navbar and upcoming Footer to ensure brand consistency.  
