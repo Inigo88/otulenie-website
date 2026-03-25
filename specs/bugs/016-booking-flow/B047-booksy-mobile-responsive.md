@@ -44,11 +44,12 @@ Default third-party widgets often use fixed widths or absolute positioning that 
 
 ## Resolution
 
-Applied CSS overrides in `src/index.css` using a `@media (max-width: 768px)` query. Initially forced the widget to `100vw`. After user feedback, refined the layout to `94vw` width and `94dvh` height with `3vw` margins, `20px` border-radius, and a soft box shadow. This creates a premium "floating sheet" effect that fits comfortably within mobile screen boundaries without being overwhelming.
+Implemented a robust "Overlay-as-Scroll-Container" strategy. Using a `MutationObserver` in `src/App.jsx`, the Booksy dialog is dynamically moved inside the `.booksy-widget-overlay`. The overlay is converted into a flex container with `overflow-y: auto`, enabling smooth, full-length scrolling for the 1700px+ widget content. CSS fixes (`flex-shrink: 0`, `justify-content: flex-start`) ensure the dialog expands to its full height without truncation, while maintaining refined mobile aesthetics (margins and rounded corners).
 
 ## Verification
 
 - [x] [Visual: Widget fits 100% width on mobile]
-- [x] [Visual: No horizontal scroll created by the overlay]
+- [x] [Visual: Full content length (1700px+) is accessible]
+- [x] [Visual: Scrolling is handled by the overlay, no internal scrollbars]
 - [x] [Visual: Floating sheet look with margins and rounded corners]
 - [x] [Functional: Booking form remains interactive on mobile]

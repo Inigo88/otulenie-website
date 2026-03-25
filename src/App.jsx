@@ -73,7 +73,7 @@ function App() {
     })
   }, { scope: containerRef })
 
-  // B046: Handle Booksy widget closing (Backdrop click / Escape key)
+  // B046 & B047: Handle Booksy widget UI behavior (Closing & Scrolling)
   useEffect(() => {
     const handleCloseBooksy = (e) => {
       const isBackdropClick = e.type === 'click' && e.target.classList.contains('booksy-widget-overlay');
@@ -86,17 +86,40 @@ function App() {
         if (overlay || dialog) {
           overlay?.remove();
           dialog?.remove();
-          // Restore scrolling (Booksy script usually adds overflow: hidden to body)
+          // Restore scrolling
           document.body.style.overflow = '';
           document.body.style.position = '';
         }
       }
     };
 
+    // B047 Refined: MutationObserver to move dialog into overlay for proper scrolling
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1) { // ELEMENT_NODE
+            if (node.classList.contains('booksy-widget-overlay')) {
+              const dialog = document.querySelector('.booksy-widget-dialog');
+              if (dialog && dialog.parentNode !== node) {
+                node.appendChild(dialog);
+              }
+            } else if (node.classList.contains('booksy-widget-dialog')) {
+              const overlay = document.querySelector('.booksy-widget-overlay');
+              if (overlay && node.parentNode !== overlay) {
+                overlay.appendChild(node);
+              }
+            }
+          }
+        });
+      });
+    });
+
+    observer.observe(document.body, { childList: true });
     document.addEventListener('click', handleCloseBooksy);
     document.addEventListener('keydown', handleCloseBooksy);
 
     return () => {
+      observer.disconnect();
       document.removeEventListener('click', handleCloseBooksy);
       document.removeEventListener('keydown', handleCloseBooksy);
     };
