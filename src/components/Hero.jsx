@@ -62,16 +62,21 @@ const Hero = ({ headline, subheadline, backgroundUrl, altText, onHeroComplete })
   }, { scope: containerRef });
 
   /**
-   * handleBookingClick - Triggers the official Booksy widget overlay
-   * by programmatically clicking the hidden .booksy-widget-button.
+   * handleBookingClick - Adaptive booking behavior
+   * - Mobile (< 768px): Opens direct link in new tab (default <a> behavior)
+   * - Desktop (>= 768px): Triggers official Booksy widget overlay
    */
   const handleBookingClick = (e) => {
+    // B047 Refined: Use direct link on mobile for better UX
+    if (window.innerWidth < 768) {
+      return; // Let default anchor behavior take over
+    }
+
     const booksyBtn = document.querySelector('.booksy-widget-button');
     if (booksyBtn) {
       e.preventDefault();
       booksyBtn.click();
     }
-    // Else: Fallback to the direct BOOKSY_URL link defined in props
   };
 
   return (

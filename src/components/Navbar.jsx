@@ -113,6 +113,18 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
         }
     }, { dependencies: [isMenuOpen, reducedMotion], scope: navbarRef })
 
+    // B047 Refined: Adaptive booking behavior
+    const handleBookingClick = (e) => {
+        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+            return; // Use direct link on mobile
+        }
+        const booksyBtn = document.querySelector('.booksy-widget-button');
+        if (booksyBtn) {
+            e.preventDefault();
+            booksyBtn.click();
+        }
+    }
+
     return (
         <>
             <nav
@@ -169,6 +181,7 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                             href={BOOKSY_URL}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={handleBookingClick}
                             aria-label="Zarezerwuj masaż na Booksy (otwiera nową kartę)"
                             className={`
                                 bg-olive text-linen
