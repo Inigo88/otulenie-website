@@ -44,10 +44,11 @@ Default third-party widgets often use fixed widths or absolute positioning that 
 
 ## Resolution
 
-Applied CSS overrides in `src/index.css` using a `@media (max-width: 768px)` query. The fix forces `.booksy-widget-dialog` to `width: 100vw`, `left: 0`, and crucially, `transform: none !important` to override desktop centering logic. This ensures the widget occupies the full width of mobile viewports without cropping.
+Applied CSS overrides in `src/index.css` using a `@media (max-width: 768px)` query. Initially forced the widget to `100vw`. After user feedback, refined the layout to `94vw` width and `94dvh` height with `3vw` margins, `20px` border-radius, and a soft box shadow. This creates a premium "floating sheet" effect that fits comfortably within mobile screen boundaries without being overwhelming.
 
 ## Verification
 
 - [x] [Visual: Widget fits 100% width on mobile]
 - [x] [Visual: No horizontal scroll created by the overlay]
+- [x] [Visual: Floating sheet look with margins and rounded corners]
 - [x] [Functional: Booking form remains interactive on mobile]
