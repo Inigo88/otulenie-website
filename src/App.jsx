@@ -73,6 +73,35 @@ function App() {
     })
   }, { scope: containerRef })
 
+  // B046: Handle Booksy widget closing (Backdrop click / Escape key)
+  useEffect(() => {
+    const handleCloseBooksy = (e) => {
+      const isBackdropClick = e.type === 'click' && e.target.classList.contains('booksy-widget-overlay');
+      const isEscapePress = e.type === 'keydown' && e.key === 'Escape';
+
+      if (isBackdropClick || isEscapePress) {
+        const overlay = document.querySelector('.booksy-widget-overlay');
+        const dialog = document.querySelector('.booksy-widget-dialog');
+        
+        if (overlay || dialog) {
+          overlay?.remove();
+          dialog?.remove();
+          // Restore scrolling (Booksy script usually adds overflow: hidden to body)
+          document.body.style.overflow = '';
+          document.body.style.position = '';
+        }
+      }
+    };
+
+    document.addEventListener('click', handleCloseBooksy);
+    document.addEventListener('keydown', handleCloseBooksy);
+
+    return () => {
+      document.removeEventListener('click', handleCloseBooksy);
+      document.removeEventListener('keydown', handleCloseBooksy);
+    };
+  }, []);
+
   return (
     <div ref={containerRef} className="min-h-screen bg-linen relative overflow-x-hidden">
       {/* T004: Global Noise Overlay */}
