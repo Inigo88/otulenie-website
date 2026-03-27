@@ -109,11 +109,7 @@ const MassageCarousel = () => {
           overwrite: 'auto'
         });
 
-        // T010: CTA Pointer Events Guard
-        const cta = card.querySelector('.booksy-cta');
-        if (cta) {
-          cta.style.pointerEvents = distanceRatio > 0.15 ? 'none' : 'auto';
-        }
+        // T010: CTA Pointer Events Guard removed (B050)
       });
     };
 
@@ -278,7 +274,7 @@ const MassageCarousel = () => {
                   handleDotClick(originalIndex);
                 }}
                 tabIndex={0}
-                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-pointer overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover focus-visible:ring-2 focus-visible:ring-moss/50 focus:outline-none md:h-[460px] md:w-[380px] [backface-visibility:hidden]"
+                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-pointer select-none overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover focus-visible:ring-2 focus-visible:ring-moss/50 focus:outline-none md:h-[460px] md:w-[380px] [backface-visibility:hidden]"
               >
                 <div className="flex h-full flex-col">
                   <span className="mb-4 font-inter text-xs font-semibold uppercase tracking-[0.2em] text-olive/60">

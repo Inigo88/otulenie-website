@@ -44,10 +44,11 @@ In `src/components/MassageCarousel.jsx`, lines 136-182 implement a `Draggable` i
 
 ## Resolution
 
-The `Draggable` implementation was removed from `MassageCarousel.jsx`, and the card container's CSS classes were updated to use `cursor-pointer` instead of `cursor-grab`. The existing `onClick` handler was preserved, allowing users to center cards by clicking on them. This aligns the component's behavior with the requirement for a non-draggable, click-interactable carousel.
+The `Draggable` implementation was removed from `MassageCarousel.jsx`, and the card container's CSS classes were updated to use `cursor-pointer` and `select-none`. The restrictive `pointer-events` guard on the `.booksy-cta` buttons was removed, and the card's `onClick` handler now correctly captures clicks across the entire card area.
 
 ## Verification
 
 - [x] [Functional: Carousel does not react to drag events but centers cards on click]
-- [x] [Visual: Cards display `cursor-pointer` on hover]
-- [x] [Technical: GSAP Draggable logic and related cleanup were removed correctly]
+- [x] [Functional: Entire card area, including buttons on non-centered cards, triggers centering]
+- [x] [Visual: Cards display `cursor-pointer` on hover and `select-none` prevents accidental text selection]
+- [x] [Technical: GSAP Draggable logic and pointer-events guards were removed correctly]
