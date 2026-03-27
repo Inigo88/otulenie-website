@@ -201,7 +201,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 2.4.1**: Build a 'funny' 404 Error Page  
   **Description**: Create a custom 404 page that maintains the brand's calm aesthetic while adding a touch of humor or personality. MUST include a clear 'Return Home' CTA.  
   **Branch**: `020-funny-404-page`  
-  **Status**: Clarified
+  **Status**: Planned
 
 ---
 

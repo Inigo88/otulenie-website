@@ -64,8 +64,7 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+- 020-funny-404-page: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - Workflow Isolation: Explicit boundaries between planning/tasks and implementation workflows (no implementation during planning).
 - 019-testimonials: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide React (Star, Quote icons)
-- 017-svg-logo: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
-- 016-booking-flow: Added React 19.x, Tailwind CSS v4.x, Node >= 20 + GSAP 3 (ScrollTrigger), Lucide React, @gsap/reac
 
