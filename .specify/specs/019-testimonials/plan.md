@@ -5,12 +5,13 @@
 
 ## Summary
 
-Implement a premium, GSAP-animated "Featured Testimonials" section titled "Głosy spokoju". This section will showcase 5 client reviews from Booksy using a cinematic layout that stacks vertically on mobile and uses a horizontal auto-playing slider on desktop. The implementation will focus on high-fidelity animations and adherence to the "Otulenie Calm" design system.
+Implement a premium, GSAP-animated "Featured Testimonials" section titled "Głosy spokoju". This section will showcase 5 client reviews from multiple platforms (Booksy, Facebook) using a cinematic layout that stacks vertically on mobile and uses a horizontal auto-playing slider on desktop. The implementation will focus on high-fidelity animations and adherence to the "Otulenie Calm" design system.
 
 ## Technical Context
 
 **Language/Version**: React 19.x, Tailwind CSS v4.x
 **Primary Dependencies**: GSAP 3 (ScrollTrigger), Lucide React (Star, Quote icons)
+**Data Source**: 5 curated reviews (Name, Rating, Text, Source).
 **Storage**: Static data array in `App.jsx`
 **Testing**: Manual visual verification on mobile (390px) and desktop viewports.
 **Target Platform**: Mobile-first Web
