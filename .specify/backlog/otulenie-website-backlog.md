@@ -146,7 +146,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.4.1**: Implement Featured Testimonials section
   **Description**: Create a premium, GSAP-animated section for client reviews with subtle branding and cinematic layout.
   **Branch**: `019-testimonials`
-  **Status**: Planned
+  **Status**: Tasked
 
 ---
 
