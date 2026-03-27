@@ -81,7 +81,7 @@ const MagneticButton = forwardRef(({ children, className = "", onClick, strength
             className={`
         relative px-8 py-4 rounded-full font-sans font-medium 
         transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-        focus:outline-none focus:ring-2 focus:ring-olive focus:ring-offset-2 focus:ring-offset-linen
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 focus-visible:ring-offset-linen
         ${isHovered && !reducedMotion ? 'scale-[1.03] shadow-xl' : 'scale-100 shadow-none'}
         active:scale-[0.98] cursor-pointer
         ${className || 'bg-moss text-linen'}

@@ -61,7 +61,7 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+- 017-svg-logo: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - 016-booking-flow: Added React 19.x, Tailwind CSS v4.x, Node >= 20 + GSAP 3 (ScrollTrigger), Lucide React, @gsap/reac
 - 015-footer: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
-- 014-image-restriction: Restricted website imagery to local assets (public/images-small/), converted to WebP format, and updated App.jsx constants for Hero and Carousel.
 

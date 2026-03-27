@@ -1,10 +1,10 @@
 # Bug B041: Remove Footer Entrance Animation
 
-**Status**: [ ] Open | [x] Investigating | [x] Fix Proposed | [ ] Resolved
+**Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [x] Resolved
 **Severity**: P2 (Visual Preference)
 **Found in**: Feature 015-footer
 **Date Created**: 2026-03-23
-**Date Resolved**: [YYYY-MM-DD]
+**Date Resolved**: 2026-03-23
 
 ## Description
 

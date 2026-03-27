@@ -1,5 +1,6 @@
 import { Instagram, Facebook } from 'lucide-react'
 import MagneticButton from './MagneticButton'
+import Logo from './Logo'
 import {
   PHONE,
   PHONE_RAW,
@@ -31,7 +32,13 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 md:gap-12 mb-16">
           {/* Brand Section */}
           <div className="col-span-2 md:col-span-1">
-            <h2 className="font-serif text-3xl font-bold mb-6">Otulenie</h2>
+            <a
+              href="/"
+              aria-label="Otulenie - Strona główna"
+              className="inline-block mb-6"
+            >
+              <Logo className="text-linen h-8" />
+            </a>
             <p className="text-linen/70 text-sm leading-relaxed md:max-w-[200px]">
               Relaks, który przyjeżdża do Ciebie. Profesjonalny masaż mobilny we Wrocławiu.
             </p>

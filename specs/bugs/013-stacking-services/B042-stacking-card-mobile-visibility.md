@@ -1,10 +1,10 @@
 # Bug B042: Stacking Card Mobile Visibility (3rd Card)
 
-**Status**: [ ] Open | [x] Investigating | [x] Fix Proposed | [ ] Resolved
+**Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [x] Resolved
 **Severity**: P1 (UX & Visual)
 **Found in**: Feature 013-stacking-services
 **Date Created**: 2026-03-23
-**Date Resolved**: [YYYY-MM-DD]
+**Date Resolved**: 2026-03-27
 
 ## Description
 
@@ -47,16 +47,19 @@ On mobile:
 
 ### Detailed Task List
 
-- [ ] [T001] [Audit]: Measure actual card heights on 390px viewport.
-- [ ] [T002] [Implementation]: Implement responsive `top` and `offset` logic.
-- [ ] [T003] [Content]: Balance text length across all 3 cards.
-- [ ] [T004] [Verification]: Visual check on mobile.
+- [x] [T001] [Audit]: Measure actual card heights on 390px viewport.
+- [x] [T002] [Implementation]: Implement responsive `top` and `offset` logic.
+- [x] [T003] [Content]: Balance text length across all 3 cards.
+- [x] [T004] [Verification]: Visual check on mobile.
 
 ## Resolution
 
-[To be completed after fix]
+Implemented a responsive `top` calculation in `StackingArchive.jsx` using CSS variables (`--card-half-height` and `--stack-offset`).
+- **Mobile**: Set `card-half-height` to `275px` (half of the 550px mobile height) and reduced `stack-offset` to `16px` per index.
+- **Desktop**: Maintained original `250px` half-height and `32px` offset.
+This ensures cards are accurately centered and don't bleed out of the viewport on shorter devices.
 
 ## Verification
 
-- [ ] [Functional]: 3rd card is fully visible on mobile.
-- [ ] [Visual]: All card headers clear the navbar.
+- [x] [Functional]: 3rd card is fully visible on mobile.
+- [x] [Visual]: All card headers clear the navbar.
