@@ -126,12 +126,12 @@ Given that feature description, do this:
            
            **Suggested Answers**:
            
-           | Option | Answer | Implications |
-           |--------|--------|--------------|
-           | A      | [First suggested answer] | [What this means for the feature] |
-           | B      | [Second suggested answer] | [What this means for the feature] |
-           | C      | [Third suggested answer] | [What this means for the feature] |
-           | Custom | Provide your own answer | [Explain how to provide custom input] |
+           | Option | Answer                    | Implications                          |
+           | ------ | ------------------------- | ------------------------------------- |
+           | A      | [First suggested answer]  | [What this means for the feature]     |
+           | B      | [Second suggested answer] | [What this means for the feature]     |
+           | C      | [Third suggested answer]  | [What this means for the feature]     |
+           | Custom | Provide your own answer   | [Explain how to provide custom input] |
            
            **Your choice**: _[Wait for user response]_
            ```
@@ -160,9 +160,10 @@ Given that feature description, do this:
      chmod +x .specify/scripts/bash/update-backlog-status.sh && ./.specify/scripts/bash/update-backlog-status.sh
      ```
 
-   - Do not edit the backlog if the feature cannot be found.
+8. **Finalize**:
+   - **Commit and push all changes**: `spec: specify [feature-slug]`.
 
-8. Report completion with branch name, spec file path, checklist results, backlog update status, and readiness for the next phase (`/speckit.clarify` or `/speckit.plan`).
+9. Report completion with branch name, spec file path, checklist results, backlog update status, and readiness for the next phase (`/speckit.clarify` or `/speckit.plan`).
 
 **NOTE:** The script creates and checks out the new branch and initializes the spec file before writing.
 

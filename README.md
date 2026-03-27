@@ -13,6 +13,7 @@ The platform strictly adheres to a grounded, warm wellness aesthetic.
 - **Carousel**: Implements a curvilinear "Wellness Wheel" with dynamic 3D scaling and opacity fading to ensure immersive service discovery.
 - **Philosophy Section**: A dark-themed, parallax-supported section utilizing `split-type` for cinematic, line-by-line staggered reveal animations as the user scrolls.
 - **Sticky Stacking Archive**: Implements layered "massage protocol" cards that stack and scale using `GSAP ScrollTrigger`, creating a tactile, depth-focused exploration of service values.
+- **Featured Testimonials**: A premium, GSAP-animated horizontal carousel for client reviews with subtle branding and cinematic layout.
 - **Global Footer**: A deep dark (`#374833`) rounded-top footer providing navigation and contact details with a premium tactile feel.
 
 ## ------ Technical Blueprint
@@ -20,7 +21,7 @@ The platform strictly adheres to a grounded, warm wellness aesthetic.
 This project enforces strict constraints to ensure a premium, performant, mobile-first experience.
 
 - **Stack:** React 19.x, Vite 6.x, Tailwind CSS v4.x, GSAP 3 (with ScrollTrigger plugin), Lucide React.
-- **Structure:** Core experience in `App.jsx`. Significant sections (e.g., `Footer`, `StackingArchive`) and interactive logic (e.g., `BooksyWidget`) are modularized into `src/components/` and `src/hooks/` for maintainability as the project grows.
+- **Structure:** Core experience in `App.jsx`. Significant sections (e.g., `Footer`, `StackingArchive`, `Testimonials`) and interactive logic (e.g., `BooksyWidget`) are modularized into `src/components/` and `src/hooks/` for maintainability as the project grows.
 - **Booking Strategy:** Implements a viewport-aware flow via `useBooksy`. Mobile users are directed to the Booksy booking URL, while desktop users interact with a premium integrated overlay widget.
 - **Styling:** Single `index.css` for Tailwind layers and custom noise generation.
 - **Media:** Content photography (massage sessions, lifestyle) MUST use local assets from the `images-small` folder, optimized to `.webp`. Technical icons (Lucide) and noise SVGs are exempt. No Unsplash permitted.

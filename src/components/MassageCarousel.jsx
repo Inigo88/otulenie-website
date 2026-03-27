@@ -106,19 +106,21 @@ const MassageCarousel = () => {
           opacity,
           y: yOffset,
           rotationY,
+          z: 50, // T011: Push significantly in front of container
+          zIndex: Math.round(opacity * 100), // Center card on top
           overwrite: 'auto'
         });
 
-        // T010: CTA Pointer Events Guard
-        const cta = card.querySelector('.booksy-cta');
-        if (cta) {
-          cta.style.pointerEvents = distanceRatio > 0.15 ? 'none' : 'auto';
-        }
+        // T010: CTA Pointer Events Guard removed (B050)
       });
     };
 
     updateWheelRef.current = updateWheel;
-    updateWheel(); // T019: Fire initially
+    
+    // T019: Set initial position to center the first card
+    const initialX = getXForIndex(0);
+    gsap.set(horizontalItems, { x: initialX });
+    updateWheel(); 
 
     // T018: Resize listener inside useGSAP context natively bound
     let resizeTimer;
@@ -128,64 +130,12 @@ const MassageCarousel = () => {
     };
     window.addEventListener('resize', handleResize);
 
-    // T003: Use a proxy for Draggable to avoid transform conflicts
-    const dragProxy = document.createElement("div");
-    dragProxy.style.cssText = "position:fixed; visibility:hidden; pointer-events:none;";
-    document.body.appendChild(dragProxy);
-    
-    Draggable.create(dragProxy, {
-      type: "x",
-      trigger: horizontalItems,
-      inertia: true,
-      bounds: {
-        minX: getXForIndex(MASSAGE_DATA.length - 1),
-        maxX: getXForIndex(0)
-      },
-      onPress: function() {
-        gsap.set(this.target, { x: gsap.getProperty(horizontalItems, "x") });
-        this.update();
-        isPausedRef.current = true;
-      },
-      onDrag: function() {
-        gsap.set(horizontalItems, { x: this.x });
-        updateWheel();
-      },
-      onThrowUpdate: function() {
-        gsap.set(horizontalItems, { x: this.x });
-        updateWheel();
-      },
-      onThrowComplete: function() {
-        const currentX = gsap.getProperty(horizontalItems, "x");
-        const children = Array.from(horizontalItems.children);
-        
-        // Find closest index
-        let closestIdx = 0;
-        let minDiff = Infinity;
-        
-        children.forEach((child, i) => {
-          const childTargetX = getXForIndex(i);
-          const diff = Math.abs(currentX - childTargetX);
-          if (diff < minDiff) {
-            minDiff = diff;
-            closestIdx = i;
-          }
-        });
-
-        activeSlideRef.current = closestIdx;
-        setActiveSlide(closestIdx);
-
-        // Resume auto-rotation after interaction
-        setTimeout(() => {
-          isPausedRef.current = false;
-        }, 5000);
-      }
-    });
+    // T018: Resize listener inside useGSAP context natively bound
+    // Draggable removed as per user requirement (B050)
 
     return () => {
       st.kill();
       window.removeEventListener('resize', handleResize);
-      if (dragProxy.parentNode) dragProxy.parentNode.removeChild(dragProxy);
-      Draggable.get(dragProxy)?.kill();
     };
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
@@ -314,23 +264,26 @@ const MassageCarousel = () => {
         <div className="relative h-full w-full overflow-hidden">
           <div 
             ref={horizontalRef} 
-            className="absolute flex gap-6 md:gap-10 px-6 md:px-12 will-change-transform py-4 z-10 [transform-style:preserve-3d]"
+            onClick={(e) => {
+              const card = e.target.closest('[data-index]');
+              if (card) {
+                const originalIndex = parseInt(card.getAttribute('data-index'));
+                handleDotClick(originalIndex);
+              }
+            }}
+            className="absolute flex gap-6 md:gap-10 px-6 md:px-12 will-change-transform py-4 z-10 [transform-style:preserve-3d] select-none pointer-events-none"
           >
             {DISPLAY_DATA.map((item, idx) => (
               <div 
                 key={`${item.id}-${idx}`} 
-                onClick={() => {
-                  // T011: Outer card click bypasses disabled CTA to center card
-                  const originalIndex = idx % MASSAGE_DATA.length;
-                  handleDotClick(originalIndex);
-                }}
+                data-index={idx % MASSAGE_DATA.length}
                 onFocus={() => {
                   // T014: Keyboard focus ensures wheel spins to active
                   const originalIndex = idx % MASSAGE_DATA.length;
                   handleDotClick(originalIndex);
                 }}
                 tabIndex={0}
-                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-grab active:cursor-grabbing overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover focus-visible:ring-2 focus-visible:ring-moss/50 focus:outline-none md:h-[460px] md:w-[380px] [backface-visibility:hidden]"
+                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-pointer select-none overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover focus-visible:ring-2 focus-visible:ring-moss/50 focus:outline-none md:h-[460px] md:w-[380px] [backface-visibility:hidden] pointer-events-auto"
               >
                 <div className="flex h-full flex-col">
                   <span className="mb-4 font-inter text-xs font-semibold uppercase tracking-[0.2em] text-olive/60">

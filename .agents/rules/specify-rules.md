@@ -10,6 +10,8 @@ Last updated: 2026-03-11
 - Local file system (`public/images-small/`) (014-image-restriction)
 - React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac (015-footer)
 - React 19.x, Tailwind CSS v4.x, Node >= 20 + GSAP 3 (ScrollTrigger), Lucide React, @gsap/reac (016-booking-flow)
+- React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide React (Star, Quote icons) (019-testimonials)
+- Static data array in `App.jsx` (019-testimonials)
 
 - **Runtime**: Node.js >= 20.0.0 (Enforced)
 - **Framework**: React 19.x, Vite 6.x
@@ -53,6 +55,7 @@ src/
 
 - Always verify animations on a mobile-sized viewport (width: 390px).
 - Use `lucide-react` for all functional iconography.
+- **Workflow Isolation**: When following the process of `specify`, `clarify`, `plan`, `tasks`, or `analyze` workflows, do NOT create an implementation plan or perform any code implementation. The implementation phase is strictly reserved for the `implement` workflow.
 - **Constitution Maintenance**: Do not update `constitution.md` or its version solely to record synchronization with other artifacts (e.g. backlog). Only update when material changes to Principles, Audience, or Constraints occur.
 
 <!-- MANUAL ADDITIONS START -->
@@ -61,7 +64,8 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+- Workflow Isolation: Explicit boundaries between planning/tasks and implementation workflows (no implementation during planning).
+- 019-testimonials: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide React (Star, Quote icons)
 - 017-svg-logo: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - 016-booking-flow: Added React 19.x, Tailwind CSS v4.x, Node >= 20 + GSAP 3 (ScrollTrigger), Lucide React, @gsap/reac
-- 015-footer: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 

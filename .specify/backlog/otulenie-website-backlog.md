@@ -141,12 +141,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 #### Epic 1.4: Trust & Social Proof
 
 **Description**: Building credibility through client feedback and professional qualifications.
-**Status**: Backlog
+**Status**: Done
 
 - **Feature 1.4.1**: Implement Featured Testimonials section
   **Description**: Create a premium, GSAP-animated section for client reviews with subtle branding and cinematic layout.
   **Branch**: `019-testimonials`
-  **Status**: Backlog
+  **Status**: Done
 
 ---
 
