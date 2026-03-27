@@ -10,6 +10,8 @@ Last updated: 2026-03-11
 - Local file system (`public/images-small/`) (014-image-restriction)
 - React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac (015-footer)
 - React 19.x, Tailwind CSS v4.x, Node >= 20 + GSAP 3 (ScrollTrigger), Lucide React, @gsap/reac (016-booking-flow)
+- React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide React (Star, Quote icons) (019-testimonials)
+- Static data array in `App.jsx` (019-testimonials)
 
 - **Runtime**: Node.js >= 20.0.0 (Enforced)
 - **Framework**: React 19.x, Vite 6.x
@@ -61,7 +63,7 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+- 019-testimonials: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide React (Star, Quote icons)
 - 017-svg-logo: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - 016-booking-flow: Added React 19.x, Tailwind CSS v4.x, Node >= 20 + GSAP 3 (ScrollTrigger), Lucide React, @gsap/reac
-- 015-footer: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 
