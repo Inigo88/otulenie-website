@@ -106,6 +106,8 @@ const MassageCarousel = () => {
           opacity,
           y: yOffset,
           rotationY,
+          z: 50, // T011: Push significantly in front of container
+          zIndex: Math.round(opacity * 100), // Center card on top
           overwrite: 'auto'
         });
 
@@ -263,27 +265,25 @@ const MassageCarousel = () => {
           <div 
             ref={horizontalRef} 
             onClick={(e) => {
-              const card = e.target.closest('.group');
+              const card = e.target.closest('[data-index]');
               if (card) {
-                const index = Array.from(horizontalRef.current.children).indexOf(card);
-                if (index !== -1) {
-                  const originalIndex = index % MASSAGE_DATA.length;
-                  handleDotClick(originalIndex);
-                }
+                const originalIndex = parseInt(card.getAttribute('data-index'));
+                handleDotClick(originalIndex);
               }
             }}
-            className="absolute flex gap-6 md:gap-10 px-6 md:px-12 will-change-transform py-4 z-10 [transform-style:preserve-3d] select-none"
+            className="absolute flex gap-6 md:gap-10 px-6 md:px-12 will-change-transform py-4 z-10 [transform-style:preserve-3d] select-none pointer-events-none"
           >
             {DISPLAY_DATA.map((item, idx) => (
               <div 
                 key={`${item.id}-${idx}`} 
+                data-index={idx % MASSAGE_DATA.length}
                 onFocus={() => {
                   // T014: Keyboard focus ensures wheel spins to active
                   const originalIndex = idx % MASSAGE_DATA.length;
                   handleDotClick(originalIndex);
                 }}
                 tabIndex={0}
-                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-pointer select-none overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover focus-visible:ring-2 focus-visible:ring-moss/50 focus:outline-none md:h-[460px] md:w-[380px] [backface-visibility:hidden]"
+                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-pointer select-none overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover focus-visible:ring-2 focus-visible:ring-moss/50 focus:outline-none md:h-[460px] md:w-[380px] [backface-visibility:hidden] pointer-events-auto"
               >
                 <div className="flex h-full flex-col">
                   <span className="mb-4 font-inter text-xs font-semibold uppercase tracking-[0.2em] text-olive/60">

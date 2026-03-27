@@ -44,11 +44,14 @@ In `src/components/MassageCarousel.jsx`, lines 136-182 implement a `Draggable` i
 
 ## Resolution
 
-The `Draggable` implementation was removed from `MassageCarousel.jsx`, and the card container's CSS classes were updated to use `cursor-pointer` and `select-none`. The restrictive `pointer-events` guard on the `.booksy-cta` buttons was removed, and the card's `onClick` handler now correctly captures clicks across the entire card area.
+The `Draggable` implementation was removed and replaced with a robust **delegated click handler** on the `horizontalRef` container. To solve 3D intersection "dead zones":
+1.  **Container** set to `pointer-events: none` to prevent it from blocking skewed children.
+2.  **Cards** set to `pointer-events: auto` and pushed forward in 3D space (`z: 50`) with dynamic `zIndex` to ensure the centered card is always on top.
+3.  **Targeting** updated to use `data-index` attributes for reliable identification of cards regardless of DOM order or 3D projection.
 
 ## Verification
 
-- [x] [Functional: Carousel does not react to drag events but centers cards on click]
-- [x] [Functional: Entire card area, including buttons on non-centered cards, triggers centering]
-- [x] [Visual: Cards display `cursor-pointer` on hover and `select-none` prevents accidental text selection]
-- [x] [Technical: GSAP Draggable logic and pointer-events guards were removed correctly]
+- [x] [Functional: Entire card area, including inner halves and edges, triggers centering]
+- [x] [Functional: Correct card centers even when clicking skewed/rotated areas]
+- [x] [Visual: Cards display `cursor-pointer` and `select-none` prevents text selection]
+- [x] [Technical: 3D plane intersection issues resolved via pointer-events and z-stacking]
