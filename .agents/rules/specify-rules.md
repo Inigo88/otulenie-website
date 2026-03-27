@@ -55,6 +55,7 @@ src/
 
 - Always verify animations on a mobile-sized viewport (width: 390px).
 - Use `lucide-react` for all functional iconography.
+- **Workflow Isolation**: When following the process of `specify`, `clarify`, `plan`, `tasks`, or `analyze` workflows, do NOT create an implementation plan or perform any code implementation. The implementation phase is strictly reserved for the `implement` workflow.
 - **Constitution Maintenance**: Do not update `constitution.md` or its version solely to record synchronization with other artifacts (e.g. backlog). Only update when material changes to Principles, Audience, or Constraints occur.
 
 <!-- MANUAL ADDITIONS START -->
@@ -63,6 +64,7 @@ src/
 <!-- MANUAL ADDITIONS END -->
 
 ## Recent Changes
+- Workflow Isolation: Explicit boundaries between planning/tasks and implementation workflows (no implementation during planning).
 - 019-testimonials: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide React (Star, Quote icons)
 - 017-svg-logo: Added React 19.x, Tailwind CSS v4.x + GSAP 3 (ScrollTrigger), Lucide Reac
 - 016-booking-flow: Added React 19.x, Tailwind CSS v4.x, Node >= 20 + GSAP 3 (ScrollTrigger), Lucide React, @gsap/reac

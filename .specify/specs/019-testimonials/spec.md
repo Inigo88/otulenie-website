@@ -60,15 +60,17 @@ As a visitor, I want the testimonials to be presented with smooth, cinematic ani
 
 ### Functional Requirements
 
-- **FR-001**: System MUST render a dedicated section titled "Głosy spokoju" (or similar brand-appropriate heading) using the `Fraunces` or `Cormorant Garamond` serif fonts.
+- **FR-001**: System MUST render a dedicated section titled "Głosy spokoju" using the `Fraunces` or `Cormorant Garamond` serif fonts.
 - **FR-002**: System MUST implement GSAP `ScrollTrigger` to reveal testimonial cards as they enter the viewport.
-- **FR-003**: System MUST use the "Otulenie Calm" palette: `#374833` (Moss) for backgrounds or text accents, and a subtle gradient (e.g., `#fdfaf0` Linen to a slightly deeper/warmer shade) for the section background.
+- **FR-003**: System MUST use the "Otulenie Calm" palette: `#374833` (Moss) for backgrounds or text accents, and a subtle gradient (`#fdfaf0` Linen to `#F5F1E6` Light Linen) for the section background.
 - **FR-004**: System MUST apply a 0.05 opacity noise overlay globally over the section.
-- **FR-005**: Testimonial cards MUST use `backdrop-blur-md` and 60-80% opacity if layered over images or gradients, per project rules.
-- **FR-006**: System MUST implement a horizontal slider for mobile viewports (viewport width < 768px), displaying exactly 1 item at once.
-- **FR-007**: System MUST implement a horizontal slider for desktop viewports, displaying exactly 3 items at once.
+- **FR-005**: Testimonial cards MUST use `backdrop-blur-md` and 60-80% opacity, per project rules.
+- **FR-006**: System MUST implement a horizontal slider for mobile and tablet viewports (viewport width < 1024px), displaying exactly 1 item at once.
+- **FR-007**: System MUST implement a horizontal slider for desktop viewports (viewport width >= 1024px), displaying exactly 3 items at once.
 - **FR-008**: Slider MUST automatically rotate through all available testimonials (auto-play) and pause on hover.
 - **FR-009**: System MUST use the color Olive (#6E8068) for the 5-star rating icons.
+- **FR-010**: System MUST NOT include external links (Booksy or other) for individual testimonials.
+- **FR-011**: System MUST NOT use background imagery or lifestyle photography for this section.
 
 ### Key Entities *(include if feature involves data)*
 

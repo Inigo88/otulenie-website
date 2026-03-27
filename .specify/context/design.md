@@ -18,7 +18,7 @@
 
 - **Image Mood:**  
   natural daylight, linen fabrics, warm interiors, wooden textures, soft shadows, plants, close-up massage moments, peaceful home environments.
-  **Source:** Strictly use only local photography assets from `.specify/context/images/`, converted to `.webp`. Selection MUST follow `.specify/context/images-list.md`.
+  **Source:** Strictly use only local photography assets from `.specify/context/images/`, converted to `.webp`. Selection MUST follow `.specify/assets/images-list.md`.
 
 - **Hero line pattern:**  
   "[Calm benefit]" (Soft Serif)  

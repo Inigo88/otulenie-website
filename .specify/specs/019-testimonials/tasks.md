@@ -38,7 +38,7 @@
 
 - [ ] T006 [P] [US1] Build static markup for `TestimonialCard` with `backdrop-blur-md` and 60-80% opacity in `src/App.jsx`
 - [ ] T007 [P] [US1] Implement Lucide `Star` (Olive #6E8068) and `Quote` (Moss #374833) icons in `TestimonialCard`
-- [ ] T008 [US1] Apply responsive layout: vertical stack for mobile, horizontal grid/slider for desktop in `src/App.jsx`
+- [ ] T008 [US1] Apply responsive layout: horizontal slider for mobile, horizontal grid/slider for desktop in `src/App.jsx`
 
 **Checkpoint**: User Story 1 fully functional and testable independently.
 

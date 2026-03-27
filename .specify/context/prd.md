@@ -431,7 +431,7 @@ Avoid:
 
 All content photography (lifestyle, sessions) must be sourced exclusively from the local `images-small` folder and optimized to `.webp`. Technical icons (Lucide) and the SVG noise pattern are exempt.
 
-**Note**: The list below represents a reference set. The final mapping of specific assets to UI components is defined in the active **Feature Specification** or `.specify/context/images-list.md`.
+**Note**: The list below represents a reference set. The final mapping of specific assets to UI components is defined in the active **Feature Specification** or `.specify/assets/images-list.md`.
 
 Reference set (examples):
 
