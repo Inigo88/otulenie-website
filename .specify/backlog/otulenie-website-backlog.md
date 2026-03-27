@@ -66,7 +66,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 #### Epic 1.2: Homepage High-Impact Sections
 
 **Description**: Building the critical above-the-fold and core value proposition interactive sections.  
-**Status**: Done
+**Status**: In progress
 
 - **Feature 1.2.1**: Implement the "Floating Island" Navbar  
   **Description**: Build a fixed, pill-shaped navbar that morphs its background and style based on the page's scroll position.  
@@ -111,7 +111,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 #### Epic 1.3: Philosophy, Archive & Footer
 
 **Description**: Constructing the philosophy manifesto, service stacking archive, and comprehensive footer.  
-**Status**: In progress
+**Status**: Done
 
 - **Feature 1.3.1**: Develop the Philosophy Manifesto section  
   **Description**: Build a dark-themed parallax-supported section using `SplitType` (or alternative) reveal animations to highlight brand differentiation.  
@@ -136,7 +136,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 - **Feature 1.3.5**: Implement SVG Logo across the application  
   **Description**: Replace text-based brand identifiers with the official `public/logo.svg` asset in the Navbar and Footer to ensure brand consistency.  
   **Branch**: `017-svg-logo`  
-  **Status**: Implemented
+  **Status**: Done
 
 #### Epic 1.4: Trust & Social Proof
 
