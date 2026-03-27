@@ -262,16 +262,21 @@ const MassageCarousel = () => {
         <div className="relative h-full w-full overflow-hidden">
           <div 
             ref={horizontalRef} 
-            className="absolute flex gap-6 md:gap-10 px-6 md:px-12 will-change-transform py-4 z-10 [transform-style:preserve-3d]"
+            onClick={(e) => {
+              const card = e.target.closest('.group');
+              if (card) {
+                const index = Array.from(horizontalRef.current.children).indexOf(card);
+                if (index !== -1) {
+                  const originalIndex = index % MASSAGE_DATA.length;
+                  handleDotClick(originalIndex);
+                }
+              }
+            }}
+            className="absolute flex gap-6 md:gap-10 px-6 md:px-12 will-change-transform py-4 z-10 [transform-style:preserve-3d] select-none"
           >
             {DISPLAY_DATA.map((item, idx) => (
               <div 
                 key={`${item.id}-${idx}`} 
-                onClick={() => {
-                  // T011: Outer card click bypasses disabled CTA to center card
-                  const originalIndex = idx % MASSAGE_DATA.length;
-                  handleDotClick(originalIndex);
-                }}
                 onFocus={() => {
                   // T014: Keyboard focus ensures wheel spins to active
                   const originalIndex = idx % MASSAGE_DATA.length;
