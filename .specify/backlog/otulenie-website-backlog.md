@@ -63,11 +63,6 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Branch**: `014-image-restriction`  
   **Status**: Done
 
-- **Feature 1.1.5**: Restructure specification and bug management  
-  **Description**: Migrate the `specs/` and `bugs/` directories into a centralized `.specify/` folder and update internal scripts and workflows to maintain project consistency.  
-  **Branch**: `018-specify-restructuring`  
-  **Status**: Done
-
 #### Epic 1.2: Homepage High-Impact Sections
 
 **Description**: Building the critical above-the-fold and core value proposition interactive sections.  
