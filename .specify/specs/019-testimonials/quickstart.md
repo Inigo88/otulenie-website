@@ -10,7 +10,7 @@ Add the `testimonials` array to `App.jsx` based on the research findings.
 ## 3. Styling (Tailwind v4)
 - Container: `bg-(--linen)`, `py-20`, `px-6`.
 - Cards: `bg-(--moss)/10`, `backdrop-blur-md`, `rounded-2xl`, `p-8`.
-- Icons: Lucide `Star` in `text-(--olive)`.
+- Icons: Lucide `Star` in `text-(--olive)`, and optional source platform labels or icons.
 
 ## 4. GSAP Animations
 - Add `useGSAP` hook.

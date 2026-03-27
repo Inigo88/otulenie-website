@@ -71,6 +71,7 @@ As a visitor, I want the testimonials to be presented with smooth, cinematic ani
   - `content`: The review text.
   - `author`: Name of the client.
   - `rating`: Star rating (1-5).
+  - `source`: Platform of origin (Booksy, Facebook, etc.).
   - `id`: Unique identifier for DOM targeting.
 
 ## Success Criteria *(mandatory)*

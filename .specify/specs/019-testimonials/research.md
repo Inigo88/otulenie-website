@@ -23,11 +23,11 @@
 
 ```javascript
 const testimonials = [
-  { id: 1, name: "Olek", stars: 5, text: "Wszystko spodobało się. Polecam" },
-  { id: 2, name: "Michał", stars: 5, text: "Z całego serca polecam, skuteczny masaż, miła atmosfera i pełen profesjonalizm." },
-  { id: 3, name: "Magdalena", stars: 5, text: "Polecam wszystkim „spiętym” osobom ❤️" },
-  { id: 4, name: "Justyna", stars: 5, text: "Ulga dla pleców, polecam ❤️" },
-  { id: 5, name: "Daniel", stars: 5, text: "Z czystym sumieniem polecam, pełen profesjonalizm. Dawno nie byłem na tak dobrym masażu 🙂" }
+  { id: 1, name: "Olek", stars: 5, text: "Wszystko spodobało się. Polecam", source: "Booksy" },
+  { id: 2, name: "Michał", stars: 5, text: "Z całego serca polecam, skuteczny masaż, miła atmosfera i pełen profesjonalizm.", source: "Booksy" },
+  { id: 3, name: "Magdalena", stars: 5, text: "Polecam wszystkim „spiętym” osobom ❤️", source: "Booksy" },
+  { id: 4, name: "Justyna", stars: 5, text: "Ulga dla pleców, polecam ❤️", source: "Booksy" },
+  { id: 5, name: "Daniel", stars: 5, text: "Z czystym sumieniem polecam, pełen profesjonalizm. Dawno nie byłem na tak dobrym masażu 🙂", source: "Facebook" }
 ];
 ```
 
