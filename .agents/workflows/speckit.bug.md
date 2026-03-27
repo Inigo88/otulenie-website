@@ -66,10 +66,12 @@ You **MUST** consider the user input before proceeding. This includes the bug de
 - Use `browser_subagent` for UI/UX verification.
 - Always check for regressions in related components designated in the **Technical Root Cause**.
 
-### Registry Hygiene
+### Registry Hygiene & Formatting
 
-- **No Duplicates**: Before adding a new section to `bug-report.md`, search the file for the feature ID/slug.
-- **Table Integrity**: If a feature section exists, append new bugs to the *existing* table. Do NOT create a new table or header.
+- **Count Verification**: Always recalculate the header counts (`total`, `resolved`, `open`) by searching for `✅` and `🔴`/`🟡` markers in the file. Never increment blindly.
+- **Header Preservation**: When editing `bug-report.md`, ensure the table header (`| ID | Title | Fix | Status |` and its separator) is present for every active table.
+- **Section Consolidation**: Before adding a section, search for the feature ID (e.g., `019`). If it exists, append to that table. Never create duplicate sections with similar names (e.g., `019-testimonials` vs `019 — Featured Testimonials`).
+- **Standardized Naming**: Follow the `## [XXX] — [Feature Title]` naming convention for all sections.
 - **Sync Timing**: Ensure `create-bug.sh` has finished its automated sync before manually editing the registry to avoid race conditions or overwriting its changes.
 
 ## Examples
