@@ -114,7 +114,11 @@ const MassageCarousel = () => {
     };
 
     updateWheelRef.current = updateWheel;
-    updateWheel(); // T019: Fire initially
+    
+    // T019: Set initial position to center the first card
+    const initialX = getXForIndex(0);
+    gsap.set(horizontalItems, { x: initialX });
+    updateWheel(); 
 
     // T018: Resize listener inside useGSAP context natively bound
     let resizeTimer;
