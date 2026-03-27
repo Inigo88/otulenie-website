@@ -1,6 +1,6 @@
 # Bug Report — Otulenie Website
 
-> **49 total** · ✅ 49 resolved · 🔴 0 open · 🟡 0 fix proposed
+> **50 total** · ✅ 49 resolved · 🔴 1 open · 🟡 0 fix proposed
 
 ---
 
@@ -112,3 +112,9 @@
 | ID | Title | Fix | Status |
 |----|-------|-----|--------|
 | [B048](017-svg-logo/B048-navbar-footer-polish.md) | Navbar & Footer UI Polish | Logo `h-8`→`h-6`; `focus:`→`focus-visible:`; removed "Główna" link | ✅ |
+
+## 009-massage-types-carousel
+
+| ID | Title | Fix | Status |
+|----|-------|-----|--------|
+| [B050](009-massage-types-carousel/B050-carousel-draggable-disabled.md) | Carousel Draggable Disabled | — | 🔴 |

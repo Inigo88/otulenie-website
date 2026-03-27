@@ -128,64 +128,12 @@ const MassageCarousel = () => {
     };
     window.addEventListener('resize', handleResize);
 
-    // T003: Use a proxy for Draggable to avoid transform conflicts
-    const dragProxy = document.createElement("div");
-    dragProxy.style.cssText = "position:fixed; visibility:hidden; pointer-events:none;";
-    document.body.appendChild(dragProxy);
-    
-    Draggable.create(dragProxy, {
-      type: "x",
-      trigger: horizontalItems,
-      inertia: true,
-      bounds: {
-        minX: getXForIndex(MASSAGE_DATA.length - 1),
-        maxX: getXForIndex(0)
-      },
-      onPress: function() {
-        gsap.set(this.target, { x: gsap.getProperty(horizontalItems, "x") });
-        this.update();
-        isPausedRef.current = true;
-      },
-      onDrag: function() {
-        gsap.set(horizontalItems, { x: this.x });
-        updateWheel();
-      },
-      onThrowUpdate: function() {
-        gsap.set(horizontalItems, { x: this.x });
-        updateWheel();
-      },
-      onThrowComplete: function() {
-        const currentX = gsap.getProperty(horizontalItems, "x");
-        const children = Array.from(horizontalItems.children);
-        
-        // Find closest index
-        let closestIdx = 0;
-        let minDiff = Infinity;
-        
-        children.forEach((child, i) => {
-          const childTargetX = getXForIndex(i);
-          const diff = Math.abs(currentX - childTargetX);
-          if (diff < minDiff) {
-            minDiff = diff;
-            closestIdx = i;
-          }
-        });
-
-        activeSlideRef.current = closestIdx;
-        setActiveSlide(closestIdx);
-
-        // Resume auto-rotation after interaction
-        setTimeout(() => {
-          isPausedRef.current = false;
-        }, 5000);
-      }
-    });
+    // T018: Resize listener inside useGSAP context natively bound
+    // Draggable removed as per user requirement (B050)
 
     return () => {
       st.kill();
       window.removeEventListener('resize', handleResize);
-      if (dragProxy.parentNode) dragProxy.parentNode.removeChild(dragProxy);
-      Draggable.get(dragProxy)?.kill();
     };
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
@@ -330,7 +278,7 @@ const MassageCarousel = () => {
                   handleDotClick(originalIndex);
                 }}
                 tabIndex={0}
-                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-grab active:cursor-grabbing overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover focus-visible:ring-2 focus-visible:ring-moss/50 focus:outline-none md:h-[460px] md:w-[380px] [backface-visibility:hidden]"
+                className="group relative h-[420px] w-[290px] flex-shrink-0 cursor-pointer overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-card transition-all duration-300 hover:shadow-card-hover focus-visible:ring-2 focus-visible:ring-moss/50 focus:outline-none md:h-[460px] md:w-[380px] [backface-visibility:hidden]"
               >
                 <div className="flex h-full flex-col">
                   <span className="mb-4 font-inter text-xs font-semibold uppercase tracking-[0.2em] text-olive/60">
