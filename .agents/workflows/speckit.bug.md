@@ -13,11 +13,10 @@ You **MUST** consider the user input before proceeding. This includes the bug de
 ## Outline
 
 1. **Setup & Identify**:
-    - Determine the next available Bug ID (BXXX) by checking `specs/bugs/`.
-    - Identify the related Feature ID to determine the correct subfolder (e.g., `specs/bugs/007-hero-section/`).
-    - **Create the target subfolder if it does not exist** before proceeding.
-    - Create the bug report file using `.specify/templates/bug-template.md`.
-    - **Synchronize Registry**: Append a new row to `specs/bugs/bug-report.md` with status `🔴 Open` and increment "Total" and "Open" counts in the header.
+    - **Report & Initialize**: Run the bug creation script to generate the BXXX ID and register the bug.
+    - `bash .specify/scripts/bash/create-bug.sh "[Title]" --feature "XXX-slug"`
+    - If it's a general bug, omit the `--feature` flag.
+    - This script handles folder creation, template copying, and `.specify/bugs/bug-report.md` synchronization.
 
 2. **Report & Investigate**:
     - Fill out the **Description**, **Steps to Reproduce**, and **Actual/Expected Behavior** based on user input.
@@ -32,7 +31,7 @@ You **MUST** consider the user input before proceeding. This includes the bug de
 4. **Approval Gate**:
     - **STOP**. Use `notify_user` to present the bug report and proposed plan to the user.
     - Do NOT proceed with implementation until the user provides explicit approval of the plan.
-    - **Synchronize Registry**: Update the bug status to `🟡 Fix Proposed` in `specs/bugs/bug-report.md`.
+    - **Synchronize Registry**: Update the bug status to `🟡 Fix Proposed` in `.specify/bugs/bug-report.md`.
 
 5. **Execute the Fix**:
     - Once approved, implement the tasks defined in the **Detailed Task List**.
@@ -44,7 +43,7 @@ You **MUST** consider the user input before proceeding. This includes the bug de
     - If visual, capture proof (screenshots/recordings).
     - Fill out the **Resolution** section summarizing the fix.
     - Update the **Status** to `Resolved` and set the **Date Resolved**.
-    - **Synchronize Registry**: Update status to `✅ Resolved` in `specs/bugs/bug-report.md`, add a concise one-line summary to the "Fix" column, and update header counts.
+    - **Synchronize Registry**: Update status to `✅ Resolved` in `.specify/bugs/bug-report.md`, add a concise one-line summary to the "Fix" column, and update header counts.
 
 7. **Finalize**:
     - Update the **walkthrough.md** if the fix has a user-facing impact.

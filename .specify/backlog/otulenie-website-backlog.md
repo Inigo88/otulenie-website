@@ -145,7 +145,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 1.4.1**: Implement Featured Testimonials section
   **Description**: Create a premium, GSAP-animated section for client reviews with subtle branding and cinematic layout.
-  **Branch**: `018-testimonials`
+  **Branch**: `019-testimonials`
   **Status**: Backlog
 
 ---
@@ -162,12 +162,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.1.1**: Build the 'Oferta' page  
   **Description**: Create a dedicated page detailing the four massage types (Mocne, Głębokie, Czułe, Ciepłe) with prominent individual CTAs. MUST implement unique IDs/anchors for each service to support direct deep-linking from the Homepage Carousel.
-  **Branch**: `019-oferta-page`
+  **Branch**: `020-oferta-page`
   **Status**: Backlog
 
 - **Feature 2.1.2**: Implement the 'Obszar dojazdu' page  
   **Description**: Build an informative page detailing the Wrocław service coverage and specific out-of-city travel policies.  
-  **Branch**: `020-obszar-page`  
+  **Branch**: `021-obszar-page`  
   **Status**: Backlog
 
 #### Epic 2.2: Trust & Booking Support
@@ -177,12 +177,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.2.1**: Create the 'O mnie' page  
   **Description**: Build a highly trust-focused page detailing the practitioner's philosophy, natural approach, and commitment to calm. MUST include a dedicated interactive gallery for professional certifications and qualifications.
-  **Branch**: `021-omnie-page`  
+  **Branch**: `022-omnie-page`  
   **Status**: Backlog
 
 - **Feature 2.2.2**: Develop the 'FAQ' accordion component  
   **Description**: Implement an interactive, smooth-animating accordion listing common questions about home preparation, pain, and payment options.  
-  **Branch**: `022-faq-page`  
+  **Branch**: `023-faq-page`  
   **Status**: Backlog
 
 #### Epic 2.3: Legal & Compliance
@@ -192,12 +192,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.3.1**: Create the 'Polityka Prywatności' page  
   **Description**: Develop a dedicated page for the Privacy Policy (GDPR), detailing data collection and processing for massage services.  
-  **Branch**: `023-privacy-policy`  
+  **Branch**: `024-privacy-policy`  
   **Status**: Backlog
 
 - **Feature 2.3.2**: Create the 'Regulamin' page  
   **Description**: Build a page for the Terms and Conditions, outlining service rules, cancellations, and booking policies.  
-  **Branch**: `024-regulamin`  
+  **Branch**: `025-regulamin`  
   **Status**: Backlog
 
 ---
@@ -214,12 +214,12 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 3.1.1**: Integrate Google Analytics (GA4)
   **Description**: Setup GA4 tracking to measure homepage interactions, carousel engagement, and successful redirects to Booksy. Implement custom event logging for primary CTAs.
-  **Branch**: `025-google-analytics`
+  **Branch**: `026-google-analytics`
   **Status**: Backlog
 
 - **Feature 3.2.1**: Implement Time-Aware Aesthetic Transitions
   **Description**: Adjust site accent colors or noise intensity automatically based on the visitor's local time (e.g., warmer evening mode).
-  **Branch**: `026-time-aware-ui`
+  **Branch**: `027-time-aware-ui`
   **Status**: Backlog
 
 #### Epic 3.3: SEO & Content Optimization
@@ -229,5 +229,5 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 3.3.1**: Perform SEO Audit & Wording Optimization
   **Description**: Complete a full site SEO analysis and update micro-copy/meta-tags to improve organic reach and tone consistency.
-  **Branch**: `027-seo-audit`
+  **Branch**: `029-seo-audit`
   **Status**: Backlog

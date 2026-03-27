@@ -32,4 +32,4 @@ This repository utilizes the **Speckit** workflow system for feature generation 
 - `.specify/memory/constitution.md`: The governing rules for all project additions.
 - `.specify/backlog/`: Centralized feature and epic tracking.
 - `.specify/context/`: Core business constraints (`prd.md`, `design.md`, `tech-stack.md`).
-- `specs/bugs/bug-report.md`: Central registry of all identified and resolved bugs.
+- `.specify/bugs/bug-report.md`: Central registry of all identified and resolved bugs.
