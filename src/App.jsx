@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Star, Quote } from 'lucide-react'
+import { Star } from 'lucide-react'
 
 import {
   BOOKSY_WIDGET_ID,
@@ -36,14 +36,12 @@ const TestimonialCard = ({ name, stars, text }) => (
       ))}
     </div>
     <div className="relative mb-6">
-      <Quote size={24} className="absolute -top-2 -left-2 text-moss/10 -z-10" />
-      <p className="font-inter text-moss/90 leading-relaxed italic relative z-10">
+      <p className="font-inter text-moss/90 leading-relaxed relative z-10">
         {text}
       </p>
     </div>
     <div className="mt-auto pt-6 border-t border-moss/10">
       <h4 className="font-fraunces text-xl text-moss">{name}</h4>
-      <p className="font-inter text-xs text-olive/60 uppercase tracking-widest mt-1">Klient Booksy</p>
     </div>
   </article>
 );
@@ -112,7 +110,7 @@ const TestimonialSection = () => {
           Głosy spokoju
         </h2>
         
-        <div className="relative overflow-hidden max-w-full md:max-w-[1188px]">
+        <div className="relative overflow-hidden max-w-full md:max-w-[1188px] py-10 -my-10">
           <div 
             ref={trackRef}
             className="flex gap-6 will-change-transform"

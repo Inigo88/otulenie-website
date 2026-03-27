@@ -1,6 +1,6 @@
 # Bug Report — Otulenie Website
 
-> **51 total** · ✅ 51 resolved · 🔴 0 open · 🟡 0 fix proposed
+> **52 total** · ✅ 52 resolved · 🔴 0 open · 🟡 0 fix proposed
 
 ---
 
@@ -119,4 +119,5 @@
 
 | ID                                                                   | Title                               | Fix                                                                      | Status |
 | -------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------ | ------ |
-| [B051](019-testimonials/B051-auto-updating-testimonials-carousel.md) | Auto-updating Testimonials Carousel | Infinite GSAP auto-slide (5s); 3-card desktop constraint; removed quotes | ✅      |
+| [B051](019-testimonials/B051-auto-updating-testimonials-carousel.md) | Auto-updating Testimonials Carousel | Infinite GSAP auto-slide (5s); 3-card desktop constraint; removed quotes | ✅ |
+| [B052](019-testimonials/B052-testimonials-ui-refinements.md) | Testimonials UI Refinements | Removed redundant icons/labels; fixed italics and card clipping | ✅ |
