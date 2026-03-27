@@ -6,12 +6,11 @@ import App from './App.jsx'
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Draggable } from "gsap/draggable"
 import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 
 // T006: Register GSAP plugins safely to handle missing plugins or SSR gracefully
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(useGSAP, ScrollTrigger, Draggable, ScrollToPlugin);
+  gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin);
 
   // Configure GSAP ScrollTrigger global defaults
   ScrollTrigger.defaults({
