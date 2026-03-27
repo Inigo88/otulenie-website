@@ -12,42 +12,49 @@ You **MUST** consider the user input before proceeding. This includes the bug de
 
 ## Outline
 
-1. **Setup & Identify**:
-    - **Report & Initialize**: Run the bug creation script to generate the BXXX ID and register the bug.
+- **Analyze & Group**:
+    - **Review Input**: Carefully read the bug description and reproduction steps.
+    - **Determine Scope**: Decide if the user has described a single issue, multiple related problems, or distinct bugs.
+    - **Group if Related**: It is acceptable (and encouraged) to fix a few related issues in one bug report (e.g., minor UI glitches in the same section).
+    - **Split only if Separate**: Only propose splitting if the issues are "really separate"—those affecting unrelated features, requiring vastly different implementation strategies, or having different priorities. Inform the user and propose splitting (e.g., B001, B002).
+    - **Categorize**: Identify which feature or component the issue belongs to.
+
+2. **Setup & Identify**:
+    - **Report & Initialize**: Once the scope is clear, run the bug creation script to generate the BXXX ID and register the bug.
     - `bash .specify/scripts/bash/create-bug.sh "[Title]" --feature "XXX-slug"`
     - > [!IMPORTANT]
     - > Before running the script, verify the correct `XXX` prefix in `.specify/bugs/bug-report.md`. Using the consistent 3-digit prefix (e.g., `019`) ensures the bug is added to the existing feature section.
     - If it's a general bug, omit the `--feature` flag.
     - This script handles folder creation, template copying, and `.specify/bugs/bug-report.md` synchronization.
 
-2. **Report & Investigate**:
+3. **Report & Investigate**:
     - Fill out the **Description**, **Steps to Reproduce**, and **Actual/Expected Behavior** based on user input.
     - If media was provided, move it to the artifacts directory and embed it in the report.
     - Perform a technical investigation to identify the **Technical Root Cause**. cite specific files and lines.
 
-3. **Plan the Fix**:
+4. **Plan the Fix**:
     - Complete the **Proposed Fix** section in the bug report file.
     - Define a clear **Implementation Strategy**.
     - Detail **Affected Components** and create a **Detailed Task List** (T001, T002...) similar to a feature `tasks.md`.
 
-4. **Approval Gate**:
+5. **Approval Gate**:
     - **STOP**. Use `notify_user` to present the bug report and proposed plan to the user.
     - Do NOT proceed with implementation until the user provides explicit approval of the plan.
     - **Synchronize Registry**: Update the bug status to `🟡 Fix Proposed` in `.specify/bugs/bug-report.md`.
 
-5. **Execute the Fix**:
+6. **Execute the Fix**:
     - Once approved, implement the tasks defined in the **Detailed Task List**.
     - Mark tasks as completed `[x]` in the bug file as you progress.
     - Maintain the project's code quality and architectural standards.
 
-6. **Verify & Resolve**:
+7. **Verify & Resolve**:
     - Perform the steps defined in the **Verification** section (Functional, Visual, Accessibility, Technical).
     - If visual, capture proof (screenshots/recordings).
     - Fill out the **Resolution** section summarizing the fix.
     - Update the **Status** to `Resolved` and set the **Date Resolved**.
     - **Synchronize Registry**: Update status to `✅ Resolved` in `.specify/bugs/bug-report.md`, add a concise one-line summary to the "Fix" column, and update header counts.
 
-7. **Finalize**:
+8. **Finalize**:
     - Commit and push all changes: `fix(scope): resolve BXXX [Title]`.
 
 ## Task Rules
