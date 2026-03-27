@@ -11,7 +11,7 @@
 
 - Q: Navigation Scope: Should the 404 page include links to major sections or only a minimal "Return Home" button? → A: Option A: Minimal - only a prominent "Return Home" button.
 - Q: Humor and Messaging Tone → A: Option B: Propose options - 3 calm, high-fidelity taglines will be provided for final review during implementation.
-- Q: Implementation "Graphic" → A: Option A: A feature requirement - include a simple, AI-generated humorous graphic/diagram (e.g., "lost in stillness" flow chart) as a visual asset.
+- Q: Implementation "Graphic" → A: Option A: A feature requirement - include a simple, AI-generated humorous graphic as a visual asset.
 - Q: Graphic Interactivity → A: Option A: Static - high-quality static image/SVG with a calm entrance animation.
 
 ## User Scenarios & Testing *(mandatory)*
@@ -61,7 +61,7 @@ As a visitor, I want the error page to feel like it belongs to Otulenie through 
 - **FR-003**: System MUST apply the 0.05 opacity SVG noise overlay globally to the 404 view.
 - **FR-004**: System MUST use GSAP (`useGSAP`) to implement a calm entrance animation for the 404 message and call-to-action.
 - **FR-005**: System MUST strictly adhere to the project palette (#374833 Moss, #fdfaf0 Linen).
-- **FR-006**: System MUST include a central AI-generated humorous graphic (e.g., a "Lost in Stillness" radar chart or flow diagram) that maintains the brand aesthetic.
+- **FR-006**: System MUST include a central AI-generated humorous graphic that maintains the brand's calm aesthetic.
 - **FR-007**: The AI-generated visual MUST be static but include a gentle GSAP entrance animation (matching the core brand philosophy).
 
 ### Key Entities *(include if feature involves data)*
