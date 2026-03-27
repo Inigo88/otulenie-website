@@ -153,7 +153,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 ### Milestone 2: Detailed Informational Pages
 
 **Description**: Creating specific sub-pages for discrete service details, practitioner philosophy, area coverage, and FAQs.  
-**Status**: Backlog
+**Status**: In progress
 
 #### Epic 2.1: Service and Area Details
 
@@ -199,6 +199,16 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Description**: Build a page for the Terms and Conditions, outlining service rules, cancellations, and booking policies.  
   **Branch**: `025-regulamin`  
   **Status**: Backlog
+
+#### Epic 2.4: Brand Continuity & Utility
+
+**Description**: Managing non-standard routes and ensuring brand personality is maintained even in edge cases.  
+**Status**: In progress
+
+- **Feature 2.4.1**: Build a 'funny' 404 Error Page  
+  **Description**: Create a custom 404 page that maintains the brand's calm aesthetic while adding a touch of humor or personality. MUST include a clear 'Return Home' CTA.  
+  **Branch**: `030-funny-404-page`  
+  **Status**: Specified
 
 ---
 
