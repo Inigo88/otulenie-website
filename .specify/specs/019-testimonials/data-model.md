@@ -8,7 +8,6 @@
 | `name` | `string` | Name of the reviewer. | Required. |
 | `stars` | `number` | Star rating (1-5). | Required, Integer [1-5]. |
 | `text` | `string` | The review content. | Required, Max 500 chars for layout balance. |
-| `source` | `string` | Source of the review (Internal use ONLY). | Optional. |
 
 ## Schema (React State/Props)
 
@@ -18,7 +17,6 @@ interface Testimonial {
   name: string;
   stars: number;
   text: string;
-  source?: string;
 }
 ```
 
