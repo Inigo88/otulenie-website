@@ -9,8 +9,8 @@
 
 **Purpose**: Project initialization and data preparation
 
-- [ ] T001 Add `testimonials` data array to `src/App.jsx` based on `data-model.md`
-- [ ] T002 [P] Scaffold `TestimonialSection` and `TestimonialCard` component skeletons in `src/App.jsx`
+- [x] T001 Add `testimonials` data array to `src/App.jsx` based on `data-model.md`
+- [x] T002 [P] Scaffold `TestimonialSection` and `TestimonialCard` component skeletons in `src/App.jsx`
 
 ---
 
@@ -20,9 +20,9 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T003 Implement section background with subtle gradient and global noise overlay in `src/App.jsx`
-- [ ] T004 Apply core typography for "Głosy spokoju" heading in `src/App.jsx`
-- [ ] T005 Configure GSAP `useGSAP` hook and `ScrollTrigger` context for the section in `src/App.jsx`
+- [x] T003 Implement section background with subtle gradient and global noise overlay in `src/App.jsx`
+- [x] T004 Apply core typography for "Głosy spokoju" heading in `src/App.jsx`
+- [x] T005 Configure GSAP `useGSAP` hook and `ScrollTrigger` context for the section in `src/App.jsx`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -36,9 +36,9 @@
 
 ### Implementation for User Story 1
 
-- [ ] T006 [P] [US1] Build static markup for `TestimonialCard` with `backdrop-blur-md` and 60-80% opacity in `src/App.jsx`
-- [ ] T007 [P] [US1] Implement Lucide `Star` (Olive #6E8068) and `Quote` (Moss #374833) icons in `TestimonialCard`
-- [ ] T008 [US1] Apply responsive layout: horizontal slider for mobile, horizontal grid/slider for desktop in `src/App.jsx`
+- [x] T006 [P] [US1] Build static markup for `TestimonialCard` with `backdrop-blur-md` and 60-80% opacity in `src/App.jsx`
+- [x] T007 [P] [US1] Implement Lucide `Star` (Olive #6E8068) and `Quote` (Moss #374833) icons in `TestimonialCard`
+- [x] T008 [US1] Apply responsive layout: horizontal slider for mobile, horizontal grid/slider for desktop in `src/App.jsx`
 
 **Checkpoint**: User Story 1 fully functional and testable independently.
 
@@ -52,10 +52,10 @@
 
 ### Implementation for User Story 2
 
-- [ ] T009 [US2] Implement GSAP staggered fade-up reveal for testimonial cards using `ScrollTrigger` in `src/App.jsx`
-- [ ] T010 [US2] Create horizontal slider logic for mobile (< 768px) with GSAP `xPercent` transitions in `src/App.jsx`
-- [ ] T011 [US2] Implement desktop horizontal slider (3 items) with auto-play and pause on hover in `src/App.jsx`
-- [ ] T012 [US2] Add subtle hover lift effect to `TestimonialCard` for desktop viewports in `src/App.jsx`
+- [x] T009 [US2] Implement GSAP staggered fade-up reveal for testimonial cards using `ScrollTrigger` in `src/App.jsx`
+- [x] T010 [US2] Create horizontal slider logic for mobile (< 768px) with GSAP `xPercent` transitions in `src/App.jsx`
+- [x] T011 [US2] Implement desktop horizontal slider (3 items) with auto-play and pause on hover in `src/App.jsx`
+- [x] T012 [US2] Add subtle hover lift effect to `TestimonialCard` for desktop viewports in `src/App.jsx`
 
 **Checkpoint**: User Stories 1 AND 2 should both work independently.
 
@@ -65,9 +65,9 @@
 
 **Purpose**: Refinements and accessibility support
 
-- [ ] T013 [P] Implement `prefers-reduced-motion` support using simple opacity fades in `src/App.jsx`
-- [ ] T014 Final accessibility check: WCAG AA contrast and semantic `<article>` tags in `src/App.jsx`
-- [ ] T015 Verify 60fps performance and layout integrity on 390px viewport
+- [x] T013 [P] Implement `prefers-reduced-motion` support using simple opacity fades in `src/App.jsx`
+- [x] T014 Final accessibility check: WCAG AA contrast and semantic `<article>` tags in `src/App.jsx`
+- [x] T015 Verify 60fps performance and layout integrity on 390px viewport
 
 ---
 
