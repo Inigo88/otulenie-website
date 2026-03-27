@@ -5,7 +5,7 @@
 
 ## Summary
 
-Implement a premium, GSAP-animated "Featured Testimonials" section titled "Głosy spokoju". This section will showcase 4 client reviews from Booksy using a cinematic layout that stacks vertically on mobile and uses a horizontal auto-playing slider on desktop. The implementation will focus on high-fidelity animations and adherence to the "Otulenie Calm" design system.
+Implement a premium, GSAP-animated "Featured Testimonials" section titled "Głosy spokoju". This section will showcase 5 client reviews from Booksy using a cinematic layout that stacks vertically on mobile and uses a horizontal auto-playing slider on desktop. The implementation will focus on high-fidelity animations and adherence to the "Otulenie Calm" design system.
 
 ## Technical Context
 
