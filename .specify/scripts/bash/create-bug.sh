@@ -95,9 +95,9 @@ TEMP_REGISTRY=$(mktemp)
 sed "s/\*\*$TOTAL total\*\*/\*\*$NEW_TOTAL total\*\*/; s/🔴 $OPEN open/🔴 $NEW_OPEN open/" "$REGISTRY_FILE" > "$TEMP_REGISTRY"
 
 # 6. Append Row to Registry Table
-# Find the section for the feature ID, or create it if missing
-SECTION_HEADER="## ${FEATURE_ID% -*}" # Simple match for 015-footer or 015
-if grep -q "## $FEATURE_ID" "$TEMP_REGISTRY"; then
+# Find the section for the feature ID based on its 3-digit prefix
+FEATURE_PREFIX="${FEATURE_ID:0:3}"
+if grep -q "## $FEATURE_PREFIX" "$TEMP_REGISTRY"; then
   # Feature section exists. Find the table end and insert the new row.
   # We look for the line after the table in that section.
   # This is a bit complex for sed, so we'll use a more robust way.
@@ -117,18 +117,22 @@ with open(registry_path, 'r') as f:
 output = []
 in_section = False
 row_added = False
+feature_prefix = feature_id[:3]
 
 for i, line in enumerate(lines):
     output.append(line)
     # Match section by starting with ## and then the 3-digit prefix
-    if line.startswith('## ' + feature_id[:3]):
+    if line.startswith('## ' + feature_prefix):
         in_section = True
     elif in_section and (line.startswith('## ') or i == len(lines)-1):
         # We reached the next section or EOF. Add the row to the previous section's table.
         # Find the last table row in our section
-        for j in range(len(output)-1, 0, -1):
+        end_search = len(output)
+        for j in range(end_search - 1, 0, -1):
             if '|' in output[j]:
                 new_row = f'| [{next_id}]({rel_path}) | {title} | — | 🔴 |\n'
+                # If we are at the next header line, insert before it (j+1 might be too far)
+                # If we found a table row, j+1 is correct.
                 output.insert(j+1, new_row)
                 row_added = True
                 break

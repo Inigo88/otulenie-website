@@ -15,6 +15,8 @@ You **MUST** consider the user input before proceeding. This includes the bug de
 1. **Setup & Identify**:
     - **Report & Initialize**: Run the bug creation script to generate the BXXX ID and register the bug.
     - `bash .specify/scripts/bash/create-bug.sh "[Title]" --feature "XXX-slug"`
+    - > [!IMPORTANT]
+    - > Before running the script, verify the correct `XXX` prefix in `.specify/bugs/bug-report.md`. Using the consistent 3-digit prefix (e.g., `019`) ensures the bug is added to the existing feature section.
     - If it's a general bug, omit the `--feature` flag.
     - This script handles folder creation, template copying, and `.specify/bugs/bug-report.md` synchronization.
 
@@ -46,7 +48,6 @@ You **MUST** consider the user input before proceeding. This includes the bug de
     - **Synchronize Registry**: Update status to `✅ Resolved` in `.specify/bugs/bug-report.md`, add a concise one-line summary to the "Fix" column, and update header counts.
 
 7. **Finalize**:
-    - Update the **walkthrough.md** if the fix has a user-facing impact.
     - Commit and push all changes: `fix(scope): resolve BXXX [Title]`.
 
 ## Task Rules
@@ -66,12 +67,10 @@ You **MUST** consider the user input before proceeding. This includes the bug de
 - Use `browser_subagent` for UI/UX verification.
 - Always check for regressions in related components designated in the **Technical Root Cause**.
 
-### Registry Hygiene & Formatting
+### Registry Hygiene
 
-- **Count Verification**: Always recalculate the header counts (`total`, `resolved`, `open`) by searching for `✅` and `🔴`/`🟡` markers in the file. Never increment blindly.
-- **Header Preservation**: When editing `bug-report.md`, ensure the table header (`| ID | Title | Fix | Status |` and its separator) is present for every active table.
-- **Section Consolidation**: Before adding a section, search for the feature ID (e.g., `019`). If it exists, append to that table. Never create duplicate sections with similar names (e.g., `019-testimonials` vs `019 — Featured Testimonials`).
-- **Standardized Naming**: Follow the `## [XXX] — [Feature Title]` naming convention for all sections.
+- **No Duplicates**: Before adding a new section to `bug-report.md`, search the file for the feature ID/slug.
+- **Table Integrity**: If a feature section exists, append new bugs to the *existing* table. Do NOT create a new table or header.
 - **Sync Timing**: Ensure `create-bug.sh` has finished its automated sync before manually editing the registry to avoid race conditions or overwriting its changes.
 
 ## Examples
