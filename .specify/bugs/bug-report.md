@@ -2,14 +2,9 @@
 
 > **51 total** · ✅ 50 resolved · 🔴 1 open · 🟡 0 fix proposed
 
-## 019 — Featured Testimonials
+---
 
-| ID | Title | Fix | Status |
-|----|-------|-----|--------|
-| [B051](019-testimonials/B051-auto-updating-testimonials-carousel.md) | Auto-updating Testimonials Carousel | Infinite GSAP auto-slide (5s); 3-card desktop constraint; removed quotes | ✅ |
-
-| ID | Title | Fix | Status |
-|----|-------|-----|--------|
+## 004 — Global Design System
 | [B012](004-global-design-system/B012-shadow-artifacts.md) | Shadow Artifacts ("Dark Blob") | Smoothed `backgroundColor` / `backdropFilter` interpolation; reduced shadow intensity | ✅ |
 | [B013](004-global-design-system/B013-html-lang.md) | HTML Lang Attribute Set to English | Changed `lang="en"` → `lang="pl"` in `index.html` | ✅ |
 | [B014](004-global-design-system/B014-heading-hierarchy.md) | Heading Hierarchy Skips H2 | Changed service card headings from `<h3>` to `<h2>` | ✅ |
@@ -121,8 +116,8 @@
 |----|-------|-----|--------|
 | [B050](009-massage-types-carousel/B050-carousel-draggable-disabled.md) | Carousel Draggable Disabled | — | 🔴 |
 
-## 019-testimonials
+## 019 — Featured Testimonials
 
 | ID | Title | Fix | Status |
 |----|-------|-----|--------|
-| [B051](019-testimonials/B051-auto-updating-testimonials-carousel.md) | Auto-updating Testimonials Carousel | — | 🔴 |
+| [B051](019-testimonials/B051-auto-updating-testimonials-carousel.md) | Auto-updating Testimonials Carousel | Infinite GSAP auto-slide (5s); 3-card desktop constraint; removed quotes | ✅ |

@@ -66,6 +66,12 @@ You **MUST** consider the user input before proceeding. This includes the bug de
 - Use `browser_subagent` for UI/UX verification.
 - Always check for regressions in related components designated in the **Technical Root Cause**.
 
+### Registry Hygiene
+
+- **No Duplicates**: Before adding a new section to `bug-report.md`, search the file for the feature ID/slug.
+- **Table Integrity**: If a feature section exists, append new bugs to the *existing* table. Do NOT create a new table or header.
+- **Sync Timing**: Ensure `create-bug.sh` has finished its automated sync before manually editing the registry to avoid race conditions or overwriting its changes.
+
 ## Examples
 
 ### ✅ GOOD: Structured & Precise
