@@ -2,8 +2,16 @@
 
 **Feature Branch**: `019-testimonials`  
 **Created**: 2026-03-27  
-**Status**: Draft  
+**Status**: Finalized  
 **Input**: User description: "Implement Featured Testimonials section: Create a premium, GSAP-animated section for client reviews with subtle branding and cinematic layout."
+
+## Clarifications
+
+### Session 2026-03-27
+- Q: Data Source & Curation → A: Use all 4 extracted Booksy reviews (Name, Stars, Text) and omit the 'context' field.
+- Q: Desktop Layout → A: Show 3 testimonials at once with the ability to iterate/scroll through more (Slider/Carousel).
+- Q: Slider Navigation → A: Auto-play with Pause (No visible buttons).
+- Q: Star Rating Aesthetics → A: Use Olive (#6E8068) for star icons.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -53,14 +61,16 @@ As a visitor, I want the testimonials to be presented with smooth, cinematic ani
 - **FR-004**: System MUST apply a 0.05 opacity noise overlay globally over the section.
 - **FR-005**: Testimonial cards MUST use `backdrop-blur-md` and 60-80% opacity if layered over images or gradients, per project rules.
 - **FR-006**: System MUST stack testimonials vertically on mobile devices (viewport width < 768px).
-- **FR-007**: System MUST use `lucide-react` for any UI icons (e.g., quote marks or navigation arrows).
+- **FR-007**: System MUST implement a horizontal slider for desktop viewports, displaying exactly 3 items at once.
+- **FR-008**: Slider MUST automatically rotate through all available testimonials (auto-play) and pause on hover.
+- **FR-009**: System MUST use the color Olive (#6E8068) for the 5-star rating icons.
 
 ### Key Entities *(include if feature involves data)*
 
 - **Testimonial**:
   - `content`: The review text.
   - `author`: Name of the client.
-  - `context`: Brief descriptor (e.g., "Mama", "Programista", "Wrocławianka").
+  - `rating`: Star rating (1-5).
   - `id`: Unique identifier for DOM targeting.
 
 ## Success Criteria *(mandatory)*
