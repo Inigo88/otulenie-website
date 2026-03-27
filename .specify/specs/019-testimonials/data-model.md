@@ -8,7 +8,7 @@
 | `name` | `string` | Name of the reviewer. | Required. |
 | `stars` | `number` | Star rating (1-5). | Required, Integer [1-5]. |
 | `text` | `string` | The review content. | Required, Max 500 chars for layout balance. |
-| `source` | `string` | Source of the review (e.g., Booksy, Facebook, Google). | Optional. |
+| `source` | `string` | Source of the review (Internal use ONLY). | Optional. |
 
 ## Schema (React State/Props)
 
