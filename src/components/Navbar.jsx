@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { Menu, X } from 'lucide-react'
 import MagneticButton from './MagneticButton'
+import Logo from './Logo'
 import MobileMenu from './MobileMenu'
 import { NAV_LINKS, BOOKSY_URL } from '../constants/links'
 import { useBooksy } from '../hooks/useBooksy'
@@ -136,21 +137,22 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                     `}
                 >
                     {/* Logo */}
-                    <a 
-                        href="/" 
-                        onClick={(e) => {
-                            e.preventDefault();
-                            onNavigate ? onNavigate('/') : window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
+                    <MagneticButton
+                        as="a"
+                        href="/"
+                        strength={0.1}
+                        onClick={onNavigate ? (e) => { e.preventDefault(); onNavigate('/'); } : undefined}
+                        aria-label="Otulenie - Strona główna"
                         className={`
-                            font-serif text-2xl font-bold tracking-tight transition-all duration-500 px-4
+                            bg-transparent !p-0 shadow-none hover:shadow-none
+                            transition-all duration-500 px-4
                             no-underline cursor-pointer
                             ${delayedIsHero && !isMenuOpen ? 'text-linen' : 'text-moss'}
                             ${isMenuOpen ? 'opacity-0 pointer-events-none translate-x-[-10px]' : 'opacity-100'}
                         `}
                     >
-                        Otulenie
-                    </a>
+                        <Logo />
+                    </MagneticButton>
 
                     {/* Desktop Navigation */}
                     <div className={`

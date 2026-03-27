@@ -22,7 +22,7 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Update feature status in `.specify/backlog/otulenie-website-backlog.md` to `Tasked`
+- [x] T001 Update feature status in `.specify/backlog/otulenie-website-backlog.md` to `Tasked`
 
 ---
 
@@ -30,8 +30,8 @@
 
 **Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
 
-- [ ] T002 [P] Modify `public/logo.svg` to replace `fill="#000000"` with `fill="currentColor"`
-- [ ] T003 [P] Create `src/components/Logo.jsx` with responsive height `h-8` (32px) and fallback text
+- [x] T002 [P] Modify `public/logo.svg` to replace `fill="#000000"` with `fill="currentColor"`
+- [x] T003 [P] Create `src/components/Logo.jsx` with responsive height `h-8` (32px) and fallback text
 
 **Checkpoint**: Foundation ready - logo asset and component available for integration
 
@@ -45,10 +45,10 @@
 
 ### Implementation for User Story 1
 
-- [ ] T004 [US1] Import `Logo` and `MagneticButton` into `src/components/Navbar.jsx`
-- [ ] T005 [US1] Wrap `<Logo />` in `MagneticButton` with `strength={0.1}` in `src/components/Navbar.jsx`
-- [ ] T006 [US1] Implement dynamic color classes (`text-linen` vs `text-moss`) based on `delayedIsHero` state in `src/components/Navbar.jsx`
-- [ ] T007 [US1] Add accessibility `aria-label="Otulenie - Strona główna"` to the logo link in `src/components/Navbar.jsx`
+- [x] T004 [US1] Import `Logo` and `MagneticButton` into `src/components/Navbar.jsx`
+- [x] T005 [US1] Wrap `<Logo />` in `MagneticButton` with `strength={0.1}` in `src/components/Navbar.jsx`
+- [x] T006 [US1] Implement dynamic color classes (`text-linen` vs `text-moss`) based on `delayedIsHero` state in `src/components/Navbar.jsx`
+- [x] T007 [US1] Add accessibility `aria-label="Otulenie - Strona główna"` to the logo link in `src/components/Navbar.jsx`
 
 **Checkpoint**: User Story 1 (Navbar Logo) is fully functional
 
@@ -62,9 +62,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T008 [US2] Import `Logo` into `src/components/Footer.jsx`
-- [ ] T009 [US2] Replace `<h2>Otulenie</h2>` with `<Logo className="text-linen h-8" />` wrapped in `<a href="/" aria-label="Otulenie - Strona główna">` in `src/components/Footer.jsx` (FR-003)
-- [ ] T010 [US2] Ensure logo link in Footer also uses `aria-label="Otulenie - Strona główna"`
+- [x] T008 [US2] Import `Logo` into `src/components/Footer.jsx`
+- [x] T009 [US2] Replace `<h2>Otulenie</h2>` with `<Logo className="text-linen h-8" />` wrapped in `<a href="/" aria-label="Otulenie - Strona główna">` in `src/components/Footer.jsx` (FR-003)
+- [x] T010 [US2] Ensure logo link in Footer also uses `aria-label="Otulenie - Strona główna"`
 
 **Checkpoint**: User Story 2 (Footer Logo) is fully functional
 
@@ -74,9 +74,9 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T011 [P] Verify `prefers-reduced-motion` compliance for Navbar color transitions
-- [ ] T012 [P] Validate responsive scaling on 390px viewport per `quickstart.md`
-- [ ] T013 Run final manual verification suite from `plan.md`
+- [x] T011 [P] Verify `prefers-reduced-motion` compliance for Navbar color transitions
+- [x] T012 [P] Validate responsive scaling on 390px viewport per `quickstart.md`
+- [x] T013 Run final manual verification suite from `plan.md`
 
 ---
 
