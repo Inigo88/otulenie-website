@@ -103,6 +103,11 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Branch**: `011-wellness-wheel`  
   **Status**: Done
 
+- **Feature 1.2.8**: Redesign of Mobile Navigation Menu
+  **Description**: Update the mobile navigation menu with a more premium, immersive design, incorporating cinematic entrance animations, refined typography, and improved layout for a more tactile user experience.
+  **Branch**: `028-mobile-menu-redesign`
+  **Status**: Backlog
+
 #### Epic 1.3: Philosophy, Archive & Footer
 
 **Description**: Constructing the philosophy manifesto, service stacking archive, and comprehensive footer.  
