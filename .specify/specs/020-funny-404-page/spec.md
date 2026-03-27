@@ -2,8 +2,17 @@
 
 **Feature Branch**: `020-funny-404-page`  
 **Created**: 2026-03-27  
-**Status**: Draft  
+**Status**: Finalized  
 **Input**: User description: "Build a 'funny' 404 Error Page"
+
+## Clarifications
+
+### Session 2026-03-27
+
+- Q: Navigation Scope: Should the 404 page include links to major sections or only a minimal "Return Home" button? → A: Option A: Minimal - only a prominent "Return Home" button.
+- Q: Humor and Messaging Tone → A: Option B: Propose options - 3 calm, high-fidelity taglines will be provided for final review during implementation.
+- Q: Implementation "Graphing" → A: Option A: A feature requirement - include a simple, AI-generated humorous graph/diagram (e.g., "lost in stillness" flow chart) as a visual asset.
+- Q: Graphic Interactivity → A: Option A: Static - high-quality static image/SVG with a calm entrance animation.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -19,6 +28,7 @@ As a visitor, I want to see a helpful and on-brand page when I accidentally navi
 
 1. **Given** a visitor navigates to an invalid URL, **When** the page loads, **Then** a custom 404 page is displayed instead of a default browser error.
 2. **Given** the 404 page is displayed, **When** the visitor clicks "Wróć do domu" (Return Home) button, **Then** they are redirected to the homepage.
+3. **Given** the 404 page is displayed, **When** viewing navigation options, **Then** only the "Wróć do domu" button and the primary brand logo are present (no full sitemap or search).
 
 ---
 
@@ -33,7 +43,7 @@ As a visitor, I want the error page to feel like it belongs to Otulenie through 
 **Acceptance Scenarios**:
 
 1. **Given** the 404 page is open, **When** it renders, **Then** the "Otulenie Calm" palette and global noise overlay are active.
-2. **Given** the 404 page content, **When** the text is viewed, **Then** it conveys a message related to "lost in stillness" (e.g., "Even in massage, some paths are not meant to be followed") that is humorous but remains calm.
+2. **Given** the 404 page content, **When** the text is viewed, **Then** it conveys one of the three proposed "premium-calm" taglines (to be finalized) that is humorous but remains calm.
 
 ---
 
@@ -51,6 +61,8 @@ As a visitor, I want the error page to feel like it belongs to Otulenie through 
 - **FR-003**: System MUST apply the 0.05 opacity SVG noise overlay globally to the 404 view.
 - **FR-004**: System MUST use GSAP (`useGSAP`) to implement a calm entrance animation for the 404 message and call-to-action.
 - **FR-005**: System MUST strictly adhere to the project palette (#374833 Moss, #fdfaf0 Linen).
+- **FR-006**: System MUST include a central AI-generated humorous visual (e.g., a "Lost in Stillness" radar chart or flow diagram) that maintains the brand aesthetic.
+- **FR-007**: The AI-generated visual MUST be static but include a gentle GSAP entrance animation (matching the core brand philosophy).
 
 ### Key Entities *(include if feature involves data)*
 
