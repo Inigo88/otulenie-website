@@ -1,10 +1,12 @@
 # Bug Report — Otulenie Website
 
-> **50 total** · ✅ 49 resolved · 🔴 1 open · 🟡 0 fix proposed
+> **51 total** · ✅ 50 resolved · 🔴 1 open · 🟡 0 fix proposed
 
----
+## 019 — Featured Testimonials
 
-## 004 — Global Design System
+| ID | Title | Fix | Status |
+|----|-------|-----|--------|
+| [B051](019-testimonials/B051-auto-updating-testimonials-carousel.md) | Auto-updating Testimonials Carousel | Infinite GSAP auto-slide (5s); 3-card desktop constraint; removed quotes | ✅ |
 
 | ID | Title | Fix | Status |
 |----|-------|-----|--------|
@@ -118,3 +120,9 @@
 | ID | Title | Fix | Status |
 |----|-------|-----|--------|
 | [B050](009-massage-types-carousel/B050-carousel-draggable-disabled.md) | Carousel Draggable Disabled | — | 🔴 |
+
+## 019-testimonials
+
+| ID | Title | Fix | Status |
+|----|-------|-----|--------|
+| [B051](019-testimonials/B051-auto-updating-testimonials-carousel.md) | Auto-updating Testimonials Carousel | — | 🔴 |
