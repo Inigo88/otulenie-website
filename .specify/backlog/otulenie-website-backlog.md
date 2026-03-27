@@ -226,11 +226,3 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
   **Description**: Complete a full site SEO analysis and update micro-copy/meta-tags to improve organic reach and tone consistency.
   **Branch**: `027-seo-audit`
   **Status**: Backlog
-
----
-
-## Bug Fixes
-
-| Bug ID | Description | Status | Date Resolved | Related Feature |
-| :--- | :--- | :--- | :--- | :--- |
-| B048 | Navbar/Footer UI Polish (Logo size, alignment, focus-visible) | Resolved | 2026-03-27 | 017, 005, 015 |
