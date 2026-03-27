@@ -41,6 +41,9 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 5. **Stop and report**: Command ends after Phase 2 planning. Report branch, IMPL_PLAN path, and generated artifacts.
 
+6. **Finalize**:
+   - **Commit and push all changes**: `spec: plan [feature-slug]`.
+
 ## Phases
 
 ### Phase 0: Outline & Research

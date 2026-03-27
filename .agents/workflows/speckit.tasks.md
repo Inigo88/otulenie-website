@@ -57,7 +57,10 @@ You **MUST** consider the user input before proceeding (if not empty).
    - If a backlog exists and the feature you are tasking is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Tasked`.
    - Do not edit the backlog if the feature cannot be found.
 
-6. **Report**: Output path to generated tasks.md and summary:
+6. **Finalize**:
+   - **Commit and push all changes**: `spec: tasked [feature-slug]`.
+
+7. **Report**: Output path to generated tasks.md and summary:
    - Total task count
    - Task count per user story
    - Parallel opportunities identified

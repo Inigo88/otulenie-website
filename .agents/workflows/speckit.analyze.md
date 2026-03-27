@@ -181,14 +181,18 @@ At end of report, output a concise Next Actions block:
 - If issues (CRITICAL, HIGH, MEDIUM, or LOW) exist: Recommended resolving before `/speckit.implement`
 - Provide explicit command suggestions: e.g., "Run /speckit.specify with refinement", "Run /speckit.plan to adjust architecture", "Manually edit tasks.md to add coverage for 'performance-metrics'"
 
-### 8. Update Backlog (If Applicable)
+### 9. Update Backlog (If Applicable)
 
 - Check if there is an existing backlog file in `.specify/backlog/` (e.g. `product-name-backlog.md`).
   - If a backlog exists and the feature you analyzed is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Analysed` **ONLY if zero issues total (CRITICAL, HIGH, MEDIUM, and LOW) were identified** in the final report.
   - If any issues exist (even LOW severity), do not update the backlog status until they are resolved and `/speckit.analyze` is re-run with zero remaining findings.
   - Do not edit the backlog if the feature cannot be found or if the analysis is still failing.
 
-### 9. Offer Remediation
+### 10. Finalize
+
+- **Commit and push all changes**: `spec: analyze [feature-slug]`.
+
+### 11. Offer Remediation
 
 Ask the user: "Would you like me to suggest concrete remediation edits for the top N issues?" (Do NOT apply them automatically.)
 

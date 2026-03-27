@@ -137,4 +137,7 @@ You **MUST** consider the user input before proceeding (if not empty).
     - If a backlog exists and the feature you implemented is listed in it as a Feature, update the `**Status**:` field for that specific feature to `Implemented`.
     - Do not edit the backlog if the feature cannot be found.
 
+11. **Finalize**:
+    - **Commit and push all changes**: `feat: implement [feature-slug]`.
+
 Note: This command assumes a complete task breakdown exists in tasks.md. If tasks are incomplete or missing, suggest running `/speckit.tasks` first to regenerate the task list.
