@@ -105,7 +105,6 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 1.2.8**: Redesign of Mobile Navigation Menu
   **Description**: Update the mobile navigation menu with a more premium, immersive design, incorporating cinematic entrance animations, refined typography, and improved layout for a more tactile user experience.
-  **Branch**: `028-mobile-menu-redesign`
   **Status**: Backlog
 
 #### Epic 1.3: Philosophy, Archive & Footer
@@ -162,12 +161,10 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.1.1**: Build the 'Oferta' page  
   **Description**: Create a dedicated page detailing the four massage types (Mocne, Głębokie, Czułe, Ciepłe) with prominent individual CTAs. MUST implement unique IDs/anchors for each service to support direct deep-linking from the Homepage Carousel.
-  **Branch**: `020-oferta-page`
   **Status**: Backlog
 
 - **Feature 2.1.2**: Implement the 'Obszar dojazdu' page  
   **Description**: Build an informative page detailing the Wrocław service coverage and specific out-of-city travel policies.  
-  **Branch**: `021-obszar-page`  
   **Status**: Backlog
 
 #### Epic 2.2: Trust & Booking Support
@@ -177,12 +174,10 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.2.1**: Create the 'O mnie' page  
   **Description**: Build a highly trust-focused page detailing the practitioner's philosophy, natural approach, and commitment to calm. MUST include a dedicated interactive gallery for professional certifications and qualifications.
-  **Branch**: `022-omnie-page`  
   **Status**: Backlog
 
 - **Feature 2.2.2**: Develop the 'FAQ' accordion component  
   **Description**: Implement an interactive, smooth-animating accordion listing common questions about home preparation, pain, and payment options.  
-  **Branch**: `023-faq-page`  
   **Status**: Backlog
 
 #### Epic 2.3: Legal & Compliance
@@ -192,12 +187,10 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.3.1**: Create the 'Polityka Prywatności' page  
   **Description**: Develop a dedicated page for the Privacy Policy (GDPR), detailing data collection and processing for massage services.  
-  **Branch**: `024-privacy-policy`  
   **Status**: Backlog
 
 - **Feature 2.3.2**: Create the 'Regulamin' page  
   **Description**: Build a page for the Terms and Conditions, outlining service rules, cancellations, and booking policies.  
-  **Branch**: `025-regulamin`  
   **Status**: Backlog
 
 #### Epic 2.4: Brand Continuity & Utility
@@ -207,7 +200,7 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 2.4.1**: Build a 'funny' 404 Error Page  
   **Description**: Create a custom 404 page that maintains the brand's calm aesthetic while adding a touch of humor or personality. MUST include a clear 'Return Home' CTA.  
-  **Branch**: `030-funny-404-page`  
+  **Branch**: `020-funny-404-page`  
   **Status**: Specified
 
 ---
@@ -224,12 +217,10 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 3.1.1**: Integrate Google Analytics (GA4)
   **Description**: Setup GA4 tracking to measure homepage interactions, carousel engagement, and successful redirects to Booksy. Implement custom event logging for primary CTAs.
-  **Branch**: `026-google-analytics`
   **Status**: Backlog
 
 - **Feature 3.2.1**: Implement Time-Aware Aesthetic Transitions
   **Description**: Adjust site accent colors or noise intensity automatically based on the visitor's local time (e.g., warmer evening mode).
-  **Branch**: `027-time-aware-ui`
   **Status**: Backlog
 
 #### Epic 3.3: SEO & Content Optimization
@@ -239,5 +230,4 @@ Otulenie needs a strong, premium online presence to establish trust and clearly 
 
 - **Feature 3.3.1**: Perform SEO Audit & Wording Optimization
   **Description**: Complete a full site SEO analysis and update micro-copy/meta-tags to improve organic reach and tone consistency.
-  **Branch**: `029-seo-audit`
   **Status**: Backlog

@@ -2,7 +2,7 @@
 
 **Purpose**: Validate specification completeness and quality before proceeding to planning
 **Created**: 2026-03-27
-**Feature**: [spec.md](file:///Users/szymon.stec/Documents/Code/otulenie-website/.specify/specs/030-funny-404-page/spec.md)
+**Feature**: [spec.md](file:///Users/szymon.stec/Documents/Code/otulenie-website/.specify/specs/020-funny-404-page/spec.md)
 
 ## Content Quality
 

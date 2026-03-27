@@ -1,6 +1,6 @@
 # Feature Specification: Build a 'funny' 404 Error Page
 
-**Feature Branch**: `030-funny-404-page`  
+**Feature Branch**: `020-funny-404-page`  
 **Created**: 2026-03-27  
 **Status**: Draft  
 **Input**: User description: "Build a 'funny' 404 Error Page"
