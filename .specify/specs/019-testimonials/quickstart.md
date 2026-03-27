@@ -20,5 +20,5 @@ Add the `testimonials` array to `App.jsx` based on the research findings.
 
 ## 5. Verification
 - Verify vertical stack on screen width < 768px.
-- Verify 3 items visible on desktop with auto-play.
+- Verify multiple items visible on desktop with auto-play.
 - Verify 60fps performance and WCAG contrast.

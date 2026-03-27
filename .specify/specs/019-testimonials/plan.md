@@ -5,13 +5,13 @@
 
 ## Summary
 
-Implement a premium, GSAP-animated "Featured Testimonials" section titled "Głosy spokoju". This section will showcase 5 client reviews from multiple platforms (Booksy, Facebook) using a cinematic layout that stacks vertically on mobile and uses a horizontal auto-playing slider on desktop. The implementation will focus on high-fidelity animations and adherence to the "Otulenie Calm" design system.
+Implement a premium, GSAP-animated "Featured Testimonials" section titled "Głosy spokoju". This section will showcase client reviews from Booksy using a cinematic layout that presents a one-at-a-time horizontal slider on mobile and a 3-item horizontal slider on desktop. The implementation will focus on high-fidelity animations and adherence to the "Otulenie Calm" design system.
 
 ## Technical Context
 
 **Language/Version**: React 19.x, Tailwind CSS v4.x
 **Primary Dependencies**: GSAP 3 (ScrollTrigger), Lucide React (Star, Quote icons)
-**Data Source**: 5 curated reviews (Name, Rating, Text, Source).
+**Data Source**: Curated reviews (Name, Rating, Text).
 **Storage**: Static data array in `App.jsx`
 **Testing**: Manual visual verification on mobile (390px) and desktop viewports.
 **Target Platform**: Mobile-first Web
@@ -27,7 +27,7 @@ Implement a premium, GSAP-animated "Featured Testimonials" section titled "Głos
 [x] I. Premium Aesthetic Foundation (Moss #374833, Linen #fdfaf0, Olive #6E8068; Fraunces/Inter fonts; Noise overlay)
 [x] II. The Focus on Conversion (Establishes trust via social proof to drive Booksy bookings)
 [x] III. Micro-Interaction Polish (GSAP staggered fade-up; subtle hover lift on desktop)
-[x] IV. Mobile-First Experience (Vertical stack on mobile; simplified navigation)
+[x] IV. Mobile-First Experience (One-at-a-time slider on mobile; simplified navigation)
 [x] V. Reusable Component Architecture (Applying `RoundedContainer` styling pattern to cards)
 [x] VI. Accessibility Standards (WCAG 2.2 AA contrast; `prefers-reduced-motion` support; Semantic `<article>` tags)
 

@@ -8,10 +8,15 @@
 ## Clarifications
 
 ### Session 2026-03-27
-- Q: Data Source & Curation → A: Use all 4 extracted Booksy reviews (Name, Stars, Text) and omit the 'context' field.
+- Q: Data Source & Curation → A: Use extracted Booksy reviews (Name, Stars, Text) and omit the 'context' field.
 - Q: Desktop Layout → A: Show 3 testimonials at once with the ability to iterate/scroll through more (Slider/Carousel).
 - Q: Slider Navigation → A: Auto-play with Pause (No visible buttons).
 - Q: Star Rating Aesthetics → A: Use Olive (#6E8068) for star icons.
+- Q: Manual Slider Navigation → A: Strictly auto-play and pause on hover (no manual control).
+- Q: Desktop Slide Increment → A: Advance one by one (smoother transition).
+- Q: Star Rating Style → A: Solid (Filled) star icons.
+- Q: Mobile Display → A: One testimonial at a time (slider) instead of stacking.
+- Q: Background Styling → A: Subtle Background Gradient instead of flat Linen.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -21,11 +26,11 @@ As a prospective client, I want to read authentic testimonials from other client
 
 **Why this priority**: Building trust is a core requirement for a mobile service where a practitioner enters the client's home. Social proof is a primary conversion driver.
 
-**Independent Test**: Can be fully tested by scrolling to the Testimonials section and verifying that at least 3 distinct reviews are visible and legible.
+**Independent Test**: Can be fully tested by scrolling to the Testimonials section and verifying that the reviews are visible and legible.
 
 **Acceptance Scenarios**:
 
-1. **Given** the landing page is loaded, **When** I scroll to the Testimonials section, **Then** I should see a minimum of 3 featured reviews with client names and context.
+1. **Given** the landing page is loaded, **When** I scroll to the Testimonials section, **Then** I should see featured reviews with client names and context.
 2. **Given** a high-density (Retina) display, **When** I view the testimonials, **Then** the typography and branding elements must remain crisp and premium.
 
 ---
@@ -57,10 +62,10 @@ As a visitor, I want the testimonials to be presented with smooth, cinematic ani
 
 - **FR-001**: System MUST render a dedicated section titled "Głosy spokoju" (or similar brand-appropriate heading) using the `Fraunces` or `Cormorant Garamond` serif fonts.
 - **FR-002**: System MUST implement GSAP `ScrollTrigger` to reveal testimonial cards as they enter the viewport.
-- **FR-003**: System MUST use the "Otulenie Calm" palette: `#374833` (Moss) for backgrounds or text accents, and `#fdfaf0` (Linen) for primary backgrounds.
+- **FR-003**: System MUST use the "Otulenie Calm" palette: `#374833` (Moss) for backgrounds or text accents, and a subtle gradient (e.g., `#fdfaf0` Linen to a slightly deeper/warmer shade) for the section background.
 - **FR-004**: System MUST apply a 0.05 opacity noise overlay globally over the section.
 - **FR-005**: Testimonial cards MUST use `backdrop-blur-md` and 60-80% opacity if layered over images or gradients, per project rules.
-- **FR-006**: System MUST stack testimonials vertically on mobile devices (viewport width < 768px).
+- **FR-006**: System MUST implement a horizontal slider for mobile viewports (viewport width < 768px), displaying exactly 1 item at once.
 - **FR-007**: System MUST implement a horizontal slider for desktop viewports, displaying exactly 3 items at once.
 - **FR-008**: Slider MUST automatically rotate through all available testimonials (auto-play) and pause on hover.
 - **FR-009**: System MUST use the color Olive (#6E8068) for the 5-star rating icons.
