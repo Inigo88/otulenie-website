@@ -50,4 +50,4 @@ Thumbs.db
 *.tmp
 
 # High-resolution source images
-.specify/context/images/
+.specify/assets/images/
