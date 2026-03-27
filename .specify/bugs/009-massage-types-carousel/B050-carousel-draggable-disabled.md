@@ -1,6 +1,6 @@
 # Bug B050: Carousel Draggable Disabled
 
-**Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [ ] Resolved
+**Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [x] Resolved
 **Severity**: [e.g., P0 (Functional blocker) / P1 (Branding) / P2 (Visual Enhancement)]
 **Found in**: [e.g., Feature 1.2.3 (Hero Section)]
 **Date Created**: [2026-03-27]
