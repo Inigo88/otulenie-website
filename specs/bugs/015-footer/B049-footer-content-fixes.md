@@ -1,4 +1,4 @@
-# Bug B039: Footer Content Refresh
+# Bug B049: Footer Content Refresh
 
 **Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [x] Resolved
 **Severity**: P1 (Branding & Accuracy)

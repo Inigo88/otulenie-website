@@ -1,10 +1,10 @@
 # Bug B043: 3rd Stacking Card Opacity/Timing
 
-**Status**: [ ] Open | [x] Investigating | [x] Fix Proposed | [ ] Resolved
+**Status**: [ ] Open | [ ] Investigating | [ ] Fix Proposed | [x] Resolved
 **Severity**: P1 (Visual Polish)
 **Found in**: Feature 013-stacking-services
 **Date Created**: 2026-03-23
-**Date Resolved**: [YYYY-MM-DD]
+**Date Resolved**: 2026-03-23
 
 ## Description
 

@@ -47,9 +47,9 @@ const StackingCard = ({ card, index, total, cardRefs }) => {
   return (
     <div
       ref={el => cardRefs.current[index] = el}
-      className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row h-[550px] md:h-[500px] ${index === total - 1 ? 'mb-0' : 'mb-[10vh]'} ${card.color} ${card.textColor}`}
+      className={`${reducedMotion ? 'relative' : 'sticky'} w-full max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row h-[550px] md:h-[500px] ${index === total - 1 ? 'mb-0' : 'mb-[10vh]'} ${card.color} ${card.textColor} [--card-half-height:275px] [--stack-offset:${index * 16}px] md:[--card-half-height:250px] md:[--stack-offset:${index * 32}px]`}
       style={{
-        top: reducedMotion ? 'auto' : `calc(50vh - 250px + ${index * 32}px)`,
+        top: reducedMotion ? 'auto' : `calc(50vh - var(--card-half-height, 250px) + var(--stack-offset, 0px))`,
         zIndex: index + 1
       }}
     >
