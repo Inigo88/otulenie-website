@@ -216,7 +216,7 @@ const MassageCarousel = () => {
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 mb-10 md:mb-16 relative z-[100]">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <h2 className="font-fraunces text-4xl text-moss md:text-6xl lg:text-7xl tracking-tight">
-            Oferta
+            Oferta masaży
           </h2>
           
           <div className="flex gap-4 items-center bg-linen/90 backdrop-blur-xl p-3 rounded-full border border-moss/10 shadow-lg relative z-[110]">

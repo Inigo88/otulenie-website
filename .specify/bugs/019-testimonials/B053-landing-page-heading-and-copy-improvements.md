@@ -37,12 +37,14 @@ The testimonial copy was a placeholder from the initial implementation. The `Sta
 - **Affected Components**:
   - `src/App.jsx`: Updated Testimonial section heading.
   - `src/components/StackingArchive.jsx`: Added visible H2 header above the first card.
+  - `src/components/MassageCarousel.jsx`: Updated section heading from "Oferta" to "Oferta masaży".
 
 ### Detailed Task List
 
 - [x] [T001] [Implementation]: Update Testimonial title to "Wasze opinie" in `App.jsx`.
 - [x] [T002] [Implementation]: Add visible "Moje wartości" title to `StackingArchive.jsx`.
-- [x] [T003] [Verification]: Verify visual alignment and responsive spacing of new headers.
+- [x] [T003] [Implementation]: Update carousel header to "Oferta masaży" in `MassageCarousel.jsx`.
+- [x] [T004] [Verification]: Verify visual alignment and responsive spacing of new headers.
 
 ## Resolution
 

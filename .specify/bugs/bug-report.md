@@ -121,4 +121,4 @@
 | -------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------ | ------ |
 | [B051](019-testimonials/B051-auto-updating-testimonials-carousel.md) | Auto-updating Testimonials Carousel | Infinite GSAP auto-slide (5s); 3-card desktop constraint; removed quotes | ✅ |
 | [B052](019-testimonials/B052-testimonials-ui-refinements.md) | Testimonials UI Refinements | Removed redundant icons/labels; fixed italics and card clipping | ✅ |
-| [B053](019-testimonials/B053-landing-page-heading-and-copy-improvements.md) | Landing Page Heading and Copy Improvements | Updated Testimonials title to "Wasze opinie" and added visible "Moje wartości" H2 to value cards | ✅ |
+| [B053](019-testimonials/B053-landing-page-heading-and-copy-improvements.md) | Landing Page Heading and Copy Improvements | Updated Testimonials ("Wasze opinie"), Values ("Moje wartości"), and Carousel ("Oferta masaży") headers | ✅ |
