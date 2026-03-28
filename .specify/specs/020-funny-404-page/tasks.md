@@ -15,7 +15,7 @@
 
 **Purpose**: Asset management and dependency initialization
 
-- [ ] T001 [P] Move "Calm Sloth" asset to `public/images/404-sloth.webp`
+- [ ] T001 [P] Move "Calm Sloth" asset to `public/404-sloth.webp` (C2)
 - [ ] T002 Install `react-router-dom` dependency
 
 ---
@@ -37,13 +37,13 @@
 
 **Goal**: A visitor sees a branded 404 page with a "Return Home" CTA when hitting an invalid URL.
 
-**Independent Test**: Navigate to `http://localhost:5173/non-existent-path` and verify the `NotFound` component renders with a working "Wróć do domu" button.
+**Independent Test**: Navigate to `http://localhost:5173/non-existent-path` and verify the `NotFound` component renders with a working "Strona główna" button.
 
 ### Implementation for User Story 1
 
 - [ ] T005 [US1] Build the `NotFound` component visual structure (Moss/Linen palette) in `src/App.jsx`
-- [ ] T006 [US1] Implement standard "Return Home" layout with brand logo in `src/App.jsx`
-- [ ] T007 [US1] Integrate `MagneticButton` for the "Wróć do domu" CTA in `src/App.jsx`
+- [ ] T006 [US1] Implement standard "Strona główna" layout with brand logo in `src/App.jsx`
+- [ ] T007 [US1] Integrate `MagneticButton` for the "Strona główna" CTA in `src/App.jsx`
 - [ ] T008 [US1] Use `Link` from `react-router-dom` for no-reload navigation back to `/`
 
 **Checkpoint**: At this point, User Story 1 is fully functional and testable independently.
@@ -59,7 +59,7 @@
 ### Implementation for User Story 2
 
 - [ ] T009 [US2] Add the "Calm Sloth" image asset to the `NotFound` component in `src/App.jsx`
-- [ ] T010 [US2] Implement "Option C" tagline (Relaxation) in the `NotFound` component
+- [ ] T010 [US2] Implement finalized tagline ("Zatopiliśmy się w relaksie...") in the `NotFound` component
 - [ ] T011 [US2] Implement `useGSAP` entrance animation for the sloth (scale/opacity) in `src/App.jsx`
 - [ ] T012 [US2] Implement GSAP staggered fade-up for tagline and CTA in `src/App.jsx`
 - [ ] T013 [US2] Ensure 0.05 opacity noise overlay is active on the 404 view background
@@ -73,6 +73,7 @@
 - [ ] T014 [P] Verify mobile layout stacking on 390px viewport
 - [ ] T015 [P] Verify deep-link routing (e.g., `/oferta/wrong-id`) triggers 404
 - [ ] T016 Run `quickstart.md` validation scenarios
+- [ ] T017 [P] Verify 60fps animation performance on mobile device using Chrome DevTools (G1)
 
 ---
 

@@ -28,7 +28,7 @@ Every functional and design decision must support the primary booking action.
 
 - The overarching goal is to convert visitors into booked appointments on Booksy.
 - Avoid competing CTAs.
-- The primary booking CTA ("Zarezerwuj masa--") is omni-present and sticky on mobile.
+- The primary booking CTA ("Zarezerwuj masa--") is omni-present and sticky on mobile. **Exception**: Specialized utility pages (e.g., 404 Error Page) may omit the sticky CTA to maintain a clean, minimal aesthetic focused on navigation.
 - All primary CTAs targeting external booking platforms (e.g., Booksy) MUST always open in a new tab (`target="_blank"`) to preserve user context.
 
 ### III. Micro-Interaction Polish
@@ -68,7 +68,7 @@ The website must meet WCAG 2.2 Level AA conformance to ensure usability for all 
 - **Target Size**: Interactive touch targets must be at least 24--24 CSS pixels (SC 2.5.8).
 - **ARIA Attributes**: Use `aria-label`, `aria-expanded`, `aria-hidden`, `role`, and other ARIA attributes where native semantics are insufficient.
 - **Alt Text**: All meaningful images have descriptive `alt` attributes; decorative images use `alt=""`.
-- **Image Sourcing**: Strictly use local photography assets (JPEGs) from the `images-small` folder for all content and lifestyle imagery. Technical SVGs, brand icons (Lucide), and data-URL noise patterns are exempt. Selection MUST be guided by `.specify/context/images-list.md`.
+- **Image Sourcing**: Strictly use local photography assets (JPEGs) from the `images-small` folder for all content and lifestyle imagery. Technical SVGs, brand icons (Lucide), data-URL noise patterns, and AI-generated illustrations/technical assets (stored in the `/public` root) for utility pages are exempt. Selection MUST be guided by `.specify/context/images-list.md`.
 - **Reduced Motion**: Respect `prefers-reduced-motion` media query - disable or reduce GSAP animations for users who prefer reduced motion.
 - **Screen Reader Support**: Ensure correct heading hierarchy (`h1`---`h6`), meaningful link text, and logical DOM order matching visual order.
 

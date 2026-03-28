@@ -10,8 +10,8 @@
 Build a branded, "premium-calm" 404 error page for the Otulenie website. The feature includes:
 - A custom 404 view that intercepts all non-existent routes.
 - A humorous yet calm tagline (3 options to be proposed).
-- An AI-generated central visual asset (static image) with a gentle GSAP entrance animation.
-- A "Wróć do domu" (Return Home) button using the `MagneticButton` pattern.
+- An AI-generated central visual asset (static image) with a gentle GSAP entrance animation (stored in the `/public` root).
+- A "Strona główna" (Return Home) button using the `MagneticButton` pattern.
 - Strict adherence to the "Otulenie Calm" palette and noise overlay.
 - Implementation of `react-router-dom` (or equivalent) to manage routing state.
 
