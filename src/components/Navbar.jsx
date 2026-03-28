@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { Menu, X } from 'lucide-react'
@@ -17,7 +18,7 @@ import { useBooksy } from '../hooks/useBooksy'
  * @param {boolean} [props.isVisible=true] - Whether the navbar is visible (used for delayed reveal)
  * @param {function} [props.onNavigate] - Optional callback for client-side navigation (receives href)
  */
-export default function Navbar({ isHero = true, isVisible = true, onNavigate }) {
+export default function Navbar({ isHero = true, isVisible = true }) {
     const navbarRef = useRef(null)
     const containerRef = useRef(null)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -138,10 +139,9 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                 >
                     {/* Logo */}
                     <MagneticButton
-                        as="a"
-                        href="/"
+                        as={Link}
+                        to="/"
                         strength={0.1}
-                        onClick={onNavigate ? (e) => { e.preventDefault(); onNavigate('/'); } : undefined}
                         aria-label="Otulenie - Strona główna"
                         className={`
                             bg-transparent !p-0 shadow-none hover:shadow-none
@@ -165,7 +165,6 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
                                 label={link.label}
                                 href={link.href}
                                 isHero={delayedIsHero}
-                                onNavigate={onNavigate}
                             />
                         ))}
                         <MagneticButton
@@ -254,20 +253,12 @@ export default function Navbar({ isHero = true, isVisible = true, onNavigate }) 
  * @param {boolean} [props.isCTA] - Marks link as a call-to-action (bold)
  * @param {function} [props.onNavigate] - Optional client-side navigation callback
  */
-function NavLink({ label, href, isHero, isCTA, onNavigate }) {
-    const handleClick = (e) => {
-        if (onNavigate) {
-            e.preventDefault()
-            onNavigate(href)
-        }
-    }
-
+function NavLink({ label, href, isHero, isCTA }) {
     return (
         <MagneticButton
-            as="a"
-            href={href}
+            as={Link}
+            to={href}
             strength={0.2}
-            onClick={handleClick}
             className={`
                 bg-transparent !p-0 shadow-none hover:shadow-none
                 text-sm font-medium tracking-wide transition-colors duration-500

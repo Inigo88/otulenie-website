@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { X, Calendar } from 'lucide-react'
@@ -157,10 +158,10 @@ export default function MobileMenu({ isOpen, onClose, links }) {
                 <nav className="flex flex-col items-center gap-2 w-full mt-8">
                     {links.map((link, index) => (
                         <MagneticButton
-                            as="a"
+                            as={Link}
                             key={index}
                             ref={el => { if (el) linkRefs.current[index] = el }}
-                            href={link.href}
+                            to={link.href}
                             strength={0.2}
                             onClick={onClose}
                             className={`

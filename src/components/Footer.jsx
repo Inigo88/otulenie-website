@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Instagram, Facebook } from 'lucide-react'
 import MagneticButton from './MagneticButton'
 import Logo from './Logo'
@@ -32,13 +33,13 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 md:gap-12 mb-16">
           {/* Brand Section */}
           <div className="col-span-2 md:col-span-1">
-            <a
-              href="/"
+            <Link
+              to="/"
               aria-label="Otulenie - Strona główna"
               className="inline-block mb-6"
             >
               <Logo className="text-linen h-8" />
-            </a>
+            </Link>
             <p className="text-linen/70 text-sm leading-relaxed md:max-w-[200px]">
               Relaks, który przyjeżdża do Ciebie. Profesjonalny masaż mobilny we Wrocławiu.
             </p>
@@ -50,12 +51,12 @@ const Footer = () => {
             <ul className="space-y-4">
               {NAV_LINKS.map(link => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-linen/80 hover:text-linen transition-all duration-300 inline-block hover:scale-[1.03] hover:-translate-y-[1px]"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -118,13 +119,13 @@ const Footer = () => {
           </p>
           <div className="flex gap-4 md:gap-8">
             {LEGAL_LINKS.map(link => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-linen/40 hover:text-linen/70 transition-colors text-xs"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

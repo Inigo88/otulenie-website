@@ -138,8 +138,10 @@ const StackingArchive = () => {
       className="relative px-6 md:px-12 pt-32 pb-[20vh] bg-linen"
       aria-labelledby="archive-title"
     >
-      <h2 id="archive-title" className="sr-only">Archiwum Korzyści</h2>
       <div className="max-w-7xl mx-auto relative">
+        <h2 id="archive-title" className="font-fraunces text-4xl md:text-6xl text-moss mb-16 md:mb-24 text-center md:text-left">
+          Moje wartości
+        </h2>
         {STACKING_CARDS.map((card, index) => (
           <StackingCard
             key={card.id}

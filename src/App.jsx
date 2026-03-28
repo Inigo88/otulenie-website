@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Star, Home as HomeIcon } from 'lucide-react'
+import { Star } from 'lucide-react'
 import MagneticButton from './components/MagneticButton'
 
 import {
@@ -78,9 +78,8 @@ const NotFound = () => {
         <div ref={buttonRef} className="mt-16">
           <Link to="/" className="inline-block no-underline">
             <MagneticButton>
-              <div className="flex items-center gap-3 px-2 py-1">
-                <HomeIcon size={20} />
-                <span className="font-sans font-medium uppercase tracking-[0.2em] text-sm">
+              <div className="flex items-center justify-center px-2 py-1">
+                <span className="font-sans font-medium uppercase tracking-[0.2em] text-sm md:text-base">
                   Strona główna
                 </span>
               </div>
@@ -179,7 +178,7 @@ const TestimonialSection = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <h2 className="font-fraunces text-4xl md:text-6xl text-moss mb-12 text-center md:text-left">
-          Głosy spokoju
+          Wasze opinie
         </h2>
         
         <div className="relative overflow-hidden max-w-full md:max-w-[1188px] py-10 -my-10">

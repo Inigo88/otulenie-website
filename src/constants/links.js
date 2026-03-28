@@ -14,10 +14,10 @@ export const INSTAGRAM = "https://www.instagram.com/pm.otulenie/";
 export const FACEBOOK = "https://www.facebook.com/profile.php?id=61579695762768";
 
 export const NAV_LINKS = [
-  { label: 'Oferta', href: '#oferta' },
-  { label: 'O mnie', href: '#o-mnie' },
-  { label: 'Dojazd', href: '#dojazd' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Oferta', href: '/oferta' },
+  { label: 'O mnie', href: '/o-mnie' },
+  { label: 'Dojazd', href: '/obszar' },
+  { label: 'FAQ', href: '/faq' },
 ];
 
 export const LEGAL_LINKS = [
